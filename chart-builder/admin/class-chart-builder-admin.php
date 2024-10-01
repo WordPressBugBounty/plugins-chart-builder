@@ -5459,7 +5459,6 @@ class Chart_Builder_Admin {
 	public function ays_chart_page_advanced_settings_contents( $args ){
         $chart_source_type = $args['chart_source_type'];
 
-        
         if ($chart_source_type === 'chart-js') {
             if ($args['source_chart_type'] !== 'pie_chart') {return;}
             $sources_contents = apply_filters( 'ays_cb_chart_page_advanced_settings_contents_settings_chartjs', array(), $args );
@@ -6230,11 +6229,12 @@ class Chart_Builder_Admin {
         $tab_title = $args['tab_name'];
 
         $outer_radius = $settings['outer_radius'];
-        $index_axis = $settings['index_axis'];
+        $slice_spacing = $settings['slice_spacing'];
+        // $index_axis = $settings['index_axis'];
 
 		ob_start();
 		?>
-        <div class="ays-accordion-data-main-wrap cb-changable-tab">
+        <div class="ays-accordion-data-main-wrap">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap <?php echo esc_attr($html_class_prefix) ?>advanced-settings-data-wrap">
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt display_none">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
@@ -6250,6 +6250,20 @@ class Chart_Builder_Admin {
                         <div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">%</div>
                     </div>
                 </div> <!-- Outer Radius -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt display_none">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-slice-spacing" class="form-label">
+                            <?php echo esc_html(__( "Slices Spacing", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Fixed arc offset (in pixels).","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-slice-spacing" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_spacing]" value="<?php echo esc_attr($slice_spacing) ?>">
+                        <div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
+                    </div>
+                </div> <!-- Slice Spacing -->
                 <!-- <div class="form-group row mb-2 <?php // echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-donut_chart-opt display_none">
                     <div class="col-sm-5 d-flex align-items-center <?php // echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-index-axis">

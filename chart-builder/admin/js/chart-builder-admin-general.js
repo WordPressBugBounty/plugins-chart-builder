@@ -8,8 +8,6 @@
 		$('[data-toggle="popover"]').popover();
     	$('[data-bs-toggle="tooltip"]').tooltip();
 		
-		const chartBuilderInstance = $('#ays-charts-form').data('AysChartBuilderMain');
-
 		/* == Add new modal configuration == */
 			$(document).on('dblclick', '.ays-chart-layer_box_blocks label.ays-chart-dblclick-layer:not(.ays-chart-type-pro-feature)', function(){
 				$(document).find('.ays-chart-select_button_layer input.ays-chart-layer_button').trigger('click');
@@ -25,6 +23,12 @@
 				sourceType = type ?? 'google-charts';
 				$(document).find('.ays-chart-layer_box_blocks').hide();
 				$(document).find('.ays-chart-layer_box_blocks[source-type="' + sourceType + '"]').show();
+				
+				if (sourceType === 'chart-js') {
+					$(document).find('.ays-chart-layer_box_link').hide();
+				} else {
+					$(document).find('.ays-chart-layer_box_link').show();
+				}
 			});
 
 			$(document).on('click', '.ays-chart-layer_button' ,function(){
@@ -679,10 +683,17 @@
 
 		var createdNewChart = getCookie('ays_chart_created_new');
         if (createdNewChart && createdNewChart > 1) {
+			var url = new URL(window.location.href);
+
+            var parameterValue = url.searchParams.get("action");
+            var htmlDefaultText = '<p style="margin-top:1rem;">For more detailed configuration visit <a href="admin.php?page=chart-builder&action=edit&id=' + createdNewChart + '">edit chart page</a>.</p>';
+
+			var htmlContent = parameterValue && parameterValue == 'edit' ? '' : htmlDefaultText;
+
             swal({
                 title: '<strong>Great job</strong>',
                 type: 'success',
-                html: '<p>Your chart is Created!<br>Copy the generated shortcode and paste it into any post or page to display the chart.</p><input type="text" id="ays-chart-create-new" onClick="this.setSelectionRange(0, this.value.length)" readonly value="[ays_chart id=\'' + createdNewChart + '\']" />',
+                html: '<p>Your chart is Created!<br>Copy the generated shortcode and paste it into any post or page to display the chart.</p><input type="text" id="ays-chart-create-new" onClick="this.setSelectionRange(0, this.value.length)" readonly value="[ays_chart id=\'' + createdNewChart + '\']" />' + htmlContent,
                 showCloseButton: true,
                 focusConfirm: false,
                 confirmButtonText: '<i class="ays_fa ays_fa_thumbs_up"></i> Done',

@@ -114,6 +114,7 @@
 		  },
 		  options: {
 			radius: nSettings.outerRadius,
+			spacing: nSettings.sliceSpacing,
 		  }
 		});
 
@@ -202,6 +203,7 @@
 		var newSettings = {};
 
 		newSettings.outerRadius = settings['outer_radius'];
+		newSettings.sliceSpacing = settings['slice_spacing'];
 
 		return newSettings;
 	}

@@ -154,6 +154,12 @@
 			_this.chartObject.options.radius = _this.chartSourceData.settings.outer_radius;
 			_this.chartObject.update();
 		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-slice-spacing').on('input', function () {
+			_this.chartSourceData.settings.slice_spacing = $(this).val();
+			_this.chartObject.options.spacing = _this.chartSourceData.settings.slice_spacing;
+			_this.chartObject.update();
+		});
 	}
 
 	ChartBuilderChartsJs.prototype.detectManualChange = function (e) {
@@ -343,6 +349,7 @@
 		  },
 		  options: {
 			radius: nSettings.outerRadius,
+			spacing: nSettings.sliceSpacing,
 		  }
 		});
 
@@ -410,6 +417,7 @@
 
 		// newSettings.indexAxis = (settings['index_axis'] == 'checked') ? 'y' : 'x';
 		newSettings.outerRadius = settings['outer_radius'];
+		newSettings.sliceSpacing = settings['slice_spacing'];
 
 		return newSettings;
 	}

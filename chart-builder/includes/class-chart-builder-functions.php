@@ -1370,6 +1370,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;
 
+			// slice_spacing
+			$settings['slice_spacing'] = isset( $settings['slice_spacing'] ) && $settings['slice_spacing'] != '' ? esc_attr( absint($settings['slice_spacing']) ) : 1;
+
 			// Show chart description
 			if (!isset($settings['show_description'])) {
 				$settings['show_description'] = 'checked';
@@ -1460,6 +1463,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;
+			
+			// slice_spacing
+			$settings['slice_spacing'] = isset( $settings['slice_spacing'] ) && $settings['slice_spacing'] != '' ? esc_attr( absint($settings['slice_spacing']) ) : 1;
 			
 			return $settings;
 
