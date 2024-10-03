@@ -6230,6 +6230,8 @@ class Chart_Builder_Admin {
 
         $outer_radius = $settings['outer_radius'];
         $slice_spacing = $settings['slice_spacing'];
+        $circumference = $settings['circumference'];
+        $start_angle = $settings['start_angle'];
         // $index_axis = $settings['index_axis'];
 
 		ob_start();
@@ -6247,7 +6249,7 @@ class Chart_Builder_Admin {
                     </div>
                     <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-outer-radius" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[outer_radius]" value="<?php echo esc_attr($outer_radius) ?>">
-                        <div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">%</div>
+                        <div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
                     </div>
                 </div> <!-- Outer Radius -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt display_none">
@@ -6264,6 +6266,34 @@ class Chart_Builder_Admin {
                         <div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
                     </div>
                 </div> <!-- Slice Spacing -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt display_none">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-circumference" class="form-label">
+                            <?php echo esc_html(__( "Arc Coverage", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Adjust the sweep angle to define the arc's coverage area along the circumference.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-circumference" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[circumference]" value="<?php echo esc_attr($circumference) ?>">
+                        <div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">°</div>
+                    </div>
+                </div> <!-- Arc Coverage -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt display_none">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-start-angle" class="form-label">
+                            <?php echo esc_html(__( "Start Angle", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Starting angle to draw arcs from.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-start-angle" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[start_angle]" value="<?php echo esc_attr($start_angle) ?>">
+                        <div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">°</div>
+                    </div>
+                </div> <!-- Start Angle -->
                 <!-- <div class="form-group row mb-2 <?php // echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-donut_chart-opt display_none">
                     <div class="col-sm-5 d-flex align-items-center <?php // echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-index-axis">

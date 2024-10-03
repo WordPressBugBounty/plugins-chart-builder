@@ -160,6 +160,18 @@
 			_this.chartObject.options.spacing = _this.chartSourceData.settings.slice_spacing;
 			_this.chartObject.update();
 		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-circumference').on('input', function () {
+			_this.chartSourceData.settings.circumference = $(this).val();
+			_this.chartObject.options.circumference = _this.chartSourceData.settings.circumference;
+			_this.chartObject.update();
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-start-angle').on('input', function () {
+			_this.chartSourceData.settings.start_angle = $(this).val();
+			_this.chartObject.options.rotation = _this.chartSourceData.settings.start_angle;
+			_this.chartObject.update();
+		});
 	}
 
 	ChartBuilderChartsJs.prototype.detectManualChange = function (e) {
@@ -350,6 +362,8 @@
 		  options: {
 			radius: nSettings.outerRadius,
 			spacing: nSettings.sliceSpacing,
+			circumference: nSettings.circumference,
+			rotation: nSettings.startAngle,
 		  }
 		});
 
@@ -418,6 +432,8 @@
 		// newSettings.indexAxis = (settings['index_axis'] == 'checked') ? 'y' : 'x';
 		newSettings.outerRadius = settings['outer_radius'];
 		newSettings.sliceSpacing = settings['slice_spacing'];
+		newSettings.circumference = settings['circumference'];
+		newSettings.startAngle = settings['start_angle'];
 
 		return newSettings;
 	}

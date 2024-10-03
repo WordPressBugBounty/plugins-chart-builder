@@ -115,6 +115,8 @@
 		  options: {
 			radius: nSettings.outerRadius,
 			spacing: nSettings.sliceSpacing,
+			circumference: nSettings.circumference,
+			rotation: nSettings.startAngle,
 		  }
 		});
 
@@ -204,6 +206,8 @@
 
 		newSettings.outerRadius = settings['outer_radius'];
 		newSettings.sliceSpacing = settings['slice_spacing'];
+		newSettings.circumference = settings['circumference'];
+		newSettings.startAngle = settings['start_angle'];
 
 		return newSettings;
 	}

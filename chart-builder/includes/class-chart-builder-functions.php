@@ -1373,6 +1373,12 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// slice_spacing
 			$settings['slice_spacing'] = isset( $settings['slice_spacing'] ) && $settings['slice_spacing'] != '' ? esc_attr( absint($settings['slice_spacing']) ) : 1;
 
+			// circumference
+			$settings['circumference'] = isset( $settings['circumference'] ) && $settings['circumference'] != '' ? esc_attr( absint($settings['circumference']) ) : 360;
+
+			// start_angle
+			$settings['start_angle'] = isset( $settings['start_angle'] ) && $settings['start_angle'] != '' ? esc_attr( absint($settings['start_angle']) ) : 0;
+
 			// Show chart description
 			if (!isset($settings['show_description'])) {
 				$settings['show_description'] = 'checked';
@@ -1466,6 +1472,12 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			
 			// slice_spacing
 			$settings['slice_spacing'] = isset( $settings['slice_spacing'] ) && $settings['slice_spacing'] != '' ? esc_attr( absint($settings['slice_spacing']) ) : 1;
+			
+			// circumference
+			$settings['circumference'] = isset( $settings['circumference'] ) && $settings['circumference'] != '' ? esc_attr( absint($settings['circumference']) ) : 360;
+			
+			// start_angle
+			$settings['start_angle'] = isset( $settings['start_angle'] ) && $settings['start_angle'] != '' ? esc_attr( absint($settings['start_angle']) ) : 0;
 			
 			return $settings;
 
