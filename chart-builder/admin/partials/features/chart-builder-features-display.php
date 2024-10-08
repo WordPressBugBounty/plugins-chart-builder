@@ -70,7 +70,7 @@
                         <td></td>
                         <td colspan="4"><?php echo __('Support for',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Support for',$this->plugin_name)?></td>
                         <td><?php echo __('1 site',$this->plugin_name)?></td>
                         <td><?php echo __('5 site',$this->plugin_name)?></td>
@@ -80,7 +80,7 @@
                         <td> </td>
                         <td colspan="3"><?php echo __('Update for',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Update for',$this->plugin_name)?></td>
                         <td><?php echo __('1 months',$this->plugin_name)?></td>
                         <td><?php echo __('12 months',$this->plugin_name)?></td>
@@ -90,7 +90,7 @@
                         <td></td>
                         <td colspan="4"><?php echo __('Support for',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Support for',$this->plugin_name)?></td>
                         <td><?php echo __('1 months',$this->plugin_name)?></td>
                         <td><?php echo __('12 months',$this->plugin_name)?></td>
@@ -100,7 +100,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Usage for',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Usage for',$this->plugin_name)?></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -110,7 +110,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Responsive design',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Responsive design',$this->plugin_name)?></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -120,7 +120,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Line Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Line Chart',$this->plugin_name)?></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -130,7 +130,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Bar Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Bar Chart',$this->plugin_name)?></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -140,7 +140,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Pie Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Pie Chart',$this->plugin_name)?></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -150,7 +150,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Column Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Column Chart',$this->plugin_name)?></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -160,7 +160,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Donut Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Donut Chart',$this->plugin_name)?></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -170,7 +170,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Organizational Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Organizational Chart',$this->plugin_name)?></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -178,9 +178,29 @@
                     </tr>
                     <tr>
                         <td> </td>
-                        <td colspan="4"><?php echo __('Permissions by user role',$this->plugin_name)?></td>
+                        <td colspan="4"><?php echo __('Source - Manual',$this->plugin_name)?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo __('Source - Manual',$this->plugin_name)?></td>
+                        <td><i class="ays_fa ays_fa_check"></i></td> 
+                        <td><i class="ays_fa ays_fa_check"></i></td>
+                        <td><i class="ays_fa ays_fa_check"></i></td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td colspan="4"><?php echo __('Frontend Image Export',$this->plugin_name)?></td>
                     </tr>
                     <tr class="compare-row">
+                        <td><?php echo __('Frontend Image Export',$this->plugin_name)?></td>
+                        <td><i class="ays_fa ays_fa_check"></i></td> 
+                        <td><i class="ays_fa ays_fa_check"></i></td>
+                        <td><i class="ays_fa ays_fa_check"></i></td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td colspan="4"><?php echo __('Permissions by user role',$this->plugin_name)?></td>
+                    </tr>
+                    <tr>
                         <td><?php echo __('Permissions by user role',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -190,7 +210,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Access by user role',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Access by user role',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -200,7 +220,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Geographical Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Geographical Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -210,7 +230,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Histogram Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Histogram Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -220,7 +240,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Area Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Area Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -230,7 +250,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Gauge Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Gauge Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -240,7 +260,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Combo Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Combo Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -250,7 +270,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Stepped Area Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Stepped Area Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -260,7 +280,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Bubble Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Bubble Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -270,7 +290,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Scatter Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Scatter Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -280,7 +300,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Table Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Table Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -290,7 +310,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Timeline Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Timeline Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -300,7 +320,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Candlestick Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Candlestick Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -310,7 +330,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Gantt Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Gantt Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -320,7 +340,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Sankey Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Sankey Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -330,7 +350,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Treemap Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Treemap Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -340,7 +360,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Word Tree Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Word Tree Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -350,7 +370,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('3D Pie Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('3D Pie Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -360,7 +380,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Google sheet integration',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Google sheet integration',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -370,7 +390,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Source - Database',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Source - Database',$this->plugin_name)?></td>
                         <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -378,11 +398,11 @@
                     </tr>
                     <tr>
                         <td> </td>
-                        <td colspan="4"><?php echo __('Source - Manual',$this->plugin_name)?></td>
+                        <td colspan="4"><?php echo __('Source - External Database',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
-                        <td><?php echo __('Source - Manual',$this->plugin_name)?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td> 
+                    <tr>
+                        <td><?php echo __('Source - External Database',$this->plugin_name)?></td>
+                        <td><span>-</span></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>
@@ -390,7 +410,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Source - File',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Source - File',$this->plugin_name)?></td>
                         <td><span>-</span></td> 
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -400,7 +420,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('WooCommerce Integration',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('WooCommerce Integration',$this->plugin_name)?></td>
                         <td><span>-</span></td> 
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -410,7 +430,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Live Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Live Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td> 
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -420,7 +440,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Frontend Print Chart',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Frontend Print Chart',$this->plugin_name)?></td>
                         <td><span>-</span></td> 
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -430,7 +450,7 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Frontend XLSX Export',$this->plugin_name)?></td>
                     </tr>
-                    <tr>
+                    <tr class="compare-row">
                         <td><?php echo __('Frontend XLSX Export',$this->plugin_name)?></td>
                         <td><span>-</span></td> 
                         <td><i class="ays_fa ays_fa_check"></i></td>
@@ -440,19 +460,9 @@
                         <td> </td>
                         <td colspan="4"><?php echo __('Frontend CSV Export',$this->plugin_name)?></td>
                     </tr>
-                    <tr class="compare-row">
+                    <tr>
                         <td><?php echo __('Frontend CSV Export',$this->plugin_name)?></td>
                         <td><span>-</span></td> 
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                        <td colspan="4"><?php echo __('Frontend Image Export',$this->plugin_name)?></td>
-                    </tr>
-                    <tr>
-                        <td><?php echo __('Frontend Image Export',$this->plugin_name)?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td> 
                         <td><i class="ays_fa ays_fa_check"></i></td>
                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>

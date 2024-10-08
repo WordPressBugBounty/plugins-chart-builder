@@ -280,6 +280,7 @@ class Chart_Builder_Public {
 				height: " . $settings['chart_height'] . ";
 				" . $settings['position'] . ";
 				border-radius: " . $settings['border_radius'] . "px;
+				overflow: hidden;
 			}
 
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "header-container {

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2024-10-02 16:16+0400\n"
+"POT-Creation-Date: 2024-10-07 17:30+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1177,8 +1177,8 @@ msgid "Specify the time intervals to update the chart on the front end (e.g., on
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:4162
-#: admin/partials/features/chart-builder-features-display.php:411
-#: admin/partials/features/chart-builder-features-display.php:414
+#: admin/partials/features/chart-builder-features-display.php:431
+#: admin/partials/features/chart-builder-features-display.php:434
 msgid "Live Chart"
 msgstr ""
 
@@ -2434,15 +2434,15 @@ msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:49
 #: admin/partials/features/chart-builder-features-display.php:62
-#: admin/partials/features/chart-builder-features-display.php:465
-#: admin/partials/features/chart-builder-features-display.php:471
+#: admin/partials/features/chart-builder-features-display.php:475
+#: admin/partials/features/chart-builder-features-display.php:481
 msgid "Buy now"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:50
 #: admin/partials/features/chart-builder-features-display.php:63
-#: admin/partials/features/chart-builder-features-display.php:466
-#: admin/partials/features/chart-builder-features-display.php:472
+#: admin/partials/features/chart-builder-features-display.php:476
+#: admin/partials/features/chart-builder-features-display.php:482
 msgid "(ONE-TIME PAYMENT)"
 msgstr ""
 
@@ -2502,144 +2502,149 @@ msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:181
 #: admin/partials/features/chart-builder-features-display.php:184
-msgid "Permissions by user role"
+msgid "Source - Manual"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:191
 #: admin/partials/features/chart-builder-features-display.php:194
-msgid "Access by user role"
+msgid "Frontend Image Export"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:201
 #: admin/partials/features/chart-builder-features-display.php:204
-msgid "Geographical Chart"
+msgid "Permissions by user role"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:211
 #: admin/partials/features/chart-builder-features-display.php:214
-msgid "Histogram Chart"
+msgid "Access by user role"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:221
 #: admin/partials/features/chart-builder-features-display.php:224
-msgid "Area Chart"
+msgid "Geographical Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:231
 #: admin/partials/features/chart-builder-features-display.php:234
-msgid "Gauge Chart"
+msgid "Histogram Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:241
 #: admin/partials/features/chart-builder-features-display.php:244
-msgid "Combo Chart"
+msgid "Area Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:251
 #: admin/partials/features/chart-builder-features-display.php:254
-msgid "Stepped Area Chart"
+msgid "Gauge Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:261
 #: admin/partials/features/chart-builder-features-display.php:264
-msgid "Bubble Chart"
+msgid "Combo Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:271
 #: admin/partials/features/chart-builder-features-display.php:274
-msgid "Scatter Chart"
+msgid "Stepped Area Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:281
 #: admin/partials/features/chart-builder-features-display.php:284
-msgid "Table Chart"
+msgid "Bubble Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:291
 #: admin/partials/features/chart-builder-features-display.php:294
-msgid "Timeline Chart"
+msgid "Scatter Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:301
 #: admin/partials/features/chart-builder-features-display.php:304
-msgid "Candlestick Chart"
+msgid "Table Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:311
 #: admin/partials/features/chart-builder-features-display.php:314
-msgid "Gantt Chart"
+msgid "Timeline Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:321
 #: admin/partials/features/chart-builder-features-display.php:324
-msgid "Sankey Chart"
+msgid "Candlestick Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:331
 #: admin/partials/features/chart-builder-features-display.php:334
-msgid "Treemap Chart"
+msgid "Gantt Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:341
 #: admin/partials/features/chart-builder-features-display.php:344
-msgid "Word Tree Chart"
+msgid "Sankey Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:351
 #: admin/partials/features/chart-builder-features-display.php:354
-msgid "3D Pie Chart"
+msgid "Treemap Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:361
 #: admin/partials/features/chart-builder-features-display.php:364
-msgid "Google sheet integration"
+msgid "Word Tree Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:371
 #: admin/partials/features/chart-builder-features-display.php:374
-msgid "Source - Database"
+msgid "3D Pie Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:381
 #: admin/partials/features/chart-builder-features-display.php:384
-msgid "Source - Manual"
+msgid "Google sheet integration"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:391
 #: admin/partials/features/chart-builder-features-display.php:394
-msgid "Source - File"
+msgid "Source - Database"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:401
 #: admin/partials/features/chart-builder-features-display.php:404
-msgid "WooCommerce Integration"
+msgid "Source - External Database"
+msgstr ""
+
+#: admin/partials/features/chart-builder-features-display.php:411
+#: admin/partials/features/chart-builder-features-display.php:414
+msgid "Source - File"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:421
 #: admin/partials/features/chart-builder-features-display.php:424
-msgid "Frontend Print Chart"
-msgstr ""
-
-#: admin/partials/features/chart-builder-features-display.php:431
-#: admin/partials/features/chart-builder-features-display.php:434
-msgid "Frontend XLSX Export"
+msgid "WooCommerce Integration"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:441
 #: admin/partials/features/chart-builder-features-display.php:444
-msgid "Frontend CSV Export"
+msgid "Frontend Print Chart"
 msgstr ""
 
 #: admin/partials/features/chart-builder-features-display.php:451
 #: admin/partials/features/chart-builder-features-display.php:454
-msgid "Frontend Image Export"
+msgid "Frontend XLSX Export"
 msgstr ""
 
-#: admin/partials/features/chart-builder-features-display.php:484
+#: admin/partials/features/chart-builder-features-display.php:461
+#: admin/partials/features/chart-builder-features-display.php:464
+msgid "Frontend CSV Export"
+msgstr ""
+
+#: admin/partials/features/chart-builder-features-display.php:494
 msgid "30 day money back guarantee !!!"
 msgstr ""
 
-#: admin/partials/features/chart-builder-features-display.php:486
+#: admin/partials/features/chart-builder-features-display.php:496
 msgid ""
 "We're sure that you'll love our Chartify plugin, but, if for some reason, you're not\n"
 "                    satisfied in the first 30 days of using our product, there is a money-back guarantee and\n"

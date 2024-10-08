@@ -14,15 +14,6 @@
 		this.chartTempData = null;
 		this.chartType = 'pie_chart';
 
-		this.chartSources = {
-			'line_chart'   : 'Line Chart',
-			'bar_chart'    : 'Bar Chart',
-			'pie_chart'    : 'Pie Chart',
-			'column_chart' : 'Column Chart',
-			'org_chart'    : 'Org Chart',
-			'donut_chart'  : 'Donut Chart',
-		}
-
         this.init();
 
         return this;
