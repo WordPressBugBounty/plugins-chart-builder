@@ -2223,6 +2223,85 @@ class Chart_Builder_Admin {
 		return $sources;
 	}
 
+    public function source_contents_import_from_external_db_settings( $sources, $args ){
+        $html_class_prefix = $args['html_class_prefix'];
+		$html_name_prefix = $args['html_name_prefix'];
+
+		ob_start();
+		?>
+        <div class="ays-accordion-data-main-wrap ays-pro-features-v2-main-box" style="padding:10px;">
+            <div class="ays-pro-features-v2-big-buttons-box">
+                <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
+                    <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
+                    <div class="ays-pro-features-v2-upgrade-text">
+                        <?php echo __("Upgrade" , "chart-builder"); ?>
+                    </div>
+                </a>
+            </div>
+            <div class="<?= $html_class_prefix ?>source-data-main-wrap">
+                <div class="<?= $html_class_prefix ?>chart-source-data-main">
+                    <div class="form-group row mb-2">
+                        <div class="col-sm-5 <?php echo esc_attr($html_class_prefix) ?>option-title">
+                            <label class="form-label">
+                                <?php echo esc_html(__('Use custom database settings for this chart', "chart-builder")); ?>
+                                <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __(".","chart-builder") ); ?>">
+                                    <i class="ays_fa ays_fa_info_circle"></i>
+                                </a>
+                            </label>
+                        </div>
+                        <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                            <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                                <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" type="checkbox" />
+                                <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="ays-chart-external-db-query">
+                        <div class="<?= $html_class_prefix ?>-db-query-form">
+                            <div id="external-db-query-form">
+                                <input type="hidden" name="chart_id" value="1">
+                                <textarea name="query" class="<?= $html_class_prefix ?>external-db-query" placeholder="<?php echo __( "Add your query here.", $this->plugin_name ); ?>"></textarea>
+                                <div class='db-wizard-success'></div>
+                                <div class='db-wizard-error'></div>
+                            </div>
+                            <div class="ays-chart-db-query-form-button ays-chart-buttons-group">
+                                <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-external-query-fetch">
+                                    <?php echo __( 'Show Results', "chart-builder" ); ?>
+                                </button>
+                                <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-external-query-show-on-chart">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
+                                    <?php echo __( 'Preview', "chart-builder" ); ?>
+                                </button>
+                                <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-external-query-save">
+                                    <?php echo __( 'Save data', "chart-builder" ); ?>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="db-wizard-hints">
+                            <ul>
+                                <!-- <li><//?php echo sprintf( __( 'For examples of queries and links to resources that you can use with this feature, please click %1$shere%2$s', $this->plugin_name ), '<a href="' . '#' . '" target="_blank">', '</a>' ); ?></li> -->
+                                <li><?php echo sprintf( __( 'Use %1$sControl+Space%2$s for autocompleting keywords or table names.', $this->plugin_name ), '<span class="ays-chart-emboss">', '</span>' ); ?></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<?php
+		$content = ob_get_clean();
+
+        $title = __( 'Connect to External Database', $this->plugin_name ) . ' <a class="ays_help" data-bs-toggle="tooltip" title="' . __("Insert the Database query and fetch data from an external database.", $this->plugin_name) . '">
+                    <i class="ays_fa ays_fa_info_circle"></i>
+                </a>';
+
+        $sources['import_from_external_db'] = array(
+            'content' => $content,
+            'title' => $title
+        );
+
+        return $sources;
+    }
+
     public function source_contents_quiz_maker_integration_settings( $sources, $args ){
 		global $wpdb;
 		$chart_id = $args['chart_id'];

@@ -1986,6 +1986,7 @@ svg > g > g.google-visualization-tooltip {
     background-color: #ff0d00;
 }
 
+#external-db-query-form .CodeMirror-scroll,
 #db-query-form .CodeMirror-scroll {
     overflow: hidden !important;
     height: 100%;
@@ -1993,6 +1994,7 @@ svg > g > g.google-visualization-tooltip {
     padding: 0;
 }
 
+#external-db-query-form .CodeMirror-wrap,
 #db-query-form .CodeMirror-wrap {
     height: 200px;
     padding: 15px;
@@ -2001,26 +2003,33 @@ svg > g > g.google-visualization-tooltip {
     font-size: 15px;
 }
 
+#external-db-query-form .CodeMirror-wrap .CodeMirror-cursor,
 #db-query-form .CodeMirror-wrap .CodeMirror-cursor {
     border-left: 1px solid #fff !important;
 }
 
+#external-db-query-form .CodeMirror-wrap .CodeMirror-placeholder,
 #db-query-form .CodeMirror-wrap .CodeMirror-placeholder {
     color: #fff;
 }
 
+#external-db-query-form .CodeMirror-wrap pre,
 #db-query-form .CodeMirror-wrap pre {
     color: #fff !important;
 }
 
+#external-db-query-form .CodeMirror-wrap pre .cm-keyword,
 #db-query-form .CodeMirror-wrap pre .cm-keyword {
     color: #f92472 !important;
 }
 
+#external-db-query-form .CodeMirror-wrap pre .cm-comment,
 #db-query-form .CodeMirror-wrap pre .cm-comment {
     color: #74705d !important;
 }
 
+#external-db-query-form .CodeMirror-wrap pre .cm-number,
+#external-db-query-form .CodeMirror-wrap pre .cm-string,
 #db-query-form .CodeMirror-wrap pre .cm-number,
 #db-query-form .CodeMirror-wrap pre .cm-string {
     color: #fff !important;

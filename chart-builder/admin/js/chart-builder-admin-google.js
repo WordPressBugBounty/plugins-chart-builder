@@ -2723,6 +2723,17 @@
 			extraKeys: {"Ctrl-Space": "autocomplete"},
 			hintOptions: { tables: table_columns }
 		});
+		cm = code_mirror.fromTextArea(_this.$el.find('.ays-chart-external-db-query').get(0), {
+			value: _this.$el.find('.ays-chart-external-db-query').val(),
+			autofocus: false,
+			mode: 'text/x-mysql',
+			lineWrapping: true,
+			dragDrop: false,
+			matchBrackets: true,
+			autoCloseBrackets: true,
+			extraKeys: {"Ctrl-Space": "autocomplete"}
+		});
+
 
 		// force refresh so that the query shows on first time load. Otherwise you have to click on the editor for it to show.
 		_this.$el.on('ays-chart:db:query:focus', function(event, data){

@@ -191,6 +191,7 @@ class Chart_Builder {
 		$this->loader->add_filter( 'ays_cb_chart_page_sources_contents_settings', $plugin_admin, 'source_contents_import_from_csv_settings', 40, 2 );
 		// $this->loader->add_filter( 'ays_cb_chart_page_sources_contents_settings', $plugin_admin, 'source_contents_import_from_wordpress_settings', 50, 2 );
 		$this->loader->add_filter( 'ays_cb_chart_page_sources_contents_settings', $plugin_admin, 'source_contents_import_from_db_settings', 60, 2 );
+		$this->loader->add_filter( 'ays_cb_chart_page_sources_contents_settings', $plugin_admin, 'source_contents_import_from_external_db_settings', 65, 2 );
 		$this->loader->add_filter( 'ays_cb_chart_page_sources_contents_settings', $plugin_admin, 'source_contents_quiz_maker_integration_settings', 70, 2 );
 		$this->loader->add_filter( 'ays_cb_chart_page_sources_contents_settings', $plugin_admin, 'source_contents_woocommerce_integration_settings', 80, 2 );
 		$this->loader->add_filter( 'ays_cb_chart_page_sources_contents_settings', $plugin_admin, 'source_contents_manual_settings', 90, 2 );
@@ -294,7 +295,10 @@ class Chart_Builder {
 
 		// ===== Google integration =====
 
+		// ===== Database integration =====
+		$this->loader->add_filter( 'ays_cb_settings_page_integrations_contents', $plugin_integrations, 'ays_settings_page_database_content', 50, 3 );
 
+		// ===== Database integration =====
 	}
 
 
