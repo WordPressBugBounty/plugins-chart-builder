@@ -478,6 +478,7 @@ td.column-title {
     /* width: 25%; */
     height: 60px;
     min-height: 60px;
+    min-width: 215px;
     padding: 8px;
     display: flex;
     justify-content: space-between;
@@ -2057,10 +2058,31 @@ svg > g > g.google-visualization-tooltip {
 .ays-chart-buttons-group {
     padding: 15px 5px;
 }
+.ays-chart-buttons-group {
+    flex-wrap: wrap;
+
+}
+
 #ays-chart-google-sheet-form .ays-chart-buttons-group {
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 576px) {
+    .ays-chart-chart-source-data-content-container {
+        flex-direction: column-reverse;
+        gap: 5px;
+    }
+
+    .ays-chart-icons-box.ays-chart-add-new-column-box {
+        margin: 0;
+    }
+
+    .ays-chart-chart-source-data-content {
+        width: 100%;
+    }
+}
+
 .ays-db-results-wrap {
     overflow: hidden;
     overflow-x: auto;
