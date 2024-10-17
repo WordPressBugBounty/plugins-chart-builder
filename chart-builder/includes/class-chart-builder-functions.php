@@ -608,6 +608,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['title_bold'] = ( isset( $settings['title_bold'] ) && $settings['title_bold'] != '' ) ? esc_attr($settings['title_bold']) : 'on';
 			$settings['title_bold'] = isset( $settings['title_bold'] ) && $settings['title_bold'] == 'on' ? 'checked' : '';
 
+			// Title text shadow
+			$settings['title_text_shadow'] = ( isset( $settings['title_text_shadow'] ) && $settings['title_text_shadow'] != '' ) ? esc_attr($settings['title_text_shadow']) : 'off';
+			$settings['title_text_shadow'] = isset( $settings['title_text_shadow'] ) && $settings['title_text_shadow'] == 'on' ? 'checked' : '';
+
 			// Title italic text
 			$settings['title_italic'] = ( isset( $settings['title_italic'] ) && $settings['title_italic'] != '' ) ? esc_attr($settings['title_italic']) : 'off';
 			$settings['title_italic'] = isset( $settings['title_italic'] ) && $settings['title_italic'] == 'on' ? 'checked' : '';
@@ -1015,6 +1019,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['title_bold'] = ( isset( $settings['title_bold'] ) && $settings['title_bold'] != '' ) ? esc_attr($settings['title_bold']) : 'on';
 			$settings['title_bold'] = isset( $settings['title_bold'] ) && $settings['title_bold'] != 'off'? 'bold' : 'normal';
 
+			// Title text shadow
+			$settings['title_text_shadow'] = ( isset( $settings['title_text_shadow'] ) && $settings['title_text_shadow'] != '' ) ? esc_attr($settings['title_text_shadow']) : 'off';
+			$settings['title_text_shadow'] = isset( $settings['title_text_shadow'] ) && $settings['title_text_shadow'] == 'on' ? 'checked' : '';
+
 			// title italic
 			$settings['title_italic'] = ( isset( $settings['title_italic'] ) && $settings['title_italic'] != '' ) ? esc_attr($settings['title_italic']) : 'off';
 			$settings['title_italic'] = isset( $settings['title_italic'] ) && $settings['title_italic'] != 'on'? 'normal' : 'italic';
@@ -1319,6 +1327,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['title_bold'] = ( isset( $settings['title_bold'] ) && $settings['title_bold'] != '' ) ? esc_attr($settings['title_bold']) : 'on';
 			$settings['title_bold'] = isset( $settings['title_bold'] ) && $settings['title_bold'] == 'on' ? 'checked' : '';
 
+			// Title text shadow
+			$settings['title_text_shadow'] = ( isset( $settings['title_text_shadow'] ) && $settings['title_text_shadow'] != '' ) ? esc_attr($settings['title_text_shadow']) : 'off';
+			$settings['title_text_shadow'] = isset( $settings['title_text_shadow'] ) && $settings['title_text_shadow'] == 'on' ? 'checked' : '';
+
 			// Title italic text
 			$settings['title_italic'] = ( isset( $settings['title_italic'] ) && $settings['title_italic'] != '' ) ? esc_attr($settings['title_italic']) : 'off';
 			$settings['title_italic'] = isset( $settings['title_italic'] ) && $settings['title_italic'] == 'on' ? 'checked' : '';
@@ -1421,6 +1433,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// title bold
 			$settings['title_bold'] = ( isset( $settings['title_bold'] ) && $settings['title_bold'] != '' ) ? esc_attr($settings['title_bold']) : 'on';
 			$settings['title_bold'] = isset( $settings['title_bold'] ) && $settings['title_bold'] != 'off'? 'bold' : 'normal';
+
+			// Title text shadow
+			$settings['title_text_shadow'] = ( isset( $settings['title_text_shadow'] ) && $settings['title_text_shadow'] != '' ) ? esc_attr($settings['title_text_shadow']) : 'off';
+			$settings['title_text_shadow'] = isset( $settings['title_text_shadow'] ) && $settings['title_text_shadow'] == 'on' ? 'checked' : '';
 
 			// title italic
 			$settings['title_italic'] = ( isset( $settings['title_italic'] ) && $settings['title_italic'] != '' ) ? esc_attr($settings['title_italic']) : 'off';

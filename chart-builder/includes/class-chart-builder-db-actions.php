@@ -551,6 +551,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 $settings['multiple_selection'] = ( isset( $settings['multiple_selection'] ) && $settings['multiple_selection'] != '' ) ? sanitize_text_field($settings['multiple_selection']) : 'off';
                 $settings['show_title'] = ( isset( $settings['show_title'] ) && $settings['show_title'] != '' ) ? sanitize_text_field($settings['show_title']) : 'off';
                 $settings['title_bold'] = ( isset( $settings['title_bold'] ) && $settings['title_bold'] != '' ) ? sanitize_text_field($settings['title_bold']) : 'off';
+                $settings['title_text_shadow'] = ( isset( $settings['title_text_shadow'] ) && $settings['title_text_shadow'] != '' ) ? sanitize_text_field($settings['title_text_shadow']) : 'off';
                 $settings['title_italic'] = ( isset( $settings['title_italic'] ) && $settings['title_italic'] != '' ) ? sanitize_text_field($settings['title_italic']) : 'off';
                 $settings['show_description'] = ( isset( $settings['show_description'] ) && $settings['show_description'] != '' ) ? sanitize_text_field($settings['show_description']) : 'off';
                 $settings['description_bold'] = ( isset( $settings['description_bold'] ) && $settings['description_bold'] != '' ) ? sanitize_text_field($settings['description_bold']) : 'off';
