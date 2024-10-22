@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
 Tested up to: 6.6.2
-Stable tag: 2.9.0
+Stable tag: 2.9.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -248,6 +248,9 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 2.9.1 =
+* Added: Chart title text shadow color option
 
 = 2.9.0 =
 * Added: Chart title text shadow option

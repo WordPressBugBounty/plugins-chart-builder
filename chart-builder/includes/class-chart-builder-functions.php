@@ -601,6 +601,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Title color
 			$settings['title_color'] = isset( $settings['title_color'] ) && $settings['title_color'] != '' ? esc_attr( $settings['title_color'] ) : '#000000';
 
+			// Title color
+			$settings['title_shadow_color'] = isset( $settings['title_shadow_color'] ) && $settings['title_shadow_color'] != '' ? esc_attr( $settings['title_shadow_color'] ) : $settings['title_color'];
+
 			// Title font size
 			$settings['title_font_size'] = isset( $settings['title_font_size'] ) && $settings['title_font_size'] != '' ? esc_attr( $settings['title_font_size'] ) : '30';
 
@@ -1012,6 +1015,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Title color
 			$settings['title_color'] = isset( $settings['title_color'] ) && $settings['title_color'] != '' ? esc_attr( $settings['title_color'] ) : '#000000';
 
+			// Title color
+			$settings['title_shadow_color'] = isset( $settings['title_shadow_color'] ) && $settings['title_shadow_color'] != '' ? esc_attr( $settings['title_shadow_color'] ) : $settings['title_color'];
+			
 			// Title font size
 			$settings['title_font_size'] = isset( $settings['title_font_size'] ) && $settings['title_font_size'] != '' ? esc_attr( $settings['title_font_size'] ) : '30';
 
@@ -1320,6 +1326,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Title color
 			$settings['title_color'] = isset( $settings['title_color'] ) && $settings['title_color'] != '' ? esc_attr( $settings['title_color'] ) : '#000000';
 
+			// Title color
+			$settings['title_shadow_color'] = isset( $settings['title_shadow_color'] ) && $settings['title_shadow_color'] != '' ? esc_attr( $settings['title_shadow_color'] ) : $settings['title_color'];
+
 			// Title font size
 			$settings['title_font_size'] = isset( $settings['title_font_size'] ) && $settings['title_font_size'] != '' ? esc_attr( $settings['title_font_size'] ) : '30';
 
@@ -1427,6 +1436,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Title color
 			$settings['title_color'] = isset( $settings['title_color'] ) && $settings['title_color'] != '' ? esc_attr( $settings['title_color'] ) : '#000000';
 
+			// Title color
+			$settings['title_shadow_color'] = isset( $settings['title_shadow_color'] ) && $settings['title_shadow_color'] != '' ? esc_attr( $settings['title_shadow_color'] ) : $settings['title_color'];
+			
 			// Title font size
 			$settings['title_font_size'] = isset( $settings['title_font_size'] ) && $settings['title_font_size'] != '' ? esc_attr( $settings['title_font_size'] ) : '30';
 
