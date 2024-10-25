@@ -303,6 +303,7 @@ class Chart_Builder_Public {
 				color: " . $settings['description_color'] . ";
 				font-size: " . $settings['description_font_size'] . "px; 
 				font-weight: " . $settings['description_bold'] . ";
+				text-shadow: " . ($settings['description_text_shadow'] === 'checked' ? '2px 2px 5px '.$settings['description_color'] : '') . ";
 				font-style: " . $settings['description_italic'] . ";
 				text-align: " . $settings['description_position'] . ";
 				text-transform: " . $settings['description_text_transform'] . ";
@@ -375,6 +376,7 @@ class Chart_Builder_Public {
 				color: " . $settings['description_color'] . ";
 				font-size: " . $settings['description_font_size'] . "px; 
 				font-weight: " . $settings['description_bold'] . ";
+				text-shadow: " . ($settings['description_text_shadow'] === 'checked' ? '2px 2px 5px '.$settings['description_color'] : '') . ";
 				font-style: " . $settings['description_italic'] . ";
 				text-align: " . $settings['description_position'] . ";
 				text-transform: " . $settings['description_text_transform'] . ";

@@ -556,6 +556,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 $settings['show_description'] = ( isset( $settings['show_description'] ) && $settings['show_description'] != '' ) ? sanitize_text_field($settings['show_description']) : 'off';
                 $settings['description_bold'] = ( isset( $settings['description_bold'] ) && $settings['description_bold'] != '' ) ? sanitize_text_field($settings['description_bold']) : 'off';
                 $settings['description_italic'] = ( isset( $settings['description_italic'] ) && $settings['description_italic'] != '' ) ? sanitize_text_field($settings['description_italic']) : 'off';
+                $settings['description_text_shadow'] = ( isset( $settings['description_text_shadow'] ) && $settings['description_text_shadow'] != '' ) ? sanitize_text_field($settings['description_text_shadow']) : 'off';
                 $settings['enable_interactivity'] = ( isset( $settings['enable_interactivity'] ) && $settings['enable_interactivity'] != '' ) ? sanitize_text_field($settings['enable_interactivity']) : 'off';
                 $settings['maximized_view'] = ( isset( $settings['maximized_view'] ) && $settings['maximized_view'] != '' ) ? sanitize_text_field($settings['maximized_view']) : 'off';
                 $settings['haxis_direction'] = ( isset( $settings['haxis_direction'] ) && $settings['haxis_direction'] != '' ) ? sanitize_text_field($settings['haxis_direction']) : '1';

@@ -5253,6 +5253,7 @@ class Chart_Builder_Admin {
         $title_positions = $settings['title_positions'];
         $description_position = $settings['description_position'];
         $description_bold = $settings['description_bold'];
+        $description_text_shadow = $settings['description_text_shadow'];
         $description_italic = $settings['description_italic'];
         $text_transforms = $settings['text_transforms'];
         $text_decorations = $settings['text_decorations'];
@@ -5403,6 +5404,23 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- description text decoration -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-description-text-shadow" class="form-label">
+                            <?php echo esc_html(__( "Text shadow", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to add a text shadow to chart description.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+						<label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-description-text-shadow" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[description_text_shadow]" value="on" <?php echo esc_attr($description_text_shadow); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!-- description bold -->
+
             </div>
         </div>
 		<?php
@@ -5428,6 +5446,7 @@ class Chart_Builder_Admin {
         $title_positions = $settings['title_positions'];
         $description_position = $settings['description_position'];
         $description_bold = $settings['description_bold'];
+        $description_text_shadow = $settings['description_text_shadow'];
         $description_italic = $settings['description_italic'];
         $text_transforms = $settings['text_transforms'];
         $text_decorations = $settings['text_decorations'];
@@ -5578,6 +5597,22 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- description text decoration -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-description-text-shadow" class="form-label">
+                            <?php echo esc_html(__( "Text shadow", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to add a text shadow to chart description.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+						<label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-description-text-shadow" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[description_text_shadow]" value="on" <?php echo esc_attr($description_text_shadow); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!-- description bold -->
             </div>
         </div>
 		<?php
