@@ -5254,6 +5254,7 @@ class Chart_Builder_Admin {
         $description_position = $settings['description_position'];
         $description_bold = $settings['description_bold'];
         $description_text_shadow = $settings['description_text_shadow'];
+        $description_shadow_color = $settings['description_shadow_color'];
         $description_italic = $settings['description_italic'];
         $text_transforms = $settings['text_transforms'];
         $text_decorations = $settings['text_decorations'];
@@ -5420,7 +5421,19 @@ class Chart_Builder_Admin {
                         </label>
                     </div>
                 </div> <!-- description bold -->
-
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-description-shadow-color">
+				            <?php echo esc_html(__( "Text Shadow Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The text shadow color of the chart description.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-description-shadow-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[description_shadow_color]" value="<?php echo esc_attr($description_shadow_color) ?>">
+                    </div>
+                </div> <!-- Chart title color -->
             </div>
         </div>
 		<?php
@@ -5447,6 +5460,7 @@ class Chart_Builder_Admin {
         $description_position = $settings['description_position'];
         $description_bold = $settings['description_bold'];
         $description_text_shadow = $settings['description_text_shadow'];
+        $description_shadow_color = $settings['description_shadow_color'];
         $description_italic = $settings['description_italic'];
         $text_transforms = $settings['text_transforms'];
         $text_decorations = $settings['text_decorations'];
@@ -5613,6 +5627,19 @@ class Chart_Builder_Admin {
                         </label>
                     </div>
                 </div> <!-- description bold -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-description-shadow-color">
+				            <?php echo esc_html(__( "Text Shadow Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The text shadow color of the chart description.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-description-shadow-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[description_shadow_color]" value="<?php echo esc_attr($description_shadow_color) ?>">
+                    </div>
+                </div> <!-- Chart title color -->
             </div>
         </div>
 		<?php

@@ -651,6 +651,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['description_text_shadow'] = ( isset( $settings['description_text_shadow'] ) && $settings['description_text_shadow'] != '' ) ? esc_attr($settings['description_text_shadow']) : 'off';
 			$settings['description_text_shadow'] = isset( $settings['description_text_shadow'] ) && $settings['description_text_shadow'] == 'on' ? 'checked' : '';
 
+			// description color
+			$settings['description_shadow_color'] = isset( $settings['description_shadow_color'] ) && $settings['description_shadow_color'] != '' ? esc_attr( $settings['description_shadow_color'] ) : $settings['description_color'];
+
 			// description italic text
 			$settings['description_italic'] = ( isset( $settings['description_italic'] ) && $settings['description_italic'] != '' ) ? esc_attr($settings['description_italic']) : 'off';
 			$settings['description_italic'] = isset( $settings['description_italic'] ) && $settings['description_italic'] == 'on' ? 'checked' : '';
@@ -1066,6 +1069,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['description_text_shadow'] = ( isset( $settings['description_text_shadow'] ) && $settings['description_text_shadow'] != '' ) ? esc_attr($settings['description_text_shadow']) : 'off';
 			$settings['description_text_shadow'] = isset( $settings['description_text_shadow'] ) && $settings['description_text_shadow'] == 'on' ? 'checked' : '';
 
+			// description color
+			$settings['description_shadow_color'] = isset( $settings['description_shadow_color'] ) && $settings['description_shadow_color'] != '' ? esc_attr( $settings['description_shadow_color'] ) : $settings['description_color'];
+
 			// desctiption italic text
 			$settings['description_italic'] = ( isset( $settings['description_italic'] ) && $settings['description_italic'] != '' ) ? esc_attr($settings['description_italic']) : 'off';
 			$settings['description_italic'] = isset( $settings['description_italic'] ) && $settings['description_italic'] != 'on'? 'normal' : 'italic';
@@ -1384,6 +1390,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['description_text_shadow'] = ( isset( $settings['description_text_shadow'] ) && $settings['description_text_shadow'] != '' ) ? esc_attr($settings['description_text_shadow']) : 'off';
 			$settings['description_text_shadow'] = isset( $settings['description_text_shadow'] ) && $settings['description_text_shadow'] == 'on' ? 'checked' : '';
 
+			// description color
+			$settings['description_shadow_color'] = isset( $settings['description_shadow_color'] ) && $settings['description_shadow_color'] != '' ? esc_attr( $settings['description_shadow_color'] ) : $settings['description_color'];
+
 			// description italic text
 			$settings['description_italic'] = ( isset( $settings['description_italic'] ) && $settings['description_italic'] != '' ) ? esc_attr($settings['description_italic']) : 'off';
 			$settings['description_italic'] = isset( $settings['description_italic'] ) && $settings['description_italic'] == 'on' ? 'checked' : '';
@@ -1494,6 +1503,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// description text shadow
 			$settings['description_text_shadow'] = ( isset( $settings['description_text_shadow'] ) && $settings['description_text_shadow'] != '' ) ? esc_attr($settings['description_text_shadow']) : 'off';
 			$settings['description_text_shadow'] = isset( $settings['description_text_shadow'] ) && $settings['description_text_shadow'] == 'on' ? 'checked' : '';
+
+			// description color
+			$settings['description_shadow_color'] = isset( $settings['description_shadow_color'] ) && $settings['description_shadow_color'] != '' ? esc_attr( $settings['description_shadow_color'] ) : $settings['description_color'];
 
 			// desctiption italic text
 			$settings['description_italic'] = ( isset( $settings['description_italic'] ) && $settings['description_italic'] != '' ) ? esc_attr($settings['description_italic']) : 'off';
