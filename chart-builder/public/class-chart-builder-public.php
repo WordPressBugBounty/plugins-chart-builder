@@ -282,6 +282,13 @@ class Chart_Builder_Public {
 				border-radius: " . $settings['border_radius'] . "px;
 				overflow: hidden;
 			}
+			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . "[data-type='org_chart'] {
+				overflow: auto;
+			}
+
+			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . "[data-type='org_chart'] table.google-visualization-orgchart-table tbody td  {
+				padding: initial;
+			}
 
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "header-container {
 				margin-bottom: " . $settings['title_gap'] . "px !important;
