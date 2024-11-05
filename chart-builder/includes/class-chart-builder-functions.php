@@ -621,9 +621,12 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Title gap
 			$settings['title_gap'] = isset( $settings['title_gap'] ) && $settings['title_gap'] != '' ? esc_attr( $settings['title_gap'] ) : '5';
+			
+			// Title gap
+			$settings['title_gap_description'] = isset( $settings['title_gap_description'] ) && $settings['title_gap_description'] != '' ? esc_attr( $settings['title_gap_description'] ) : '5';
 
 			// Title letter spacing
-			$settings['title_letter_spacing'] = isset( $settings['title_letter_spacing'] ) && $settings['title_letter_spacing'] != '' ? esc_attr( $settings['title_letter_spacing'] ) : '';
+			$settings['title_letter_spacing'] = isset( $settings['title_letter_spacing'] ) && $settings['title_letter_spacing'] != '' ? esc_attr( $settings['title_letter_spacing'] ) : 0;
 
 			// Title position
 			$settings['title_position'] = isset( $settings['title_position'] ) && $settings['title_position'] != '' ? esc_attr( $settings['title_position'] ) : 'left';
@@ -665,7 +668,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['description_text_transform'] = isset( $settings['description_text_transform'] ) && $settings['description_text_transform'] != '' ? esc_attr( $settings['description_text_transform'] ) : 'none';
 
 			// description letter spacing
-			$settings['description_letter_spacing'] = isset( $settings['description_letter_spacing'] ) && $settings['description_letter_spacing'] != '' ? esc_attr( $settings['description_letter_spacing'] ) : '';
+			$settings['description_letter_spacing'] = isset( $settings['description_letter_spacing'] ) && $settings['description_letter_spacing'] != '' ? esc_attr( $settings['description_letter_spacing'] ) : 0;
 
 			// description text decoration
 			$settings['description_text_decoration'] = isset( $settings['description_text_decoration'] ) && $settings['description_text_decoration'] != '' ? esc_attr( $settings['description_text_decoration'] ) : 'none';
@@ -1043,8 +1046,11 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// title gap
 			$settings['title_gap'] = (isset( $settings['title_gap'] ) && $settings['title_gap'] != '') ? esc_attr( $settings['title_gap'] ) : '5';
 
+			// title gap
+			$settings['title_gap_description'] = (isset( $settings['title_gap_description'] ) && $settings['title_gap_description'] != '') ? esc_attr( $settings['title_gap_description'] ) : '5';
+
 			// title letter spacing
-			$settings['title_letter_spacing'] = (isset( $settings['title_letter_spacing'] ) && $settings['title_letter_spacing'] != '') ? esc_attr( $settings['title_letter_spacing'] ) : '';
+			$settings['title_letter_spacing'] = (isset( $settings['title_letter_spacing'] ) && $settings['title_letter_spacing'] != '') ? esc_attr( $settings['title_letter_spacing'] ) : 0;
 
 			// title position
 			$settings['title_position'] = isset( $settings['title_position'] ) && $settings['title_position'] != '' ? esc_attr( $settings['title_position'] ) : 'left';
@@ -1083,7 +1089,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['description_text_transform'] = isset( $settings['description_text_transform'] ) && $settings['description_text_transform'] != '' ? esc_attr( $settings['description_text_transform'] ) : 'none';
 
 			// description letter spacing
-			$settings['description_letter_spacing'] = isset( $settings['description_letter_spacing'] ) && $settings['description_letter_spacing'] != '' ? esc_attr( $settings['description_letter_spacing'] ) : '';
+			$settings['description_letter_spacing'] = isset( $settings['description_letter_spacing'] ) && $settings['description_letter_spacing'] != '' ? esc_attr( $settings['description_letter_spacing'] ) : 0;
 
 			// description text decoration
 			$settings['description_text_decoration'] = isset( $settings['description_text_decoration'] ) && $settings['description_text_decoration'] != '' ? esc_attr( $settings['description_text_decoration'] ) : 'none';
@@ -1361,8 +1367,11 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Title gap
 			$settings['title_gap'] = isset( $settings['title_gap'] ) && $settings['title_gap'] != '' ? esc_attr( $settings['title_gap'] ) : '5';
 
+			// Title gap
+			$settings['title_gap_description'] = isset( $settings['title_gap_description'] ) && $settings['title_gap_description'] != '' ? esc_attr( $settings['title_gap_description'] ) : '5';
+
 			// Title letter spacing
-			$settings['title_letter_spacing'] = isset( $settings['title_letter_spacing'] ) && $settings['title_letter_spacing'] != '' ? esc_attr( $settings['title_letter_spacing'] ) : '';
+			$settings['title_letter_spacing'] = isset( $settings['title_letter_spacing'] ) && $settings['title_letter_spacing'] != '' ? esc_attr( $settings['title_letter_spacing'] ) : 0;
 
 			// Title position
 			$settings['title_position'] = isset( $settings['title_position'] ) && $settings['title_position'] != '' ? esc_attr( $settings['title_position'] ) : 'left';
@@ -1404,7 +1413,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['description_text_transform'] = isset( $settings['description_text_transform'] ) && $settings['description_text_transform'] != '' ? esc_attr( $settings['description_text_transform'] ) : 'none';
 
 			// description letter spacing
-			$settings['description_letter_spacing'] = isset( $settings['description_letter_spacing'] ) && $settings['description_letter_spacing'] != '' ? esc_attr( $settings['description_letter_spacing'] ) : '';
+			$settings['description_letter_spacing'] = isset( $settings['description_letter_spacing'] ) && $settings['description_letter_spacing'] != '' ? esc_attr( $settings['description_letter_spacing'] ) : 0;
 
 			// description text decoration
 			$settings['description_text_decoration'] = isset( $settings['description_text_decoration'] ) && $settings['description_text_decoration'] != '' ? esc_attr( $settings['description_text_decoration'] ) : 'none';
@@ -1478,8 +1487,11 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// title gap
 			$settings['title_gap'] = (isset( $settings['title_gap'] ) && $settings['title_gap'] != '') ? esc_attr( $settings['title_gap'] ) : '5';
 
+			// title gap
+			$settings['title_gap_description'] = (isset( $settings['title_gap_description'] ) && $settings['title_gap_description'] != '') ? esc_attr( $settings['title_gap_description'] ) : '5';
+
 			// title letter spacing
-			$settings['title_letter_spacing'] = (isset( $settings['title_letter_spacing'] ) && $settings['title_letter_spacing'] != '') ? esc_attr( $settings['title_letter_spacing'] ) : '';
+			$settings['title_letter_spacing'] = (isset( $settings['title_letter_spacing'] ) && $settings['title_letter_spacing'] != '') ? esc_attr( $settings['title_letter_spacing'] ) : 0;
 
 			// title position
 			$settings['title_position'] = isset( $settings['title_position'] ) && $settings['title_position'] != '' ? esc_attr( $settings['title_position'] ) : 'left';
@@ -1518,7 +1530,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['description_text_transform'] = isset( $settings['description_text_transform'] ) && $settings['description_text_transform'] != '' ? esc_attr( $settings['description_text_transform'] ) : 'none';
 
 			// description letter spacing
-			$settings['description_letter_spacing'] = isset( $settings['description_letter_spacing'] ) && $settings['description_letter_spacing'] != '' ? esc_attr( $settings['description_letter_spacing'] ) : '';
+			$settings['description_letter_spacing'] = isset( $settings['description_letter_spacing'] ) && $settings['description_letter_spacing'] != '' ? esc_attr( $settings['description_letter_spacing'] ) : 0;
 
 			// description text decoration
 			$settings['description_text_decoration'] = isset( $settings['description_text_decoration'] ) && $settings['description_text_decoration'] != '' ? esc_attr( $settings['description_text_decoration'] ) : 'none';

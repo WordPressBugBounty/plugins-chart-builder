@@ -4812,6 +4812,7 @@ class Chart_Builder_Admin {
 		$title_shadow_color = $settings['title_shadow_color'];
 		$title_font_size = $settings['title_font_size'];
 		$title_gap = $settings['title_gap'];
+		$title_gap_description = $settings['title_gap_description'];
 		$title_positions = $settings['title_positions'];
         $title_position = $settings['title_position'];
         $title_bold = $settings['title_bold'];
@@ -4918,6 +4919,20 @@ class Chart_Builder_Admin {
                     </div>
                     <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-title-gap" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[title_gap]" value="<?php echo esc_attr($title_gap) ?>">
+						<div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
+                    </div>
+                </div> <!-- Chart title gap -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-title-gap-description" class="form-label">
+                            <?php echo esc_html(__( "Distance from description", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart title and the chart description.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-title-gap-description" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[title_gap_description]" value="<?php echo esc_attr($title_gap_description) ?>">
 						<div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
                     </div>
                 </div> <!-- Chart title gap -->
@@ -5032,6 +5047,7 @@ class Chart_Builder_Admin {
 		$title_shadow_color = $settings['title_shadow_color'];
 		$title_font_size = $settings['title_font_size'];
 		$title_gap = $settings['title_gap'];
+		$title_gap_description = $settings['title_gap_description'];
 		$title_positions = $settings['title_positions'];
         $title_position = $settings['title_position'];
         $title_bold = $settings['title_bold'];
@@ -5138,6 +5154,20 @@ class Chart_Builder_Admin {
                     </div>
                     <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-title-gap" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[title_gap]" value="<?php echo esc_attr($title_gap) ?>">
+						<div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
+                    </div>
+                </div> <!-- Chart title gap -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-title-gap-description" class="form-label">
+                            <?php echo esc_html(__( "Distance from description", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart title and the chart description.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-title-gap-description" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[title_gap_description]" value="<?php echo esc_attr($title_gap_description) ?>">
 						<div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
                     </div>
                 </div> <!-- Chart title gap -->

@@ -304,6 +304,7 @@ class Chart_Builder_Public {
 				text-transform: " . $settings['title_text_transform'] . ";
 				text-decoration: " . $settings['title_text_decoration'] . ";
 				letter-spacing: " . $settings['title_letter_spacing'] . "px;
+				margin-bottom: " . $settings['title_gap_description'] . "px;
 			}
 
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "header-container>." . $this->html_class_prefix . "charts-description" . $this->unique_id . " {
@@ -377,6 +378,7 @@ class Chart_Builder_Public {
 				text-transform: " . $settings['title_text_transform'] . ";
 				text-decoration: " . $settings['title_text_decoration'] . ";
 				letter-spacing: " . $settings['title_letter_spacing'] . "px;
+				margin-bottom: " . $settings['title_gap_description'] . "px;
 			}
 
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "header-container>." . $this->html_class_prefix . "charts-description" . $this->unique_id . " {
