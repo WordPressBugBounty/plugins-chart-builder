@@ -3374,6 +3374,7 @@ class Chart_Builder_Admin {
 		?>
         <div class="ays-accordion-data-main-wrap <?= $html_class_prefix ?>options-haxis-settings-tab cb-changable-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
+                <h6>Label</h6>
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-title" class="form-label">
@@ -3390,7 +3391,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-label-font-size" class="form-label">
-                            <?php echo esc_html(__( "Label font size", "chart-builder" )); ?>
+                            <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the horizontal axis label.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3403,7 +3404,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-label-color">
-				            <?php echo esc_html(__( "Label color", "chart-builder" )); ?>
+				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the horizontal axis label.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3416,7 +3417,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-title-italic">
-				            <?php echo esc_html(__( "Italic label", "chart-builder" )); ?>
+				            <?php echo esc_html(__( "Italic", "chart-builder" )); ?>
 							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to make chart horizontal axis label italic.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3432,7 +3433,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-title-bold">
-				            <?php echo esc_html(__( "Bold label", "chart-builder" )); ?>
+				            <?php echo esc_html(__( "Bold", "chart-builder" )); ?>
 							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to make chart horizontal axis label bold.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3445,10 +3446,26 @@ class Chart_Builder_Admin {
                         </label>
                     </div>
                 </div> <!-- Bold label -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt cb-line_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-haxis-show-text-every" class="form-label">
+                            <?php echo esc_html(__( "Interval", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("How many horizontal axis labels to show, where 1 means show every label, 2 means show every other label, and so on. 0 is to try to show as many labels as possible without overlapping.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-show-text-every" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_show_text_every]" value="<?php echo esc_attr($haxis_show_text_every) ?>" step="1" min="0">
+                    </div>
+                </div> <!-- Label interval -->
+
+                <br>
+                <h6>Text</h6>
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-text-position" class="form-label">
-                            <?php echo esc_html(__( "Text position", "chart-builder" )); ?>
+                            <?php echo esc_html(__( "Position", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Position of the horizontal axis text, relative to the chart area.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3469,6 +3486,32 @@ class Chart_Builder_Admin {
                 </div> <!-- Horizontal axis text position -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-haxis-text-color">
+				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the horizontal axis text.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-haxis-text-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_text_color]" value="<?php echo esc_attr($haxis_text_color) ?>">
+                    </div>
+                </div> <!-- Horizontal axis text color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-haxis-text-font-size" class="form-label">
+                            <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the horizontal axis text.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-text-font-size" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_text_font_size]" value="<?php echo esc_attr($haxis_text_font_size) ?>">
+                    </div>
+                </div> <!-- Horizontal axis text font size -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-text-direction">
 				            <?php echo esc_html(__( "Reverse Direction", "chart-builder" )); ?>
 							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The direction in which the values grow along the horizontal axis. By default, low values are on the left of the chart.","chart-builder") ); ?>">
@@ -3485,34 +3528,8 @@ class Chart_Builder_Admin {
                 </div> <!-- Horizontal axis text direction -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-haxis-text-color">
-				            <?php echo esc_html(__( "Text color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the horizontal axis text.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input id="ays-chart-option-haxis-text-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_text_color]" value="<?php echo esc_attr($haxis_text_color) ?>">
-                    </div>
-                </div> <!-- Horizontal axis text color -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-haxis-text-font-size" class="form-label">
-                            <?php echo esc_html(__( "Text font size", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the horizontal axis text.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-text-font-size" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_text_font_size]" value="<?php echo esc_attr($haxis_text_font_size) ?>">
-                    </div>
-                </div> <!-- Horizontal axis text font size -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-italic">
-				            <?php echo esc_html(__( "Italic text", "chart-builder" )); ?>
+				            <?php echo esc_html(__( "Italic", "chart-builder" )); ?>
 							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to make chart horizontal axis text italic.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3528,7 +3545,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-bold">
-				            <?php echo esc_html(__( "Bold text", "chart-builder" )); ?>
+				            <?php echo esc_html(__( "Bold", "chart-builder" )); ?>
 							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to make chart horizontal axis text bold.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3576,6 +3593,64 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-slanted-text-angle" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_slanted_text_angle]" value="<?php echo esc_attr($haxis_slanted_text_angle) ?>" step="15" min="-90" max="90">
                     </div>
                 </div> <!-- Horizontal axis slanted text angle -->
+
+                <br>
+                <h6>Gridlines</h6>
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-haxis-gridlines-count" class="form-label">
+                            <?php echo esc_html(__( "Count", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The approximate number of vertical gridlines inside the chart area. If you specify a positive number for gridlines count, it will be used to compute the min spacing between gridlines. You can specify a value of 1 to only draw one gridline, or 0 to draw no gridlines. Specify -1, which is the default, to automatically compute the number of gridlines based on other options. Note: This option will not work with 'Rotate vertical' option.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-gridlines-count" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_gridlines_count]" value="<?php echo esc_attr($haxis_gridlines_count) ?>">
+                    </div>
+                </div> <!-- Horizontal axis gridlines count -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-haxis-gridlines-color">
+				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the horizontal axis gridlines.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-haxis-gridlines-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_gridlines_color]" value="<?php echo esc_attr($haxis_gridlines_color) ?>">
+                    </div>
+                </div> <!-- Horizontal axis gridlines color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-haxis-minor-gridlines-color">
+				            <?php echo esc_html(__( "Minor gridlines color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the horizontal axis minor gridlines.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-haxis-minor-gridlines-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_minor_gridlines_color]" value="<?php echo esc_attr($haxis_minor_gridlines_color) ?>">
+                    </div>
+                </div> <!-- Horizontal axis minor gridlines color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt cb-line_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-haxis-baseline-color">
+				            <?php echo esc_html(__( "Baseline color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specifies the color of the baseline for the horizontal axis.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-haxis-baseline-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_baseline_color]" value="<?php echo esc_attr($haxis_baseline_color) ?>">
+                    </div>
+                </div> <!-- Horizontal axis baseline color -->
+
+                <br>
+                <h6>Format</h6>
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-format" class="form-label">
@@ -3642,71 +3717,6 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-min-value" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_min_value]" value="<?php echo esc_attr($haxis_min_value) ?>">
                     </div>
                 </div> <!-- Horizontal axis min value -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-haxis-gridlines-count" class="form-label">
-                            <?php echo esc_html(__( "Gridlines count", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The approximate number of vertical gridlines inside the chart area. If you specify a positive number for gridlines count, it will be used to compute the min spacing between gridlines. You can specify a value of 1 to only draw one gridline, or 0 to draw no gridlines. Specify -1, which is the default, to automatically compute the number of gridlines based on other options. Note: This option will not work with 'Rotate vertical' option.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-gridlines-count" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_gridlines_count]" value="<?php echo esc_attr($haxis_gridlines_count) ?>">
-                    </div>
-                </div> <!-- Horizontal axis gridlines count -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-haxis-gridlines-color">
-				            <?php echo esc_html(__( "Gridlines color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the horizontal axis gridlines.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input id="ays-chart-option-haxis-gridlines-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_gridlines_color]" value="<?php echo esc_attr($haxis_gridlines_color) ?>">
-                    </div>
-                </div> <!-- Horizontal axis gridlines color -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-haxis-minor-gridlines-color">
-				            <?php echo esc_html(__( "Minor gridlines color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the horizontal axis minor gridlines.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input id="ays-chart-option-haxis-minor-gridlines-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_minor_gridlines_color]" value="<?php echo esc_attr($haxis_minor_gridlines_color) ?>">
-                    </div>
-                </div> <!-- Horizontal axis minor gridlines color -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt cb-line_chart-opt">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-haxis-baseline-color">
-				            <?php echo esc_html(__( "Baseline color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specifies the color of the baseline for the horizontal axis.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input id="ays-chart-option-haxis-baseline-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_baseline_color]" value="<?php echo esc_attr($haxis_baseline_color) ?>">
-                    </div>
-                </div> <!-- Horizontal axis baseline color -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt cb-line_chart-opt">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-haxis-show-text-every" class="form-label">
-                            <?php echo esc_html(__( "Label interval", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("How many horizontal axis labels to show, where 1 means show every label, 2 means show every other label, and so on. 0 is to try to show as many labels as possible without overlapping.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-show-text-every" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_show_text_every]" value="<?php echo esc_attr($haxis_show_text_every) ?>" step="1" min="0">
-                    </div>
-                </div> <!-- Horizontal axis slanted text angle -->
             </div>
         </div>
 		<?php
@@ -3752,6 +3762,7 @@ class Chart_Builder_Admin {
 		?>
         <div class="ays-accordion-data-main-wrap <?= $html_class_prefix ?>options-vaxis-settings-tab cb-changable-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
+                <h6>Label</h6>
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-title" class="form-label">
@@ -3768,7 +3779,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-label-font-size" class="form-label">
-                            <?php echo esc_html(__( "Label font size", "chart-builder" )); ?>
+                            <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the vertical axis label.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3781,7 +3792,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-label-color">
-				            <?php echo esc_html(__( "Label color", "chart-builder" )); ?>
+				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the horizontal axis label.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3794,7 +3805,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-title-italic">
-				            <?php echo esc_html(__( "Italic label", "chart-builder" )); ?>
+				            <?php echo esc_html(__( "Italic", "chart-builder" )); ?>
 							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to make chart vertical axis label italic.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3810,7 +3821,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-title-bold">
-				            <?php echo esc_html(__( "Bold label", "chart-builder" )); ?>
+				            <?php echo esc_html(__( "Bold", "chart-builder" )); ?>
 							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to make chart vertical axis label bold.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3823,10 +3834,13 @@ class Chart_Builder_Admin {
                         </label>
                     </div>
                 </div> <!-- Bold label -->
+                
+                <br>
+                <h6>Text</h6>
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-text-position" class="form-label">
-                            <?php echo esc_html(__( "Text position", "chart-builder" )); ?>
+                            <?php echo esc_html(__( "Position", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Position of the vertical axis text, relative to the chart area.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3844,7 +3858,33 @@ class Chart_Builder_Admin {
 				            ?>
                         </select>
                     </div>
-                </div> <!-- Vertical text position -->
+                </div> <!-- Vertical axis text position -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-vaxis-text-color">
+				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the vertical axis text.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-vaxis-text-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_text_color]" value="<?php echo esc_attr($vaxis_text_color) ?>">
+                    </div>
+                </div> <!-- Vertical axis text color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-vaxis-text-font-size" class="form-label">
+                            <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the horizontal axis text.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-vaxis-text-font-size" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_text_font_size]" value="<?php echo esc_attr($vaxis_text_font_size) ?>">
+                    </div>
+                </div> <!-- Vertical axis text font size -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-text-direction">
@@ -3861,32 +3901,6 @@ class Chart_Builder_Admin {
                         </label>
                     </div>
                 </div> <!-- Vertical axis text direction -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-vaxis-text-color">
-				            <?php echo esc_html(__( "Text color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the vertical axis text.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input id="ays-chart-option-vaxis-text-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_text_color]" value="<?php echo esc_attr($vaxis_text_color) ?>">
-                    </div>
-                </div> <!-- Vertical axis text color -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-vaxis-text-font-size" class="form-label">
-                            <?php echo esc_html(__( "Text font size", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the horizontal axis text.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-vaxis-text-font-size" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_text_font_size]" value="<?php echo esc_attr($vaxis_text_font_size) ?>">
-                    </div>
-                </div> <!-- Vertical axis text font size -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-italic">
@@ -3919,6 +3933,64 @@ class Chart_Builder_Admin {
                         </label>
                     </div>
                 </div> <!-- Bold text -->
+
+                <br>
+                <h6>Gridlines</h6>
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-vaxis-gridlines-count" class="form-label">
+                            <?php echo esc_html(__( "Count", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The approximate number of horizontal gridlines inside the chart area. If you specify a positive number for gridlines count, it will be used to compute the min spacing between gridlines. You can specify a value of 1 to only draw one gridline, or 0 to draw no gridlines. Specify -1, which is the default, to automatically compute the number of gridlines based on other options. Note: This option will not work with 'Rotate vertical' option.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-vaxis-gridlines-count" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_gridlines_count]" value="<?php echo esc_attr($vaxis_gridlines_count) ?>">
+                    </div>
+                </div> <!-- Vertical axis gridlines count -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-vaxis-gridlines-color">
+				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the vertical axis gridlines.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-vaxis-gridlines-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_gridlines_color]" value="<?php echo esc_attr($vaxis_gridlines_color) ?>">
+                    </div>
+                </div> <!-- Vertical axis gridlines color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-vaxis-minor-gridlines-color">
+				            <?php echo esc_html(__( "Minor gridlines color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the vertical axis minor gridlines.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-vaxis-minor-gridlines-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_minor_gridlines_color]" value="<?php echo esc_attr($vaxis_minor_gridlines_color) ?>">
+                    </div>
+                </div> <!-- Vertical axis minor gridlines color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt cb-line_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-vaxis-baseline-color">
+				            <?php echo esc_html(__( "Baseline color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specifies the color of the baseline for the vertical axis.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-vaxis-baseline-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_baseline_color]" value="<?php echo esc_attr($vaxis_baseline_color) ?>">
+                    </div>
+                </div> <!-- Vertical axis baseline color -->
+                                
+                <br>
+                <h6>Format</h6>
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-format" class="form-label">
@@ -3985,58 +4057,6 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-vaxis-min-value" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_min_value]" value="<?php echo esc_attr($vaxis_min_value) ?>">
                     </div>
                 </div> <!-- Vertical axis min value -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-vaxis-gridlines-count" class="form-label">
-                            <?php echo esc_html(__( "Gridlines count", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The approximate number of horizontal gridlines inside the chart area. If you specify a positive number for gridlines count, it will be used to compute the min spacing between gridlines. You can specify a value of 1 to only draw one gridline, or 0 to draw no gridlines. Specify -1, which is the default, to automatically compute the number of gridlines based on other options. Note: This option will not work with 'Rotate vertical' option.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-vaxis-gridlines-count" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_gridlines_count]" value="<?php echo esc_attr($vaxis_gridlines_count) ?>">
-                    </div>
-                </div> <!-- Vertical axis gridlines count -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-vaxis-gridlines-color">
-				            <?php echo esc_html(__( "Gridlines color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the vertical axis gridlines.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input id="ays-chart-option-vaxis-gridlines-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_gridlines_color]" value="<?php echo esc_attr($vaxis_gridlines_color) ?>">
-                    </div>
-                </div> <!-- Vertical axis gridlines color -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-vaxis-minor-gridlines-color">
-				            <?php echo esc_html(__( "Minor gridlines color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the vertical axis minor gridlines.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input id="ays-chart-option-vaxis-minor-gridlines-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_minor_gridlines_color]" value="<?php echo esc_attr($vaxis_minor_gridlines_color) ?>">
-                    </div>
-                </div> <!-- Vertical axis minor gridlines color -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt cb-line_chart-opt">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                        <label for="ays-chart-option-vaxis-baseline-color">
-				            <?php echo esc_html(__( "Baseline color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specifies the color of the baseline for the vertical axis.","chart-builder") ); ?>">
-                                <i class="ays_fa ays_fa_info_circle"></i>
-                            </a>
-                        </label>
-                    </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                        <input id="ays-chart-option-vaxis-baseline-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_baseline_color]" value="<?php echo esc_attr($vaxis_baseline_color) ?>">
-                    </div>
-                </div> <!-- Vertical axis baseline color -->
             </div>
         </div>
 		<?php

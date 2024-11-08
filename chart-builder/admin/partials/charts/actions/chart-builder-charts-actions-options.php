@@ -347,7 +347,7 @@
             if ($action === "add") {
                 // Chart source type
                 $allowed_sources = ['google-charts', 'chart-js'];
-                $chart_source_type = isset($_GET['source']) && in_array($chart_source_type, $allowed_sources, true) ? sanitize_text_field($_GET['source']) : 'google-charts';
+                $chart_source_type = isset($_GET['source']) && in_array($_GET['source'], $allowed_sources, true) ? sanitize_text_field($_GET['source']) : 'google-charts';
 
                 // Chart type
                 $source_chart_type = isset($_GET['type']) ? sanitize_text_field($_GET['type']) : 'pie_chart';
