@@ -119,38 +119,48 @@
 			}
 		});
 
-		$(document).find("input#ays-chart-search-input + button#ays-chart-search").on("click", function (e) {
+		function performSearch() {
 			var _this  = $(this);
-            var parent = _this.parents('form');
-            
-            var search_input = parent.find('input#ays-chart-search-input');
-            var input_value  = search_input.val();
+			var parent = _this.parents('form');
 			
-            var field = 's';
-            var flag = false;
-            var url = window.location.href;
-            if (url.indexOf('?' + field + '=') != -1) {
-				flag = true;
-            } else if (url.indexOf('&' + field + '=') != -1) {
-				flag = true;
-            }
+			var search_input = parent.find('input#ays-chart-search-input');
+			var input_value  = search_input.val();
 			
-			// location.href = location.href.replace(/&paged=([^&]$|[^&]*)/i, "&paged=1");
-            if (flag) {
+			var field = 's';
+			var flag = false;
+			var url = window.location.href;
+			if (url.indexOf('?' + field + '=') != -1) {
+				flag = true;
+			} else if (url.indexOf('&' + field + '=') != -1) {
+				flag = true;
+			}
+			
+			if (flag) {
 				if (typeof input_value != 'undefined' && input_value != "") {
-					url = location.href.replace(/&s=([^&]$|[^&]*)/i, "&s="+input_value);
+					url = location.href.replace(/&s=([^&]$|[^&]*)/i, "&s=" + input_value);
 				} else if (input_value == "") {
 					url = location.href.replace(/&s=([^&]$|[^&]*)/i, "");
 				}
-            } else {
+			} else {
 				if (typeof input_value != 'undefined' && input_value != "") {
 					url = location.href + "&s=" + input_value;
 				}
 			}
-
-			e.preventDefault();
+			
 			location.href = url.replace(/&paged=([^&]$|[^&]*)/i, "&paged=1");
-        });
+		}
+	
+		$(document).find("input#ays-chart-search-input + button#ays-chart-search").on("click", function (e) {
+			e.preventDefault();
+			performSearch.call(this);
+		});
+	
+		$(document).on("keypress", '#ays-chart-search-input', function (e) {
+			if (e.which === 13) {
+				e.preventDefault();
+				performSearch.call(this);
+			}
+		});
 
 		$(document).on("click", "button[id^='ays-chart-filter']", function (e) {
 			e.preventDefault();

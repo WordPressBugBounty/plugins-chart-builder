@@ -6,6 +6,9 @@
                     <img src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/cross.png">
                 </a>
             </div>
+            <div>
+                <h4 style="text-align:center;margin-top:8px;margin-bottom:0"><?php echo esc_html__('Choose the chart source', 'chart-builder'); ?></h4>
+            </div>
             <div class="<?php echo esc_attr($html_class_prefix); ?>layer_box_source_type">
                 <select class="<?php echo esc_attr($html_class_prefix); ?>layer_box_source_type_select">
                     <option value="google-charts"><?php echo __('Google Charts', 'chart-builder'); ?></option>

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2024-11-06 17:26+0400\n"
+"POT-Creation-Date: 2024-11-11 17:43+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 2.2.4\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-KeywordsList: _e;__;esc_html__\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin/class-chart-builder-admin.php:181
@@ -122,6 +122,7 @@ msgid "Sorry, minimum count of columns should be 1"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:204
+#: admin/class-chart-builder-admin.php:1690
 msgid "Activated"
 msgstr ""
 
@@ -133,6 +134,23 @@ msgstr ""
 msgid "Can't load resource."
 msgstr ""
 
+#: admin/class-chart-builder-admin.php:214
+msgid "You have entered invalid URL. Please, insert proper URL."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:215 chart/chart-builder-block-new.js:608
+#: chart/chart-builder-block.js:674
+msgid "Loading..."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:216
+msgid "Please check the filters you have configured."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:217
+msgid "Please select a few columns to include in the chart."
+msgstr ""
+
 #: admin/class-chart-builder-admin.php:218
 msgid "You have modified the chart's settings. To modify the source/data again, you must save this chart and reopen it for editing. If you continue without saving the chart, you may lose your changes."
 msgstr ""
@@ -140,6 +158,8 @@ msgstr ""
 #: admin/class-chart-builder-admin.php:300
 #: admin/class-chart-builder-admin.php:304 chart/chart-builder-block-new.js:589
 #: chart/chart-builder-block.js:655 pb_templates/chart-builder-elementor.php:9
+#: pb_templates/chart-builder-elementor.php:22
+#: pb_templates/chart-builder-elementor.php:30
 msgid "Chart Builder"
 msgstr ""
 
@@ -337,6 +357,46 @@ msgstr ""
 msgid "Hurry up! <a href='https://ays-pro.com/silver-bundle' target='_blank'>Check it out!</a>"
 msgstr ""
 
+#: admin/class-chart-builder-admin.php:1350
+msgid "Plugin activation is disabled for you on this site."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1366
+msgid "Plugin activated."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1368
+msgid "Addon activated."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1374
+msgid "Could not activate the plugin. Please activate it on the Plugins page."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1377
+msgid "Could not activate the addon. Please activate it on the Plugins page."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1391
+msgid "There was an error while performing your request."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1400
+msgid "Could not install the plugin. Please download and install it manually."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1472
+msgid "Plugin installed."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1484
+msgid "Plugin installed and activated."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1484
+msgid "Addon installed and activated."
+msgstr ""
+
 #: admin/class-chart-builder-admin.php:1538
 #: admin/partials/charts/chart-builder-charts-display.php:282
 msgid "Quiz Maker"
@@ -434,6 +494,26 @@ msgstr ""
 msgid "Create contact forms, payment forms, surveys, and many more custom forms. Build forms easily with us."
 msgstr ""
 
+#: admin/class-chart-builder-admin.php:1687
+msgid "Active"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1695
+msgid "Inactive"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1698
+msgid "Activate"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1709
+msgid "Not Installed"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:1712
+msgid "Install Plugin"
+msgstr ""
+
 #: admin/class-chart-builder-admin.php:1807
 #: admin/class-chart-builder-admin.php:1830
 #: admin/class-chart-builder-admin.php:1931
@@ -478,8 +558,8 @@ msgstr ""
 #: admin/class-chart-builder-admin.php:4354
 #: admin/class-chart-builder-admin.php:4384
 #: admin/class-chart-builder-admin.php:6247
-#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:24
-#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:63
+#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:27
+#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:66
 #: admin/partials/settings/chart-builder-settings.php:80 chart-builder.php:137
 #: includes/class-chart-builder-integrations.php:157
 #: includes/class-chart-builder-integrations.php:224
@@ -2268,22 +2348,21 @@ msgstr ""
 msgid " settings"
 msgstr ""
 
-#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:11
+#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:10
+msgid "Choose the chart source"
+msgstr ""
+
+#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:14
 #: admin/partials/charts/chart-builder-charts-display.php:297
 msgid "Google Charts"
 msgstr ""
 
-#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:12
-#: admin/partials/charts/chart-builder-charts-display.php:293
-msgid "Chart.js"
-msgstr ""
-
-#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:48
-#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:87
+#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:51
+#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:90
 msgid "View demo"
 msgstr ""
 
-#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:94
+#: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:97
 msgid "All Chart Types"
 msgstr ""
 
@@ -2450,6 +2529,10 @@ msgstr ""
 
 #: admin/partials/charts/chart-builder-charts-display.php:286
 msgid "Manual"
+msgstr ""
+
+#: admin/partials/charts/chart-builder-charts-display.php:293
+msgid "Chart.js"
 msgstr ""
 
 #: admin/partials/charts/chart-builder-charts-display.php:337
@@ -2767,10 +2850,6 @@ msgstr ""
 #: chart/chart-builder-block-new.js:579 chart/chart-builder-block-new.js:602
 #: chart/chart-builder-block.js:579 chart/chart-builder-block.js:668
 msgid "Something goes wrong please reload page"
-msgstr ""
-
-#: chart/chart-builder-block-new.js:608 chart/chart-builder-block.js:674
-msgid "Loading..."
 msgstr ""
 
 #: chart/chart-builder-block-new.js:615 chart/chart-builder-block.js:681
