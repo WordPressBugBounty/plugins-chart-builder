@@ -544,6 +544,9 @@ class Chart_Builder_Admin {
      * @since    1.0.0
      */
     public function add_action_links( $links ){
+
+        $chart_ajax_deactivate_plugin_nonce = wp_create_nonce( 'chart-ajax-deactivate-plugin-nonce' );
+
         /*
         *  Documentation : https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
         */
@@ -551,7 +554,8 @@ class Chart_Builder_Admin {
             '<a href="' . admin_url('admin.php?page=' . $this->plugin_name) . '">' . __('Settings', "chart-builder") . '</a>',
             '<a href="https://ays-demo.com/chart-builder-demo/" target="_blank">' . __('Demo', "chart-builder") . '</a>',
             // '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-plugins-page&utm_campaign=chart-buy-now" id="ays-chart-plugins-buy-now-button" target="_blank">' . __('Upgrade', "chart-builder") . '</a>',
-            '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-plugins-page&utm_campaign=chart-buy-now" id="ays-chart-plugins-buy-now-button" target="_blank">' . __('Upgrade 30% Sale', "chart-builder") . '</a>',
+            '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-plugins-page&utm_campaign=chart-buy-now" id="ays-chart-plugins-buy-now-button" target="_blank">' . __('Upgrade 30% Sale', "chart-builder") . '</a>
+            <input type="hidden" id="chart_ajax_deactivate_plugin_nonce" name="chart_ajax_deactivate_plugin_nonce" value="' . $chart_ajax_deactivate_plugin_nonce .'">',
         );
         return array_merge( $settings_link, $links );
 
@@ -591,17 +595,42 @@ class Chart_Builder_Admin {
 	}
 
     public function deactivate_plugin_option(){
-        $request_value = esc_attr($_REQUEST['upgrade_plugin']);
-        $upgrade_option = get_option( 'ays_chart_builder_upgrade_plugin', '' );
-        if($upgrade_option === ''){
-            add_option( 'ays_chart_builder_upgrade_plugin', $request_value );
-        }else{
-            update_option( 'ays_chart_builder_upgrade_plugin', $request_value );
+        // Run a security check.
+        check_ajax_referer( 'chart-ajax-deactivate-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
+
+        // Check for permissions.
+        if ( ! current_user_can( 'manage_options' ) ) {
+            ob_end_clean();
+            $ob_get_clean = ob_get_clean();
+            echo json_encode(array(
+                'option' => ''
+            ));
+            wp_die();
         }
-		ob_end_clean();
-        $ob_get_clean = ob_get_clean();
-        return json_encode( array( 'option' => get_option( 'ays_chart_builder_upgrade_plugin', '' ) ) );
-		wp_die();
+
+        if( is_user_logged_in() ) {
+            $request_value = isset( $_REQUEST['upgrade_plugin'] ) ? sanitize_text_field( $_REQUEST['upgrade_plugin'] ) : '';
+            $upgrade_option = get_option( 'ays_chart_builder_upgrade_plugin', '' );
+
+            if ( $upgrade_option === '' ) {
+                add_option( 'ays_chart_builder_upgrade_plugin', $request_value );
+            } else {
+                update_option( 'ays_chart_builder_upgrade_plugin', $request_value );
+            }
+
+            $response = array(
+                'option' => get_option( 'ays_chart_builder_upgrade_plugin', '' ),
+            );
+
+            wp_send_json_success( $response );
+        } else {
+            ob_end_clean();
+            $ob_get_clean = ob_get_clean();
+            echo json_encode(array(
+                'option' => ''
+            ));
+            wp_die();
+        }
     }
 
     public function chart_builder_admin_footer($a){

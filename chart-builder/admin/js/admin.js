@@ -24,9 +24,16 @@
                 return false;
             }
 
+            var wp_nonce = $(document).find('#chart_ajax_deactivate_plugin_nonce').val();
+
             var upgrade_plugin = false;
             if (result.value) upgrade_plugin = true;
-            var data = {action: 'deactivate_plugin_option_cb', upgrade_plugin: upgrade_plugin};
+            var data = {
+                action: 'deactivate_plugin_option_cb',
+                upgrade_plugin: upgrade_plugin,
+                _ajax_nonce: wp_nonce,
+            };
+
             $.ajax({
                 url: chart_builder_admin_ajax.ajax_url,
                 method: 'post',
