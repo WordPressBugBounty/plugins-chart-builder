@@ -564,6 +564,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['transparent_background'] = isset( $settings['transparent_background'] ) && $settings['transparent_background'] != '' ? esc_attr( $settings['transparent_background'] ) : 'off';
 			$settings['transparent_background'] = isset( $settings['transparent_background'] ) && $settings['transparent_background'] == 'on' ? 'checked' : '';
 
+			// Box shadow
+			$settings['box_shadow'] = isset( $settings['box_shadow'] ) && $settings['box_shadow'] != '' ? esc_attr( $settings['box_shadow'] ) : 'off';
+			$settings['box_shadow'] = isset( $settings['box_shadow'] ) && $settings['box_shadow'] == 'on' ? 'checked' : '';
+
 			// Border width
 			$settings['border_width'] = isset( $settings['border_width'] ) && $settings['border_width'] != '' ? esc_attr( $settings['border_width'] ) : '0';
 
@@ -991,6 +995,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Transparent background
 			$settings['transparent_background'] = isset( $settings['transparent_background'] ) && $settings['transparent_background'] != '' ? esc_attr( $settings['transparent_background'] ) : 'off';
+			
+			// Box shadow
+			$settings['box_shadow'] = isset( $settings['box_shadow'] ) && $settings['box_shadow'] != '' ? esc_attr( $settings['box_shadow'] ) : 'off';
+			$settings['box_shadow'] = isset( $settings['box_shadow'] ) && $settings['box_shadow'] == 'on' ? 'checked' : '';
 
 			// Border width
 			$settings['border_width'] = isset( $settings['border_width'] ) && $settings['border_width'] != '' ? esc_attr( $settings['border_width'] ) : '0';

@@ -281,6 +281,7 @@ class Chart_Builder_Public {
 				" . $settings['position'] . ";
 				border-radius: " . $settings['border_radius'] . "px;
 				overflow: hidden;
+				box-shadow: " . ($settings['box_shadow'] === 'checked' ? '2px 2px 10px 2px '.$settings['border_color'] : '') . ";
 			}
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . "[data-type='org_chart'] {
 				overflow: auto;

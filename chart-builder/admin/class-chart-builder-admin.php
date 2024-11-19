@@ -4523,6 +4523,7 @@ class Chart_Builder_Admin {
         $border_width = $settings['border_width'];
         $border_radius = $settings['border_radius'];
         $border_color = $settings['border_color'];
+        $box_shadow = $settings['box_shadow'];
 		ob_start();
 		?>
         <div class="ays-accordion-data-main-wrap">
@@ -4715,6 +4716,22 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-border-radius" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_radius]" value="<?php echo esc_attr($border_radius) ?>">
                     </div>
                 </div> <!-- Border radius -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-bar_chart-opt cb-column_chart-opt cb-line_chart-opt cb-donut_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-box-shadow" class="form-label">
+                            <?php echo esc_html(__( "Box Shadow", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to add shadow to chart's container.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+						<label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-box-shadow" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[box_shadow]" value="on" <?php echo esc_attr($box_shadow); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!-- box shadow -->
             </div>
         </div>
 		<?php

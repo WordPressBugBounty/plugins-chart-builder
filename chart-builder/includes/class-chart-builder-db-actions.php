@@ -533,6 +533,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 // == Sanitize checkboxes, radios here (only for settings array) ==
                 $settings['responsive_width'] = ( isset( $settings['responsive_width'] ) && $settings['responsive_width'] != '' ) ? sanitize_text_field($settings['responsive_width']) : 'off';
                 $settings['transparent_background'] = ( isset( $settings['transparent_background'] ) && $settings['transparent_background'] != '' ) ? sanitize_text_field($settings['transparent_background']) : 'off';
+                $settings['box_shadow'] = ( isset( $settings['box_shadow'] ) && $settings['box_shadow'] != '' ) ? sanitize_text_field($settings['box_shadow']) : 'off';
                 $settings['show_color_code'] = ( isset( $settings['show_color_code'] ) && $settings['show_color_code'] != '' ) ? sanitize_text_field($settings['show_color_code']) : 'off';
                 $settings['tooltip_italic'] = ( isset( $settings['tooltip_italic'] ) && $settings['tooltip_italic'] != '' ) ? sanitize_text_field($settings['tooltip_italic']) : 'off';
                 $settings['legend_italic'] = ( isset( $settings['legend_italic'] ) && $settings['legend_italic'] != '' ) ? sanitize_text_field($settings['legend_italic']) : 'off';
