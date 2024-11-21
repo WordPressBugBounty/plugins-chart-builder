@@ -41,7 +41,7 @@
                     <?php endforeach;
                 endif; ?>
             </div>
-            <div class="<?php echo esc_attr($html_class_prefix) ?>charts-main-container" id="<?php echo esc_attr($html_class_prefix).esc_attr($source_chart_type) ?>" style="position:sticky;top:50px;<?php echo $settings['position_styles'][$settings['position']];?>;width:<?php echo esc_attr($settings['width']).esc_attr($settings['width_format']) ?>;height:<?php echo esc_attr($settings['height']).esc_attr($settings['height_format']) ?>;border-radius:<?php echo esc_attr($settings['border_radius']) ?>px;<?php echo esc_attr($settings['box_shadow']) === "checked" ? 'box-shadow: 2px 2px 10px 2px '.$settings['border_color'] : ''; ?>"></div>
+            <div class="<?php echo esc_attr($html_class_prefix) ?>charts-main-container" id="<?php echo esc_attr($html_class_prefix).esc_attr($source_chart_type) ?>" style="position:sticky;top:50px;<?php echo $settings['position_styles'][$settings['position']];?>;width:<?php echo esc_attr($settings['width']).esc_attr($settings['width_format']) ?>;height:<?php echo esc_attr($settings['height']).esc_attr($settings['height_format']) ?>;border-radius:<?php echo esc_attr($settings['border_radius']) ?>px;<?php echo esc_attr($settings['box_shadow']) === "checked" ? 'box-shadow: 2px 2px 10px 2px '.$settings['box_shadow_color'] : ''; ?>"></div>
         </div>
         <div class="col-sm-6">
             <div>

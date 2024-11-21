@@ -325,6 +325,14 @@
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-box-shadow-color').on('input', function () {
+				if (_this.$el.find('#'+_this.htmlClassPrefix+'option-box-shadow').is(':checked')) {
+					_this.chartSourceData.settings.box_shadow_color = $(this).val();
+					_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('box-shadow', '2px 2px 10px 2px ' + _this.chartSourceData.settings.box_shadow_color);
+					_this.drawChartFunction(_this.chartData, _this.chartOptions);
+				}
+			});
+
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-chart-left-margin').on('input', function () {
 				_this.chartOptions.chartArea.left = $(this).val() === '' ? 'auto' : +$(this).val();
 				_this.chartSourceData.settings.chart_left_margin = _this.chartOptions.chartArea.left;

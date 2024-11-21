@@ -577,6 +577,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Border color
 			$settings['border_color'] = isset( $settings['border_color'] ) && $settings['border_color'] != '' ? esc_attr( $settings['border_color'] ) : '#666666';
 
+			// Box shadow color
+			$settings['box_shadow_color'] = isset( $settings['box_shadow_color'] ) && $settings['box_shadow_color'] != '' ? esc_attr( $settings['box_shadow_color'] ) : $settings['border_color'];
+
 			// Chart Area background color
 			$settings['chart_background_color'] = isset( $settings['chart_background_color'] ) && $settings['chart_background_color'] != '' ? esc_attr( $settings['chart_background_color'] ) : '#ffffff';
 
@@ -976,7 +979,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['width'] = isset( $settings['width'] ) && $settings['width'] != '' ? esc_attr( $settings['width'] ) : '100';
 			$settings['width_format'] = isset( $settings['width_format'] ) && $settings['width_format'] != '' ? esc_attr( $settings['width_format'] ) : '%';
 			$settings['responsive_width'] = ( isset( $settings['responsive_width'] ) && $settings['responsive_width'] != '' ) ? $settings['responsive_width'] : 'off';
-			$settings['chart_width'] = isset($settings['responsive_width']) && $settings['responsive_width'] == 'on' ? '100' : $settings['width'].$settings['width_format'];
+			$settings['chart_width'] = isset($settings['responsive_width']) && $settings['responsive_width'] == 'on' ? '100%' : $settings['width'].$settings['width_format'];
 			
 			// position
 			$settings['position'] = isset( $settings['position'] ) && $settings['position'] != '' ? esc_attr( $settings['position'] ) : 'center';
@@ -1008,6 +1011,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Border color
 			$settings['border_color'] = isset( $settings['border_color'] ) && $settings['border_color'] != '' ? esc_attr( $settings['border_color'] ) : '#666666';
+
+			// Box shadow color
+			$settings['box_shadow_color'] = isset( $settings['box_shadow_color'] ) && $settings['box_shadow_color'] != '' ? esc_attr( $settings['box_shadow_color'] ) : $settings['border_color'];
 
 			// Chart Area background color
 			$settings['chart_background_color'] = isset( $settings['chart_background_color'] ) && $settings['chart_background_color'] != '' ? esc_attr( $settings['chart_background_color'] ) : '#ffffff';
