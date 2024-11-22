@@ -580,7 +580,8 @@
                 hour    = minute * 60,
                 day     = hour * 24;
 
-			var chartCountdownEndTime = aysChartBuilderAdmin.chartBannerDate;
+			// var chartCountdownEndTime = aysChartBuilderAdmin.chartBannerDate;
+			var chartCountdownEndTime = "NOV 29, 2024 23:59:59";
 			var countDown_new = new Date(chartCountdownEndTime).getTime();
 
             if ( isNaN(countDown_new) || isFinite(countDown_new) == false ) {
