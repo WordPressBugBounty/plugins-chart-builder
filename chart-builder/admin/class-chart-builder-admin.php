@@ -1763,7 +1763,8 @@ class Chart_Builder_Admin {
             $api_error = $call_api->get_error_message();
         } else {
 
-            //echo $call_api; // everything ##
+            //echo $call_api; 
+            // everything ##
             if ( ! empty( $call_api->version ) ) {
                 $version_latest = $call_api->version;
             }
