@@ -1251,10 +1251,10 @@ class Chart_Builder_Admin {
                                 $content[] = '</div>';
 
                                 $content[] = '<div id="ays-chart-countdown-content" class="emoji">';
-                                    $content[] = '<span></span>';
-                                    $content[] = '<span></span>';
-                                    $content[] = '<span></span>';
-                                    $content[] = '<span></span>';
+                                    $content[] = '<span>🚀</span>';
+                                    $content[] = '<span>⌛</span>';
+                                    $content[] = '<span>🔥</span>';
+                                    $content[] = '<span>💣</span>';
                                 $content[] = '</div>';
 
                             $content[] = '</div>';
@@ -1266,14 +1266,14 @@ class Chart_Builder_Admin {
                         $content[] = '<div>';
 
                             $content[] = '<span class="ays-chart-black-friday-bundle-title">';
-                                $content[] = __( "<span><a href='https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-sale-banner' class='ays-chart-black-friday-bundle-title-link' target='_blank'>Black Friday Sale</a></span>", CHART_BUILDER_NAME );
+                                $content[] = __( "<span><a href='https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner' class='ays-chart-black-friday-bundle-title-link' target='_blank'>Black Friday Sale</a></span>", CHART_BUILDER_NAME );
                             $content[] = '</span>';
 
                             $content[] = '</br>';
 
                             $content[] = '<span class="ays-chart-black-friday-bundle-desc">';
-                                $content[] = '<a class="ays-chart-black-friday-bundle-desc" href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-sale-banner" class="ays-chart-black-friday-bundle-title-link" target="_blank">';
-                                    $content[] = __( "20% OFF", CHART_BUILDER_NAME );
+                                $content[] = '<a class="ays-chart-black-friday-bundle-desc" href="https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner" class="ays-chart-black-friday-bundle-title-link" target="_blank">';
+                                    $content[] = __( "50% OFF", CHART_BUILDER_NAME );
                                 $content[] = '</a>';
                             $content[] = '</span>';
                         $content[] = '</div>';
@@ -1293,18 +1293,16 @@ class Chart_Builder_Admin {
 
                     $content[] = '</div>';
 
-                    $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-black-friday-bundle-coupon-text-box">';
-                        $content[] = '<div class="ays-chart-black-friday-bundle-coupon-row">';
-                            $content[] = 'bfdeal20off';
-                        $content[] = '</div>';
-
-                        $content[] = '<div class="ays-chart-black-friday-bundle-text-row">';
-                            $content[] = __( '20% Extra Discount Coupon', CHART_BUILDER_NAME );
-                        $content[] = '</div>';
+                    $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-text-box">';
+                        $content[] = '<span class="ays-chart-black-friday-bundle-title">';
+                            $content[] = '<a class="ays-chart-black-friday-bundle-title-link" href="https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner" target="_blank">';
+                                $content[] = __( 'Silver Bundle', "ays-popup-box" );
+                            $content[] = '</a>';
+                        $content[] = '</span>';
                     $content[] = '</div>';
 
                     $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-button-box">';
-                        $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-sale-banner" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', CHART_BUILDER_NAME ) . '</a>';
+                        $content[] = '<a href="https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', CHART_BUILDER_NAME ) . '</a>';
                         $content[] = '<span class="ays-chart-dicount-one-time-text">';
                             $content[] = __( "One-time payment", CHART_BUILDER_NAME );
                         $content[] = '</span>';
