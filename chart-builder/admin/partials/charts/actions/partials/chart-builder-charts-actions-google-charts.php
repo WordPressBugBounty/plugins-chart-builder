@@ -44,13 +44,13 @@
 
             <div class="<?php echo esc_attr($html_class_prefix) ?>header-container">
                 <?php if ($settings['show_title'] == 'checked') : ?>
-                    <div class="<?php echo esc_attr($html_class_prefix) ?>charts-title <?php echo esc_attr($html_class_prefix) ?>charts-title">
+                    <div class="<?php echo esc_attr($html_class_prefix) ?>charts-title">
                         <?php echo esc_attr($title); ?>
                     </div>
                 <?php endif; ?>
                 
                 <?php if ($settings['show_description'] == 'checked') : ?>
-                    <div class="<?php echo esc_attr($html_class_prefix) ?>charts-description <?php echo esc_attr($html_class_prefix) ?>charts-description">
+                    <div class="<?php echo esc_attr($html_class_prefix) ?>charts-description">
                         <?php echo esc_attr($description); ?>
                     </div>
                 <?php endif; ?>

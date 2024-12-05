@@ -196,6 +196,16 @@
 	ChartBuilderGoogleCharts.prototype.liveSettingsPreview = function () {
 		var _this = this;
 
+		// title
+			_this.$el.find('#ays-title').on('input', function () {
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').text($(this).val());
+			});
+			
+		// description
+			_this.$el.find('#'+_this.htmlClassPrefix+'description').on('input', function () {
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').text($(this).val());
+			});
+
 		// general settings
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-width').on('input', function () {
 				var format = _this.$el.find('#'+_this.htmlClassPrefix+'option-width-format').val() == '%' ? '%' : '';

@@ -149,29 +149,40 @@
 	ChartBuilderChartsJs.prototype.liveSettingsPreview = function () {
 		var _this = this;
 
-		_this.$el.find('#'+_this.htmlClassPrefix+'option-outer-radius').on('input', function () {
-			_this.chartSourceData.settings.outer_radius = $(this).val();
-			_this.chartObject.options.radius = _this.chartSourceData.settings.outer_radius;
-			_this.chartObject.update();
-		});
+		// title
+			_this.$el.find('#ays-title').on('input', function () {
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').text($(this).val());
+			});
 		
-		_this.$el.find('#'+_this.htmlClassPrefix+'option-slice-spacing').on('input', function () {
-			_this.chartSourceData.settings.slice_spacing = $(this).val();
-			_this.chartObject.options.spacing = _this.chartSourceData.settings.slice_spacing;
-			_this.chartObject.update();
-		});
-		
-		_this.$el.find('#'+_this.htmlClassPrefix+'option-circumference').on('input', function () {
-			_this.chartSourceData.settings.circumference = $(this).val();
-			_this.chartObject.options.circumference = _this.chartSourceData.settings.circumference;
-			_this.chartObject.update();
-		});
-		
-		_this.$el.find('#'+_this.htmlClassPrefix+'option-start-angle').on('input', function () {
-			_this.chartSourceData.settings.start_angle = $(this).val();
-			_this.chartObject.options.rotation = _this.chartSourceData.settings.start_angle;
-			_this.chartObject.update();
-		});
+		// description
+			_this.$el.find('#'+_this.htmlClassPrefix+'description').on('input', function () {
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').text($(this).val());
+			});
+
+		// advanced options
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-outer-radius').on('input', function () {
+				_this.chartSourceData.settings.outer_radius = $(this).val();
+				_this.chartObject.options.radius = _this.chartSourceData.settings.outer_radius;
+				_this.chartObject.update();
+			});
+			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-slice-spacing').on('input', function () {
+				_this.chartSourceData.settings.slice_spacing = $(this).val();
+				_this.chartObject.options.spacing = _this.chartSourceData.settings.slice_spacing;
+				_this.chartObject.update();
+			});
+			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-circumference').on('input', function () {
+				_this.chartSourceData.settings.circumference = $(this).val();
+				_this.chartObject.options.circumference = _this.chartSourceData.settings.circumference;
+				_this.chartObject.update();
+			});
+			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-start-angle').on('input', function () {
+				_this.chartSourceData.settings.start_angle = $(this).val();
+				_this.chartObject.options.rotation = _this.chartSourceData.settings.start_angle;
+				_this.chartObject.update();
+			});
 	}
 
 	ChartBuilderChartsJs.prototype.detectManualChange = function (e) {
