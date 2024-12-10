@@ -422,7 +422,7 @@
 
 
 /* 20% sale banner start */
-    /* div#ays-chart-dicount-month-main {
+    div#ays-chart-dicount-month-main {
         border: 0;
         background: #FFF;
         border-radius: 20px;
@@ -828,7 +828,7 @@
             min-height: 50px;
             font-size: 30px;
         }
-    } */
+    }
 /* 20% sale banner end */
 
 
@@ -1929,7 +1929,7 @@
 
 
 /* Black friday banner 2024 start */
-    div#ays-chart-black-friday-bundle-dicount-month-main {
+    /* div#ays-chart-black-friday-bundle-dicount-month-main {
         border: 0;
         background: #FFF;
         border-radius: 20px;
@@ -2451,5 +2451,5 @@
             min-height: 50px;
             min-width: 50px;
         }
-    }
+    } */
 /* Black friday banner 2024 end */
