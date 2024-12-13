@@ -116,8 +116,8 @@
 				},
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				enableInteractivity: nSettings.enableInteractivity,
 				legend: {
@@ -191,8 +191,8 @@
 				fontSize: nSettings.chartFontSize,
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				chartArea: {
 					backgroundColor: {
@@ -345,8 +345,8 @@
 				fontSize: nSettings.chartFontSize,
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				chartArea: {
 					backgroundColor: {
@@ -498,8 +498,8 @@
 				fontSize: nSettings.chartFontSize,
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				chartArea: {
 					backgroundColor: {
@@ -669,8 +669,8 @@
 				},
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				enableInteractivity: nSettings.enableInteractivity,
 				legend: {
@@ -786,8 +786,8 @@
 
 		newSettings.chartFontSize = settings['font_size'];
 		newSettings.backgroundColor = settings['transparent_background'] && settings['transparent_background'] === 'on' ? 'transparent' : settings['background_color'];
-		newSettings.borderWidth = settings['border_width'];
-		newSettings.borderColor = settings['border_color'];
+		// newSettings.borderWidth = settings['border_width'];
+		// newSettings.borderColor = settings['border_color'];
 		newSettings.tooltipTrigger = settings['tooltip_trigger'];
 		newSettings.tooltipText = settings['tooltip_text'];
 		newSettings.showColorCode = (settings['show_color_code'] == 'on') ? true : false;

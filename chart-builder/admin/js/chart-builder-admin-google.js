@@ -298,12 +298,19 @@
 			});
 			
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-width').on('input', function () {
-				_this.chartOptions.backgroundColor.strokeWidth = $(this).val();
-				_this.chartSourceData.settings.border_width = _this.chartOptions.backgroundColor.strokeWidth;
+				_this.chartSourceData.settings.border_width = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-width', $(this).val() + 'px');
+				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+			});
+
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-color').on('input', function () {
+				_this.chartSourceData.settings.border_color = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-color', $(this).val());
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});
 
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-radius').on('input', function () {
+				_this.chartSourceData.settings.border_radius = $(this).val();
 				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-radius', $(this).val() + 'px');
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});
@@ -311,12 +318,6 @@
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-chart-border-width').on('input', function () {
 				_this.chartOptions.chartArea.backgroundColor.strokeWidth = $(this).val();
 				_this.chartSourceData.settings.chart_border_width = _this.chartOptions.chartArea.backgroundColor.strokeWidth;
-				_this.drawChartFunction(_this.chartData, _this.chartOptions);
-			});
-			
-			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-color').on('input', function () {
-				_this.chartOptions.backgroundColor.stroke = $(this).val();
-				_this.chartSourceData.settings.border_color = _this.chartOptions.backgroundColor.stroke;
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});
 			
@@ -1368,8 +1369,8 @@
 				},
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				enableInteractivity: nSettings.enableInteractivity,
 				legend: {
@@ -1443,8 +1444,8 @@
 				fontSize: nSettings.chartFontSize,
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				chartArea: {
 					backgroundColor: {
@@ -1597,8 +1598,8 @@
 				fontSize: nSettings.chartFontSize,
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				chartArea: {
 					backgroundColor: {
@@ -1751,8 +1752,8 @@
 				fontSize: nSettings.chartFontSize,
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				chartArea: {
 					backgroundColor: {
@@ -1921,8 +1922,8 @@
 				},
 				backgroundColor: {
 					fill: nSettings.backgroundColor,
-					strokeWidth: nSettings.borderWidth,
-					stroke: nSettings.borderColor
+					// strokeWidth: nSettings.borderWidth,
+					// stroke: nSettings.borderColor
 				},
 				enableInteractivity: nSettings.enableInteractivity,
 				legend: {
@@ -2080,8 +2081,8 @@
 
 		newSettings.chartFontSize = settings['font_size'];
 		newSettings.backgroundColor = settings['transparent_background'] && settings['transparent_background'] === 'checked' ? 'transparent' : settings['background_color'];
-		newSettings.borderWidth = settings['border_width'];
-		newSettings.borderColor = settings['border_color'];
+		// newSettings.borderWidth = settings['border_width'];
+		// newSettings.borderColor = settings['border_color'];
 		newSettings.tooltipTrigger = settings['tooltip_trigger'];
 		newSettings.tooltipText = settings['tooltip_text'];
 		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
