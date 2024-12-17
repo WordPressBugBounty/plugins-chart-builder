@@ -275,6 +275,10 @@ class Chart_Builder_Public {
 		$content[] = "</div>";
 
 		$custom_css = "
+			#" . $this->html_class_prefix . "container" . $this->unique_id . " {
+				border: " . $settings['border_width_with_title'] . "px solid #000000;
+			}
+				
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . " {
 				width: " . $settings['chart_width'] . ";
 				height: " . $settings['chart_height'] . ";
@@ -284,6 +288,7 @@ class Chart_Builder_Public {
 				overflow: hidden;
 				box-shadow: " . ($settings['box_shadow'] === 'checked' ? '2px 2px 10px 2px '.$settings['box_shadow_color'] : '') . ";
 			}
+
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . "[data-type='org_chart'] {
 				overflow: auto;
 			}
