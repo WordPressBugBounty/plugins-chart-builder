@@ -321,6 +321,12 @@
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});
 			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-color-with-title').on('input', function () {
+				_this.chartSourceData.settings.border_color_with_title = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'container').css('border-color', $(this).val());
+				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+			});
+			
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-chart-border-width').on('input', function () {
 				_this.chartOptions.chartArea.backgroundColor.strokeWidth = $(this).val();
 				_this.chartSourceData.settings.chart_border_width = _this.chartOptions.chartArea.backgroundColor.strokeWidth;
