@@ -64,6 +64,7 @@
                 <?php
                     echo "div." . $html_class_prefix . "container {
                             border: " . $settings['border_width_with_title'] . "px solid " . $settings['border_color_with_title'] . ";
+                            border-radius: " . $settings['border_radius_with_title'] . "px;
                         }
                             
                         div." . $html_class_prefix . "header-container {
