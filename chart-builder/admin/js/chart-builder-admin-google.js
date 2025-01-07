@@ -333,6 +333,12 @@
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});
 			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-padding-outer').on('input', function () {
+				_this.chartSourceData.settings.padding_outer = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'container').css('padding', $(this).val() + 'px');
+				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+			});
+			
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-chart-border-width').on('input', function () {
 				_this.chartOptions.chartArea.backgroundColor.strokeWidth = $(this).val();
 				_this.chartSourceData.settings.chart_border_width = _this.chartOptions.chartArea.backgroundColor.strokeWidth;

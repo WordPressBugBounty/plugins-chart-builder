@@ -1358,13 +1358,13 @@ class Chart_Builder_Admin {
                         $content[] = '<div>';
 
                             $content[] = '<span class="ays-chart-christmas-top-bundle-title">';
-                                $content[] = __( "<span><a href='https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner' class='ays-chart-christmas-top-bundle-title-link' target='_blank'>Christmas Sale</a></span>", CHART_BUILDER_NAME );
+                                $content[] = __( "<span><a href='https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner".CHART_BUILDER_VERSION."' class='ays-chart-christmas-top-bundle-title-link' target='_blank'>Christmas Sale</a></span>", CHART_BUILDER_NAME );
                             $content[] = '</span>';
 
                             $content[] = '</br>';
 
                             $content[] = '<span class="ays-chart-christmas-top-bundle-desc">';
-                                $content[] = '<a class="ays-chart-christmas-top-bundle-desc" href="https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner" class="ays-chart-christmas-top-bundle-title-link" target="_blank">';
+                                $content[] = '<a class="ays-chart-christmas-top-bundle-desc" href="https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner'.CHART_BUILDER_VERSION.'" class="ays-chart-christmas-top-bundle-title-link" target="_blank">';
                                     $content[] = __( "20% Extra OFF", CHART_BUILDER_NAME );
                                 $content[] = '</a>';
                             $content[] = '</span>';
@@ -1396,7 +1396,7 @@ class Chart_Builder_Admin {
                     $content[] = '</div>';
 
                     $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-button-box">';
-                        $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', CHART_BUILDER_NAME ) . '</a>';
+                        $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner'.CHART_BUILDER_VERSION.'" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', CHART_BUILDER_NAME ) . '</a>';
                         $content[] = '<span class="ays-chart-dicount-one-time-text">';
                             $content[] = __( "One-time payment", CHART_BUILDER_NAME );
                         $content[] = '</span>';
@@ -4716,6 +4716,7 @@ class Chart_Builder_Admin {
         $border_color = $settings['border_color'];
         $box_shadow = $settings['box_shadow'];
         $box_shadow_color = $settings['box_shadow_color'];
+        $padding_outer = $settings['padding_outer'];
 		ob_start();
 		?>
         <div class="ays-accordion-data-main-wrap">
@@ -4976,6 +4977,19 @@ class Chart_Builder_Admin {
                         <input id="ays-chart-option-border-color-with-title" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_color_with_title]" value="<?php echo esc_attr($border_color_with_title) ?>">
                     </div>
                 </div> <!-- Border color with title -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-bar_chart-opt cb-column_chart-opt cb-line_chart-opt cb-donut_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-padding-outer">
+				            <?php echo esc_html(__( "Padding", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The padding of the chart container.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-padding-outer" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[padding_outer]" value="<?php echo esc_attr($padding_outer) ?>">
+                    </div>
+                </div> <!-- Padding outer -->
             </div>
         </div>
 		<?php
