@@ -2326,7 +2326,7 @@ class Chart_Builder_Admin {
                     </div>
                 </a>
             </div>
-			<div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main">
+			<div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main ays-accordion-data-main-wrap">
                 <div class="<?php echo esc_attr($html_class_prefix) ?>file-import-form">
 					<h6><?php echo __("Choose what kind of data would you like to upload.", "chart-builder"); ?></h6>
 					<select class="form-select" style="max-width: none;" id="<?php echo esc_attr($html_class_prefix) ?>import-files-file-type">
@@ -2392,7 +2392,7 @@ class Chart_Builder_Admin {
                     </div>
                 </a>
             </div>
-            <div class="<?= $html_class_prefix ?>source-data-main-wrap">
+            <div class="<?= $html_class_prefix ?>source-data-main-wrap ays-accordion-data-main-wrap ">
                 <div class="<?= $html_class_prefix ?>chart-source-data-main">
                     <div id="ays-chart-db-query">
                         <div class="<?= $html_class_prefix ?>-db-query-form">
@@ -2455,10 +2455,10 @@ class Chart_Builder_Admin {
                     </div>
                 </a>
             </div>
-            <div class="<?= $html_class_prefix ?>source-data-main-wrap">
+            <div class="<?= $html_class_prefix ?>source-data-main-wrap ays-accordion-data-main-wrap ">
                 <div class="<?= $html_class_prefix ?>chart-source-data-main">
                     <div class="form-group row mb-2">
-                        <div class="col-sm-5 <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <div class="col-sm-8 <?php echo esc_attr($html_class_prefix) ?>option-title">
                             <label class="form-label">
                                 <?php echo esc_html(__('Use custom database settings for this chart', "chart-builder")); ?>
                                 <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __(".","chart-builder") ); ?>">
@@ -2466,7 +2466,7 @@ class Chart_Builder_Admin {
                                 </a>
                             </label>
                         </div>
-                        <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <div class="col-sm-3 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                             <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
                                 <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" type="checkbox" />
                                 <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
@@ -2627,7 +2627,7 @@ class Chart_Builder_Admin {
                     </div>
                 </a>
             </div>
-            <div class="<?= $html_class_prefix ?>chart-source-data-main">
+            <div class="<?= $html_class_prefix ?>chart-source-data-main ays-accordion-data-main-wrap ">
                 <div id="ays-chart-woocommerce-datas">
                     <div class="<?= $html_class_prefix ?>woocommerce-datas-form">
                         <div id="woocommerce-datas-form">
