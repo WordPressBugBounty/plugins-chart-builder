@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2025-01-08 17:28+0400\n"
+"POT-Creation-Date: 2025-01-14 09:26+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -249,7 +249,7 @@ msgid "Buy Now !"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:889
-msgid "<span><a href='https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-plugin-name' target='_blank' style='color:#ffffff; text-decoration: underline;'>Chart Builder</a></span>"
+msgid "<span><a href='https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-plugin-name"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:898

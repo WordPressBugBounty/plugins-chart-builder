@@ -757,12 +757,12 @@ class Chart_Builder_Admin {
             if (isset($_GET['page']) && strpos($_GET['page'], CHART_BUILDER_NAME) !== false) {
                 if( !(Chart_Builder_Admin::get_max_id('charts') <= 1) ){
                     // $this->ays_chart_sale_message_30_emma($ays_chart_builder_flag);
-                    // $this->ays_chart_sale_message20($ays_chart_builder_flag);
+                    $this->ays_chart_sale_message20($ays_chart_builder_flag);
                     // $this->ays_chart_helloween_message($ays_chart_builder_flag);
                     // $this->ays_chart_christmas_message($ays_chart_builder_flag);
                     // $this->ays_chart_silver_bundle_message($ays_chart_builder_flag);
                     // $this->ays_chart_black_friday_message_2024($ays_chart_builder_flag);
-                    $this->ays_chart_christmas_message_2024($ays_chart_builder_flag);
+                    // $this->ays_chart_christmas_message_2024($ays_chart_builder_flag);
                 }
             }
         }
@@ -886,7 +886,7 @@ class Chart_Builder_Admin {
 
                         $content[] = '<div class="ays-chart-dicount-sale-name-discount-box">';
 							$content[] = '<span class="ays-chart-new-chart-pro-title">';
-								$content[] = __( "<span><a href='https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-plugin-name' target='_blank' style='color:#ffffff; text-decoration: underline;'>Chart Builder</a></span>", CHART_BUILDER_NAME );
+								$content[] = __( "<span><a href='https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-plugin-name".CHART_BUILDER_VERSION."' target='_blank' style='color:#ffffff; text-decoration: underline;'>Chart Builder</a></span>", CHART_BUILDER_NAME );
 							$content[] = '</span>';
 							$content[] = '<div>';
 								$content[] = '<img src="' . CHART_BUILDER_ADMIN_URL . '/images/ays-chart-banner-sale-30.svg" style="width: 70px;">';
@@ -938,7 +938,7 @@ class Chart_Builder_Admin {
                     $content[] = '</div>';
 
                     $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-button-box">';
-                        $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-button" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank" style="" >' . __( 'Buy Now', CHART_BUILDER_NAME ) . '</a>';
+                        $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-button'.CHART_BUILDER_VERSION.'" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank" style="" >' . __( 'Buy Now', CHART_BUILDER_NAME ) . '</a>';
                         $content[] = '<span class="ays-chart-dicount-one-time-text">';
                             $content[] = __( "One-time payment", CHART_BUILDER_NAME );
                         $content[] = '</span>';
