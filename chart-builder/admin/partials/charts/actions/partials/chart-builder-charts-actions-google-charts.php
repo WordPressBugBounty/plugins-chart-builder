@@ -63,7 +63,7 @@
             <style>
                 <?php
                     echo "div." . $html_class_prefix . "container {
-                            border: " . $settings['border_width_with_title'] . "px solid " . $settings['border_color_with_title'] . ";
+                            border: " . $settings['border_width_with_title'] . "px " . $settings['border_style_with_title'] . " " . $settings['border_color_with_title'] . ";
                             border-radius: " . $settings['border_radius_with_title'] . "px;
                             padding: " . $settings['padding_outer'] . "px;
                         }

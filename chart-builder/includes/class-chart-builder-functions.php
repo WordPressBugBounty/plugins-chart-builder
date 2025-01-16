@@ -460,6 +460,17 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 				"center" => __("Center", "chart-builder")
 			);
 			
+			$border_styles = array(
+				"solid" => __("Solid", "chart-builder"),
+				"dashed" => __("Dashed", "chart-builder"),
+				"dotted" => __("Dotted", "chart-builder"),
+				"double" => __("Double", "chart-builder"),
+				"groove" => __("Groove", "chart-builder"),
+				"inset" => __("Inset", "chart-builder"),
+				"outset" => __("Outset", "chart-builder"),
+				"ridge" => __("Ridge", "chart-builder")
+			);
+			
 			$animation_easing_options = array(
 				"linear" => __("Linear", "chart-builder"),
 				"in" => __("Ease in", "chart-builder"),
@@ -585,6 +596,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Border color with title
 			$settings['border_color_with_title'] = isset( $settings['border_color_with_title'] ) && $settings['border_color_with_title'] != '' ? esc_attr( $settings['border_color_with_title'] ) : '#000000';
+
+			// Border style with title
+			$settings['border_style_with_title'] = isset( $settings['border_style_with_title'] ) && $settings['border_style_with_title'] != '' ? esc_attr( $settings['border_style_with_title'] ) : 'solid';
+			$settings['border_styles'] = $border_styles;
 
 			// Padding outer
 			$settings['padding_outer'] = isset( $settings['padding_outer'] ) && $settings['padding_outer'] != '' ? esc_attr( $settings['padding_outer'] ) : '0';
@@ -1032,6 +1047,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Border color with title
 			$settings['border_color_with_title'] = isset( $settings['border_color_with_title'] ) && $settings['border_color_with_title'] != '' ? esc_attr( $settings['border_color_with_title'] ) : '#000000';
+
+			// Border style with title
+			$settings['border_style_with_title'] = isset( $settings['border_style_with_title'] ) && $settings['border_style_with_title'] != '' ? esc_attr( $settings['border_style_with_title'] ) : 'solid';
 
 			// Padding outer
 			$settings['padding_outer'] = isset( $settings['padding_outer'] ) && $settings['padding_outer'] != '' ? esc_attr( $settings['padding_outer'] ) : '0';

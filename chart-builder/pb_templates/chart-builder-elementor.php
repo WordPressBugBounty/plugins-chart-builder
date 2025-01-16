@@ -13,7 +13,7 @@ class Widget_Chart_Builder_Elementor extends Widget_Base {
         return 'chart-elementor-widget-logo';
     }
 	public function get_categories() {
-		return array( 'general', 'wordpress' );
+		return array( 'wordpress' );
 	}
     protected function register_controls() {
         $this->start_controls_section(
@@ -87,6 +87,7 @@ class Widget_Chart_Builder_Elementor extends Widget_Base {
         if( ! current_user_can( 'manage_options' ) ){
             $sql .= " AND author_id = ". absint( $current_user ) ." ";
         }
+        $sql .= " ORDER BY id DESC";
         $results = $wpdb->get_results( $sql, ARRAY_A );
         $options = array();
         foreach ( $results as $result ){
@@ -103,7 +104,7 @@ class Widget_Chart_Builder_Elementor extends Widget_Base {
         if( ! current_user_can( 'manage_options' ) ){
             $sql .= " AND author_id = ". absint( $current_user ) ." ";
         }
-        $sql .= " LIMIT 1;";
+        $sql .= " ORDER BY id DESC LIMIT 1;";
         $id = $wpdb->get_var( $sql );
 
         return intval($id);
