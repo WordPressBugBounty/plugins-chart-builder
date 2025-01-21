@@ -66,6 +66,8 @@
                             border: " . $settings['border_width_with_title'] . "px " . $settings['border_style_with_title'] . " " . $settings['border_color_with_title'] . ";
                             border-radius: " . $settings['border_radius_with_title'] . "px;
                             padding: " . $settings['padding_outer'] . "px;
+                            position: sticky;
+                            top: 0;
                         }
                             
                         div." . $html_class_prefix . "header-container {

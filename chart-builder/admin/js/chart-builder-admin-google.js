@@ -1382,8 +1382,10 @@
 		var settings = _this.chartSourceData.settings;
 		var nSettings =  _this.configOptionsForCharts(settings);
 		
+		var userLocale = navigator.language || navigator.userLanguage || 'en'; 
+		
 		/* == Google part == */
-		google.charts.load('current', {'packages':['corechart']});
+		google.charts.load('current', {'packages':['corechart'], 'language': userLocale});
 		google.charts.setOnLoadCallback(drawChart);
 
 		function drawChart() {
@@ -1461,8 +1463,10 @@
 		var settings = _this.chartSourceData.settings;
 		var nSettings =  _this.configOptionsForCharts(settings);
 		
+		var userLocale = navigator.language || navigator.userLanguage || 'en'; 
+		
 		/* == Google part == */
-		google.charts.load('current', {'packages':['corechart']});
+		google.charts.load('current', {'packages':['corechart'], 'language': userLocale});
 		google.charts.setOnLoadCallback(drawChart);
 
 		function drawChart() {
@@ -1615,8 +1619,10 @@
 		var settings = _this.chartSourceData.settings;
 		var nSettings =  _this.configOptionsForCharts(settings);
 
+		var userLocale = navigator.language || navigator.userLanguage || 'en'; 
+		
 		/* == Google part == */
-		google.charts.load('current', {'packages':['corechart']});
+		google.charts.load('current', {'packages':['corechart'], 'language': userLocale});
 		google.charts.setOnLoadCallback(drawChart);
 
 		function drawChart() {
@@ -1769,8 +1775,10 @@
 		var settings = _this.chartSourceData.settings;
 		var nSettings =  _this.configOptionsForCharts(settings);
 
+		var userLocale = navigator.language || navigator.userLanguage || 'en'; 
+		
 		/* == Google part == */
-		google.charts.load('current', {'packages':['corechart']});
+		google.charts.load('current', {'packages':['corechart'], 'language': userLocale});
 		google.charts.setOnLoadCallback(drawChart);
 
 		function drawChart() {
@@ -1935,8 +1943,10 @@
 		var settings = _this.chartSourceData.settings;
 		var nSettings =  _this.configOptionsForCharts(settings);
 
+		var userLocale = navigator.language || navigator.userLanguage || 'en'; 
+		
 		/* == Google part == */
-		google.charts.load('current', {'packages':['corechart']});
+		google.charts.load('current', {'packages':['corechart'], 'language': userLocale});
 		google.charts.setOnLoadCallback(drawChart);
 
 		function drawChart() {
@@ -2016,8 +2026,10 @@
 		var settings = _this.chartSourceData.settings;
 		var nSettings =  _this.configOptionsForCharts(settings);
 
+		var userLocale = navigator.language || navigator.userLanguage || 'en'; 
+		
 		/* == Google part == */
-		google.charts.load('current', {'packages':['orgchart']});
+		google.charts.load('current', {'packages':['orgchart'], 'language': userLocale});
 		google.charts.setOnLoadCallback(drawChart);
 
 		function drawChart() {
