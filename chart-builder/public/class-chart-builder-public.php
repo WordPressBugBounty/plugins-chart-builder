@@ -286,7 +286,7 @@ class Chart_Builder_Public {
 				height: " . $settings['chart_height'] . ";
 				" . $settings['position'] . ";
 				border-radius: " . $settings['border_radius'] . "px;
-				border: " . $settings['border_width'] . "px solid " . $settings['border_color'] . ";
+				border: " . $settings['border_width'] . "px " . $settings['border_style'] . " " . $settings['border_color'] . ";
 				overflow: hidden;
 				box-shadow: " . ($settings['box_shadow'] === 'checked' ? '2px 2px 10px 2px '.$settings['box_shadow_color'] : '') . ";
 			}

@@ -588,6 +588,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Border color
 			$settings['border_color'] = isset( $settings['border_color'] ) && $settings['border_color'] != '' ? esc_attr( $settings['border_color'] ) : '#666666';
 
+			// Border style
+			$settings['border_style'] = isset( $settings['border_style'] ) && $settings['border_style'] != '' ? esc_attr( $settings['border_style'] ) : 'solid';
+			
 			// Border width with title
 			$settings['border_width_with_title'] = isset( $settings['border_width_with_title'] ) && $settings['border_width_with_title'] != '' ? esc_attr( $settings['border_width_with_title'] ) : '0';
 
@@ -1038,6 +1041,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Border color
 			$settings['border_color'] = isset( $settings['border_color'] ) && $settings['border_color'] != '' ? esc_attr( $settings['border_color'] ) : '#666666';
+			
+			// Border style
+			$settings['border_style'] = isset( $settings['border_style'] ) && $settings['border_style'] != '' ? esc_attr( $settings['border_style'] ) : 'solid';
 			
 			// Border width with title
 			$settings['border_width_with_title'] = isset( $settings['border_width_with_title'] ) && $settings['border_width_with_title'] != '' ? esc_attr( $settings['border_width_with_title'] ) : '0';

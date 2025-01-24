@@ -315,6 +315,12 @@
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-style').on('change', function () {
+				_this.chartSourceData.settings.border_style = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-style', $(this).val());
+				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+			});
+
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-width-with-title').on('input', function () {
 				_this.chartSourceData.settings.border_width_with_title = $(this).val();
 				_this.$el.find('.'+_this.htmlClassPrefix+'container').css('border-width', $(this).val() + 'px');
