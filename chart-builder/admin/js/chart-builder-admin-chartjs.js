@@ -159,6 +159,13 @@
 				_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').text($(this).val());
 			});
 
+		// chart styles
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-width').on('input', function () {
+				_this.chartSourceData.settings.border_width = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-width', $(this).val() + 'px');
+				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+			});
+
 		// advanced options
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-outer-radius').on('input', function () {
 				_this.chartSourceData.settings.outer_radius = $(this).val();

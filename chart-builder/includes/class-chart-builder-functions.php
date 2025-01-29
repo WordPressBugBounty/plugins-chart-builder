@@ -1480,6 +1480,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// description text decoration
 			$settings['description_text_decoration'] = isset( $settings['description_text_decoration'] ) && $settings['description_text_decoration'] != '' ? esc_attr( $settings['description_text_decoration'] ) : 'none';
 
+			// Border width
+			$settings['border_width'] = isset( $settings['border_width'] ) && $settings['border_width'] != '' ? esc_attr( $settings['border_width'] ) : '0';
+
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;
 
@@ -1596,6 +1599,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// description text decoration
 			$settings['description_text_decoration'] = isset( $settings['description_text_decoration'] ) && $settings['description_text_decoration'] != '' ? esc_attr( $settings['description_text_decoration'] ) : 'none';
+
+			// Border width
+			$settings['border_width'] = isset( $settings['border_width'] ) && $settings['border_width'] != '' ? esc_attr( $settings['border_width'] ) : '0';
 
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;

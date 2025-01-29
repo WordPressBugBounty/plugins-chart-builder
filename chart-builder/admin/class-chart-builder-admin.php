@@ -5052,6 +5052,44 @@ class Chart_Builder_Admin {
 		return $sources;
 	}
 
+    public function settings_contents_chart_styles_settings_chartjs( $sources, $args ){
+		$html_class_prefix = $args['html_class_prefix'];
+		$html_name_prefix = $args['html_name_prefix'];
+		$settings = $args['settings'];
+
+        $border_width = $settings['border_width'];
+		ob_start();
+		?>
+        <div class="ays-accordion-data-main-wrap">
+            <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-border-width">
+				            <?php echo esc_html(__( "Border Width", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The width of the chart container border.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-border-width" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_width]" value="<?php echo esc_attr($border_width) ?>">
+                    </div>
+                </div> <!-- Border Width -->
+            </div>
+        </div>
+		<?php
+		$content = ob_get_clean();
+
+		$title = __( 'Chart', "chart-builder" );
+
+		$sources['chart'] = array(
+			'content' => $content,
+			'title' => $title
+		);
+
+		return $sources;
+	}
+
 	public function settings_contents_chart_area_styles_settings( $sources, $args ){
 		$html_class_prefix = $args['html_class_prefix'];
 		$html_name_prefix = $args['html_name_prefix'];

@@ -46,13 +46,21 @@
                 <?php endif; ?>
 		    </div>
 
-            <div class="<?php echo esc_attr($html_class_prefix) ?>charts-main-container" id="<?php echo esc_attr($html_class_prefix).esc_attr($source_chart_type) ?>" style="position:sticky;top:50px;width:100%;height:400px">
+            <div class="<?php echo esc_attr($html_class_prefix) ?>charts-main-container" id="<?php echo esc_attr($html_class_prefix).esc_attr($source_chart_type) ?>">
                 <canvas id="<?php echo esc_attr($html_class_prefix).'-canvas' ?>" style="margin:auto;width:100%"></canvas>
             </div>
 
             <style>
                 <?php
-                    echo "div." . $html_class_prefix . "header-container {
+                    echo "div." . $html_class_prefix . "charts-main-container {
+                            position: sticky;
+                            top: 50px;
+                            width: 100%;
+                            height: 400px;
+                            border: " . $settings['border_width'] . "px solid #000000;
+                        }
+                            
+                        div." . $html_class_prefix . "header-container {
                             margin-bottom: " . $settings['title_gap'] . "px !important;
                         }
 

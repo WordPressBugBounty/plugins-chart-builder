@@ -373,6 +373,10 @@ class Chart_Builder_Public {
 		$content[] = "</div>";
 
 		$custom_css = "
+			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . " {
+				border: " . $settings['border_width'] . "px solid #000000;
+			}
+
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "header-container {
 				margin-bottom: " . $settings['title_gap'] . "px !important;
 			}
