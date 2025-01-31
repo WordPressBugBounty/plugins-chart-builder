@@ -58,6 +58,7 @@
                             width: 100%;
                             height: 400px;
                             border: " . $settings['border_width'] . "px solid #000000;
+                            border-radius: " . $settings['border_radius'] . "px;
                         }
                             
                         div." . $html_class_prefix . "header-container {

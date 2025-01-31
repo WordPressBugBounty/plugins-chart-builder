@@ -5058,6 +5058,7 @@ class Chart_Builder_Admin {
 		$settings = $args['settings'];
 
         $border_width = $settings['border_width'];
+        $border_radius = $settings['border_radius'];
 		ob_start();
 		?>
         <div class="ays-accordion-data-main-wrap">
@@ -5075,6 +5076,19 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-border-width" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_width]" value="<?php echo esc_attr($border_width) ?>">
                     </div>
                 </div> <!-- Border Width -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-border-radius">
+				            <?php echo esc_html(__( "Border Radius", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The radius of the chart container border.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-border-width" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_radius]" value="<?php echo esc_attr($border_radius) ?>">
+                    </div>
+                </div> <!-- Border Radius -->
             </div>
         </div>
 		<?php

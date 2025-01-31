@@ -165,6 +165,12 @@
 				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-width', $(this).val() + 'px');
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});
+			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-radius').on('input', function () {
+				_this.chartSourceData.settings.border_radius = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-radius', $(this).val() + 'px');
+				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+			});
 
 		// advanced options
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-outer-radius').on('input', function () {
