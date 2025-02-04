@@ -67,12 +67,10 @@
                             border-radius: " . $settings['border_radius_with_title'] . "px;
                             padding: " . $settings['padding_outer'] . "px;
                             position: sticky;
-                            top: 0;
+                            top: 50px;
                         }
 
                         div." . $html_class_prefix . "charts-main-container {
-                            position: sticky;
-                            top: 50px;
                             " . $settings['position_styles'][$settings['position']] . ";
                             width: " . $settings['width'].$settings['width_format'] . ";
                             height: " . $settings['height'].$settings['height_format'] . ";

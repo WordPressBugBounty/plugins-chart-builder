@@ -32,29 +32,35 @@
     <hr />
     <div class="row">
         <div class="col-sm-6" style="position:relative">
-            <div class="<?php echo esc_attr($html_class_prefix) ?>header-container">
-                <?php if ($settings['show_title'] == 'checked') : ?>
-                    <div class="<?php echo esc_attr($html_class_prefix) ?>charts-title">
-                        <?php echo esc_attr($title); ?>
-                    </div>
-                <?php endif; ?>
-                
-                <?php if ($settings['show_description'] == 'checked') : ?>
-                    <div class="<?php echo esc_attr($html_class_prefix) ?>charts-description">
-                        <?php echo esc_attr($description); ?>
-                    </div>
-                <?php endif; ?>
-		    </div>
+            
+            <div class="<?php echo esc_attr($html_class_prefix) ?>container">
+                <div class="<?php echo esc_attr($html_class_prefix) ?>header-container">
+                    <?php if ($settings['show_title'] == 'checked') : ?>
+                        <div class="<?php echo esc_attr($html_class_prefix) ?>charts-title">
+                            <?php echo esc_attr($title); ?>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <?php if ($settings['show_description'] == 'checked') : ?>
+                        <div class="<?php echo esc_attr($html_class_prefix) ?>charts-description">
+                            <?php echo esc_attr($description); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
 
-            <div class="<?php echo esc_attr($html_class_prefix) ?>charts-main-container" id="<?php echo esc_attr($html_class_prefix).esc_attr($source_chart_type) ?>">
-                <canvas id="<?php echo esc_attr($html_class_prefix).'-canvas' ?>" style="margin:auto;width:100%"></canvas>
+                <div class="<?php echo esc_attr($html_class_prefix) ?>charts-main-container" id="<?php echo esc_attr($html_class_prefix).esc_attr($source_chart_type) ?>">
+                    <canvas id="<?php echo esc_attr($html_class_prefix).'-canvas' ?>" style="margin:auto;width:100%"></canvas>
+                </div>
             </div>
 
             <style>
                 <?php
-                    echo "div." . $html_class_prefix . "charts-main-container {
+                    echo "div." . $html_class_prefix . "container {
                             position: sticky;
                             top: 50px;
+                        }
+                            
+                        div." . $html_class_prefix . "charts-main-container {
                             width: 100%;
                             height: 400px;
                             border: " . $settings['border_width'] . "px solid #000000;

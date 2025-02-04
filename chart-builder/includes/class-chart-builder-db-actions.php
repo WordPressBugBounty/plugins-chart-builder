@@ -365,7 +365,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                             if ($s_data_key === 5) {
                                 $chart_source_filtered_data[$chart_source_data_key][] = (isset($s_data_value) && $s_data_value != '') ? esc_url( $s_data_value ) : '';
                             } else {
-                                $chart_source_filtered_data[$chart_source_data_key][] = (isset($s_data_value) && $s_data_value != '') ? esc_attr(stripslashes( sanitize_text_field( $s_data_value ) )) : '';
+                                $chart_source_filtered_data[$chart_source_data_key][] = (isset($s_data_value) && $s_data_value != '') ? stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $s_data_value, ENT_QUOTES, 'UTF-8' )) )) : '';
                             }
                         }
                     }
@@ -375,16 +375,16 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                         if ($chart_source_data_key == 0) {
                             if(!empty($chart_source_data_value)){
                                 foreach($chart_source_data_value as $s_data_key => $s_data_value){
-                                    $chart_source_filtered_data[$chart_source_data_key][] = (isset($s_data_value) && trim(esc_attr(stripslashes( sanitize_text_field( $s_data_value ) ))) != '') ? esc_attr(stripslashes( sanitize_text_field( $s_data_value ) )) : 'Title '.$s_data_key;
+                                    $chart_source_filtered_data[$chart_source_data_key][] = (isset($s_data_value) && trim(stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $s_data_value, ENT_QUOTES, 'UTF-8' )) ))) != '') ? stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $s_data_value, ENT_QUOTES, 'UTF-8' )) )) : 'Title '.$s_data_key;
                                 }
                             }
                         } else {
                             if(!empty($chart_source_data_value) && (isset($chart_source_data_value[0]) && trim($chart_source_data_value[0]) != '')){
                                 foreach($chart_source_data_value as $s_data_key => $s_data_value){
                                     if ($s_data_key === 0) {
-                                        $chart_source_filtered_data[$chart_source_data_key][] = (isset($s_data_value) && esc_attr(stripslashes( sanitize_text_field( $s_data_value ) )) != '') ? esc_attr(stripslashes( sanitize_text_field( $s_data_value ) )) : 'Option';
+                                        $chart_source_filtered_data[$chart_source_data_key][] = (isset($s_data_value) && stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $s_data_value, ENT_QUOTES, 'UTF-8' )) )) != '') ? stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $s_data_value, ENT_QUOTES, 'UTF-8' )) )) : 'Option';
                                     } else {
-                                        $chart_source_filtered_data[$chart_source_data_key][] = (isset($s_data_value) && esc_attr(stripslashes( sanitize_text_field( $s_data_value ) )) != '') ? esc_attr(stripslashes( sanitize_text_field( $s_data_value ) )) : '0';
+                                        $chart_source_filtered_data[$chart_source_data_key][] = (isset($s_data_value) && stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $s_data_value, ENT_QUOTES, 'UTF-8' )) )) != '') ? stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $s_data_value, ENT_QUOTES, 'UTF-8' )) )) : '0';
                                     }
                                 }
                             }
@@ -516,12 +516,12 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 if( isset( $_POST[ $name_prefix . 'settings' ] ) && !empty( $_POST[ $name_prefix . 'settings' ] )) {
                     foreach($_POST[ $name_prefix . 'settings' ] as $each_setting_key => $each_setting_value){
                         if (!is_array($each_setting_value)) {
-                            $each_setting_value = isset($each_setting_value) && $each_setting_value != '' ? esc_attr(stripslashes(sanitize_text_field($each_setting_value))) : '';
-                            $each_setting_key   = isset($each_setting_key) && $each_setting_key != '' ? esc_attr(stripslashes(sanitize_text_field($each_setting_key))) : '';
+                            $each_setting_value = isset($each_setting_value) && $each_setting_value != '' ? stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $each_setting_value, ENT_QUOTES, 'UTF-8' )) )) : '';
+                            $each_setting_key   = isset($each_setting_key) && $each_setting_key != '' ? stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $each_setting_key, ENT_QUOTES, 'UTF-8' )) )) : '';
                             $settings[$each_setting_key] = $each_setting_value;
                         } else {
                             foreach($each_setting_value as $each_index => $each_value){
-                                $each_value = isset($each_value) && $each_value != '' ? esc_attr(stripslashes(sanitize_text_field($each_value))) : '';
+                                $each_value = isset($each_value) && $each_value != '' ? stripslashes(sanitize_text_field( wp_strip_all_tags( html_entity_decode( $each_value, ENT_QUOTES, 'UTF-8' )) )) : '';
                                 $each_index   = isset($each_index) && $each_index >= 0 ? intval($each_index) : -1;
                                 $settings[$each_setting_key][$each_index] = $each_value;
                             }
