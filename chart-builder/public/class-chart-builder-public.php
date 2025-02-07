@@ -374,7 +374,7 @@ class Chart_Builder_Public {
 
 		$custom_css = "
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . " {
-				border: " . $settings['border_width'] . "px solid #000000;
+				border: " . $settings['border_width'] . "px solid " . $settings['border_color'] . ";
 				border-radius: " . $settings['border_radius'] . "px;
 			}
 

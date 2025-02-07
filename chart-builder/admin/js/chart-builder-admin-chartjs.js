@@ -163,13 +163,19 @@
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-width').on('input', function () {
 				_this.chartSourceData.settings.border_width = $(this).val();
 				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-width', $(this).val() + 'px');
-				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+				_this.chartObject.update();
 			});
 			
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-radius').on('input', function () {
 				_this.chartSourceData.settings.border_radius = $(this).val();
 				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-radius', $(this).val() + 'px');
-				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+				_this.chartObject.update();
+			});
+			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-color').on('input', function () {
+				_this.chartSourceData.settings.border_color = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-color', $(this).val());
+				_this.chartObject.update();
 			});
 
 		// advanced options

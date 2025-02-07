@@ -1486,6 +1486,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Border radius
 			$settings['border_radius'] = isset( $settings['border_radius'] ) && $settings['border_radius'] != '' ? esc_attr( $settings['border_radius'] ) : '0';
 
+			// Border color
+			$settings['border_color'] = isset( $settings['border_color'] ) && $settings['border_color'] != '' ? esc_attr( $settings['border_color'] ) : '#000000';
+
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;
 
@@ -1608,6 +1611,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Border radius
 			$settings['border_radius'] = isset( $settings['border_radius'] ) && $settings['border_radius'] != '' ? esc_attr( $settings['border_radius'] ) : '0';
+
+			// Border color
+			$settings['border_color'] = isset( $settings['border_color'] ) && $settings['border_color'] != '' ? esc_attr( $settings['border_color'] ) : '#000000';
 
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;
