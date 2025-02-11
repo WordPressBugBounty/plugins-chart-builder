@@ -60,6 +60,15 @@ class Chart_Builder_Integrations
         $this->version = $version;
         $this->settings_obj = new Chart_Builder_Settings_DB_Actions($this->plugin_name);
 
+        // Add an action to load translations properly
+        add_action('wp_loaded', array($this, 'ays_chart_load_translations'));
+    }
+
+    /**
+     * Load plugin translations.
+     */
+    public function ays_chart_load_translations() {
+
         $settings_url = sprintf(
             __( "For enabling this option, please go to %s page and fill all options.", $this->plugin_name ),
             "<a style='color:blue;text-decoration:underline;font-size:20px;' href='?page=".$this->plugin_name."-settings&ays_tab=tab2' target='_blank'>". __( "this", $this->plugin_name ) ."</a>"
