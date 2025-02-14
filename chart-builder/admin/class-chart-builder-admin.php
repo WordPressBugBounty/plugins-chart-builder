@@ -5060,6 +5060,8 @@ class Chart_Builder_Admin {
         $border_width = $settings['border_width'];
         $border_radius = $settings['border_radius'];
         $border_color = $settings['border_color'];
+        $border_style = $settings['border_style'];
+        $border_styles = $settings['border_styles'];
 		ob_start();
 		?>
         <div class="ays-accordion-data-main-wrap">
@@ -5103,6 +5105,28 @@ class Chart_Builder_Admin {
                         <input id="ays-chart-option-border-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_color]" value="<?php echo esc_attr($border_color) ?>">
                     </div>
                 </div> <!-- Border color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-border-style">
+				            <?php echo esc_html(__( "Border Style", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The style of the chart container border.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <select class="<?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-border-style" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_style]">
+                            <?php
+				            foreach ( $border_styles as $option_slug => $option ):
+					            $selected = ( $border_style == $option_slug ) ? 'selected' : '';
+					            ?>
+                                <option value="<?php echo esc_attr($option_slug); ?>" <?php echo esc_attr($selected); ?>><?php echo esc_html($option); ?></option>
+				            <?php
+				            endforeach;
+				            ?>
+                        </select>
+                    </div>
+                </div> <!-- Border style -->
             </div>
         </div>
 		<?php

@@ -178,6 +178,12 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-style').on('change', function () {
+				_this.chartSourceData.settings.border_style = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-style', $(this).val());
+				_this.chartObject.update();
+			});
+
 		// advanced options
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-outer-radius').on('input', function () {
 				_this.chartSourceData.settings.outer_radius = $(this).val();

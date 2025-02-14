@@ -63,7 +63,7 @@
                         div." . $html_class_prefix . "charts-main-container {
                             width: 100%;
                             height: 400px;
-                            border: " . $settings['border_width'] . "px solid " . $settings['border_color'] . ";
+                            border: " . $settings['border_width'] . "px " . $settings['border_style'] . " " . $settings['border_color'] . ";
                             border-radius: " . $settings['border_radius'] . "px;
                         }
                             
