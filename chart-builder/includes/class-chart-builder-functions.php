@@ -1491,6 +1491,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// description text decoration
 			$settings['description_text_decoration'] = isset( $settings['description_text_decoration'] ) && $settings['description_text_decoration'] != '' ? esc_attr( $settings['description_text_decoration'] ) : 'none';
 
+			// Box shadow
+			$settings['box_shadow'] = isset( $settings['box_shadow'] ) && $settings['box_shadow'] != '' ? esc_attr( $settings['box_shadow'] ) : 'off';
+			$settings['box_shadow'] = isset( $settings['box_shadow'] ) && $settings['box_shadow'] == 'on' ? 'checked' : '';
+
 			// Border width
 			$settings['border_width'] = isset( $settings['border_width'] ) && $settings['border_width'] != '' ? esc_attr( $settings['border_width'] ) : '0';
 
@@ -1620,6 +1624,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// description text decoration
 			$settings['description_text_decoration'] = isset( $settings['description_text_decoration'] ) && $settings['description_text_decoration'] != '' ? esc_attr( $settings['description_text_decoration'] ) : 'none';
+
+			// Box shadow
+			$settings['box_shadow'] = isset( $settings['box_shadow'] ) && $settings['box_shadow'] != '' ? esc_attr( $settings['box_shadow'] ) : 'off';
+			$settings['box_shadow'] = isset( $settings['box_shadow'] ) && $settings['box_shadow'] == 'on' ? 'checked' : '';
 
 			// Border width
 			$settings['border_width'] = isset( $settings['border_width'] ) && $settings['border_width'] != '' ? esc_attr( $settings['border_width'] ) : '0';

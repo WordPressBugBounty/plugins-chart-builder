@@ -184,6 +184,16 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-box-shadow').on('change', function () {
+				console.log($(this).is(':checked'));
+				if ($(this).is(':checked')) {
+					_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('box-shadow', '2px 2px 10px 2px #000000');
+				} else {
+					_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('box-shadow', 'unset');
+				}
+				_this.chartObject.update();
+			});
+
 		// advanced options
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-outer-radius').on('input', function () {
 				_this.chartSourceData.settings.outer_radius = $(this).val();

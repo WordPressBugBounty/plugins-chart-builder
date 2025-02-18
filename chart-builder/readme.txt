@@ -3,8 +3,8 @@ Contributors: ays-pro
 Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
-Tested up to: 6.7.1
-Stable tag: 3.2.2
+Tested up to: 6.7.2
+Stable tag: 3.2.3
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -248,6 +248,10 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 3.2.3 =
+* Added: Chart.js Chart box shadow option
+* Tested: Compatible up to 6.7.2
 
 = 3.2.2 =
 * Added: Chart.js Chart border style option

@@ -367,7 +367,7 @@
 				if ($(this).is(':checked')) {
 					_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('box-shadow', '2px 2px 10px 2px ' + _this.chartSourceData.settings.border_color);
 				} else {
-					_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('box-shadow', '');
+					_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('box-shadow', 'unset');
 				}
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});

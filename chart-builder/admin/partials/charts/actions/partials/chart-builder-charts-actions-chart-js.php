@@ -64,6 +64,7 @@
                             width: 100%;
                             height: 400px;
                             border: " . $settings['border_width'] . "px " . $settings['border_style'] . " " . $settings['border_color'] . ";
+                            " . ($settings['box_shadow'] === "checked" ? "box-shadow: 2px 2px 10px 2px #000000;" : "") . "
                             border-radius: " . $settings['border_radius'] . "px;
                         }
                             
