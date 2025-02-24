@@ -1,5 +1,6 @@
 <?php
 $items = $this->db_obj->get_items();
+
 $all_items = CBFunctions()->get_all_charts_count();
 $chart_count_per_page = count($items) > 0 ? $all_items/$this->db_obj->get_pagination_count() : 0;
 $chart_paged = isset($_GET['paged']) && $_GET['paged'] != '' ? absint( sanitize_text_field($_GET['paged'])) : '';
@@ -51,7 +52,7 @@ $order_values = array(
 );
 $filter_by_author_data = $this->db_obj->get_searched_author_info();
 
-$plus_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/images/icons/plus=icon.svg'></span>";
+$plus_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/images/icons/plus-icon.svg'></span>";
 $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/images/icons/youtube-video-icon.svg'></span>";
 
 ?>
@@ -66,7 +67,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
     </div>
     <h1 class="wp-heading-inline">
         <?php
-        echo __( esc_html( get_admin_page_title() ), "chart-builder" );
+        echo esc_html( get_admin_page_title() );
         ?>
     </h1>
 
@@ -88,7 +89,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                 </div>
                                 <div class="ays-chart-filter-section">
                                     <select name="filterbytype" id="ays-chart-filter-select">
-                                        <option value=""><?= __( "Select Type", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Select Type", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $chart_types as $k => $v ):
                                             $selected = ( $filter_by_type == ($k+1) ) ? 'selected' : '';
@@ -99,7 +100,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                         ?>
                                     </select>
                                     <select name="filterbysource" id="ays-chart-filter-source">
-                                        <option value=""><?= __( "Select Source", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Select Source", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $chart_sources as $k => $v ):
                                             $disabled = $k >= 2 ? 'disabled' : '' ;
@@ -111,7 +112,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                         ?>
                                     </select>
                                     <select name="filterbychartsource" id="ays-chart-filter-chart-source">
-                                        <option value=""><?= __( "Select Chart Source", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Select Chart Source", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $chart_source_types as $k => $v ):
                                             $disabled = $k >= 2 ? 'disabled' : '' ;
@@ -123,7 +124,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                         ?>
                                     </select>
                                     <select name="filterbydate" id="ays-chart-filter-date">
-                                        <option value=""><?= __( "Select Date", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Select Date", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $chart_dates as $k => $v ):
                                             $selected = ( $filter_by_date == $k ) ? 'selected' : '';
@@ -135,11 +136,11 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                     </select>
                                     <select name="filterbyauthor" id="ays-chart-filter-author">
                                         <?php if (isset($filter_by_author_data) && !empty($filter_by_author_data)): ?>
-                                            <option value="<?php echo esc_html($filter_by_author_data['ID'])?>" selected><?php echo esc_html($filter_by_author_data['display_name'])?></option>
+                                            <option value="<?php echo esc_attr($filter_by_author_data['ID'])?>" selected><?php echo esc_html($filter_by_author_data['display_name'])?></option>
                                         <?php endif; ?>
                                     </select>
                                     <select name="orderby" id="ays-chart-order-by">
-                                        <option value=""><?= __( "Order by", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Order by", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $order_by_values as $k => $v ):
                                             // $disabled = $k >= 2 ? 'disabled' : '' ;
@@ -247,7 +248,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
 		                                switch ($item['source_chart_type']) {
                                             case 'line_chart':
 				                                echo "<p><img src='" . CHART_BUILDER_ADMIN_URL  . "/images/icons/line-chart.png" . "' width='20px'>";
-				                                echo "<span style='margin-left: 8px'>" . __('Line Chart', $this->plugin_name) . "</span></p>";
+				                                echo "<span style='margin-left: 8px'>" . __('Line Chart', 'chart-builder') . "</span></p>";
 				                                break;
 
 			                                case 'bar_chart':
@@ -272,29 +273,29 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                                 
                                             case 'org_chart':
                                                 echo "<p><img src='" . CHART_BUILDER_ADMIN_URL  . "/images/icons/org-chart.png" . "' width='20px'>";
-                                                echo "<span style='margin-left: 8px'>" . __('Org Chart', $this->plugin_name) . "</span></p>";
+                                                echo "<span style='margin-left: 8px'>" . __('Org Chart', 'chart-builder') . "</span></p>";
                                                 break;
                                         }
                                     ?></td>
                                     <td class="column-source-type"><?php
 		                                switch ($item['source_type']) {
                                             case 'quiz_maker':
-				                                echo "<span style='margin-left: 8px'>" . __('Quiz Maker', $this->plugin_name) . "</span>";
+				                                echo "<span style='margin-left: 8px'>" . __('Quiz Maker', 'chart-builder') . "</span>";
 				                                break;
                                             case 'manual':
                                             default:
-				                                echo "<span style='margin-left: 8px'>" . __('Manual', $this->plugin_name) . "</span>";
+				                                echo "<span style='margin-left: 8px'>" . __('Manual', 'chart-builder') . "</span>";
 				                                break;
 		                                }
                                     ?></td>
                                     <td class="column-chart-source"><?php
 		                                switch ($item['type']) {
                                             case 'chart-js':
-				                                echo "<span style='margin-left: 8px'>" . __('Chart.js', $this->plugin_name) . "</span>";
+				                                echo "<span style='margin-left: 8px'>" . __('Chart.js', 'chart-builder') . "</span>";
 				                                break;
                                             case 'google-charts':
                                             default:
-                                                echo "<span style='margin-left: 8px'>" . __('Google Charts', $this->plugin_name) . "</span>";
+                                                echo "<span style='margin-left: 8px'>" . __('Google Charts', 'chart-builder') . "</span>";
                                             break;
 		                                }
                                     ?></td>
@@ -303,7 +304,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                             <div class="ays-chart-copy-image" data-bs-toggle="tooltip" title="<?php echo esc_html(__('Click to copy',"chart-builder"));?>">
                                                 <img src='<?php echo esc_url(CHART_BUILDER_ADMIN_URL) . "/images/icons/copy-image.svg" ?>'>
                                             </div>
-                                            <!-- <input type="text" class="ays-chart-shortcode-input" onClick="this.setSelectionRange(0, this.value.length)" readonly value="<//?= esc_attr('[ays_chart id="'. $item['id'] .'"]') ?>" /> -->
+                                            <!-- <input type="text" class="ays-chart-shortcode-input" onClick="this.setSelectionRange(0, this.value.length)" readonly value="<//?php echo esc_attr('[ays_chart id="'. $item['id'] .'"]') ?>" /> -->
                                             <input type="text" class="ays-chart-shortcode-input" readonly value="<?php echo esc_attr('[ays_chart id="'. $item['id'] .'"]') ?>" />
                                         </div>
                                     </td>
@@ -347,7 +348,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                 </div>
                                 <div class="ays-chart-filter-section">
                                     <select name="filterbytype" id="ays-chart-filter-select-bottom">
-                                        <option value=""><?= __( "Select Type", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Select Type", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $chart_types as $k => $v ):
                                             $selected = ( $filter_by_type == ($k+1) ) ? 'selected' : '';
@@ -358,7 +359,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                         ?>
                                     </select>
                                     <select name="filterbysource" id="ays-chart-filter-source-bottom">
-                                        <option value=""><?= __( "Select Source", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Select Source", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $chart_sources as $k => $v ):
                                             $disabled = $k >= 2 ? 'disabled' : '' ;
@@ -370,7 +371,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                         ?>
                                     </select>
                                     <select name="filterbychartsource" id="ays-chart-filter-chart-source-bottom">
-                                        <option value=""><?= __( "Select Chart Source", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Select Chart Source", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $chart_source_types as $k => $v ):
                                             $disabled = $k >= 2 ? 'disabled' : '' ;
@@ -382,7 +383,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                         ?>
                                     </select>
                                     <select name="filterbydate" id="ays-chart-filter-date-bottom">
-                                        <option value=""><?= __( "Select Date", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Select Date", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $chart_dates as $k => $v ):
                                             $selected = ( $filter_by_date == $k ) ? 'selected' : '';
@@ -398,7 +399,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                         <?php endif; ?>
                                     </select>
                                     <select name="orderby" id="ays-chart-order-by-bottom">
-                                        <option value=""><?= __( "Order by", "chart-builder" ) ?></option>
+                                        <option value=""><?php echo __( "Order by", "chart-builder" ) ?></option>
                                         <?php
                                         foreach ( $order_by_values as $k => $v ):
                                             // $disabled = $k >= 2 ? 'disabled' : '' ;
@@ -464,23 +465,23 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
         <?php if($chart_max_id <= 3): ?>
             <div class="ays-chart-create-chart-video-box" style="margin: 0 auto 30px;">
                 <div class="ays-chart-create-chart-title">
-                    <h4><?php echo __( "Create Your First Chart in Under One Minute", $this->plugin_name ); ?></h4>
+                    <h4><?php echo __( "Create Your First Chart in Under One Minute", 'chart-builder' ); ?></h4>
                 </div>
                 <div class="ays-chart-create-chart-youtube-video">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/ysjUMK0HH3c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy" allowfullscreen style="max-width: 100%;"></iframe>
                 </div>
                 <div class="ays_chart_small_hint_text_for_message_variables" style="text-align: center;">
-                    <?php echo __( 'Please note that this video will disappear once you created 4 charts.', $this->plugin_name ); ?>
+                    <?php echo __( 'Please note that this video will disappear once you created 4 charts.', 'chart-builder' ); ?>
                 </div>
                 <div class="ays-chart-create-chart-youtube-video-button-box">
-                    <?php echo sprintf( '<a href="?page=%s&action=%s" class="ays-chart-add-new-button-video chart-add-new-button-new-design"> %s ' . __('Add New', $this->plugin_name) . '</a>', esc_attr( $_REQUEST['page'] ), 'add', $plus_icon_svg);?>
+                    <?php echo sprintf( '<a href="?page=%s&action=%s" class="ays-chart-add-new-button-video chart-add-new-button-new-design"> %s ' . __('Add New', 'chart-builder') . '</a>', esc_attr( $_REQUEST['page'] ), 'add', $plus_icon_svg);?>
                 </div>
             </div>
         <?php else: ?>
             <div class="ays-chart-create-chart-video-box ays-chart-create-chart-video-box-only-link" style="margin: auto;">
                 <div class="ays-chart-create-chart-youtube-video">
                     <?php echo $youtube_icon_svg; ?>
-                    <a href="https://www.youtube.com/watch?v=ysjUMK0HH3c" target="_blank" style="color:#2271b1;text-decoration:none" title="YouTube video player"><?php echo __("How to create chart in one minute?", $this->plugin_name); ?></a>
+                    <a href="https://www.youtube.com/watch?v=ysjUMK0HH3c" target="_blank" style="color:#2271b1;text-decoration:none" title="YouTube video player"><?php echo __("How to create chart in one minute?", 'chart-builder'); ?></a>
                 </div>
             </div>
         <?php endif; ?>

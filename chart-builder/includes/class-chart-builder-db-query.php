@@ -162,7 +162,7 @@ if( !class_exists( 'Chart_Builder_DB_Query' ) ){
 
 			// only select queries allowed.
 			if ( preg_match( '/^\s*(insert|delete|update|replace|create|alter|drop|truncate)\s/i', $this->_query ) ) {
-				$this->_error = __( 'Only SELECT queries are allowed', CHART_BUILDER_NAME );
+				$this->_error = __( 'Only SELECT queries are allowed', 'chart-builder' );
 				return false;
 			}
 

@@ -20,9 +20,7 @@
         <form class="ays-charts-form" id="<?php echo $form_id; ?>" method="post">
             <input type="hidden" name="ays_chart_tab" value="<?php echo $ays_chart_tab; ?>">
             <h1 class="wp-heading-inline">
-                <?php
-                echo __( esc_html( esc_attr($heading) ), "chart-builder" );
-                ?>
+                <?php echo esc_html( esc_attr($heading) ); ?>
             </h1>
             <div class="ays-chart-add-new-button-box" style="margin-top: 10px;">
                 <input type="submit" name="ays_submit_top" value="<?php echo esc_html(__('Save and close', "chart-builder")) ?>" class="button button-primary ays-button ays-chart-loader-banner" id="ays-button-top-save">

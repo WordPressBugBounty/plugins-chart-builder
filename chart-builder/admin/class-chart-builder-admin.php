@@ -249,18 +249,18 @@ class Chart_Builder_Admin {
 
 			wp_localize_script( $this->plugin_name . '-settings', 'aysChartBuilderAdminSettings', array(
 				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'selectUserRoles'                   => __( 'Select user roles', $this->plugin_name ),
-				'delete'                            => __( 'Delete', $this->plugin_name ),
-				'selectQuestionDefaultType'         => __( 'Select question default type', $this->plugin_name ),
-				'yes'                               => __( 'Yes', $this->plugin_name ),
-				'cancel'                            => __( 'Cancel', $this->plugin_name ),
-				'somethingWentWrong'                => __( "Maybe something went wrong.", $this->plugin_name ),
-				'failed'                            => __( 'Failed', $this->plugin_name ),
-				'selectPage'                        => __( 'Select page', $this->plugin_name ),
-				'selectPostType'                    => __( 'Select post type', $this->plugin_name ),
-				'copied'                            => __( 'Copied!', $this->plugin_name),
-				'clickForCopy'                      => __( 'Click to copy', $this->plugin_name),
-				'selectForm'                        => __( 'Select form', $this->plugin_name),
+				'selectUserRoles'                   => __( 'Select user roles', 'chart-builder' ),
+				'delete'                            => __( 'Delete', 'chart-builder' ),
+				'selectQuestionDefaultType'         => __( 'Select question default type', 'chart-builder' ),
+				'yes'                               => __( 'Yes', 'chart-builder' ),
+				'cancel'                            => __( 'Cancel', 'chart-builder' ),
+				'somethingWentWrong'                => __( "Maybe something went wrong.", 'chart-builder' ),
+				'failed'                            => __( 'Failed', 'chart-builder' ),
+				'selectPage'                        => __( 'Select page', 'chart-builder' ),
+				'selectPostType'                    => __( 'Select post type', 'chart-builder' ),
+				'copied'                            => __( 'Copied!', 'chart-builder'),
+				'clickForCopy'                      => __( 'Click to copy', 'chart-builder'),
+				'selectForm'                        => __( 'Select form', 'chart-builder'),
 			) );
 		}
 	}
@@ -315,8 +315,8 @@ class Chart_Builder_Admin {
     public function add_plugin_charts_submenu(){
         $hook_page_view = add_submenu_page(
             $this->plugin_name,
-            __('All Charts', $this->plugin_name),
-            __('All Charts', $this->plugin_name),
+            __('All Charts', 'chart-builder'),
+            __('All Charts', 'chart-builder'),
             'manage_options',
             $this->plugin_name,
             array($this, 'display_plugin_charts_page')
@@ -328,8 +328,8 @@ class Chart_Builder_Admin {
     public function add_plugin_add_new_submenu(){
         $hook_charts = add_submenu_page(
             $this->plugin_name,
-            __('Add New', $this->plugin_name),
-            __('Add New', $this->plugin_name),
+            __('Add New', 'chart-builder'),
+            __('Add New', 'chart-builder'),
             'manage_options',
             $this->plugin_name."&action=add",
             array($this, 'display_plugin_addnew_page')
@@ -340,8 +340,8 @@ class Chart_Builder_Admin {
     public function add_plugin_dashboard_submenu(){
         $hook_charts = add_submenu_page(
             $this->plugin_name,
-            __('How to use', $this->plugin_name),
-            __('How to use', $this->plugin_name),
+            __('How to use', 'chart-builder'),
+            __('How to use', 'chart-builder'),
             'manage_options',
             $this->plugin_name . '-dashboard',
             array($this, 'display_plugin_setup_page')
@@ -351,8 +351,8 @@ class Chart_Builder_Admin {
 
 	public function add_plugin_general_settings_submenu(){
 		$hook_settings = add_submenu_page( $this->plugin_name,
-			__('General Settings', $this->plugin_name),
-			__('General Settings', $this->plugin_name),
+			__('General Settings', 'chart-builder'),
+			__('General Settings', 'chart-builder'),
 			'manage_options',
 			$this->plugin_name . '-settings',
 			array($this, 'display_plugin_settings_page')
@@ -362,8 +362,8 @@ class Chart_Builder_Admin {
 
     public function add_plugin_featured_plugins_submenu(){
         $hook_our_products = add_submenu_page( $this->plugin_name,
-            __('Our products', $this->plugin_name),
-            __('Our products', $this->plugin_name),
+            __('Our products', 'chart-builder'),
+            __('Our products', 'chart-builder'),
             'manage_options',
             $this->plugin_name . '-featured-plugins',
             array($this, 'display_plugin_featured_plugins_page') 
@@ -375,8 +375,8 @@ class Chart_Builder_Admin {
     public function add_plugin_chart_features_submenu(){
         $hook_pro_features = add_submenu_page(
             $this->plugin_name,
-            __('PRO Features', $this->plugin_name),
-            __('PRO Features', $this->plugin_name),
+            __('PRO Features', 'chart-builder'),
+            __('PRO Features', 'chart-builder'),
             'manage_options',
             $this->plugin_name . '-chart-features',
             array($this, 'display_plugin_chart_features_page')
@@ -638,11 +638,11 @@ class Chart_Builder_Admin {
             if(false !== strpos( sanitize_text_field( $_REQUEST['page'] ), $this->plugin_name)){
                 ?>
                 <div class="ays-chart-footer-support-box">
-                    <span class="ays-chart-footer-link-row"><a href="https://wordpress.org/support/plugin/chart-builder" target="_blank"><?php echo __( "Support", "chart-builder"); ?></a></span>
+                    <span class="ays-chart-footer-link-row"><a href="https://wordpress.org/support/plugin/chart-builder" target="_blank"><?php echo esc_html__( "Support", "chart-builder"); ?></a></span>
                     <span class="ays-chart-footer-slash-row">/</span>
-                    <span class="ays-chart-footer-link-row"><a href="https://ays-pro.com/wordpress-chart-builder-plugin-user-manual" target="_blank"><?php echo __( "Docs", "chart-builder"); ?></a></span>
+                    <span class="ays-chart-footer-link-row"><a href="https://ays-pro.com/wordpress-chart-builder-plugin-user-manual" target="_blank"><?php echo esc_html__( "Docs", "chart-builder"); ?></a></span>
                     <span class="ays-chart-footer-slash-row">/</span>
-                    <span class="ays-chart-footer-link-row"><a href="https://ays-demo.com/chart-builder-plugin-suggestion-box" target="_blank"><?php echo __( "Suggest a Feature", "chart-builder"); ?></a></span>
+                    <span class="ays-chart-footer-link-row"><a href="https://ays-demo.com/chart-builder-plugin-suggestion-box" target="_blank"><?php echo esc_html__( "Suggest a Feature", "chart-builder"); ?></a></span>
                 </div>
                 <p style="font-size:13px;text-align:center;font-style:italic;">
                     <span style="margin-left:0px;margin-right:10px;" class="ays_heart_beat"><i class="ays_fa ays_fa_heart_o animated"></i></span>
@@ -869,7 +869,7 @@ class Chart_Builder_Admin {
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo html_entity_decode(esc_html( $content ));
+            echo html_entity_decode( $content );
         }        
     }
 
@@ -886,7 +886,15 @@ class Chart_Builder_Admin {
 
                         $content[] = '<div class="ays-chart-dicount-sale-name-discount-box">';
 							$content[] = '<span class="ays-chart-new-chart-pro-title">';
-								$content[] = __( "<span><a href='https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-plugin-name".CHART_BUILDER_VERSION."' target='_blank' style='color:#ffffff; text-decoration: underline;'>Chart Builder</a></span>", CHART_BUILDER_NAME );
+                           // Translators: %s is the URL to the Chart Builder plugin page.
+                            $content[] = sprintf(
+                                /* translators: %s is the Chart Builder plugin URL. */
+                                __(
+                                    "<span><a href='%s' target='_blank' style='color:#ffffff; text-decoration: underline;'>Chart Builder</a></span>",
+                                    'chart-builder'
+                                ),
+                                "https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-plugin-name" . CHART_BUILDER_VERSION
+                            );
 							$content[] = '</span>';
 							$content[] = '<div>';
 								$content[] = '<img src="' . CHART_BUILDER_ADMIN_URL . '/images/ays-chart-banner-sale-30.svg" style="width: 70px;">';
@@ -895,7 +903,7 @@ class Chart_Builder_Admin {
 
                         $content[] = '<span class="ays-chart-new-chart-pro-desc">';
 							$content[] = '<img class="ays-chart-new-chart-pro-guaranteeicon" src="' . CHART_BUILDER_ADMIN_URL . '/images/chart-builder-guaranteeicon.webp" style="width: 30px;">';
-							$content[] = __( "30 Days Money Back Guarantee", CHART_BUILDER_NAME );
+							$content[] = esc_html__( "30 Days Money Back Guarantee", 'chart-builder' );
 						$content[] = '</span>';
      
                         $content[] = '<div style="position: absolute;right: 10px;bottom: 1px;" class="ays-chart-dismiss-buttons-container-for-chart">';
@@ -916,13 +924,13 @@ class Chart_Builder_Admin {
                         $content[] = '<div id="ays-chart-countdown-main-container">';
                             $content[] = '<div class="ays-chart-countdown-container">';
                                 $content[] = '<div id="ays-chart-countdown" style="display: block;">';
-                                    $content[] = __( "Offer ends in:", CHART_BUILDER_NAME );
+                                    $content[] = esc_html__( "Offer ends in:", 'chart-builder' );
                                     
                                     $content[] = '<ul style="padding: 0">';
-                                        $content[] = '<li><span id="ays-chart-countdown-days">0</span>' . __( 'Days', CHART_BUILDER_NAME ) . '</li>';
-                                        $content[] = '<li><span id="ays-chart-countdown-hours">0</span>' . __( 'Hours', CHART_BUILDER_NAME ) . '</li>';
-                                        $content[] = '<li><span id="ays-chart-countdown-minutes">0</span>' . __( 'Minutes', CHART_BUILDER_NAME ) . '</li>';
-                                        $content[] = '<li><span id="ays-chart-countdown-seconds">0</span>' . __( 'Seconds', CHART_BUILDER_NAME ) . '</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-days">0</span>' . esc_html__( 'Days', 'chart-builder' ) . '</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-hours">0</span>' . esc_html__( 'Hours', 'chart-builder' ) . '</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-minutes">0</span>' . esc_html__( 'Minutes', 'chart-builder' ) . '</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-seconds">0</span>' . esc_html__( 'Seconds', 'chart-builder' ) . '</li>';
                                     $content[] = '</ul>';
                                 $content[] = '</div>';
 
@@ -938,9 +946,9 @@ class Chart_Builder_Admin {
                     $content[] = '</div>';
 
                     $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-button-box">';
-                        $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-button'.CHART_BUILDER_VERSION.'" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank" style="" >' . __( 'Buy Now', CHART_BUILDER_NAME ) . '</a>';
+                        $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=chart-sale-button'.CHART_BUILDER_VERSION.'" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank" style="" >' . esc_html__( 'Buy Now', 'chart-builder' ) . '</a>';
                         $content[] = '<span class="ays-chart-dicount-one-time-text">';
-                            $content[] = __( "One-time payment", CHART_BUILDER_NAME );
+                            $content[] = esc_html__( "One-time payment", 'chart-builder' );
                         $content[] = '</span>';
                     $content[] = '</div>';
 
@@ -949,7 +957,7 @@ class Chart_Builder_Admin {
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo $content;
+            echo html_entity_decode( $content );
         }
     }
 
@@ -973,13 +981,13 @@ class Chart_Builder_Admin {
                                 <a href='https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=helloween-sale-banner' target='_blank' class='ays-chart-dicount-wrap-color-helloween ays-chart-dicount-wrap-text-decoration-helloween' style='display:block; color:#b2ff00;margin-right:6px;'>
                                     Chart Builder
                                 </a>
-                            </span>", CHART_BUILDER_NAME );
+                            </span>", 'chart-builder' );
                         $content[] = '</p>';
                         $content[] = '<p>';
                                 $content[] = __( "Hurry up! 
                                                 <a href='https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=helloween-sale-banner' target='_blank' style='color:#ffc700;'>
                                                     Check it out!
-                                                </a>", CHART_BUILDER_NAME );
+                                                </a>", 'chart-builder' );
                         $content[] = '</p>';
                             
                     $content[] = '</div>';
@@ -1011,7 +1019,7 @@ class Chart_Builder_Admin {
                                 
                         $content[] = '</div>';
                         $content[] = '<div class="ays-chart-dicount-wrap-box ays-buy-now-button-box-helloween">';
-                            $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=helloween-sale-banner" class="button button-primary ays-buy-now-button-helloween" id="ays-button-top-buy-now-helloween" target="_blank" style="" >' . __( 'Buy Now !', CHART_BUILDER_NAME ) . '</a>';
+                            $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=helloween-sale-banner" class="button button-primary ays-buy-now-button-helloween" id="ays-button-top-buy-now-helloween" target="_blank" style="" >' . __( 'Buy Now !', 'chart-builder' ) . '</a>';
                         $content[] = '</div>';
                     $content[] = '</div>';
 
@@ -1034,7 +1042,7 @@ class Chart_Builder_Admin {
 
             $content = implode( '', $content );
 
-            echo $content;
+            echo html_entity_decode( $content );
         }
     }
 
@@ -1096,7 +1104,7 @@ class Chart_Builder_Admin {
 
             $content = implode( '', $content );
 
-            echo $content;
+            echo html_entity_decode( $content );
         }
     }
 
@@ -1109,8 +1117,8 @@ class Chart_Builder_Admin {
                 $content[] = '<div id="ays-chart-dicount-christmas-month" class="ays_chart_dicount_month">';
                     $content[] = '<div class="ays-chart-dicount-christmas-box">';
                         $content[] = '<div class="ays-chart-dicount-christmas-wrap-box ays-chart-dicount-christmas-wrap-box-80">';
-                            $content[] = '<div class="ays-chart-dicount-christmas-title-row">' . __( 'Limited Time', CHART_BUILDER_NAME ) .' '. '<a href="https://ays-pro.com/wordpress/chart-builder" class="ays-chart-dicount-christmas-button-sale" target="_blank">' . __( '40%', CHART_BUILDER_NAME ) . '</a>' . ' SALE</div>';
-                            $content[] = '<div class="ays-chart-dicount-christmas-title-row">' . __( 'Chart Builder Plugin', CHART_BUILDER_NAME ) . '</div>';
+                            $content[] = '<div class="ays-chart-dicount-christmas-title-row">' . __( 'Limited Time', 'chart-builder' ) .' '. '<a href="https://ays-pro.com/wordpress/chart-builder" class="ays-chart-dicount-christmas-button-sale" target="_blank">' . __( '40%', 'chart-builder' ) . '</a>' . ' SALE</div>';
+                            $content[] = '<div class="ays-chart-dicount-christmas-title-row">' . __( 'Chart Builder Plugin', 'chart-builder' ) . '</div>';
                         $content[] = '</div>';
 
                         $content[] = '<div class="ays-chart-dicount-christmas-wrap-box" style="width: 25%;">';
@@ -1118,10 +1126,10 @@ class Chart_Builder_Admin {
                                 $content[] = '<div class="ays-chart-countdown-container">';
                                     $content[] = '<div id="ays-chart-countdown" style="display: block;">';
                                         $content[] = '<ul>';
-                                            $content[] = '<li><span id="ays-chart-countdown-days"></span>' . __( 'Days', CHART_BUILDER_NAME ) . '</li>';
-                                            $content[] = '<li><span id="ays-chart-countdown-hours"></span>' . __( 'Hours', CHART_BUILDER_NAME ) . '</li>';
-                                            $content[] = '<li><span id="ays-chart-countdown-minutes"></span>' . __( 'Minutes', CHART_BUILDER_NAME ) . '</li>';
-                                            $content[] = '<li><span id="ays-chart-countdown-seconds"></span>' . __( 'Seconds', CHART_BUILDER_NAME ) . '</li>';
+                                            $content[] = '<li><span id="ays-chart-countdown-days"></span>' . __( 'Days', 'chart-builder' ) . '</li>';
+                                            $content[] = '<li><span id="ays-chart-countdown-hours"></span>' . __( 'Hours', 'chart-builder' ) . '</li>';
+                                            $content[] = '<li><span id="ays-chart-countdown-minutes"></span>' . __( 'Minutes', 'chart-builder' ) . '</li>';
+                                            $content[] = '<li><span id="ays-chart-countdown-seconds"></span>' . __( 'Seconds', 'chart-builder' ) . '</li>';
                                         $content[] = '</ul>';
                                     $content[] = '</div>';
                                     $content[] = '<div id="ays-chart-countdown-content" class="emoji" style="display: none;">';
@@ -1135,7 +1143,7 @@ class Chart_Builder_Admin {
                         $content[] = '</div>';
 
                         $content[] = '<div class="ays-chart-dicount-christmas-wrap-box" style="width: 25%;">';
-                            $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder" class="ays-chart-dicount-christmas-button-buy-now" target="_blank">' . __( 'BUY NOW!', CHART_BUILDER_NAME ) . '</a>';
+                            $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder" class="ays-chart-dicount-christmas-button-buy-now" target="_blank">' . __( 'BUY NOW!', 'chart-builder' ) . '</a>';
                         $content[] = '</div>';
                     $content[] = '</div>';
                 $content[] = '</div>';
@@ -1143,7 +1151,7 @@ class Chart_Builder_Admin {
                 $content[] = '<div style="position: absolute;right: 0;bottom: 1px;"  class="ays-chart-dismiss-buttons-container-for-form-christmas">';
                     $content[] = '<form method="POST">';
                         $content[] = '<div id="ays-chart-dismiss-buttons-content-christmas">';
-                            $content[] = '<button class="btn btn-link ays-button-christmas" name="ays_chart_sale_btn" style="">' . __( 'Dismiss ad', CHART_BUILDER_NAME ) . '</button>';
+                            $content[] = '<button class="btn btn-link ays-button-christmas" name="ays_chart_sale_btn" style="">' . __( 'Dismiss ad', 'chart-builder' ) . '</button>';
                         $content[] = '</div>';
                     $content[] = '</form>';
                 $content[] = '</div>';
@@ -1151,7 +1159,7 @@ class Chart_Builder_Admin {
 
             $content = implode( '', $content );
 
-            echo $content;
+            echo html_entity_decode( $content );
         }
     }
 
@@ -1167,13 +1175,13 @@ class Chart_Builder_Admin {
                     $content[] = '<div class="ays-chart-dicount-wrap-box">';
 
                         $content[] = '<strong style="font-weight: bold;">';
-                            $content[] = __( "Limited Time <span style='color:#E85011;'>50%</span> SALE on <br><span><a href='https://ays-pro.com/silver-bundle' target='_blank' style='color:#E85011; text-decoration: underline;'>Silver Bundle</a></span> (Quiz + Chart + Form)!", CHART_BUILDER_NAME );
+                            $content[] = __( "Limited Time <span style='color:#E85011;'>50%</span> SALE on <br><span><a href='https://ays-pro.com/silver-bundle' target='_blank' style='color:#E85011; text-decoration: underline;'>Silver Bundle</a></span> (Quiz + Chart + Form)!", 'chart-builder' );
                         $content[] = '</strong>';
 
                         $content[] = '<br>';
 
                         $content[] = '<strong>';
-                                $content[] = __( "Hurry up! <a href='https://ays-pro.com/silver-bundle' target='_blank'>Check it out!</a>", CHART_BUILDER_NAME );
+                                $content[] = __( "Hurry up! <a href='https://ays-pro.com/silver-bundle' target='_blank'>Check it out!</a>", 'chart-builder' );
                         $content[] = '</strong>';
 
                         $content[] = '<div style="position: absolute;right: 10px;bottom: 1px;" class="ays-chart-dismiss-buttons-container-for-form">';
@@ -1214,12 +1222,12 @@ class Chart_Builder_Admin {
                             
                     $content[] = '</div>';
 
-                    $content[] = '<a href="https://ays-pro.com/silver-bundle" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank" style="height: 32px; display: flex; align-items: center; font-weight: 500; " >' . __( 'Buy Now !', CHART_BUILDER_NAME ) . '</a>';
+                    $content[] = '<a href="https://ays-pro.com/silver-bundle" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank" style="height: 32px; display: flex; align-items: center; font-weight: 500; " >' . __( 'Buy Now !', 'chart-builder' ) . '</a>';
                 $content[] = '</div>';
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo $content;
+            echo html_entity_decode( $content );
         }
     }
 
@@ -1239,14 +1247,14 @@ class Chart_Builder_Admin {
                                 $content[] = '<div id="ays-chart-countdown">';
 
                                     $content[] = '<div>';
-                                        $content[] = __( "Offer ends in:", CHART_BUILDER_NAME );
+                                        $content[] = __( "Offer ends in:", 'chart-builder' );
                                     $content[] = '</div>';
 
                                     $content[] = '<ul>';
-                                        $content[] = '<li><span id="ays-chart-countdown-days"></span>'. __( "Days", CHART_BUILDER_NAME ) .'</li>';
-                                        $content[] = '<li><span id="ays-chart-countdown-hours"></span>'. __( "Hours", CHART_BUILDER_NAME ) .'</li>';
-                                        $content[] = '<li><span id="ays-chart-countdown-minutes"></span>'. __( "Minutes", CHART_BUILDER_NAME ) .'</li>';
-                                        $content[] = '<li><span id="ays-chart-countdown-seconds"></span>'. __( "Seconds", CHART_BUILDER_NAME ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-days"></span>'. __( "Days", 'chart-builder' ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-hours"></span>'. __( "Hours", 'chart-builder' ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-minutes"></span>'. __( "Minutes", 'chart-builder' ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-seconds"></span>'. __( "Seconds", 'chart-builder' ) .'</li>';
                                     $content[] = '</ul>';
                                 $content[] = '</div>';
 
@@ -1266,14 +1274,14 @@ class Chart_Builder_Admin {
                         $content[] = '<div>';
 
                             $content[] = '<span class="ays-chart-black-friday-bundle-title">';
-                                $content[] = __( "<span><a href='https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner' class='ays-chart-black-friday-bundle-title-link' target='_blank'>Black Friday Sale</a></span>", CHART_BUILDER_NAME );
+                                $content[] = __( "<span><a href='https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner' class='ays-chart-black-friday-bundle-title-link' target='_blank'>Black Friday Sale</a></span>", 'chart-builder' );
                             $content[] = '</span>';
 
                             $content[] = '</br>';
 
                             $content[] = '<span class="ays-chart-black-friday-bundle-desc">';
                                 $content[] = '<a class="ays-chart-black-friday-bundle-desc" href="https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner" class="ays-chart-black-friday-bundle-title-link" target="_blank">';
-                                    $content[] = __( "50% OFF", CHART_BUILDER_NAME );
+                                    $content[] = __( "50% OFF", 'chart-builder' );
                                 $content[] = '</a>';
                             $content[] = '</span>';
                         $content[] = '</div>';
@@ -1283,7 +1291,7 @@ class Chart_Builder_Admin {
                             $content[] = '<form action="" method="POST">';
                                 $content[] = '<div id="ays-chart-dismiss-buttons-content">';
                                 if( current_user_can( 'manage_options' ) ){
-                                    $content[] = '<button class="btn btn-link ays-button" name="ays_chart_sale_btn" style="height: 32px; margin-left: 0;padding-left: 0">'. __( "Dismiss ad", CHART_BUILDER_NAME ) .'</button>';
+                                    $content[] = '<button class="btn btn-link ays-button" name="ays_chart_sale_btn" style="height: 32px; margin-left: 0;padding-left: 0">'. __( "Dismiss ad", 'chart-builder' ) .'</button>';
                                     $content[] = wp_nonce_field( CHART_BUILDER_NAME . '-sale-banner' ,  CHART_BUILDER_NAME . '-sale-banner' );
                                 }
                                 $content[] = '</div>';
@@ -1296,22 +1304,22 @@ class Chart_Builder_Admin {
                     $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-text-box">';
                         $content[] = '<span class="ays-chart-black-friday-bundle-title">';
                             $content[] = '<a class="ays-chart-black-friday-bundle-title-link" href="https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner" target="_blank">';
-                                $content[] = __( 'Silver Bundle', "ays-popup-box" );
+                                $content[] = __( 'Silver Bundle', 'chart-builder' );
                             $content[] = '</a>';
                         $content[] = '</span>';
                     $content[] = '</div>';
 
                     $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-button-box">';
-                        $content[] = '<a href="https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', CHART_BUILDER_NAME ) . '</a>';
+                        $content[] = '<a href="https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=black-friday-silver-bundle-sale-banner" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', 'chart-builder' ) . '</a>';
                         $content[] = '<span class="ays-chart-dicount-one-time-text">';
-                            $content[] = __( "One-time payment", CHART_BUILDER_NAME );
+                            $content[] = __( "One-time payment", 'chart-builder' );
                         $content[] = '</span>';
                     $content[] = '</div>';
                 $content[] = '</div>';
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo $content;
+            echo html_entity_decode( $content );
         }
     }
 
@@ -1331,14 +1339,14 @@ class Chart_Builder_Admin {
                                 $content[] = '<div id="ays-chart-countdown">';
 
                                     $content[] = '<div>';
-                                        $content[] = __( "Offer ends in:", CHART_BUILDER_NAME );
+                                        $content[] = __( "Offer ends in:", 'chart-builder' );
                                     $content[] = '</div>';
 
                                     $content[] = '<ul style="padding-left: 0;">';
-                                        $content[] = '<li><span id="ays-chart-countdown-days"></span>'. __( "Days", CHART_BUILDER_NAME ) .'</li>';
-                                        $content[] = '<li><span id="ays-chart-countdown-hours"></span>'. __( "Hours", CHART_BUILDER_NAME ) .'</li>';
-                                        $content[] = '<li><span id="ays-chart-countdown-minutes"></span>'. __( "Minutes", CHART_BUILDER_NAME ) .'</li>';
-                                        $content[] = '<li><span id="ays-chart-countdown-seconds"></span>'. __( "Seconds", CHART_BUILDER_NAME ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-days"></span>'. __( "Days", 'chart-builder' ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-hours"></span>'. __( "Hours", 'chart-builder' ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-minutes"></span>'. __( "Minutes", 'chart-builder' ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-seconds"></span>'. __( "Seconds", 'chart-builder' ) .'</li>';
                                     $content[] = '</ul>';
                                 $content[] = '</div>';
 
@@ -1358,14 +1366,21 @@ class Chart_Builder_Admin {
                         $content[] = '<div>';
 
                             $content[] = '<span class="ays-chart-christmas-top-bundle-title">';
-                                $content[] = __( "<span><a href='https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner".CHART_BUILDER_VERSION."' class='ays-chart-christmas-top-bundle-title-link' target='_blank'>Christmas Sale</a></span>", CHART_BUILDER_NAME );
+                                $content[] = sprintf(
+                                    /* translators: %s is the Chart Builder plugin URL with version parameter. */
+                                    __(
+                                        "<span><a href='%s' class='ays-chart-christmas-top-bundle-title-link' target='_blank'>Christmas Sale</a></span>",
+                                        'chart-builder'
+                                    ),
+                                    "https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner" . CHART_BUILDER_VERSION
+                                );
                             $content[] = '</span>';
 
                             $content[] = '</br>';
 
                             $content[] = '<span class="ays-chart-christmas-top-bundle-desc">';
                                 $content[] = '<a class="ays-chart-christmas-top-bundle-desc" href="https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner'.CHART_BUILDER_VERSION.'" class="ays-chart-christmas-top-bundle-title-link" target="_blank">';
-                                    $content[] = __( "20% Extra OFF", CHART_BUILDER_NAME );
+                                    $content[] = __( "20% Extra OFF", 'chart-builder' );
                                 $content[] = '</a>';
                             $content[] = '</span>';
                         $content[] = '</div>';
@@ -1375,7 +1390,7 @@ class Chart_Builder_Admin {
                             $content[] = '<form action="" method="POST">';
                                 $content[] = '<div id="ays-chart-dismiss-buttons-content">';
                                 if( current_user_can( 'manage_options' ) ){
-                                    $content[] = '<button class="btn btn-link ays-button" name="ays_chart_sale_btn" style="height: 32px; margin-left: 0;padding-left: 0">'. __( "Dismiss ad", CHART_BUILDER_NAME ) .'</button>';
+                                    $content[] = '<button class="btn btn-link ays-button" name="ays_chart_sale_btn" style="height: 32px; margin-left: 0;padding-left: 0">'. __( "Dismiss ad", 'chart-builder' ) .'</button>';
                                     $content[] = wp_nonce_field( CHART_BUILDER_NAME . '-sale-banner' ,  CHART_BUILDER_NAME . '-sale-banner' );
                                 }
                                 $content[] = '</div>';
@@ -1389,23 +1404,22 @@ class Chart_Builder_Admin {
                         $content[] = '<div class="ays-chart-christmas-top-bundle-coupon-row">';
                             $content[] = 'xmas20off';
                         $content[] = '</div>';
-
                         $content[] = '<div class="ays-chart-christmas-top-bundle-text-row">';
-                            $content[] = __( '20% Extra Discount Coupon', CHART_BUILDER_NAME );
+                            $content[] = __( '20% Extra Discount Coupon', 'chart-builder' );
                         $content[] = '</div>';
                     $content[] = '</div>';
 
                     $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-button-box">';
-                        $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner'.CHART_BUILDER_VERSION.'" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', CHART_BUILDER_NAME ) . '</a>';
+                        $content[] = '<a href="https://ays-pro.com/wordpress/chart-builder?utm_source=dashboard&utm_medium=chart-free&utm_campaign=christmas-sale-banner'.CHART_BUILDER_VERSION.'" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', 'chart-builder' ) . '</a>';
                         $content[] = '<span class="ays-chart-dicount-one-time-text">';
-                            $content[] = __( "One-time payment", CHART_BUILDER_NAME );
+                            $content[] = __( "One-time payment", 'chart-builder' );
                         $content[] = '</span>';
                     $content[] = '</div>';
                 $content[] = '</div>';
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo $content;
+            echo html_entity_decode( $content );
         }
     }
 
@@ -1413,7 +1427,7 @@ class Chart_Builder_Admin {
 
         $date = time() + ( 3 * 24 * 60 * 60 ) + (int) ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS);
         // $date = time() + ( 60 ) + (int) ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS); // for testing | 1 min
-        $next_3_days = date('M d, Y H:i:s', $date);
+        $next_3_days = gmdate('M d, Y H:i:s', $date);
 
         $ays_chart_banner_time = get_option('ays_chart_20_bundle_banner_time');
 
@@ -1751,9 +1765,9 @@ class Chart_Builder_Admin {
         $plugins_array = array(
             'quiz-maker/quiz-maker.php'        => array(
                 'icon'        => $images_url . 'icon-quiz-128x128.png',
-                'name'        => __( 'Quiz Maker', "easy-form" ),
-                'desc'        => __( 'Create powerful and engaging quizzes, tests, and exams in minutes.', "easy-form" ),
-                'desc_hidden' => __( 'Build an unlimited number of quizzes and questions.', "easy-form" ),
+                'name'        => __( 'Quiz Maker', 'chart-builder' ),
+                'desc'        => __( 'Create powerful and engaging quizzes, tests, and exams in minutes.', 'chart-builder' ),
+                'desc_hidden' => __( 'Build an unlimited number of quizzes and questions.', 'chart-builder' ),
                 'wporg'       => 'https://wordpress.org/plugins/quiz-maker/',
                 'buy_now'     => 'https://ays-pro.com/wordpress/quiz-maker/',
                 'url'         => $plugin_url_arr['quiz-maker'],
@@ -1997,7 +2011,7 @@ class Chart_Builder_Admin {
                             </a>';
                         }
             $content .='
-                        <a target="_blank" href="'. esc_url( $plugin_data['details']['buy_now'] ) .'" class="ays-chart-card__btn-primary">'. __('Buy Now', $this->plugin_name) .'</a>
+                        <a target="_blank" href="'. esc_url( $plugin_data['details']['buy_now'] ) .'" class="ays-chart-card__btn-primary">'. __('Buy Now', 'chart-builder') .'</a>
                     </div>
                 </div>';
         }
@@ -2005,7 +2019,7 @@ class Chart_Builder_Admin {
         $content.= '<input type="hidden" id="ays_chart_ajax_install_plugin_nonce" name="ays_chart_ajax_install_plugin_nonce" value="'. $install_plugin_nonce .'">';
         $content.= '</div>';
 
-        echo $content;
+        echo html_entity_decode( $content );
     }
 
     /**
@@ -2302,7 +2316,7 @@ class Chart_Builder_Admin {
 			$sources[] = $content;
 		}
 		$content_for_escape = implode('' , $sources );
-		echo html_entity_decode(esc_html( $content_for_escape ));
+		echo html_entity_decode( $content_for_escape );
 	}
 
     public function source_contents_import_from_csv_settings( $sources, $args ){
@@ -2316,23 +2330,23 @@ class Chart_Builder_Admin {
                 <a href="https://www.youtube.com/watch?v=tZ8K3y0qOEY" target="_blank" class="ays-pro-features-v2-video-button">
                     <div class="ays-pro-features-v2-video-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24_Hover.svg"></div>
                     <div class="ays-pro-features-v2-video-text">
-                        <?php echo __("Watch Video" , "chart-builder"); ?>
+                        <?php echo esc_html__("Watch Video" , "chart-builder"); ?>
                     </div>
                 </a>
                 <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                     <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                     <div class="ays-pro-features-v2-upgrade-text">
-                        <?php echo __("Upgrade" , "chart-builder"); ?>
+                        <?php echo esc_html__("Upgrade" , "chart-builder"); ?>
                     </div>
                 </a>
             </div>
 			<div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main ays-accordion-data-main-wrap">
                 <div class="<?php echo esc_attr($html_class_prefix) ?>file-import-form">
-					<h6><?php echo __("Choose what kind of data would you like to upload.", "chart-builder"); ?></h6>
+					<h6><?php echo esc_html__("Choose what kind of data would you like to upload.", "chart-builder"); ?></h6>
 					<select class="form-select" style="max-width: none;" id="<?php echo esc_attr($html_class_prefix) ?>import-files-file-type">
 						<option value="csv">CSV File</option>
 					</select>
-					<span style="display: block; font-style: italic; color: gray; font-size: 12px; margin: 5px 0;" class="<?php echo esc_attr($html_class_prefix) ?>small-hint-text"><?php echo __("Choose the format of the file you are going to import.", "chart-builder"); ?></span>
+					<span style="display: block; font-style: italic; color: gray; font-size: 12px; margin: 5px 0;" class="<?php echo esc_attr($html_class_prefix) ?>small-hint-text"><?php echo esc_html__("Choose the format of the file you are going to import.", "chart-builder"); ?></span>
 					<p class="<?php echo esc_attr($html_class_prefix) ?>csv-export-example" style="font-size: 15px; font-style: italic;">Example: 
 						<a class="<?php echo esc_attr($html_class_prefix) ?>csv-export-example-link <?php echo esc_attr($html_class_prefix) ?>csv-export-example-link-other-types" style="cursor: pointer;">example.csv</a>
 					</p>
@@ -2343,14 +2357,14 @@ class Chart_Builder_Admin {
 					<div class='ays-chart-file-import-error'></div>
 					<div class="ays-chart-buttons-group">
                         <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-file-import-fetch">
-                            <?php echo __( 'Show Results', "chart-builder" ); ?>
+                            <?php echo esc_html__( 'Show Results', "chart-builder" ); ?>
                         </button>
                         <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-file-import-show-on-chart">
                             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
-                            <?php echo __( 'Preview', "chart-builder" ); ?>
+                            <?php echo esc_html__( 'Preview', "chart-builder" ); ?>
                         </button>
                         <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-file-import-save">
-                            <?php echo __( 'Save data', "chart-builder" ); ?>
+                            <?php echo esc_html__( 'Save data', "chart-builder" ); ?>
                         </button>
 					</div>
 				</div>
@@ -2382,43 +2396,52 @@ class Chart_Builder_Admin {
                 <a href="https://www.youtube.com/watch?v=tZ8K3y0qOEY" target="_blank" class="ays-pro-features-v2-video-button">
                     <div class="ays-pro-features-v2-video-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24_Hover.svg"></div>
                     <div class="ays-pro-features-v2-video-text">
-                        <?php echo __("Watch Video" , "chart-builder"); ?>
+                        <?php echo esc_html__("Watch Video" , "chart-builder"); ?>
                     </div>
                 </a>
                 <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                     <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                     <div class="ays-pro-features-v2-upgrade-text">
-                        <?php echo __("Upgrade" , "chart-builder"); ?>
+                        <?php echo esc_html__("Upgrade" , "chart-builder"); ?>
                     </div>
                 </a>
             </div>
-            <div class="<?= $html_class_prefix ?>source-data-main-wrap ays-accordion-data-main-wrap ">
-                <div class="<?= $html_class_prefix ?>chart-source-data-main">
+            <div class="<?php echo esc_attr( $html_class_prefix ) ?>source-data-main-wrap ays-accordion-data-main-wrap ">
+                <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main">
                     <div id="ays-chart-db-query">
-                        <div class="<?= $html_class_prefix ?>-db-query-form">
+                        <div class="<?php echo esc_attr($html_class_prefix) ?>-db-query-form">
                             <div id="db-query-form">
                                 <input type="hidden" name="chart_id" value="1">
-                                <textarea name="query" class="<?= $html_class_prefix ?>db-query" placeholder="<?php echo __( "Add your query here.", $this->plugin_name ); ?>"></textarea>
+                                <textarea name="query" class="<?php echo esc_attr($html_class_prefix) ?>db-query" placeholder="<?php echo esc_html__( "Add your query here.", 'chart-builder' ); ?>"></textarea>
                                 <div class='db-wizard-success'></div>
                                 <div class='db-wizard-error'></div>
                             </div>
                             <div class="ays-chart-db-query-form-button ays-chart-buttons-group">
                                 <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-query-fetch">
-                                    <?php echo __( 'Show Results', "chart-builder" ); ?>
+                                    <?php echo esc_html__( 'Show Results', "chart-builder" ); ?>
                                 </button>
                                 <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-query-show-on-chart">
                                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
-                                    <?php echo __( 'Preview', "chart-builder" ); ?>
+                                    <?php echo esc_html__( 'Preview', "chart-builder" ); ?>
                                 </button>
                                 <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-query-save">
-                                    <?php echo __( 'Save data', "chart-builder" ); ?>
+                                    <?php echo esc_html__( 'Save data', "chart-builder" ); ?>
                                 </button>
                             </div>
                         </div>
                         <div class="db-wizard-hints">
                             <ul>
                                 <!-- <li><//?php echo sprintf( __( 'For examples of queries and links to resources that you can use with this feature, please click %1$shere%2$s', $this->plugin_name ), '<a href="' . '#' . '" target="_blank">', '</a>' ); ?></li> -->
-                                <li><?php echo sprintf( __( 'Use %1$sControl+Space%2$s for autocompleting keywords or table names.', $this->plugin_name ), '<span class="ays-chart-emboss">', '</span>' ); ?></li>
+                                <li>
+                                    <?php 
+                                    echo sprintf( 
+                                        /* translators: %1$s and %2$s are HTML span tags for styling. */
+                                        esc_html__( 'Use %1$sControl+Space%2$s for autocompleting keywords or table names.', 'chart-builder' ), 
+                                        '<span class="ays-chart-emboss">', 
+                                        '</span>' 
+                                    ); 
+                                    ?>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -2428,7 +2451,7 @@ class Chart_Builder_Admin {
 		<?php
 		$content = ob_get_clean();
 
-		$title = __( 'Connect to Database', $this->plugin_name ) . ' <a class="ays_help" data-bs-toggle="tooltip" title="' . __("Insert the Database query and the appropriate information from your Database will be displayed in the chart.",$this->plugin_name) . '">
+		$title = __( 'Connect to Database', 'chart-builder') . ' <a class="ays_help" data-bs-toggle="tooltip" title="' . __("Insert the Database query and the appropriate information from your Database will be displayed in the chart.", 'chart-builder') . '">
 					<i class="ays_fa ays_fa_info_circle"></i>
 				</a>';
 
@@ -2451,12 +2474,12 @@ class Chart_Builder_Admin {
                 <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                     <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                     <div class="ays-pro-features-v2-upgrade-text">
-                        <?php echo __("Upgrade" , "chart-builder"); ?>
+                        <?php echo esc_html__("Upgrade" , "chart-builder"); ?>
                     </div>
                 </a>
             </div>
-            <div class="<?= $html_class_prefix ?>source-data-main-wrap ays-accordion-data-main-wrap ">
-                <div class="<?= $html_class_prefix ?>chart-source-data-main">
+            <div class="<?php echo esc_attr($html_class_prefix) ?>source-data-main-wrap ays-accordion-data-main-wrap ">
+                <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main">
                     <div class="form-group row mb-2">
                         <div class="col-sm-8 <?php echo esc_attr($html_class_prefix) ?>option-title">
                             <label class="form-label">
@@ -2474,30 +2497,39 @@ class Chart_Builder_Admin {
                         </div>
                     </div>
                     <div id="ays-chart-external-db-query">
-                        <div class="<?= $html_class_prefix ?>-db-query-form">
+                        <div class="<?php echo esc_attr($html_class_prefix) ?>-db-query-form">
                             <div id="external-db-query-form">
                                 <input type="hidden" name="chart_id" value="1">
-                                <textarea name="query" class="<?= $html_class_prefix ?>external-db-query" placeholder="<?php echo __( "Add your query here.", $this->plugin_name ); ?>"></textarea>
+                                <textarea name="query" class="<?php echo esc_attr($html_class_prefix) ?>external-db-query" placeholder="<?php echo esc_html__( "Add your query here.", 'chart-builder' ); ?>"></textarea>
                                 <div class='db-wizard-success'></div>
                                 <div class='db-wizard-error'></div>
                             </div>
                             <div class="ays-chart-db-query-form-button ays-chart-buttons-group">
                                 <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-external-query-fetch">
-                                    <?php echo __( 'Show Results', "chart-builder" ); ?>
+                                    <?php echo esc_html__( 'Show Results', "chart-builder" ); ?>
                                 </button>
                                 <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-external-query-show-on-chart">
                                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
-                                    <?php echo __( 'Preview', "chart-builder" ); ?>
+                                    <?php echo esc_html__( 'Preview', "chart-builder" ); ?>
                                 </button>
                                 <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-external-query-save">
-                                    <?php echo __( 'Save data', "chart-builder" ); ?>
+                                    <?php echo esc_html__( 'Save data', "chart-builder" ); ?>
                                 </button>
                             </div>
                         </div>
                         <div class="db-wizard-hints">
                             <ul>
                                 <!-- <li><//?php echo sprintf( __( 'For examples of queries and links to resources that you can use with this feature, please click %1$shere%2$s', $this->plugin_name ), '<a href="' . '#' . '" target="_blank">', '</a>' ); ?></li> -->
-                                <li><?php echo sprintf( __( 'Use %1$sControl+Space%2$s for autocompleting keywords or table names.', $this->plugin_name ), '<span class="ays-chart-emboss">', '</span>' ); ?></li>
+                                <li>
+                                    <?php 
+                                    echo sprintf( 
+                                        /* translators: %1$s and %2$s are HTML span tags for styling. */
+                                        esc_html__( 'Use %1$sControl+Space%2$s for autocompleting keywords or table names.', 'chart-builder' ), 
+                                        '<span class="ays-chart-emboss">', 
+                                        '</span>' 
+                                    ); 
+                                    ?>
+                                </li>                     
                             </ul>
                         </div>
                     </div>
@@ -2507,7 +2539,7 @@ class Chart_Builder_Admin {
 		<?php
 		$content = ob_get_clean();
 
-        $title = __( 'Connect to External Database', $this->plugin_name ) . ' <a class="ays_help" data-bs-toggle="tooltip" title="' . __("Insert the Database query and fetch data from an external database.", $this->plugin_name) . '">
+        $title = __( 'Connect to External Database', 'chart-builder' ) . ' <a class="ays_help" data-bs-toggle="tooltip" title="' . __("Insert the Database query and fetch data from an external database.", 'chart-builder') . '">
                     <i class="ays_fa ays_fa_info_circle"></i>
                 </a>';
 
@@ -2543,33 +2575,36 @@ class Chart_Builder_Admin {
 
 			return $sources;
 		}
-
-		$sql = "SELECT `title`, `id` FROM " . $wpdb->prefix . "aysquiz_quizes WHERE `published` = 1 AND `question_ids` <> ''";
-		$quizes = $wpdb->get_results($sql, "ARRAY_A");
+        $sql = $wpdb->prepare(
+            "SELECT `title`, `id` FROM {$wpdb->prefix}aysquiz_quizes WHERE `published` = %d AND `question_ids` <> %s",
+            1,  // The value for `published`
+            ''   // The value for `question_ids` (empty string)
+        );
+		$quizes = $wpdb->get_results($sql, ARRAY_A);
 
         ob_start();
 	    ?>
         <div class="ays-accordion-data-main-wrap">
 			<div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main cb-changable-tab cb-pie_chart-tab cb-donut_chart-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
                 <div id="<?php echo esc_attr($html_class_prefix) ?>quiz-maker-form">
-					<input type="hidden" class="<?php echo esc_attr($html_class_prefix) ?>chart-id" value="<?= $chart_id ?>">
-					<div class="<?= $html_class_prefix ?>select-quiz-maker-data-query-container" id="<?= $html_class_prefix ?>quiz-queries">
-						<a class="ays_help <?= $html_class_prefix ?>quiz-query-tooltip" data-bs-toggle="tooltip" data-bs-html="true" title="<?php echo isset($quiz_query) ? $quiz_query_tooltips[$quiz_query] : __( 'Select a query to display quiz data.', $this->plugin_name ) ?>">
+					<input type="hidden" class="<?php echo esc_attr($html_class_prefix) ?>chart-id" value="<?php echo esc_attr($chart_id) ?>">
+					<div class="<?php echo esc_attr($html_class_prefix) ?>select-quiz-maker-data-query-container" id="<?php echo esc_attr($html_class_prefix) ?>quiz-queries">
+						<a class="ays_help <?php echo esc_attr($html_class_prefix) ?>quiz-query-tooltip" data-bs-toggle="tooltip" data-bs-html="true" title="<?php echo isset($quiz_query) ? esc_attr($quiz_query_tooltips[$quiz_query]) : esc_html__( 'Select a query to display quiz data.', 'chart-builder' ) ?>">
 							<i class="ays_fa ays_fa_info_circle"></i>
 						</a>
-						<select class="form-select" style="max-width: none;" id="<?php echo esc_attr($html_class_prefix) ?>select-quiz-maker-data-query" name="<?= $html_name_prefix ?>quiz_query">
-							<option value=""><?= __( "Select query", "chart-builder" ) ?></option>
+						<select class="form-select" style="max-width: none;" id="<?php echo esc_attr($html_class_prefix) ?>select-quiz-maker-data-query" name="<?php echo esc_attr($html_name_prefix) ?>quiz_query">
+							<option value=""><?php echo esc_html__( "Select query", "chart-builder" ) ?></option>
 							<?php foreach ( $quiz_queries as $id => $q): 
                                 $disabled = preg_replace('/[^0-9]/', '', $id) <= 6 ? "false" : "true" ; ?>
-								<option value="<?= $id ?>" <?= $quiz_query == $id ? 'selected' : '' ?> <?php echo 'is-pro="'.$disabled.'"'; ?>><?= $q ?></option>
+								<option value="<?php echo esc_attr($id) ?>" <?php echo $quiz_query == $id ? 'selected' : '' ?> <?php echo 'is-pro="'.esc_attr($disabled).'"'; ?>><?php echo esc_attr($q) ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
 					<div class="<?php echo esc_attr($html_class_prefix) ?>select-quiz-maker-quiz-container">
-						<select class="form-select" style="max-width: none;" id="<?php echo esc_attr($html_class_prefix) ?>select-quiz-maker-quiz" name="<?= $html_name_prefix ?>quiz_id">
-							<option value="0"><?= __( "Select quiz", "chart-builder" ) ?></option>
+						<select class="form-select" style="max-width: none;" id="<?php echo esc_attr($html_class_prefix) ?>select-quiz-maker-quiz" name="<?php echo esc_attr($html_name_prefix) ?>quiz_id">
+							<option value="0"><?php echo esc_html__( "Select quiz", "chart-builder" ) ?></option>
 							<?php foreach ( $quizes as $quiz): ?>
-								<option value="<?= $quiz['id'] ?>" <?= $quiz_id == $quiz['id'] ? 'selected' : '' ?> ><?= $quiz['title'] ?></option>
+								<option value="<?php echo esc_attr($quiz['id']) ?>" <?php echo $quiz_id == $quiz['id'] ? 'selected' : '' ?> ><?php echo esc_html($quiz['title'] )?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
@@ -2577,28 +2612,35 @@ class Chart_Builder_Admin {
 					<div id="ays-chart-quiz-maker-error"></div>
 					<div class="ays-chart-buttons-group">
                         <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-quiz-maker-fetch">
-                            <?php echo __( 'Show Results', "chart-builder" ); ?>
+                            <?php echo esc_html__( 'Show Results', "chart-builder" ); ?>
                         </button>
                         <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-quiz-maker-show-on-chart">
                             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
-                            <?php echo __( 'Preview', "chart-builder" ); ?>
+                            <?php echo esc_html__( 'Preview', "chart-builder" ); ?>
                         </button>
                         <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-quiz-maker-save">
-                            <?php echo __( 'Save data', "chart-builder" ); ?>
+                            <?php echo esc_html__( 'Save data', "chart-builder" ); ?>
                         </button>
 					</div>
 				</div>
                 <div>
-                    <a href="https://www.youtube.com/watch?v=vqx76dw6NC8" target="_blank" style="text-decoration:none;font-style:italic"><?php echo __('How to Connect Quizzes to Charts', 'chart-builder'); ?></a>
+                    <a href="https://www.youtube.com/watch?v=vqx76dw6NC8" target="_blank" style="text-decoration:none;font-style:italic"><?php echo esc_html__('How to Connect Quizzes to Charts', 'chart-builder'); ?></a>
                 </div>
 			</div>
         </div>
 	    <?php
         $content = ob_get_clean();
 
-	    $title = sprintf( __( 'Get Quiz Maker data', $this->plugin_name ) . ' <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="' . __("By using this option, you can display the quiz statistics by charts.%s %sNote:%s The Quiz Maker plugin must be active.",$this->plugin_name) . '">
-					<i class="ays_fa ays_fa_info_circle"></i>
-				</a>', '<br>', '<b>', '</b>');
+        $title = sprintf(
+            /* translators: %1$s: Line break, %2$s: Opening bold tag, %3$s: Closing bold tag. */
+            __( 'Get Quiz Maker data', 'chart-builder' ) . 
+            ' <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="' . 
+            /* translators: %1$s: Line break, %2$s: Opening bold tag, %3$s: Closing bold tag. */
+            __( 'By using this option, you can display the quiz statistics by charts.%1$s %2$sNote:%3$s The Quiz Maker plugin must be active.', 'chart-builder' ) . '">
+                <i class="ays_fa ays_fa_info_circle"></i>
+            </a>', 
+            '<br>', '<b>', '</b>'
+        );
 	    $sources['quiz_maker'] = array(
 		    'content' => $content,
 		    'title' => $title
@@ -2623,21 +2665,21 @@ class Chart_Builder_Admin {
                 <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                     <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                     <div class="ays-pro-features-v2-upgrade-text">
-                        <?php echo __("Upgrade" , "chart-builder"); ?>
+                        <?php echo esc_html__("Upgrade" , "chart-builder"); ?>
                     </div>
                 </a>
             </div>
-            <div class="<?= $html_class_prefix ?>chart-source-data-main ays-accordion-data-main-wrap ">
+            <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main ays-accordion-data-main-wrap ">
                 <div id="ays-chart-woocommerce-datas">
-                    <div class="<?= $html_class_prefix ?>woocommerce-datas-form">
+                    <div class="<?php echo esc_attr($html_class_prefix) ?>woocommerce-datas-form">
                         <div id="woocommerce-datas-form">
-                            <input type="hidden" name="chart_id" value="<?= $chart_id ?>">
-                            <div class="<?= $html_class_prefix ?>woocommerce-datas-query-container" id="<?= $html_class_prefix ?>woocommerce-datas-container-id" >
-                                <a class="ays_help <?= $html_class_prefix ?>woocommerce-datas-tooltip" data-bs-toggle="tooltip" data-bs-html="true" title="<?php echo __( 'Select a query to display data.', $this->plugin_name ) ?>">
+                            <input type="hidden" name="chart_id" value="<?php echo esc_attr( $chart_id )?>">
+                            <div class="<?php echo esc_attr($html_class_prefix) ?>woocommerce-datas-query-container" id="<?php echo esc_attr($html_class_prefix) ?>woocommerce-datas-container-id" >
+                                <a class="ays_help <?php echo esc_attr($html_class_prefix) ?>woocommerce-datas-tooltip" data-bs-toggle="tooltip" data-bs-html="true" title="<?php echo esc_html__( 'Select a query to display data.', 'chart-builder' ) ?>">
                                     <i class="ays_fa ays_fa_info_circle"></i>
                                 </a>
-                                <select class="form-select" style="max-width: none;" id="<?= $html_class_prefix ?>woocommerce-datas-select" name="<?php echo esc_attr($html_name_prefix); ?>settings[woocommerce_data_id]">
-                                    <option value=""><?= __( 'Select query', $this->plugin_name ) ?></option>
+                                <select class="form-select" style="max-width: none;" id="<?php echo esc_attr($html_class_prefix) ?>woocommerce-datas-select" name="<?php echo esc_attr($html_name_prefix); ?>settings[woocommerce_data_id]">
+                                    <option value=""><?php echo esc_html__( 'Select query', 'chart-builder') ?></option>
                                 </select>
                             </div>
                             <div class='ays-chart-woocommerce-datas-success'></div>
@@ -2645,14 +2687,14 @@ class Chart_Builder_Admin {
                         </div>
                         <div class="ays-chart-buttons-group">
                             <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-woocommerce-datas-fetch">
-                                <?php echo __( 'Show Results', "chart-builder" ); ?>
+                                <?php echo esc_html__( 'Show Results', "chart-builder" ); ?>
                             </button>
                             <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-woocommerce-datas-show-on-chart">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
-                                <?php echo __( 'Preview', "chart-builder" ); ?>
+                                <?php echo esc_html__( 'Preview', "chart-builder" ); ?>
                             </button>
                             <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-woocommerce-datas-save">
-                                <?php echo __( 'Save data', "chart-builder" ); ?>
+                                <?php echo esc_html__( 'Save data', "chart-builder" ); ?>
                             </button>
                         </div>
                     </div>
@@ -2661,10 +2703,17 @@ class Chart_Builder_Admin {
         </div>
         <?php
         $content = ob_get_clean();
-
-        $title = sprintf( __( 'Get WooCommerce data', $this->plugin_name ) . ' <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="' . __("By using this option, you can display the WooCommerce statistics by charts.%s %sNote:%s The WooCommerce plugin must be active.",$this->plugin_name) . '">
-                    <i class="ays_fa ays_fa_info_circle"></i>
-                </a>', '<br>', '<b>', '</b>');
+            
+        $title = sprintf(
+            /* translators: %1$s: Line break, %2$s: Opening bold tag, %3$s: Closing bold tag. */
+            esc_html__( 'Get WooCommerce data', 'chart-builder' ) . 
+            ' <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="' . 
+            /* translators: %1$s: Line break, %2$s: Opening bold tag, %3$s: Closing bold tag. */
+            __( 'By using this option, you can display the WooCommerce statistics by charts.%1$s %2$sNote:%3$s The WooCommerce plugin must be active.', 'chart-builder' ) . '">
+                <i class="ays_fa ays_fa_info_circle"></i>
+            </a>', 
+            '<br>', '<b>', '</b>'
+        );        
         $sources['woocommerce'] = array(
             'content' => $content,
             'title' => $title
@@ -2687,13 +2736,13 @@ class Chart_Builder_Admin {
                 if (count($source[1]) > 2) {
                     $titles = array();
                     for ($i = 0; $i < count($source[1]); $i++) {
-                        array_push($titles, __("Title", $this->plugin_name).$i);
+                        array_push($titles, __("Title", 'chart-builder').$i);
                     }
                     $source[0] = $titles;
                 } else {
                     $source[0] = array(
-                        __("Country", $this->plugin_name),
-                        __("Population", $this->plugin_name),
+                        __("Country", 'chart-builder'),
+                        __("Population", 'chart-builder'),
                     );
                 }
     
@@ -2717,7 +2766,7 @@ class Chart_Builder_Admin {
         <div class="ays-accordion-data-main-wrap">
             <div class="<?php echo esc_attr($html_class_prefix) ?>source-data-main-wrap">
                 <?php if($source_chart_type != 'org_chart'): ?>
-                    <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main <?= $html_class_prefix ?>chart-source-data-manual cb-changable-manual cb-pie_chart-manual cb-bar_chart-manual cb-column_chart-manual cb-line_chart-manual cb-donut_chart-manual display_none">
+                    <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main <?php echo esc_attr( $html_class_prefix) ?>chart-source-data-manual cb-changable-manual cb-pie_chart-manual cb-bar_chart-manual cb-column_chart-manual cb-line_chart-manual cb-donut_chart-manual display_none">
                         <!-- <div class="<//?= $html_class_prefix ?>icons-box">
                             <img class="<//?= $html_class_prefix ?>add-new-row" src="<//?php echo CHART_BUILDER_ADMIN_URL; ?>/images/icons/add-circle-outline.svg">
                         </div> -->
@@ -2730,12 +2779,12 @@ class Chart_Builder_Admin {
                                                 <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-edit-block" data-source-id = "<?php echo esc_attr($source_id); ?>">
                                                     <div class="ays-chart-empty-data-table-cell"></div>
                                                     <?php foreach($source_value as $each_source_id => $each_source_value): ?>
-                                                        <div class="<?= $html_class_prefix ?>chart-source-data-input-box <?= $html_class_prefix ?>chart-source-title-box" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
+                                                        <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-box <?php echo esc_attr($html_class_prefix) ?>chart-source-title-box" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
                                                             <svg class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-remove-block <?php echo esc_attr($html_class_prefix) ?>chart-source-data-remove-col" data-trigger="hover" data-bs-toggle="tooltip" title="Delete column" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="10px">
                                                                 <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" style="fill: #b8b8b8;" />
                                                             </svg>
                                                             <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-titles-box-item">
-                                                                <input type="text" class="ays-text-input form-control <?= $html_class_prefix ?>chart-source-title-input" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo stripslashes(esc_attr($each_source_value)); ?>" <?php echo $each_source_id == 0 ? "style='min-width:100px'" : "" ?>>
+                                                                <input type="text" class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>chart-source-title-input" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo esc_attr(stripslashes($each_source_value)); ?>" <?php echo $each_source_id == 0 ? "style='min-width:100px'" : "" ?>>
                                                                 <?php if ($each_source_id !== 0): ?>
                                                                     <svg class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-sort" data-sort-order="asc" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
                                                                         <path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z" style="fill: #b8b8b8;" />
@@ -2759,12 +2808,12 @@ class Chart_Builder_Admin {
                                                     </div>
                                                     <?php foreach($source_value as $each_source_id => $each_source_value): ?>
                                                         <?php if ($each_source_id == 0): ?>
-                                                            <div class="<?= $html_class_prefix ?>chart-source-data-input-box <?= $html_class_prefix ?>chart-source-data-name-input-box" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
-                                                                <input type="text" class="ays-text-input form-control" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo htmlspecialchars(esc_attr($each_source_value)); ?>">
+                                                            <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-box <?php echo esc_attr($html_class_prefix) ?>chart-source-data-name-input-box" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
+                                                                <input type="text" class="ays-text-input form-control" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo esc_attr(htmlspecialchars($each_source_value)); ?>">
                                                             </div>
                                                         <?php else: ?>
                                                             <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-box <?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-number" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
-                                                                <input type="number" class="ays-text-input form-control" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo stripslashes(esc_attr($each_source_value)); ?>" step="any">
+                                                                <input type="number" class="ays-text-input form-control" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo esc_attr(stripslashes($each_source_value)); ?>" step="any">
                                                             </div>
                                                         <?php endif; ?>
                                                     <?php endforeach; ?>
@@ -2773,14 +2822,14 @@ class Chart_Builder_Admin {
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 <?php else:?>
-                                    <div class="<?= $html_class_prefix ?>chart-source-data-edit-block">
+                                    <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-edit-block">
                                         <div style="height: 63.11px; padding: 0 15px;"></div>
-                                        <div class="<?= $html_class_prefix ?>chart-source-data-input-box <?= $html_class_prefix ?>chart-source-title-box">
+                                        <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-box <?php echo esc_attr($html_class_prefix) ?>chart-source-title-box">
                                             <svg class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-remove-block <?php echo esc_attr($html_class_prefix) ?>chart-source-data-remove-col" data-trigger="hover" data-bs-toggle="tooltip" title="Delete column" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="10px">
                                                 <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" style="fill: #b8b8b8;" />
                                             </svg>
                                             <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-titles-box-item">
-                                                <input type="text" class="ays-text-input form-control <?= $html_class_prefix ?>chart-source-title-input" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[0][]" style='min-width:100px'>
+                                                <input type="text" class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>chart-source-title-input" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[0][]" style='min-width:100px'>
                                                 <svg class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-sort" data-sort-order="asc" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
                                                     <path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z" style="fill: #b8b8b8;" />
                                                 </svg>
@@ -2809,28 +2858,28 @@ class Chart_Builder_Admin {
                             </div>
                             <div class="<?php echo esc_attr($html_class_prefix) ?>icons-box <?php echo esc_attr($html_class_prefix) ?>add-new-column-box cb-changable-opt cb-bar_chart-opt cb-column_chart-opt cb-line_chart-opt display_none">
                                 <img class="<?php echo esc_attr($html_class_prefix) ?>add-new-column" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/add-circle-outline.svg">
-                                <?php echo __( 'Add column', "chart-builder" ); ?>
+                                <?php echo esc_html__( 'Add column', "chart-builder" ); ?>
                             </div>
                         </div>
                         <div class="<?php echo esc_attr($html_class_prefix) ?>icons-box <?php echo esc_attr($html_class_prefix) ?>add-new-row-box">
                             <img class="<?php echo esc_attr($html_class_prefix) ?>add-new-row" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/add-circle-outline.svg">
-                            <?php echo __( 'Add row', "chart-builder" ); ?>
+                            <?php echo esc_html__( 'Add row', "chart-builder" ); ?>
                         </div>
                         <br>
                         <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns <?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttn">
                             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
-                            <?php echo __( 'Preview', "chart-builder" ); ?>
+                            <?php echo esc_html__( 'Preview', "chart-builder" ); ?>
                         </button>
                     </div>
                 <?php endif; ?>
-                <div class="<?= $html_class_prefix ?>chart-source-data-main-org-type display_none cb-changable-manual cb-org_chart-manual">
-					<div class="<?= $html_class_prefix ?>chart-source-data-content-org-type">
-						<ul id="<?= $html_class_prefix ?>chart-source-data-edit-tree-content">
+                <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main-org-type display_none cb-changable-manual cb-org_chart-manual">
+					<div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-content-org-type">
+						<ul id="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-edit-tree-content">
 						</ul>
 					</div>
 					<button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns <?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttn">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
-                        <?php echo __( 'Preview', "chart-builder" ); ?>
+                        <?php echo esc_html__( 'Preview', "chart-builder" ); ?>
                     </button>
 				</div>
             </div>
@@ -2863,7 +2912,7 @@ class Chart_Builder_Admin {
 	    ?>
         <div class="ays-accordion-data-main-wrap">
             <div class="<?php echo esc_attr($html_class_prefix) ?>source-data-main-wrap">
-                <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main <?= $html_class_prefix ?>chart-source-data-manual">
+                <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-main <?php echo  esc_attr($html_class_prefix) ?>chart-source-data-manual">
                     <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-content-container">
                         <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-content">
                             <?php if(!empty($source)):
@@ -2873,12 +2922,12 @@ class Chart_Builder_Admin {
                                             <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-edit-block" data-source-id = "<?php echo esc_attr($source_id); ?>">
                                                 <div class="ays-chart-empty-data-table-cell"></div>
                                                 <?php foreach($source_value as $each_source_id => $each_source_value): ?>
-                                                    <div class="<?= $html_class_prefix ?>chart-source-data-input-box <?= $html_class_prefix ?>chart-source-title-box" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
+                                                    <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-box <?php echo esc_attr($html_class_prefix) ?>chart-source-title-box" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
                                                         <svg class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-remove-block <?php echo esc_attr($html_class_prefix) ?>chart-source-data-remove-col" data-trigger="hover" data-bs-toggle="tooltip" title="Delete column" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="10px">
                                                             <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" style="fill: #b8b8b8;" />
                                                         </svg>
                                                         <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-titles-box-item">
-                                                            <input type="text" class="ays-text-input form-control <?= $html_class_prefix ?>chart-source-title-input" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo stripslashes(esc_attr($each_source_value)); ?>" <?php echo $each_source_id == 0 ? "style='min-width:100px'" : "" ?>>
+                                                            <input type="text" class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>chart-source-title-input" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo esc_attr(stripslashes($each_source_value)); ?>" <?php echo $each_source_id == 0 ? "style='min-width:100px'" : "" ?>>
                                                             <?php if ($each_source_id !== 0): ?>
                                                                 <svg class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-sort" data-sort-order="asc" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
                                                                     <path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z" style="fill: #b8b8b8;" />
@@ -2902,12 +2951,12 @@ class Chart_Builder_Admin {
                                                 </div>
                                                 <?php foreach($source_value as $each_source_id => $each_source_value): ?>
                                                     <?php if ($each_source_id == 0): ?>
-                                                        <div class="<?= $html_class_prefix ?>chart-source-data-input-box <?= $html_class_prefix ?>chart-source-data-name-input-box" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
-                                                            <input type="text" class="ays-text-input form-control" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo htmlspecialchars(esc_attr($each_source_value)); ?>">
+                                                        <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-box <?php echo esc_attr($html_class_prefix) ?>chart-source-data-name-input-box" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
+                                                            <input type="text" class="ays-text-input form-control" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo esc_attr(htmlspecialchars($each_source_value)); ?>">
                                                         </div>
                                                     <?php else: ?>
                                                         <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-box <?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-number" data-cell-id = "<?php echo esc_attr($each_source_id); ?>">
-                                                            <input type="number" class="ays-text-input form-control" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo stripslashes(esc_attr($each_source_value)); ?>" step="any">
+                                                            <input type="number" class="ays-text-input form-control" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[<?php echo esc_attr($source_id); ?>][]" value="<?php echo esc_attr(stripslashes($each_source_value)); ?>" step="any">
                                                         </div>
                                                     <?php endif; ?>
                                                 <?php endforeach; ?>
@@ -2916,14 +2965,14 @@ class Chart_Builder_Admin {
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             <?php else:?>
-                                <div class="<?= $html_class_prefix ?>chart-source-data-edit-block">
+                                <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-edit-block">
                                     <div style="height: 63.11px; padding: 0 15px;"></div>
-                                    <div class="<?= $html_class_prefix ?>chart-source-data-input-box <?= $html_class_prefix ?>chart-source-title-box">
+                                    <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-input-box <?php echo esc_attr($html_class_prefix) ?>chart-source-title-box">
                                         <svg class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-remove-block <?php echo esc_attr($html_class_prefix) ?>chart-source-data-remove-col" data-trigger="hover" data-bs-toggle="tooltip" title="Delete column" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="10px">
                                             <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" style="fill: #b8b8b8;" />
                                         </svg>
                                         <div class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-titles-box-item">
-                                            <input type="text" class="ays-text-input form-control <?= $html_class_prefix ?>chart-source-title-input" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[0][]" style='min-width:100px'>
+                                            <input type="text" class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>chart-source-title-input" name="<?php echo esc_attr($html_name_prefix); ?>chart_source_data[0][]" style='min-width:100px'>
                                             <svg class="<?php echo esc_attr($html_class_prefix) ?>chart-source-data-sort" data-sort-order="asc" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
                                                 <path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z" style="fill: #b8b8b8;" />
                                             </svg>
@@ -2952,17 +3001,17 @@ class Chart_Builder_Admin {
                         </div>
                         <div class="<?php echo esc_attr($html_class_prefix) ?>icons-box <?php echo esc_attr($html_class_prefix) ?>add-new-column-box cb-changable-opt cb-bar_chart-opt cb-line_chart-opt display_none">
                             <img class="<?php echo esc_attr($html_class_prefix) ?>add-new-column" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/add-circle-outline.svg">
-                            <?php echo __( 'Add column', "chart-builder" ); ?>
+                            <?php echo esc_html__( 'Add column', "chart-builder" ); ?>
                         </div>
                     </div>
                     <div class="<?php echo esc_attr($html_class_prefix) ?>icons-box <?php echo esc_attr($html_class_prefix) ?>add-new-row-box">
                         <img class="<?php echo esc_attr($html_class_prefix) ?>add-new-row" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/add-circle-outline.svg">
-                        <?php echo __( 'Add row', "chart-builder" ); ?>
+                        <?php echo esc_html__( 'Add row', "chart-builder" ); ?>
                     </div>
                     <br>
                     <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns <?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttn">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
-                        <?php echo __( 'Preview', "chart-builder" ); ?>
+                        <?php echo esc_html__( 'Preview', "chart-builder" ); ?>
                     </button>
                 </div>
             </div>
@@ -3020,7 +3069,7 @@ class Chart_Builder_Admin {
 			$sources[] = $content;
 		}
 		$content_for_escape = implode('' , $sources );
-		echo html_entity_decode(esc_html( $content_for_escape ));
+		echo html_entity_decode( $content_for_escape );
 	}
 
 	public function settings_contents_general_settings( $sources, $args ){
@@ -3297,7 +3346,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-tooltip-trigger">
 				            <?php echo esc_html(__( "Trigger", "chart-builder" )); ?>
-							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Choose when to display the results on the chart.","chart-builder") ); ?>">
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Choose when to display the results on the chart.","chart-builder") )); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -3348,7 +3397,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-tooltip-font-size" class="form-label">
                             <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The font size for all text within the chart tooltip, specified in pixels. Please note that if an invalid value is entered, it will revert to the default global font size.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("The font size for all text within the chart tooltip, specified in pixels. Please note that if an invalid value is entered, it will revert to the default global font size.","chart-builder") )); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -3378,7 +3427,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-tooltip-bold">
 				            <?php echo esc_html(__( "Bold text", "chart-builder" )); ?>
-							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Choose when to display the results on the chart.","chart-builder") ); ?>">
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Choose when to display the results on the chart.","chart-builder") )); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -3432,7 +3481,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-legend-position">
 				            <?php echo esc_html(__( "Position", "chart-builder" )); ?>
-							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Choose the appropriate position for the chart legend.","chart-builder") ); ?>">
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Choose the appropriate position for the chart legend.","chart-builder") )); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -3465,7 +3514,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-legend-alignment">
 				            <?php echo esc_html(__( "Alignment", "chart-builder" )); ?>
-							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Choose the appropriate alignment for the chart legend.","chart-builder") ); ?>">
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Choose the appropriate alignment for the chart legend.","chart-builder") )); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -3487,7 +3536,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-legend-font-color">
 				            <?php echo esc_html(__( "Font Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Choose the font color for the chart legend.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Choose the font color for the chart legend.","chart-builder") )); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -3500,7 +3549,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-legend-font-size" class="form-label">
                             <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The font size for all text within the chart legend, specified in pixels. Please note that if an invalid value is entered, it will revert to the default global font size.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("The font size for all text within the chart legend, specified in pixels. Please note that if an invalid value is entered, it will revert to the default global font size.","chart-builder") )); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -3589,14 +3638,14 @@ class Chart_Builder_Admin {
 
 		ob_start();
 		?>
-        <div class="ays-accordion-data-main-wrap <?= $html_class_prefix ?>options-haxis-settings-tab cb-changable-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
+        <div class="ays-accordion-data-main-wrap <?php echo esc_attr($html_class_prefix) ?>options-haxis-settings-tab cb-changable-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
                 <h6>Label</h6>
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-title" class="form-label">
                             <?php echo esc_html(__( "Label", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The title of the horizontal axis","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The title of the horizontal axis","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -3683,7 +3732,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-text-position" class="form-label">
                             <?php echo esc_html(__( "Position", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Position of the horizontal axis text, relative to the chart area.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Position of the horizontal axis text, relative to the chart area.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -3873,23 +3922,31 @@ class Chart_Builder_Admin {
                         <label for="ays-chart-option-haxis-format" class="form-label">
                             <?php echo esc_html(__( "Format", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="<?php 
-                                echo htmlspecialchars( sprintf (
-                                    "<p>" . __('A format string for numeric axis labels. You can choose any of the following:', "chart-builder") . "</p><ul class='ays_tooltop_ul'><li>" .
-                                    __('%sNone:%s Displays numbers with no formatting (e.g., 8000000)', "chart-builder") . "</li><li>" .
-                                    __('%sDecimal:%s Displays numbers with thousands separators (e.g., 8,000,000)', "chart-builder") . "</li><li>" .
-                                    __('%sScientific:%s Displays numbers in scientific notation (e.g., 8e6)', "chart-builder") . "</li><li>" .
-                                    __('%sCurrency:%s Displays numbers in the local currency (e.g., $8,000,000.00)', "chart-builder") . "</li><li>" .
-                                    __('%sPercent:%s Displays numbers as percentages (e.g., 800,000,000%%)', "chart-builder") . "</li><li>" .
-                                    __('%sShort:%s Displays abbreviated numbers (e.g., 8M)', "chart-builder") . "</li><li>" .
-                                    __('%sLong:%s Displays numbers as full words (e.g., 8 million)', "chart-builder") . "</li></ul>",
-                                    '<em>', '</em>',
-                                    '<em>', '</em>',
-                                    '<em>', '</em>',
-                                    '<em>', '</em>',
-                                    '<em>', '</em>',
-                                    '<em>', '</em>',
-                                    '<em>', '</em>'
-                                ) );
+                               echo esc_attr( sprintf(
+                                /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                "<p>" . __('A format string for numeric axis labels. You can choose any of the following:', "chart-builder") . "</p><ul class='ays_tooltop_ul'><li>" .
+                                /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                __('%1$sNone:%2$s Displays numbers with no formatting (e.g., 8000000)', "chart-builder") . "</li><li>" .
+                                /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                __('%1$sDecimal:%2$s Displays numbers with thousands separators (e.g., 8,000,000)', "chart-builder") . "</li><li>" .
+                                /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                __('%1$sScientific:%2$s Displays numbers in scientific notation (e.g., 8e6)', "chart-builder") . "</li><li>" .
+                                /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                __('%1$sCurrency:%2$s Displays numbers in the local currency (e.g., $8,000,000.00)', "chart-builder") . "</li><li>" .
+                                /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                __('%1$sPercent:%2$s Displays numbers as percentages (e.g., 800,000,000%%)', "chart-builder") . "</li><li>" .
+                                /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                __('%1$sShort:%2$s Displays abbreviated numbers (e.g., 8M)', "chart-builder") . "</li><li>" .
+                                /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                __('%1$sLong:%2$s Displays numbers as full words (e.g., 8 million)', "chart-builder") . "</li></ul>",
+                                '<em>', '</em>',
+                                '<em>', '</em>',
+                                '<em>', '</em>',
+                                '<em>', '</em>',
+                                '<em>', '</em>',
+                                '<em>', '</em>',
+                                '<em>', '</em>'
+                            ));
                             ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -3977,14 +4034,14 @@ class Chart_Builder_Admin {
 
 		ob_start();
 		?>
-        <div class="ays-accordion-data-main-wrap <?= $html_class_prefix ?>options-vaxis-settings-tab cb-changable-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
+        <div class="ays-accordion-data-main-wrap <?php echo esc_attr($html_class_prefix) ?>options-vaxis-settings-tab cb-changable-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
                 <h6>Label</h6>
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-title" class="form-label">
                             <?php echo esc_html(__( "Label", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The title of the vertical axis","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The title of the vertical axis","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4058,7 +4115,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-text-position" class="form-label">
                             <?php echo esc_html(__( "Position", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Position of the vertical axis text, relative to the chart area.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Position of the vertical axis text, relative to the chart area.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4213,15 +4270,23 @@ class Chart_Builder_Admin {
                         <label for="ays-chart-option-vaxis-format" class="form-label">
                             <?php echo esc_html(__( "Format", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="<?php 
-                                echo htmlspecialchars( sprintf (
+                                echo esc_attr( sprintf(
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
                                     "<p>" . __('A format string for numeric axis labels. You can choose any of the following:', "chart-builder") . "</p><ul class='ays_tooltop_ul'><li>" .
-                                    __('%sNone:%s Displays numbers with no formatting (e.g., 8000000)', "chart-builder") . "</li><li>" .
-                                    __('%sDecimal:%s Displays numbers with thousands separators (e.g., 8,000,000)', "chart-builder") . "</li><li>" .
-                                    __('%sScientific:%s Displays numbers in scientific notation (e.g., 8e6)', "chart-builder") . "</li><li>" .
-                                    __('%sCurrency:%s Displays numbers in the local currency (e.g., $8,000,000.00)', "chart-builder") . "</li><li>" .
-                                    __('%sPercent:%s Displays numbers as percentages (e.g., 800,000,000%%)', "chart-builder") . "</li><li>" .
-                                    __('%sShort:%s Displays abbreviated numbers (e.g., 8M)', "chart-builder") . "</li><li>" .
-                                    __('%sLong:%s Displays numbers as full words (e.g., 8 million)', "chart-builder") . "</li></ul>",
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sNone:%2$s Displays numbers with no formatting (e.g., 8000000)', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sDecimal:%2$s Displays numbers with thousands separators (e.g., 8,000,000)', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sScientific:%2$s Displays numbers in scientific notation (e.g., 8e6)', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sCurrency:%2$s Displays numbers in the local currency (e.g., $8,000,000.00)', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sPercent:%2$s Displays numbers as percentages (e.g., 800,000,000%%)', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sShort:%2$s Displays abbreviated numbers (e.g., 8M)', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sLong:%2$s Displays numbers as full words (e.g., 8 million)', "chart-builder") . "</li></ul>",
                                     '<em>', '</em>',
                                     '<em>', '</em>',
                                     '<em>', '</em>',
@@ -4229,7 +4294,7 @@ class Chart_Builder_Admin {
                                     '<em>', '</em>',
                                     '<em>', '</em>',
                                     '<em>', '</em>'
-                                ) );
+                                ));                                
                             ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -4302,7 +4367,7 @@ class Chart_Builder_Admin {
 
 		ob_start();
 		?>
-        <div class="ays-accordion-data-main-wrap <?= $html_class_prefix ?>options-animation-settings-tab cb-changable-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
+        <div class="ays-accordion-data-main-wrap <?php echo esc_attr($html_class_prefix) ?>options-animation-settings-tab cb-changable-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
@@ -4355,21 +4420,22 @@ class Chart_Builder_Admin {
                             <label for="ays-chart-option-animation-easing" class="form-label">
                                 <?php echo esc_html(__( "Easing", "chart-builder" )); ?>
                                 <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="<?php 
-                                    echo htmlspecialchars( sprintf(
+                                    echo esc_attr( sprintf(
+                                        /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
                                         "<p>" . __('The easing function applied to the chart animation. The following options are available:', "chart-builder") . "</p><ul class='ays_tooltop_ul'><li>" .
-                                        __('%sLinear:%s Constant speed.', "chart-builder") . "</li><li>" .
-                                        __('%sEase in:%s Start slow and speed up.', "chart-builder") . "</li><li>" .
-                                        __('%sEase out:%s Start fast and slow down.', "chart-builder") . "</li><li>" .
-                                        __('%sEase in and out:%s Start slow, speed up, then slow down.', "chart-builder") . "</li></ul>",
-                                        '<em>',
-                                        '</em>',
-                                        '<em>',
-                                        '</em>',
-                                        '<em>',
-                                        '</em>',
-                                        '<em>',
-                                        '</em>'
-                                    ) );
+                                        /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                        __('%1$sLinear:%2$s Constant speed.', "chart-builder") . "</li><li>" .
+                                        /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                        __('%1$sEase in:%2$s Start slow and speed up.', "chart-builder") . "</li><li>" .
+                                        /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                        __('%1$sEase out:%2$s Start fast and slow down.', "chart-builder") . "</li><li>" .
+                                        /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                        __('%1$sEase in and out:%2$s Start slow, speed up, then slow down.', "chart-builder") . "</li></ul>",
+                                        '<em>', '</em>',
+                                        '<em>', '</em>',
+                                        '<em>', '</em>',
+                                        '<em>', '</em>'
+                                    ));
                                 ?>">
                                     <i class="ays_fa ays_fa_info_circle"></i>
                                 </a>
@@ -4410,20 +4476,20 @@ class Chart_Builder_Admin {
 
         ob_start();
 		?>
-        <div class="ays-accordion-data-main-wrap <?= $html_class_prefix ?>options-live-chart-settings-tab">
+        <div class="ays-accordion-data-main-wrap <?php echo esc_attr($html_class_prefix) ?>options-live-chart-settings-tab">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section ays-pro-features-v2-main-box">
                     <div class="ays-pro-features-v2-small-buttons-box-middle ays-pro-features-v2-big-buttons-box">
                         <a href="https://www.youtube.com/watch?v=lhTqZmFUNz4" target="_blank" class="ays-pro-features-v2-video-button">
                             <div class="ays-pro-features-v2-video-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24_Hover.svg"></div>
                             <div class="ays-pro-features-v2-video-text">
-                                <?php echo __("Watch Video" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Watch Video" , "chart-builder")); ?>
                             </div>
                         </a>
                         <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                             <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                             <div class="ays-pro-features-v2-upgrade-text">
-                                <?php echo __("Upgrade" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Upgrade" , "chart-builder")); ?>
                             </div>
                         </a>
                     </div>
@@ -4447,13 +4513,13 @@ class Chart_Builder_Admin {
                         <a href="https://www.youtube.com/watch?v=lhTqZmFUNz4" target="_blank" class="ays-pro-features-v2-video-button">
                             <div class="ays-pro-features-v2-video-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24_Hover.svg"></div>
                             <div class="ays-pro-features-v2-video-text">
-                                <?php echo __("Watch Video" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Watch Video" , "chart-builder")); ?>
                             </div>
                         </a>
                         <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                             <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                             <div class="ays-pro-features-v2-upgrade-text">
-                                <?php echo __("Upgrade" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Upgrade" , "chart-builder")); ?>
                             </div>
                         </a>
                     </div>
@@ -4495,20 +4561,20 @@ class Chart_Builder_Admin {
         
         ob_start();
         ?>
-        <div class="ays-accordion-data-main-wrap <?= $html_class_prefix ?>options-export-tab cb-changable-tab cb-pie_chart-tab cb-donut_chart-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
+        <div class="ays-accordion-data-main-wrap <?php echo esc_attr($html_class_prefix) ?>options-export-tab cb-changable-tab cb-pie_chart-tab cb-donut_chart-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section ays-pro-features-v2-main-box">
                     <div class="ays-pro-features-v2-small-buttons-box-middle ays-pro-features-v2-big-buttons-box">
                         <a href="https://www.youtube.com/watch?v=9UqLXG5NU_I" target="_blank" class="ays-pro-features-v2-video-button">
                             <div class="ays-pro-features-v2-video-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24_Hover.svg"></div>
                             <div class="ays-pro-features-v2-video-text">
-                                <?php echo __("Watch Video" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Watch Video" , "chart-builder")); ?>
                             </div>
                         </a>
                         <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                             <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                             <div class="ays-pro-features-v2-upgrade-text">
-                                <?php echo __("Upgrade" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Upgrade" , "chart-builder")); ?>
                             </div>
                         </a>
                     </div>
@@ -4532,13 +4598,13 @@ class Chart_Builder_Admin {
                         <a href="https://www.youtube.com/watch?v=9UqLXG5NU_I" target="_blank" class="ays-pro-features-v2-video-button">
                             <div class="ays-pro-features-v2-video-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24_Hover.svg"></div>
                             <div class="ays-pro-features-v2-video-text">
-                                <?php echo __("Watch Video" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Watch Video" , "chart-builder")); ?>
                             </div>
                         </a>
                         <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                             <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                             <div class="ays-pro-features-v2-upgrade-text">
-                                <?php echo __("Upgrade" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Upgrade" , "chart-builder")); ?>
                             </div>
                         </a>
                     </div>
@@ -4562,13 +4628,13 @@ class Chart_Builder_Admin {
                         <a href="https://www.youtube.com/watch?v=9UqLXG5NU_I" target="_blank" class="ays-pro-features-v2-video-button">
                             <div class="ays-pro-features-v2-video-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24_Hover.svg"></div>
                             <div class="ays-pro-features-v2-video-text">
-                                <?php echo __("Watch Video" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Watch Video" , "chart-builder")); ?>
                             </div>
                         </a>
                         <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                             <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                             <div class="ays-pro-features-v2-upgrade-text">
-                                <?php echo __("Upgrade" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Upgrade" , "chart-builder")); ?>
                             </div>
                         </a>
                     </div>
@@ -4592,13 +4658,13 @@ class Chart_Builder_Admin {
                         <a href="https://www.youtube.com/watch?v=9UqLXG5NU_I" target="_blank" class="ays-pro-features-v2-video-button">
                             <div class="ays-pro-features-v2-video-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24_Hover.svg"></div>
                             <div class="ays-pro-features-v2-video-text">
-                                <?php echo __("Watch Video" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Watch Video" , "chart-builder")); ?>
                             </div>
                         </a>
                         <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                             <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                             <div class="ays-pro-features-v2-upgrade-text">
-                                <?php echo __("Upgrade" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Upgrade" , "chart-builder")); ?>
                             </div>
                         </a>
                     </div>
@@ -4628,7 +4694,7 @@ class Chart_Builder_Admin {
                     </div>
                     <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                         <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
-                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-export-img" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[enable_img]"  value="on" <?php echo $enable_img?> >
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-export-img" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[enable_img]"  value="on" <?php echo esc_attr($enable_img)?> >
                             <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
                         </label>
                     </div>
@@ -4687,7 +4753,7 @@ class Chart_Builder_Admin {
 			$sources[] = $content;
 		}
 		$content_for_escape = implode('' , $sources );
-		echo html_entity_decode(esc_html( $content_for_escape ));
+		echo html_entity_decode( $content_for_escape );
 	}
 
 	public function settings_contents_chart_styles_settings( $sources, $args ){
@@ -4728,7 +4794,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-width" class="form-label">
                             <?php echo esc_html(__( "Width", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The width of the chart container, in percents.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The width of the chart container, in percents.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4751,7 +4817,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-responsive-width" class="form-label">
                             <?php echo esc_html(__( "Responsive Width", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to keep the chart's width fixed at 100%, no matter what is set for the Width option. This makes the chart more responsive.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to keep the chart's width fixed at 100%, no matter what is set for the Width option. This makes the chart more responsive.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4767,7 +4833,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-position">
 				            <?php echo esc_html(__( "Position", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The position of the chart. Note: The changes will be visible when the width option is not set to 100%","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The position of the chart. Note: The changes will be visible when the width option is not set to 100%","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4789,7 +4855,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-height" class="form-label">
                             <?php echo esc_html(__( "Height", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The height of the chart container, in pixels.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The height of the chart container, in pixels.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4812,7 +4878,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-font-size" class="form-label">
                             <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The font size of the chart text.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the chart text.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4822,22 +4888,22 @@ class Chart_Builder_Admin {
 						<div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
                     </div>
                 </div> <!-- Font size -->
-                <div class="form-group row mb-2 <?= $html_class_prefix ?>options-section cb-changable-opt cb-org_chart-opt display_none">
-                    <div class="col-sm-5 d-flex align-items-center <?= $html_class_prefix ?>option-title">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-org_chart-opt display_none">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-org-chart-font-size" class="form-label">
-                            <?php echo __( "Element size", $this->plugin_name ); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The size of the chart element.","chart-builder") ); ?>">
+                            <?php echo esc_html(__( "Element size", 'chart-builder' )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The size of the chart element.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
                     </div>
                     <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
-						<select class="<?= $html_class_prefix ?>option-select-input form-select" id="ays-chart-option-org-chart-font-size" name="<?php echo $html_name_prefix; ?>settings[org_chart_font_size]">
+						<select class="<?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-org-chart-font-size" name="<?php echo esc_attr($html_name_prefix); ?>settings[org_chart_font_size]">
 				            <?php
 				            foreach ( $org_chart_font_size_options as $option_slug => $option ):
 					            $selected = ( $org_chart_font_size == $option_slug ) ? 'selected' : '';
 					            ?>
-                                <option value="<?php echo $option_slug; ?>" <?php echo $selected; ?>><?php echo $option; ?></option>
+                                <option value="<?php echo esc_attr($option_slug); ?>" <?php echo esc_attr($selected); ?>><?php echo esc_attr($option); ?></option>
 				            <?php
 				            endforeach;
 				            ?>
@@ -4848,7 +4914,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-background-color">
 				            <?php echo esc_html(__( "Background Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The background color of the chart container.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The background color of the chart container.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4861,7 +4927,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-transparent-background" class="form-label">
                             <?php echo esc_html(__( "Transparent background", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to make the chart's background transparent. When enabled, both Background Color and Chart Area Background Color options will not work","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to make the chart's background transparent. When enabled, both Background Color and Chart Area Background Color options will not work","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4877,7 +4943,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-width">
 				            <?php echo esc_html(__( "Border Width", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The width of the chart container border.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The width of the chart container border.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4890,7 +4956,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-color">
 				            <?php echo esc_html(__( "Border Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The border color of the chart container.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The border color of the chart container.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4903,7 +4969,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-radius">
 				            <?php echo esc_html(__( "Border Radius", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The border radius of the chart container.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The border radius of the chart container.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4916,7 +4982,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-style">
 				            <?php echo esc_html(__( "Border Style", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The style of the chart container border.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The style of the chart container border.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4938,7 +5004,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-box-shadow" class="form-label">
                             <?php echo esc_html(__( "Box Shadow", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to add shadow to chart's container.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to add shadow to chart's container.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4954,7 +5020,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-box-shadow-color" class="form-label">
                             <?php echo esc_html(__( "Box Shadow Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Choose chart container's box shadow color.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Choose chart container's box shadow color.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4967,7 +5033,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-width-with-title">
 				            <?php echo esc_html(__( "Border Width (including title)", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The width of the chart container border including chart title and description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The width of the chart container border including chart title and description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4980,7 +5046,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-radius-with-title">
 				            <?php echo esc_html(__( "Border radius (including title)", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The radius of the chart container border including chart title and description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The radius of the chart container border including chart title and description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -4993,7 +5059,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-color-with-title">
 				            <?php echo esc_html(__( "Border Color (including title)", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The color of the chart container border including chart title and description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the chart container border including chart title and description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5006,7 +5072,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-style-with-title">
 				            <?php echo esc_html(__( "Border Style (including title)", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The style of the chart container border including chart title and description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The style of the chart container border including chart title and description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5028,7 +5094,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-padding-outer">
 				            <?php echo esc_html(__( "Padding", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The padding of the chart container.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The padding of the chart container.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5071,7 +5137,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-width">
 				            <?php echo esc_html(__( "Border Width", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The width of the chart container border.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The width of the chart container border.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5084,7 +5150,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-radius">
 				            <?php echo esc_html(__( "Border Radius", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The radius of the chart container border.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The radius of the chart container border.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5097,7 +5163,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-color">
 				            <?php echo esc_html(__( "Border Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The border color of the chart container.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The border color of the chart container.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5110,7 +5176,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-style">
 				            <?php echo esc_html(__( "Border Style", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The style of the chart container border.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The style of the chart container border.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5179,7 +5245,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-chart-background-color">
 				            <?php echo esc_html(__( "Background Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The background color of the chart area.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The background color of the chart area.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5192,7 +5258,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-chart-border-width">
 				            <?php echo esc_html(__( "Border Width", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The border width of the chart area.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The border width of the chart area.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5205,7 +5271,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-chart-border-color">
 				            <?php echo esc_html(__( "Border Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The border color of the chart area.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The border color of the chart area.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5218,7 +5284,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-chart-left-margin">
 				            <?php echo esc_html(__( "Left Margin", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the chart's distance from the left border. Leave blank for auto-positioning.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the chart's distance from the left border. Leave blank for auto-positioning.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5231,7 +5297,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-chart-right-margin">
 				            <?php echo esc_html(__( "Right Margin", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the chart's distance from the right border. Leave blank for auto-positioning.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the chart's distance from the right border. Leave blank for auto-positioning.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5244,7 +5310,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-chart-top-margin">
 				            <?php echo esc_html(__( "Top Margin", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the chart's distance from the top border. Leave blank for auto-positioning.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the chart's distance from the top border. Leave blank for auto-positioning.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5257,7 +5323,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-chart-bottom-margin">
 				            <?php echo esc_html(__( "Bottom Margin", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the chart's distance from the bottom border. Leave blank for auto-positioning.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the chart's distance from the bottom border. Leave blank for auto-positioning.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5309,7 +5375,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-color">
 				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The color of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5322,7 +5388,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-font-size" class="form-label">
                             <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The font size of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5336,7 +5402,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-bold" class="form-label">
                             <?php echo esc_html(__( "Bold text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to make the chart title text bold.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to make the chart title text bold.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5352,7 +5418,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-italic" class="form-label">
                             <?php echo esc_html(__( "Italic text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to make the chart title text italic.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to make the chart title text italic.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5368,7 +5434,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-position">
 				            <?php echo esc_html(__( "Position", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The position of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The position of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5390,7 +5456,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-gap" class="form-label">
                             <?php echo esc_html(__( "Gap", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart title and the chart container.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the space between the chart title and the chart container.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5404,7 +5470,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-gap-description" class="form-label">
                             <?php echo esc_html(__( "Distance from description", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart title and the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the space between the chart title and the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5418,7 +5484,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-text-transform">
 				            <?php echo esc_html(__( "Text-transform", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify how to capitalize the text of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify how to capitalize the text of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5440,7 +5506,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-letter-spacing" class="form-label">
                             <?php echo esc_html(__( "Letter spacing", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart title letters.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the space between the chart title letters.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5454,7 +5520,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-text-decoration">
 				            <?php echo esc_html(__( "Text-decoration", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify how to capitalize the text of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify how to capitalize the text of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5476,7 +5542,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-text-shadow" class="form-label">
                             <?php echo esc_html(__( "Text shadow", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to add a text shadow to chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to add a text shadow to chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5492,7 +5558,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-shadow-color">
 				            <?php echo esc_html(__( "Text Shadow Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The text shadow color of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The text shadow color of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5544,7 +5610,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-color">
 				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The color of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5557,7 +5623,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-font-size" class="form-label">
                             <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The font size of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5571,7 +5637,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-bold" class="form-label">
                             <?php echo esc_html(__( "Bold text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to make the chart title text bold.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to make the chart title text bold.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5587,7 +5653,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-italic" class="form-label">
                             <?php echo esc_html(__( "Italic text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to make the chart title text italic.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to make the chart title text italic.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5603,7 +5669,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-position">
 				            <?php echo esc_html(__( "Position", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The position of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The position of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5625,7 +5691,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-gap" class="form-label">
                             <?php echo esc_html(__( "Gap", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart title and the chart container.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the space between the chart title and the chart container.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5639,7 +5705,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-gap-description" class="form-label">
                             <?php echo esc_html(__( "Distance from description", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart title and the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the space between the chart title and the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5653,7 +5719,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-text-transform">
 				            <?php echo esc_html(__( "Text-transform", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify how to capitalize the text of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify how to capitalize the text of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5675,7 +5741,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-letter-spacing" class="form-label">
                             <?php echo esc_html(__( "Letter spacing", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart title letters.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the space between the chart title letters.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5689,7 +5755,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-text-decoration">
 				            <?php echo esc_html(__( "Text-decoration", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify how to capitalize the text of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify how to capitalize the text of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5711,7 +5777,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-text-shadow" class="form-label">
                             <?php echo esc_html(__( "Text shadow", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to add a text shadow to chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to add a text shadow to chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5727,7 +5793,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-title-shadow-color">
 				            <?php echo esc_html(__( "Text Shadow Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The text shadow color of the chart title.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The text shadow color of the chart title.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5778,7 +5844,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-color">
 				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The color of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5791,7 +5857,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-font-size" class="form-label">
                             <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The font size of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5805,7 +5871,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-bold" class="form-label">
                             <?php echo esc_html(__( "Bold text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to make the chart description text bold.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to make the chart description text bold.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5821,7 +5887,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-italic" class="form-label">
                             <?php echo esc_html(__( "Italic text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to make the chart description text italic.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to make the chart description text italic.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5837,7 +5903,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-position">
 				            <?php echo esc_html(__( "Position", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The position of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The position of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5859,7 +5925,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-text-transform">
 				            <?php echo esc_html(__( "Text-transform", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify how to capitalize the text of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify how to capitalize the text of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5881,7 +5947,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-letter-spacing" class="form-label">
                             <?php echo esc_html(__( "Letter spacing", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart description letters.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the space between the chart description letters.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5895,7 +5961,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-text-decoration">
 				            <?php echo esc_html(__( "Text-decoration", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify how to capitalize the text of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify how to capitalize the text of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5917,7 +5983,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-text-shadow" class="form-label">
                             <?php echo esc_html(__( "Text shadow", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to add a text shadow to chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to add a text shadow to chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5933,7 +5999,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-shadow-color">
 				            <?php echo esc_html(__( "Text Shadow Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The text shadow color of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The text shadow color of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5984,7 +6050,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-color">
 				            <?php echo esc_html(__( "Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The color of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5997,7 +6063,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-font-size" class="form-label">
                             <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The font size of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The font size of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6011,7 +6077,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-bold" class="form-label">
                             <?php echo esc_html(__( "Bold text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to make the chart description text bold.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to make the chart description text bold.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6027,7 +6093,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-italic" class="form-label">
                             <?php echo esc_html(__( "Italic text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to make the chart description text italic.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to make the chart description text italic.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6043,7 +6109,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-position">
 				            <?php echo esc_html(__( "Position", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The position of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The position of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6065,7 +6131,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-text-transform">
 				            <?php echo esc_html(__( "Text-transform", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify how to capitalize the text of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify how to capitalize the text of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6087,7 +6153,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-letter-spacing" class="form-label">
                             <?php echo esc_html(__( "Letter spacing", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify the space between the chart description letters.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify the space between the chart description letters.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6101,7 +6167,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-text-decoration">
 				            <?php echo esc_html(__( "Text-decoration", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Specify how to capitalize the text of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Specify how to capitalize the text of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6123,7 +6189,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-text-shadow" class="form-label">
                             <?php echo esc_html(__( "Text shadow", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to add a text shadow to chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to add a text shadow to chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6139,7 +6205,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-description-shadow-color">
 				            <?php echo esc_html(__( "Text Shadow Color", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The text shadow color of the chart description.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The text shadow color of the chart description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6202,7 +6268,7 @@ class Chart_Builder_Admin {
 			$sources[] = $content;
 		}
 		$content_for_escape = implode('' , $sources );
-		echo html_entity_decode(esc_html( $content_for_escape ));
+		echo html_entity_decode( $content_for_escape );
 	}
 
 	public function settings_contents_advanced_settings( $sources, $args ){
@@ -6309,7 +6375,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-slice-text">
                             <?php echo esc_html(__( "Slice text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Choose the content of the text to be displayed on the pie slice.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Choose the content of the text to be displayed on the pie slice.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6331,7 +6397,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-tooltip-text">
                             <?php echo esc_html(__( "Slice tooltip text", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Choose how to display the text in the chart tooltip.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Choose how to display the text in the chart tooltip.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6366,7 +6432,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-data-grouping-label" class="form-label">
                             <?php echo esc_html(__( "Chart Data Grouping Label", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("A label for the combination slice that holds all slices below chart data grouping limit.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("A label for the combination slice that holds all slices below chart data grouping limit.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6409,15 +6475,16 @@ class Chart_Builder_Admin {
                         <label for="ays-chart-option-focus-target">
                             <?php echo esc_html(__( "Focus target", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="<?php 
-                                echo htmlspecialchars( sprintf(
+                                echo esc_html( sprintf(
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
                                     "<p>" . __('There are two ways to focus the data table elements.', "chart-builder") . "</p><ul class='ays_tooltop_ul'><li>" .
-                                    __('%sSingle data:%s If you choose the Single Data option, the focus will be on the single data point. By this, the particular cell of the data table will be focused.', "chart-builder") . "</li><li>" .
-                                    __('%sGroup data:%s If you choose the Group Data option, the focus will be on the grouped data points. By this, a row of the data table will be focused.', "chart-builder") . "</li></ul>",
-                                    '<em>',
-                                    '</em>',
-                                    '<em>',
-                                    '</em>'
-                                ) );
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sSingle data:%2$s If you choose the Single Data option, the focus will be on the single data point. By this, the particular cell of the data table will be focused.', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sGroup data:%2$s If you choose the Group Data option, the focus will be on the grouped data points. By this, a row of the data table will be focused.', "chart-builder") . "</li></ul>",
+                                    '<em>', '</em>',
+                                    '<em>', '</em>'
+                                ));
                             ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -6454,15 +6521,16 @@ class Chart_Builder_Admin {
                         <label for="ays-chart-option-group-width">
                             <?php echo esc_html(__( "Bar width", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="<?php
-								echo htmlspecialchars( sprintf(
+								echo esc_html( sprintf(
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
                                     "<p>" . __('The width of the bars, specified in either of these formats:', "chart-builder") . "</p><ul class='ays_tooltop_ul'><li>" .
-                                    __('%sPixels:%s Set the width of the bars in pixels.', "chart-builder") . "</li><li>" .
-                                    __('%sPercentage:%s Set the width of the bars in percentage.', "chart-builder") . "</li></ul>",
-                                    '<em>',
-                                    '</em>',
-                                    '<em>',
-                                    '</em>'
-                                ) );
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sPixels:%2$s Set the width of the bars in pixels.', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sPercentage:%2$s Set the width of the bars in percentage.', "chart-builder") . "</li></ul>",
+                                    '<em>', '</em>',
+                                    '<em>', '</em>'
+                                ));
                             ?>">
 							    <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -6516,21 +6584,22 @@ class Chart_Builder_Admin {
                         <label for="ays-chart-option-multiple-data-format">
                             <?php echo esc_html(__( "Multiple data format", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="<?php 
-                                echo htmlspecialchars( sprintf(
+                                echo esc_html( sprintf(
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
                                     "<p>" . __('How multiple data selections are rolled up into tooltips:', "chart-builder") . "</p><ul class='ays_tooltop_ul'><li>" .
-                                    __('%sCategory:%s Group selected data by row titles.', "chart-builder") . "</li><li>" .
-                                    __('%sSeries:%s Group selected data by column titles.', "chart-builder") . "</li><li>" .
-                                    __('%sAuto:%s Group selected data by row titles, if they have the same titles or by column titles', "chart-builder") . "</li><li>" .
-                                    __('%sNone:%s Show only one tooltip per selection.', "chart-builder") . "</li></ul>",
-                                    '<em>',
-                                    '</em>',
-                                    '<em>',
-                                    '</em>',
-                                    '<em>',
-                                    '</em>',
-                                    '<em>',
-                                    '</em>'
-                                ) );
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sCategory:%2$s Group selected data by row titles.', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sSeries:%2$s Group selected data by column titles.', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sAuto:%2$s Group selected data by row titles, if they have the same titles or by column titles', "chart-builder") . "</li><li>" .
+                                    /* translators: %1$s: Opening <em> tag, %2$s: Closing <em> tag */
+                                    __('%1$sNone:%2$s Show only one tooltip per selection.', "chart-builder") . "</li></ul>",
+                                    '<em>', '</em>',
+                                    '<em>', '</em>',
+                                    '<em>', '</em>',
+                                    '<em>', '</em>'
+                                ));
                             ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -6687,13 +6756,13 @@ class Chart_Builder_Admin {
                     </div>
                 </div> <!-- Line dash pattern -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-donut_chart-opt display_none">
-                    <div class="col-sm-5 d-flex align-items-center <?= $html_class_prefix ?>option-title">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_html($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-donut-hole-size">
-				            <?php echo __( "Hole size", $this->plugin_name ); ?>
+				            <?php echo esc_html(__( "Hole size", 'chart-builder' )); ?>
                         </label>
                     </div>
-                    <div class="col-sm-7 <?= $html_class_prefix ?>input-align-right <?= $html_class_prefix ?>option-input">
-                        <input class="ays-text-input form-control <?= $html_class_prefix ?>option-text-input" id="ays-chart-option-donut-hole-size"  type="number" min="0" max="1" step=".1" name="<?php echo $html_name_prefix; ?>settings[donut_hole_size]" value="<?= $donut_hole_size ?>">
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right <?php echo esc_html($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_html($html_class_prefix) ?>option-text-input" id="ays-chart-option-donut-hole-size"  type="number" min="0" max="1" step=".1" name="<?php echo $html_name_prefix; ?>settings[donut_hole_size]" value="<?php echo $donut_hole_size ?>">
                     </div>
                 </div> <!-- Donut hole size -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-line_chart-opt display_none ays-pro-features-v2-main-box">
@@ -6702,18 +6771,18 @@ class Chart_Builder_Admin {
                         <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                             <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                             <div class="ays-pro-features-v2-upgrade-text">
-                                <?php echo __("Upgrade" , "chart-builder"); ?>
+                                <?php echo esc_html(__("Upgrade" , "chart-builder")); ?>
                             </div>
                         </a>
                     </div>
-                    <div class="col-sm-5 d-flex align-items-center <?= $html_class_prefix ?>option-title">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo $html_class_prefix ?>option-title">
                         <label for="ays-chart-option-curve-type">
-                            <?php echo __( "Line curve type", "chart-builder" ); ?>
+                            <?php echo esc_html(__( "Line curve type", "chart-builder" )); ?>
                         </label>
                     </div>
                     <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
-                        <select class="<?= $html_class_prefix ?>option-select-input form-select" id="ays-chart-option-line-curve-type" name="<?php echo $html_name_prefix; ?>settings[line_curve_type]">
-                            <option><?php echo __( "Straight", "chart-builder" ); ?></option>
+                        <select class="<?php echo esc_html($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-line-curve-type" name="<?php echo $html_name_prefix; ?>settings[line_curve_type]">
+                            <option><?php echo esc_html(__( "Straight", "chart-builder" )); ?></option>
                         </select>
                     </div>
                 </div> <!-- Line curve type -->
@@ -6776,7 +6845,9 @@ class Chart_Builder_Admin {
                     <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-org_chart-opt display_none" style="background:transparent;box-shadow:unset;padding:10px 0">
                         <br>
                         <blockquote>
-                            <?php echo sprintf(__( "%sNote:%s Custom CSS class must be set for the options below to take effect.", $this->plugin_name ), '<strong>', '</strong>'); ?>
+                        <?php echo sprintf(
+                            /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
+                            __( '%1$sNote:%2$s Custom CSS class must be set for the options below to take effect.', 'chart-builder' ), '<strong>', '</strong>'); ?>
                         </blockquote>
                         <br>
                     </div>
@@ -6889,7 +6960,12 @@ class Chart_Builder_Admin {
                     <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-org_chart-opt display_none" style="background:transparent;box-shadow:unset;padding:10px 0">
                         <br>
                         <blockquote>
-                            <?php echo sprintf(__( "%sNote:%s Selected node custom CSS class must be set for the options below to take effect.", $this->plugin_name ), '<strong>', '</strong>'); ?>
+                        <?php echo sprintf(
+                            /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
+                            __( '%1$sNote:%2$s Selected node custom CSS class must be set for the options below to take effect.', 'chart-builder' ), 
+                            '<strong>', 
+                            '</strong>'
+                        ); ?>
                         </blockquote>
                         <br>
                     </div>
@@ -7049,13 +7125,13 @@ class Chart_Builder_Admin {
                 if (count($source[1]) > 2) {
                     $titles = array();
                     for ($i = 0; $i < count($source[1]); $i++) {
-                        array_push($titles, __("Title", $this->plugin_name).$i);
+                        array_push($titles, __("Title", 'chart-builder').$i);
                     }
                     $source[0] = $titles;
                 } else {
                     $source[0] = array(
-                        __("Country", $this->plugin_name),
-                        __("Population", $this->plugin_name),
+                        __("Country", 'chart-builder'),
+                        __("Population", 'chart-builder'),
                     );
                 }
     
@@ -7161,7 +7237,7 @@ class Chart_Builder_Admin {
                 </div>
             <br>
             <blockquote>
-                <?php echo __( "Save the chart to update the data.", $this->plugin_name ); ?>
+                <?php echo __( "Save the chart to update the data.", "chart-builder" ); ?>
             </blockquote>
             </div>
             <?php
@@ -7174,7 +7250,7 @@ class Chart_Builder_Admin {
 
 		$content = ob_get_clean();
 
-		$title = __( 'Slices settings', "chart-builder" );
+		$title = __( 'Slices settings', 'chart-builder' );
 
 		$sources['slices_settings'] = array(
 			'content' => $content,
@@ -7202,13 +7278,13 @@ class Chart_Builder_Admin {
                 if (count($source[1]) > 2) {
                     $titles = array();
                     for ($i = 0; $i < count($source[1]); $i++) {
-                        array_push($titles, __("Title", $this->plugin_name).$i);
+                        array_push($titles, __("Title", "chart-builder").$i);
                     }
                     $source[0] = $titles;
                 } else {
                     $source[0] = array(
-                        __("Country", $this->plugin_name),
-                        __("Population", $this->plugin_name),
+                        __("Country", "chart-builder"),
+                        __("Population", "chart-builder"),
                     );
                 }
     
@@ -7364,9 +7440,14 @@ class Chart_Builder_Admin {
                 </div>
             <br>
             <blockquote>
-                <?php echo __( "Save the chart to update the data.", $this->plugin_name ); ?>
+                <?php echo __( "Save the chart to update the data.", 'chart-builder' ); ?>
                 <br>
-                <?php echo sprintf(__( "%sNote:%s If you are not able to set the options, disable the row settings feature.", $this->plugin_name ), '<strong>', '</strong>'); ?>
+                <?php echo sprintf(
+                    /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
+                    __( '%1$sNote:%2$s If you are not able to set the options, disable the row settings feature.', 'chart-builder' ), 
+                    '<strong>', 
+                    '</strong>'
+                ); ?>
             </blockquote>
             </div>
             <?php
@@ -7402,13 +7483,13 @@ class Chart_Builder_Admin {
                 if (count($source[1]) > 2) {
                     $titles = array();
                     for ($i = 0; $i < count($source[1]); $i++) {
-                        array_push($titles, __("Title", $this->plugin_name).$i);
+                        array_push($titles, __("Title", 'chart-builder').$i);
                     }
                     $source[0] = $titles;
                 } else {
                     $source[0] = array(
-                        __("Country", $this->plugin_name),
-                        __("Population", $this->plugin_name),
+                        __("Country", 'chart-builder'),
+                        __("Population", 'chart-builder'),
                     );
                 }
     
@@ -7501,15 +7582,25 @@ class Chart_Builder_Admin {
                     ?>
                     <br>
                     <blockquote>
-                        <?php echo __( "Save the chart to update the data.", $this->plugin_name ); ?>
+                        <?php echo __( "Save the chart to update the data.", 'chart-builder' ); ?>
                         <br>
-                        <?php echo sprintf(__( "%sNote:%s The applied styles will work only if the chart has one column.", $this->plugin_name ), '<strong>', '</strong>'); ?>
+                        <?php echo sprintf(
+                            /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
+                            __( '%1$sNote:%2$s The applied styles will work only if the chart has one column.', 'chart-builder' ), 
+                            '<strong>', 
+                            '</strong>'
+                        ); ?>           
                     </blockquote>
                 </div>
                 <div class="<?php echo esc_attr($html_class_prefix) ?>not-hidden-options-section <?php echo $enable_row_settings === 'checked' ? 'display_none' : ''; ?>">
                     <br>
                     <blockquote>
-                        <?php echo sprintf(__( "%sNote:%s If this option is disabled, the general options will be set from the series settings.", $this->plugin_name ), '<strong>', '</strong>'); ?>
+                    <?php echo sprintf(
+                        /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
+                        __( '%1$sNote:%2$s If this option is disabled, the general options will be set from the series settings.', 'chart-builder' ), 
+                        '<strong>', 
+                        '</strong>'
+                    ); ?>
                     </blockquote>
                 </div>
             </div>

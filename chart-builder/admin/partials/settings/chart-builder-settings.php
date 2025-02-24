@@ -46,7 +46,7 @@
             <input type="hidden" name="ays_tab" value="<?php echo $ays_tab; ?>">
             <h1 class="wp-heading-inline">
             <?php
-                echo __('General Settings',$this->plugin_name);
+                echo __('General Settings','chart-builder');
             ?>
             </h1>
             <hr />
@@ -54,21 +54,21 @@
                 <div>
                     <div class="nav-tab-wrapper" style="position:sticky; top:35px;">
                         <a href="#tab1" data-tab="tab1" class="nav-tab <?php echo ($ays_tab == 'tab1') ? 'nav-tab-active' : ''; ?>">
-                            <?php echo __("General", $this->plugin_name);?>
+                            <?php echo __("General", 'chart-builder');?>
                         </a>
                         <a href="#tab2" data-tab="tab2" class="nav-tab <?php echo ($ays_tab == 'tab2') ? 'nav-tab-active' : ''; ?>">
-                            <?php echo __("Integrations", $this->plugin_name);?>
+                            <?php echo __("Integrations", 'chart-builder');?>
                         </a>
                     </div>
                 </div>
                 <div class="ays-chart-tabs-wrapper">
                     <div id="tab1" class="ays-chart-tab-content ays-tab-content <?php echo ($ays_tab == 'tab1') ? 'ays-tab-content-active' : ''; ?>">
-                        <p class="ays-subtitle"><?php echo __('General Settings',$this->plugin_name)?></p>
+                        <p class="ays-subtitle"><?php echo __('General Settings','chart-builder')?></p>
                         <hr />
                         <fieldset>
                             <legend>
                                 <strong style="font-size:30px;"><i class="ays_fa ays_fa_globe"></i></strong>
-                                <h5><?php echo __('Who will have permission to Chart Builder',$this->plugin_name)?></h5>
+                                <h5><?php echo __('Who will have permission to Chart Builder','chart-builder')?></h5>
                             </legend>
                             <div class="form-group row" style="margin:0px;">
                                 <div class="ays-pro-features-v2-main-box">
@@ -85,8 +85,8 @@
                                         <div class="form-group row">
                                             <div class="col-sm-4">
                                                 <label for="ays_user_roles">
-                                                    <?php echo __( "Select user role for giving access to Chart Builder menu", $this->plugin_name ); ?>
-                                                    <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo __("Give access to the Chart Builder plugin to only the selected user role(s) on your WP dashboard. Each selected user will see only his/her created charts.",$this->plugin_name)?>">
+                                                    <?php echo __( "Select user role for giving access to Chart Builder menu", 'chart-builder' ); ?>
+                                                    <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo __("Give access to the Chart Builder plugin to only the selected user role(s) on your WP dashboard. Each selected user will see only his/her created charts.",'chart-builder')?>">
                                                         <i class="ays_fa ays_fa_info_circle"></i>
                                                     </a>
                                                 </label>
@@ -106,8 +106,8 @@
                                         <div class="form-group row">
                                             <div class="col-sm-4">
                                                 <label for="ays_user_roles_to_change_plugin">
-                                                    <?php echo __( "Select user role for giving access to change all chart data", $this->plugin_name ); ?>
-                                                    <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo __('Give permissions to manage all charts and submissions to these user roles. Please add the given user roles to the above field as well.',$this->plugin_name)?>">
+                                                    <?php echo __( "Select user role for giving access to change all chart data", 'chart-builder' ); ?>
+                                                    <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo __('Give permissions to manage all charts and submissions to these user roles. Please add the given user roles to the above field as well.','chart-builder')?>">
                                                         <i class="ays_fa ays_fa_info_circle"></i>
                                                     </a>
                                                 </label>
@@ -126,9 +126,9 @@
                                     </div>
                                     <br>
                                     <blockquote>
-                                        <?php echo __( "Control the access of the plugin from the dashboard and manage the capabilities of those user roles.", $this->plugin_name ); ?>
+                                        <?php echo __( "Control the access of the plugin from the dashboard and manage the capabilities of those user roles.", 'chart-builder' ); ?>
                                         <br>
-                                        <?php echo __( "If you want to give a full control to the given user role, please add the role in both fields.", $this->plugin_name ); ?>
+                                        <?php echo __( "If you want to give a full control to the given user role, please add the role in both fields.", 'chart-builder'); ?>
                                     </blockquote>
                                 </div>
                             </div>
@@ -137,13 +137,13 @@
                         <fieldset>
                             <legend>
                                 <strong style="font-size:30px;"><i class="ays_fa ays_fa_text"></i></strong>
-                                <h5><?php echo __('Except words count in list table',$this->plugin_name)?></h5>
+                                <h5><?php echo __('Except words count in list table','chart-builder')?></h5>
                             </legend>
                             <div class="form-group row">
                                 <div class="col-sm-4">
                                     <label for="ays_chart_title_length">
-                                        <?php echo __( "Charts list table", $this->plugin_name ); ?>
-                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo __('Determine the length of the questions to be shown in the Charts List Table by putting your preferred count of words in the following field. (For example: if you put 10,  you will see the first 10 words of each question in the Charts page of your dashboard.', $this->plugin_name); ?>">
+                                        <?php echo __( "Charts list table", 'chart-builder' ); ?>
+                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo __('Determine the length of the questions to be shown in the Charts List Table by putting your preferred count of words in the following field. (For example: if you put 10,  you will see the first 10 words of each question in the Charts page of your dashboard.', 'chart-builder'); ?>">
                                             <i class="ays_fa ays_fa_info_circle"></i>
                                         </a>
                                     </label>
@@ -155,7 +155,7 @@
                         </fieldset> <!-- Excerpt words count in list table -->
                     </div>
                     <div id="tab2" class="ays-chart-tab-content ays-tab-content <?php echo ($ays_tab == 'tab2') ? 'ays-tab-content-active' : ''; ?>">
-                        <p class="ays-subtitle"><?php echo __('Integrations',$this->plugin_name)?></p>
+                        <p class="ays-subtitle"><?php echo __('Integrations','chart-builder')?></p>
                         <hr />
                         <?php
                             do_action( 'ays_cb_settings_page_integrations' );
@@ -168,7 +168,7 @@
             <?php
                 wp_nonce_field('settings_action', 'settings_action');
                 $other_attributes = array();
-                submit_button(__('Save changes', $this->plugin_name), 'primary ays-chart-loader-banner ays-chart-gen-settings-save', 'ays_submit', true, $other_attributes);
+                submit_button(__('Save changes', 'chart-builder'), 'primary ays-chart-loader-banner ays-chart-gen-settings-save', 'ays_submit', true, $other_attributes);
                 echo $loader_iamge;
             ?>
             </div>

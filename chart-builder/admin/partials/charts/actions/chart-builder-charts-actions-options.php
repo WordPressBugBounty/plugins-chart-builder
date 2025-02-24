@@ -286,10 +286,26 @@
         'q11' => __("If you enable this option, you can show the count statistics of the logged-in and non-logged-in users (guests) who passed the particular quiz within the last 7 days.", "chart-builder"),
         'q12' => __("If you enable this option, you can show all the answers count (Correct/Incorrect/Unanswered) of the chosen quiz for each question of each user.", "chart-builder"),
         'q13' => "<ul style='padding: 0; list-style-type: none;'>" .
-                   '<li>' . sprintf( __("%sBy%s - Choose the method of filtering."), '<b>', '</b>' ) . '</li>' .
-                   '<li>' . sprintf( __("%sBy quiz:%s Display all the questions of the chosen quiz"), '<b>', '</b>' ) . '</li>' .
-                   '<li>' . sprintf( __("%sBy question category:%s Display all questions of the chosen category (of all quizzes)"), '<b>', '</b>' ) . '</li>' .
-                   '<li>' . sprintf( __("%sBy quiz and question category:%s Display all the questions of the particular category of the chosen quiz", "chart-builder"), '<b>', '</b>' ) . '</li>' .
+                   '<li>' . sprintf(
+                                /* translators: %1$s: Opening <b> tag, %2$s: Closing </b> tag */
+                                __( "%1\$sBy%2\$s - Choose the method of filtering.", "chart-builder"),'<b>', '</b>'
+                                ) .           
+                    '</li>' .
+                    '<li>' . sprintf(
+                                    /* translators: %1$s: Opening <b> tag, %2$s: Closing </b> tag */
+                                    __( "%1\$sBy quiz:%2\$s Display all the questions of the chosen quiz", "chart-builder"), '<b>', '</b>'
+                                ) . 
+                    '</li>' .
+                    '<li>' . sprintf(
+                                    /* translators: %1$s: Opening <b> tag, %2$s: Closing </b> tag */
+                                    __( "%1\$sBy question category:%2\$s Display all questions of the chosen category (of all quizzes)", "chart-builder"), '<b>', '</b>'
+                                ) . 
+                    '</li>' .
+                    '<li>' . sprintf(
+                                    /* translators: %1$s: Opening <b> tag, %2$s: Closing </b> tag */
+                                    __( "%1\$sBy quiz and question category:%2\$s Display all the questions of the particular category of the chosen quiz", "chart-builder"), '<b>', '</b>'
+                                ) . 
+                    '</li>' .
                 '</ul>',
         'q14' => __("If you enable this option, you can display the number of times all the users (logged-in/guests) passed all the quizzes within the last 7 days", "chart-builder")
     );

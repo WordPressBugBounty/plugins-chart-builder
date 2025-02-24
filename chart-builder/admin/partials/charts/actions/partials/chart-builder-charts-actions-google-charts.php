@@ -123,7 +123,10 @@
                         <?php echo esc_html(__("Styles", "chart-builder")); ?>
                     </a>
                     <a href="#tab4" data-tab="tab4" class="<?php echo esc_attr($html_class_prefix) ?>nav-tab-chart nav-tab <?php echo ($ays_chart_tab == 'tab4') ? 'nav-tab-active' : ''; ?>">
-                        <?php echo esc_html(__($chart_types_names[$source_chart_type]." settings", "chart-builder")); ?>
+                        <?php 
+                            // Translators: %s will be replaced with the chart type name.
+                            echo esc_html(sprintf(__("%s settings", "chart-builder"), $chart_types_names[$source_chart_type]));
+                        ?>
                     </a>
                 </div>
             </div>

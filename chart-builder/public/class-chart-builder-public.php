@@ -192,7 +192,7 @@ class Chart_Builder_Public {
 		$user_id = get_current_user_id();
 
 		if ($source_type == 'quiz_maker' && $user_id == 0 && $chart['quiz_query'] != 'q1') {
-			return "<p class='ays_chart_not_logged_text'>" . __('You are not logged in. Please log in to view this chart.', $this->plugin_name) . "</p>";
+			return "<p class='ays_chart_not_logged_text'>" . __('You are not logged in. Please log in to view this chart.', 'chart-builder') . "</p>";
 		}
 
 		$status = isset( $chart['status'] ) && $chart['status'] != '' ? $chart['status'] : '';

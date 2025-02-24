@@ -34,17 +34,17 @@
                                 <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item">
                                     <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_logo">
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_logo_overlay">
-                                            <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?= CHART_BUILDER_ADMIN_URL; ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
+                                            <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?php echo CHART_BUILDER_ADMIN_URL; ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
                                         </div>
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_checked">
-                                            <img src="<?= CHART_BUILDER_ADMIN_URL; ?>/images/icons/check.svg">
+                                            <img src="<?php echo CHART_BUILDER_ADMIN_URL; ?>/images/icons/check.svg">
                                         </div>
                                     </div>
                                 </div>
                             </label>
                         </div>
                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_separate_title">
-                            <span><?php echo __(esc_attr($data['name']), "chart-builder") ?></span>
+                            <span><?php echo esc_attr($data['name'])?></span>
                         </div>
                         <?php if ($data['demo']) : ?>
                             <div class="<?php echo esc_attr($html_class_prefix); ?>view_demo_content">
@@ -73,17 +73,17 @@
                                 <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item">
                                     <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_logo">
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_logo_overlay">
-                                            <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?= CHART_BUILDER_ADMIN_URL; ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
+                                            <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?php echo CHART_BUILDER_ADMIN_URL; ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
                                         </div>
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_checked">
-                                            <img src="<?= CHART_BUILDER_ADMIN_URL; ?>/images/icons/check.svg">
+                                            <img src="<?php echo CHART_BUILDER_ADMIN_URL; ?>/images/icons/check.svg">
                                         </div>
                                     </div>
                                 </div>
                             </label>
                         </div>
                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_separate_title">
-                        <span><?php echo __(esc_attr($data['name']), "chart-builder") ?></span>
+                        <span><?php echo esc_attr($data['name']);?></span>
                         </div>
                         <?php if ($data['demo']) : ?>
                             <div class="<?php echo esc_attr($html_class_prefix); ?>view_demo_content">

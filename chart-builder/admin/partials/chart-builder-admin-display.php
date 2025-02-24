@@ -30,35 +30,35 @@ $add_new_url = sprintf('?page=%s&action=%s', 'chart-builder', 'add');
     </div>
     <div class="ays-chart-heart-beat-main-heading ays-chart-heart-beat-main-heading-container">
         <h1 class="ays-chart-builder-wrapper ays_heart_beat">
-            <?php echo __(esc_html(get_admin_page_title()),$this->plugin_name); ?> <i class="ays_fa ays_fa_heart_o animated"></i>
+            <?php echo esc_html( get_admin_page_title() ); ?> <i class="ays_fa ays_fa_heart_o animated"></i>
         </h1>
     </div>
     <div class="ays-chart-faq-main">
         <h2>
-            <?php echo __("How to create a chart in 4 steps with the help of the", $this->plugin_name ) .
-            ' <strong>'. __("Chartify", $this->plugin_name ) .'</strong> '.
-            __("plugin.", $this->plugin_name ); ?>
+            <?php echo __("How to create a chart in 4 steps with the help of the", 'chart-builder' ) .
+            ' <strong>'. __("Chartify", 'chart-builder' ) .'</strong> '.
+            __("plugin.", 'chart-builder' ); ?>
             
         </h2>
         <fieldset>
             <div class="ays-chart-ol-container">
                 <ol>
                     <li>
-                        <?php echo __( "Go to the", $this->plugin_name ) . ' <a href="'. $chart_page_url .'" target="_blank">'. __( "Chartify" , $this->plugin_name ) .'</a> ' .  __( "page and click on the", $this->plugin_name ) . ' <a href="'. $add_new_url .'" target="_blank">'. __( "Add New" , $this->plugin_name ) .'</a> ' .  __( "button for creating your first chart.", $this->plugin_name ); ?>,
+                        <?php echo __( "Go to the", 'chart-builder' ) . ' <a href="'. $chart_page_url .'" target="_blank">'. __( "Chartify" , 'chart-builder' ) .'</a> ' .  __( "page and click on the", 'chart-builder' ) . ' <a href="'. $add_new_url .'" target="_blank">'. __( "Add New" , 'chart-builder' ) .'</a> ' .  __( "button for creating your first chart.", 'chart-builder' ); ?>,
                     </li>
                     <li>
-                        <?php echo __( "Choose your preferred chart type and click on the Next button.", $this->plugin_name ); ?>
+                        <?php echo __( "Choose your preferred chart type and click on the Next button.",'chart-builder' ); ?>
                     </li>
                     <li>
-                        <?php echo __( "Add the needed data for your chart (manually, from Google Sheets and from Database)", $this->plugin_name ); ?>
+                        <?php echo __( "Add the needed data for your chart (manually, from Google Sheets and from Database)", 'chart-builder' ); ?>
                     </li>
                     <li>
-                        <?php echo __( "Copy the", $this->plugin_name ) . ' <strong>'. __( "shortcode" , $this->plugin_name ) .'</strong> ' .  __( "of the chart and paste it into any post․", $this->plugin_name ); ?> 
+                        <?php echo __( "Copy the", 'chart-builder' ) . ' <strong>'. __( "shortcode" , 'chart-builder' ) .'</strong> ' .  __( "of the chart and paste it into any post․", 'chart-builder' ); ?> 
                     </li>
                 </ol>
             </div>
             <div class="ays-chart-p-container">
-                <p><?php echo __("Congrats! You have already created your first chart." , $this->plugin_name); ?></p>
+                <p><?php echo __("Congrats! You have already created your first chart." , 'chart-builder'); ?></p>
             </div>
         </fieldset>
     </div>
@@ -66,7 +66,7 @@ $add_new_url = sprintf('?page=%s&action=%s', 'chart-builder', 'add');
 
     <div class="ays-chart-community-wrap">
         <div class="ays-chart-community-title">
-            <h4><?php echo __( "Community", $this->plugin_name ); ?></h4>
+            <h4><?php echo __( "Community", 'chart-builder' ); ?></h4>
         </div>
         <div class="ays-chart-community-youtube-video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/xP1M_j1haUg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy" allowfullscreen></iframe>
@@ -76,33 +76,33 @@ $add_new_url = sprintf('?page=%s&action=%s', 'chart-builder', 'add');
                 <a href="https://www.youtube.com/channel/UC-1vioc90xaKjE7stq30wmA" target="_blank" class="ays-chart-community-item-cover" >
                     <i class="ays-chart-community-item-img ays_fa ays_fa_youtube_play"></i>
                 </a>
-                <h3 class="ays-chart-community-item-title"><?php echo __( "YouTube community", $this->plugin_name ); ?></h3>
-                <p class="ays-chart-community-item-desc"><?php echo __("Our YouTube community  guides you to step by step tutorials about our products and not only...", $this->plugin_name); ?></p>
+                <h3 class="ays-chart-community-item-title"><?php echo __( "YouTube community", 'chart-builder' ); ?></h3>
+                <p class="ays-chart-community-item-desc"><?php echo __("Our YouTube community  guides you to step by step tutorials about our products and not only...", 'chart-builder'); ?></p>
                 <p class="ays-chart-community-item-desc"></p>
                 <div class="ays-chart-community-item-footer">
-                    <a href="https://www.youtube.com/channel/UC-1vioc90xaKjE7stq30wmA" target="_blank" class="button"><?php echo __( "Subscribe", $this->plugin_name ); ?></a>
+                    <a href="https://www.youtube.com/channel/UC-1vioc90xaKjE7stq30wmA" target="_blank" class="button"><?php echo __( "Subscribe", 'chart-builder' ); ?></a>
                 </div>
             </div>
             <div class="ays-chart-community-item">
                 <a href="https://wordpress.org/support/plugin/chart-builder/" target="_blank" class="ays-chart-community-item-cover" >
                     <i class="ays-chart-community-item-img ays_fa ays_fa_wordpress"></i>
                 </a>
-                <h3 class="ays-chart-community-item-title"><?php echo __( "Best Free support", $this->plugin_name ); ?></h3>
-                <p class="ays-chart-community-item-desc"><?php echo __( "With the Free version, you get a lifetime usage for the plugin, however, you will get new updates and support for only 1 month.", $this->plugin_name ); ?></p>
+                <h3 class="ays-chart-community-item-title"><?php echo __( "Best Free support", 'chart-builder' ); ?></h3>
+                <p class="ays-chart-community-item-desc"><?php echo __( "With the Free version, you get a lifetime usage for the plugin, however, you will get new updates and support for only 1 month.", 'chart-builder' ); ?></p>
                 <p class="ays-chart-community-item-desc"></p>
                 <div class="ays-chart-community-item-footer">
-                    <a href="https://wordpress.org/support/plugin/chart-builder/" target="_blank" class="button"><?php echo __( "Join", $this->plugin_name ); ?></a>
+                    <a href="https://wordpress.org/support/plugin/chart-builder/" target="_blank" class="button"><?php echo __( "Join", 'chart-builder' ); ?></a>
                 </div>
             </div>
             <div class="ays-chart-community-item">
                 <a href="https://ays-pro.com/contact" target="_blank" class="ays-chart-community-item-cover" >
                     <i class="ays-chart-community-item-img ays_fa ays_fa_users" aria-hidden="true"></i>
                 </a>
-                <h3 class="ays-chart-community-item-title"><?php echo __( "Premium support", $this->plugin_name ); ?></h3>
-                <p class="ays-chart-community-item-desc"><?php echo __( "Get 12 months updates and support for the Business package and lifetime updates and support for the Developer package.", $this->plugin_name ); ?></p>
+                <h3 class="ays-chart-community-item-title"><?php echo __( "Premium support", 'chart-builder' ); ?></h3>
+                <p class="ays-chart-community-item-desc"><?php echo __( "Get 12 months updates and support for the Business package and lifetime updates and support for the Developer package.", 'chart-builder' ); ?></p>
                 <p class="ays-chart-community-item-desc"></p>
                 <div class="ays-chart-community-item-footer">
-                    <a href="https://ays-pro.com/contact" target="_blank" class="button"><?php echo __( "Contact", $this->plugin_name ); ?></a>
+                    <a href="https://ays-pro.com/contact" target="_blank" class="button"><?php echo __( "Contact", 'chart-builder' ); ?></a>
                 </div>
             </div>
         </div>
