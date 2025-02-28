@@ -55,46 +55,46 @@
 
             <style>
                 <?php
-                    echo "div." . $html_class_prefix . "container {
+                    echo "div." . esc_attr($html_class_prefix) . "container {
                             position: sticky;
                             top: 50px;
                         }
                             
-                        div." . $html_class_prefix . "charts-main-container {
+                        div." . esc_attr($html_class_prefix) . "charts-main-container {
                             width: 100%;
                             height: 400px;
-                            border: " . $settings['border_width'] . "px " . $settings['border_style'] . " " . $settings['border_color'] . ";
+                            border: " . esc_attr($settings['border_width']) . "px " . esc_attr( $settings['border_style']) . " " . esc_attr($settings['border_color']) . ";
                             " . ($settings['box_shadow'] === "checked" ? "box-shadow: 2px 2px 10px 2px #000000;" : "") . "
-                            border-radius: " . $settings['border_radius'] . "px;
+                            border-radius: " . esc_attr($settings['border_radius']) . "px;
                         }
                             
-                        div." . $html_class_prefix . "header-container {
-                            margin-bottom: " . $settings['title_gap'] . "px !important;
+                        div." . esc_attr($html_class_prefix) . "header-container {
+                            margin-bottom: " . esc_attr($settings['title_gap']) . "px !important;
                         }
 
-                        div." . $html_class_prefix . "header-container>." . $html_class_prefix . "charts-title {
-                            color: " . $settings['title_color'] . ";
-                            font-size: " . $settings['title_font_size'] . "px;
+                        div." . esc_attr($html_class_prefix) . "header-container>." . esc_attr($html_class_prefix) . "charts-title {
+                            color: " . esc_attr($settings['title_color']) . ";
+                            font-size: " . esc_attr($settings['title_font_size']) . "px;
                             font-weight: " . (isset( $settings['title_bold'] ) && $settings['title_bold'] == 'checked' ? 'bold' : 'normal') . ";
-                            text-shadow: " . ($settings['title_text_shadow'] === 'checked' ? '2px 2px 5px '.$settings['title_shadow_color'] : '') . ";
+                            text-shadow: " . ($settings['title_text_shadow'] === 'checked' ? '2px 2px 5px '. esc_attr($settings['title_shadow_color']) : '') . ";
                             font-style: " . (isset( $settings['title_italic'] ) && $settings['title_italic'] != 'checked'? 'normal' : 'italic') . ";
-                            text-align: " . $settings['title_position'] . ";
-                            text-transform: " . $settings['title_text_transform'] . ";
-                            text-decoration: " . $settings['title_text_decoration'] . ";
-                            letter-spacing: " . $settings['title_letter_spacing'] . "px;
-                            margin-bottom: " . $settings['title_gap_description'] . "px;
+                            text-align: " . esc_attr($settings['title_position']) . ";
+                            text-transform: " . esc_attr( $settings['title_text_transform']) . ";
+                            text-decoration: " . esc_attr($settings['title_text_decoration']) . ";
+                            letter-spacing: " . esc_attr($settings['title_letter_spacing'] ). "px;
+                            margin-bottom: " . esc_attr( $settings['title_gap_description'] ). "px;
                         }
 
-                        div." . $html_class_prefix . "header-container>." . $html_class_prefix . "charts-description {
-                            color: " . $settings['description_color'] . ";
-                            font-size: " . $settings['description_font_size'] . "px; 
+                        div." . esc_attr($html_class_prefix) . "header-container>." . esc_attr($html_class_prefix) . "charts-description {
+                            color: " . esc_attr($settings['description_color']) . ";
+                            font-size: " . esc_attr($settings['description_font_size']) . "px; 
                             font-weight: " . (isset( $settings['description_bold'] ) && $settings['description_bold'] == 'checked' ? 'bold' : 'normal') . ";
-                            text-shadow: " . ($settings['description_text_shadow'] === 'checked' ? '2px 2px 5px '.$settings['description_shadow_color'] : '') . ";
+                            text-shadow: " . ($settings['description_text_shadow'] === 'checked' ? '2px 2px 5px '. esc_attr($settings['description_shadow_color']) : '') . ";
                             font-style: " . (isset( $settings['description_italic'] ) && $settings['description_italic'] != 'checked'? 'normal' : 'italic') . ";
-                            text-align: " . $settings['description_position'] . ";
-                            text-transform: " . $settings['description_text_transform'] . ";
-                            text-decoration: " . $settings['description_text_decoration'] . ";
-                            letter-spacing: " . $settings['description_letter_spacing'] . "px;
+                            text-align: " . esc_attr($settings['description_position']) . ";
+                            text-transform: " . esc_attr($settings['description_text_transform']) . ";
+                            text-decoration: " . esc_attr($settings['description_text_decoration']) . ";
+                            letter-spacing: " . esc_attr($settings['description_letter_spacing']) . "px;
                         }"
                 ?>
             </style>

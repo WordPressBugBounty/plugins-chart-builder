@@ -417,9 +417,13 @@
             if ( $change_create_author  && $change_create_author > 0 ) {
                 global $wpdb;
                 $users_table = esc_sql( $wpdb->prefix . 'users' );
-                $sql_users = "SELECT ID, display_name FROM {$users_table} WHERE ID = {$change_create_author}";
-
-                $create_author_data = $wpdb->get_row($sql_users, "ARRAY_A");
+                $create_author_data = $wpdb->get_row(
+                    $wpdb->prepare(
+                        "SELECT ID, display_name FROM {$wpdb->users} WHERE ID = %d",
+                        $change_create_author
+                    ),
+                    ARRAY_A
+                );  
 
                 if (!isset($create_author_data)) {
                     $create_author_data = array(

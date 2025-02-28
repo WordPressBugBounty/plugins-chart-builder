@@ -107,8 +107,7 @@ class Chart_Builder_Integrations
 
             $integrations[] = $content;
         }
-
-        echo implode('<hr />', $integrations);
+        echo implode('<hr />', $integrations);     
 
     }
 
@@ -158,40 +157,40 @@ class Chart_Builder_Integrations
                     <a href="https://www.youtube.com/watch?v=Qox2ev6OgUM" target="_blank" class="ays-pro-features-v2-video-button">
                         <div class="ays-pro-features-v2-video-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Video_24x24_Hover.svg"></div>
                         <div class="ays-pro-features-v2-video-text">
-                            <?php echo __("Watch Video" , "chart-builder"); ?>
+                            <?php echo esc_html__("Watch Video" , "chart-builder"); ?>
                         </div>
                     </a>
                     <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank" class="ays-pro-features-v2-upgrade-button">
                         <div class="ays-pro-features-v2-upgrade-icon" style="background-image: url('<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg');" data-img-src="<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg"></div>
                         <div class="ays-pro-features-v2-upgrade-text">
-                            <?php echo __("Upgrade" , "chart-builder"); ?>
+                            <?php echo esc_html__("Upgrade" , "chart-builder"); ?>
                         </div>
                     </a>
                 </div>
-                <div class="<?= $html_class_prefix ?>source-data-main-wrap">
-                    <div class="<?= $html_class_prefix ?>chart-source-data-main">
+                <div class="<?php echo esc_attr($html_class_prefix) ?>source-data-main-wrap">
+                    <div class="<?php echo esc_attr($html_class_prefix)  ?>chart-source-data-main">
                         <div id="ays-chart-google-sheet-form">
-                            <div class="<?= $html_class_prefix ?>google-sheet-select-wrap">
-                                <select name="<?= $html_name_prefix ?>google_sheet_id" id="" class="<?= $html_class_prefix ?>google-sheet-select" data-chart-id="1">
-                                    <option value=""><?= __( 'Select spreadsheet', 'chart-builder' ) ?></option>
+                            <div class="<?php echo esc_attr($html_class_prefix)?>google-sheet-select-wrap">
+                                <select name="<?php echo esc_attr($html_class_prefix) ?>google_sheet_id" id="" class="<?php echo esc_attr($html_class_prefix) ?>google-sheet-select" data-chart-id="1">
+                                    <option value=""><?php echo esc_html__( 'Select spreadsheet', 'chart-builder' ) ?></option>
                                 </select>
                             </div>
                             <div class="ays-chart-buttons-group">
                                 <div class="ays-chart-buttons-group-main">
                                     <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-gsheet-fetch">
-                                        <?php echo __( 'Show Results', "chart-builder" ); ?>
+                                        <?php echo esc_html__( 'Show Results', "chart-builder" ); ?>
                                     </button>
                                     <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-gsheet-show-on-chart">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.722 6.59785C12.2407 3.47754 10.0017 1.90723 7.00009 1.90723C3.99697 1.90723 1.75947 3.47754 0.278215 6.59941C0.218802 6.72522 0.187988 6.86263 0.187988 7.00176C0.187988 7.14089 0.218802 7.27829 0.278215 7.4041C1.75947 10.5244 3.99853 12.0947 7.00009 12.0947C10.0032 12.0947 12.2407 10.5244 13.722 7.40254C13.8423 7.14941 13.8423 6.85566 13.722 6.59785ZM7.00009 10.9697C4.47978 10.9697 2.63447 9.6916 1.3329 7.00098C2.63447 4.31035 4.47978 3.03223 7.00009 3.03223C9.5204 3.03223 11.3657 4.31035 12.6673 7.00098C11.3673 9.6916 9.52197 10.9697 7.00009 10.9697ZM6.93759 4.25098C5.41884 4.25098 4.18759 5.48223 4.18759 7.00098C4.18759 8.51973 5.41884 9.75098 6.93759 9.75098C8.45634 9.75098 9.68759 8.51973 9.68759 7.00098C9.68759 5.48223 8.45634 4.25098 6.93759 4.25098ZM6.93759 8.75098C5.9704 8.75098 5.18759 7.96816 5.18759 7.00098C5.18759 6.03379 5.9704 5.25098 6.93759 5.25098C7.90478 5.25098 8.68759 6.03379 8.68759 7.00098C8.68759 7.96816 7.90478 8.75098 6.93759 8.75098Z" fill="#14524A" /></svg>
-                                        <?php echo __( 'Preview', "chart-builder" ); ?>
+                                        <?php echo esc_html__( 'Preview', "chart-builder" ); ?>
                                     </button>
                                     <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-gsheet-save">
-                                        <?php echo __( 'Save data', "chart-builder" ); ?>
+                                        <?php echo esc_html__( 'Save data', "chart-builder" ); ?>
                                     </button>
                                 </div>
                                 <div class="ays-chart-buttons-group-columns">
                                     <button class="<?php echo esc_attr($html_class_prefix) ?>show-on-chart-bttns" id="ays-chart-gsheet-columns">
-                                        <?php echo __( 'Columns', "chart-builder" ); ?>
+                                        <?php echo esc_html__( 'Columns', "chart-builder" ); ?>
                                     </button>
                                 </div>
                             </div>

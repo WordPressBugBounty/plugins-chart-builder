@@ -17,8 +17,8 @@
         </div>
     </div>
     <div class="container-fluid">
-        <form class="ays-charts-form" id="<?php echo $form_id; ?>" method="post">
-            <input type="hidden" name="ays_chart_tab" value="<?php echo $ays_chart_tab; ?>">
+        <form class="ays-charts-form" id="<?php echo esc_attr($form_id); ?>" method="post">
+            <input type="hidden" name="ays_chart_tab" value="<?php echo esc_attr($ays_chart_tab); ?>">
             <h1 class="wp-heading-inline">
                 <?php echo esc_html( esc_attr($heading) ); ?>
             </h1>
@@ -43,7 +43,7 @@
                                         <input type="radio" class="ays-chart-charts-each-data-checker" hidden id="ays_chart_message_var_count_<?php echo esc_attr($var_counter)?>" name="ays_chart_message_var_count">
                                         <div class="ays-chart-charts-each-data">
                                             <input type="hidden" class="ays-chart-charts-each-var" value="<?php echo esc_attr($var); ?>">
-                                            <a href="?page=chart-builder&action=edit&id=<?php echo esc_attr($var_name['id']); ?>" target="_blank" class="ays-chart-go-to-charts"><span><?php echo stripslashes(esc_attr($var_name['title'])); ?></span></a>
+                                            <a href="?page=chart-builder&action=edit&id=<?php echo esc_attr($var_name['id']); ?>" target="_blank" class="ays-chart-go-to-charts"><span><?php echo esc_attr(stripslashes($var_name['title'])); ?></span></a>
                                         </div>
                                     </label>              
                                 <?php endforeach ?>
@@ -53,9 +53,9 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <p style="font-size:14px; font-style:italic;">
-                                <?php echo __("To make your chart live, copy shortcode", "chart-builder"); ?>
-                                <strong class="ays-chart-shortcode-box" title="<?php echo __('Click to copy',"chart-builder");?>" onClick="selectElementContents(this)" style="font-size:16px; font-style:normal;" data-bs-toggle="tooltip"><?php echo '[ays_chart id="'.$id.'"]'; ?></strong>
-                                <?php echo " " . __( "and paste it into your desired Page or Post.", "chart-builder"); ?>
+                                <?php echo esc_html(__("To make your chart live, copy shortcode", "chart-builder")); ?>
+                                <strong class="ays-chart-shortcode-box" title="<?php echo esc_html(__('Click to copy',"chart-builder"));?>" onClick="selectElementContents(this)" style="font-size:16px; font-style:normal;" data-bs-toggle="tooltip"><?php echo '[ays_chart id="'.esc_attr($id).'"]'; ?></strong>
+                                <?php echo " " . esc_html(__( "and paste it into your desired Page or Post.", "chart-builder")); ?>
                             </p>
                         </div>
                     </div>

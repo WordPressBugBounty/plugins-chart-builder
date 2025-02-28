@@ -283,7 +283,7 @@ if( !class_exists( 'Chart_Builder_DB_Query' ) ){
 				<tr>
 					<?php
 					foreach ( $headers as $header ) {
-						echo '<th>' . $header['label'] . '</th>';
+						echo '<th>' . esc_html($header['label']) . '</th>';
 					}
 					?>
 				</tr>
@@ -295,7 +295,7 @@ if( !class_exists( 'Chart_Builder_DB_Query' ) ){
 				foreach ( $results as $result ) {
 					echo '<tr>';
 					foreach ( $result as $r ) {
-						echo '<td>' . $r . '</td>';
+						echo '<td>' . esc_html($r) . '</td>';
 					}
 					echo '</tr>';
 				}
@@ -533,7 +533,7 @@ if( !class_exists( 'Chart_Builder_DB_Query' ) ){
 			if ( count( $data ) > 5 ) {
 				$random = array();
 				for ( $x = 0; $x < 5; $x++ ) {
-					$random[] = $data[ rand( 0, count( $data ) - 1 ) ];
+					$random[] = $data[ wp_rand( 0, count( $data ) - 1 ) ];
 				}
 			}
 

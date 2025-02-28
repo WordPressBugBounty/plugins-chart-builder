@@ -66,6 +66,8 @@
         $block_namespace = 'chart-builder/' . $block_name;
         
         $current_user = get_current_user_id();
+        
+
         $sql = "SELECT * FROM ". $wpdb->prefix . CHART_BUILDER_DB_PREFIX . "charts WHERE status = 'published'";
         if( ! current_user_can( 'manage_options' ) ){
             $sql .= " AND author_id = ". absint( $current_user ) ." ";

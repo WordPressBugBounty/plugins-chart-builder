@@ -11,8 +11,8 @@
             </div>
             <div class="<?php echo esc_attr($html_class_prefix); ?>layer_box_source_type">
                 <select class="<?php echo esc_attr($html_class_prefix); ?>layer_box_source_type_select">
-                    <option value="google-charts"><?php echo __('Google Charts', 'chart-builder'); ?></option>
-                    <option value="chart-js"><?php echo __('Chart.js', 'chart-builder'); ?></option>
+                    <option value="google-charts"><?php echo esc_html(__('Google Charts', 'chart-builder')); ?></option>
+                    <option value="chart-js"><?php echo esc_attr(__('Chart.js', 'chart-builder')); ?></option>
                 </select>
             </div>
             <div class="<?php echo esc_attr($html_class_prefix); ?>layer_box_blocks" source-type="google-charts">
@@ -24,20 +24,20 @@
                                     <div>
                                         <a href="https://ays-pro.com/wordpress/chart-builder/" target="_blank" title="PRO feature">
                                             <div class="<?php echo esc_attr($html_class_prefix); ?>pro-features-icon" style="background-image: url(<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg)"></div>
-                                            <div class="<?php echo esc_attr($html_class_prefix); ?>pro-features-text"><?php echo __("Upgrade", "chart-builder"); ?></div>
+                                            <div class="<?php echo esc_attr($html_class_prefix); ?>pro-features-text"><?php echo esc_attr(__("Upgrade", "chart-builder")); ?></div>
                                         </a>
                                     </div>
                                 </div>
                             <?php endif; ?>
                             <label class='<?php echo esc_attr($html_class_prefix); ?>dblclick-layer'>
-                                <input type="radio" name="<?php echo esc_attr($this->plugin_name); ?>[modal_content]" class="<?php echo esc_attr($html_class_prefix); ?>choose-source" value="<?php echo $type; ?>">
+                                <input type="radio" name="<?php echo esc_attr($this->plugin_name); ?>[modal_content]" class="<?php echo esc_attr($html_class_prefix); ?>choose-source" value="<?php echo esc_attr($type); ?>">
                                 <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item">
                                     <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_logo">
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_logo_overlay">
-                                            <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?php echo CHART_BUILDER_ADMIN_URL; ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
+                                            <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
                                         </div>
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_checked">
-                                            <img src="<?php echo CHART_BUILDER_ADMIN_URL; ?>/images/icons/check.svg">
+                                            <img src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/check.svg">
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                         </div>
                         <?php if ($data['demo']) : ?>
                             <div class="<?php echo esc_attr($html_class_prefix); ?>view_demo_content">
-                                <a href="<?php echo esc_url($data['demo']); ?>" target="_blank"><?php echo __('View demo', "chart-builder") ?></a>
+                                <a href="<?php echo esc_url($data['demo']); ?>" target="_blank"><?php echo esc_html(__('View demo', "chart-builder")) ?></a>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -63,20 +63,20 @@
                                     <div>
                                         <a href="https://ays-pro.com/wordpress/chart-builder/" target="_blank" title="PRO feature">
                                             <div class="<?php echo esc_attr($html_class_prefix); ?>pro-features-icon" style="background-image: url(<?php echo esc_attr(CHART_BUILDER_ADMIN_URL); ?>/images/icons/pro-features-icons/Locked_24x24.svg)"></div>
-                                            <div class="<?php echo esc_attr($html_class_prefix); ?>pro-features-text"><?php echo __("Upgrade", "chart-builder"); ?></div>
+                                            <div class="<?php echo esc_attr($html_class_prefix); ?>pro-features-text"><?php echo esc_html(__("Upgrade", "chart-builder")); ?></div>
                                         </a>
                                     </div>
                                 </div>
                             <?php endif; ?>
                             <label class='<?php echo esc_attr($html_class_prefix); ?>dblclick-layer'>
-                                <input type="radio" name="<?php echo esc_attr($this->plugin_name); ?>[modal_content]" class="<?php echo esc_attr($html_class_prefix); ?>choose-source" value="<?php echo $type; ?>">
+                                <input type="radio" name="<?php echo esc_attr($this->plugin_name); ?>[modal_content]" class="<?php echo esc_attr($html_class_prefix); ?>choose-source" value="<?php echo esc_attr($type); ?>">
                                 <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item">
                                     <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_logo">
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_logo_overlay">
-                                            <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?php echo CHART_BUILDER_ADMIN_URL; ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
+                                            <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
                                         </div>
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_checked">
-                                            <img src="<?php echo CHART_BUILDER_ADMIN_URL; ?>/images/icons/check.svg">
+                                            <img src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/check.svg">
                                         </div>
                                     </div>
                                 </div>
@@ -87,14 +87,14 @@
                         </div>
                         <?php if ($data['demo']) : ?>
                             <div class="<?php echo esc_attr($html_class_prefix); ?>view_demo_content">
-                                <a href="<?php echo esc_url($data['demo']); ?>" target="_blank"><?php echo __('View demo', "chart-builder") ?></a>
+                                <a href="<?php echo esc_url($data['demo']); ?>" target="_blank"><?php echo esc_html(__('View demo', "chart-builder")) ?></a>
                             </div>
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             </div>
             <div class="<?php echo esc_attr($html_class_prefix); ?>layer_box_link">
-                <a target="_blank" href="https://www.youtube.com/watch?v=CiZ-w9t9yoo"><?php echo __('All Chart Types', 'chart-builder'); ?></a>
+                <a target="_blank" href="https://www.youtube.com/watch?v=CiZ-w9t9yoo"><?php echo esc_html(__('All Chart Types', 'chart-builder')); ?></a>
             </div>
             <!-- <div class="<?php // echo esc_attr($html_class_prefix); ?>select_button_layer">
                 <div class="<?php // echo esc_attr($html_class_prefix); ?>select_button_item">

@@ -310,7 +310,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 	    public function get_table_html( $headers, $rows, $table_id = 'results' ) {
 		    ob_start();
 		    ?>
-		    <table cellspacing="0" width="100%" id="<?= $table_id ?>">
+		    <table cellspacing="0" width="100%" id="<?php echo esc_attr($table_id) ?>">
 			    <thead>
 			    <tr>
 				    <?php
@@ -318,7 +318,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
                         if( empty( $header ) ){
                             continue;
                         }
-					    echo '<th>' . $header . '</th>';
+					    echo '<th>' . esc_html($header) . '</th>';
 				    }
 				    ?>
 			    </tr>
@@ -333,7 +333,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 				    }
 				    echo '<tr>';
 				    foreach ( $row as $r ) {
-					    echo '<td>' . $r . '</td>';
+					    echo '<td>' . esc_html($r) . '</td>';
 				    }
 				    echo '</tr>';
 			    }

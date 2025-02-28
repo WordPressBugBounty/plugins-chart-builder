@@ -69,12 +69,12 @@ class Widget_Chart_Builder_Elementor extends Widget_Base {
         }
 
         $settings = $this->get_settings_for_display();
-        echo ("<div class='chart-elementor-container'>
-                    [ays_chart id={$settings['chart_selector']}]
-                </div>");
+        echo '<div class="chart-elementor-container">';
+        echo esc_html( "[ays_chart id=" . $settings['chart_selector'] . "]" );
+        echo '</div>';
         if ( ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'elementor' ) || ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'elementor_ajax' ) ) {
             echo ("<p style='margin:4px 0 0 3px;font-size:12px;font-style:italic;'>
-                    " . __( 'Note: The chart will be visible on the front end of your website.', "chart-builder" ) . "
+                    " . esc_html__( 'Note: The chart will be visible on the front end of your website.', "chart-builder" ) . "
                 </p>");
         }
     }

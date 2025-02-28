@@ -415,12 +415,13 @@ class Chart_Builder_Admin {
 	public function display_plugin_charts_page(){
         global $ays_chart_db_actions;
 
-        $action = (isset($_GET['action'])) ? sanitize_text_field( $_GET['action'] ) : '';
-		$id = (isset($_GET['id'])) ? absint( esc_attr($_GET['id']) ) : 0;
+        $action = ( isset( $_GET['action'] ) ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : '';
+		$id = (isset($_GET['id'])) ? absint( wp_unslash( $_GET['id'] ) ) : 0;
 
         if (isset($_POST['bulk_delete_confirm'])) {
             if (isset($_POST['bulk-delete']) && !empty($_POST['bulk-delete'])) {
-                $ids = $_POST['bulk-delete'];
+                $ids = wp_unslash( $_POST['bulk-delete'] );
+                $ids = array_map( 'absint', (array) $ids );
                 foreach ($ids as $id) {
                     if ($id > 0) {
                         $this->db_obj->delete_item( $id );
@@ -573,7 +574,7 @@ class Chart_Builder_Admin {
 			"status" => false
 		);
 
-		$function = isset($_REQUEST['function']) ? sanitize_text_field( $_REQUEST['function'] ) : null;
+		$function = isset( $_REQUEST['function'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['function'] ) ) : null;
 
 		if($function !== null){
 			$response = array();
@@ -596,8 +597,12 @@ class Chart_Builder_Admin {
 
     public function deactivate_plugin_option(){
         // Run a security check.
-        check_ajax_referer( 'chart-ajax-deactivate-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
-
+        if ( isset( $_REQUEST['_ajax_nonce'] ) ) {
+            check_ajax_referer( 'chart-ajax-deactivate-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
+        } else {
+            wp_die();
+        }
+        
         // Check for permissions.
         if ( ! current_user_can( 'manage_options' ) ) {
             ob_end_clean();
@@ -609,7 +614,7 @@ class Chart_Builder_Admin {
         }
 
         if( is_user_logged_in() ) {
-            $request_value = isset( $_REQUEST['upgrade_plugin'] ) ? sanitize_text_field( $_REQUEST['upgrade_plugin'] ) : '';
+            $request_value = isset( $_REQUEST['upgrade_plugin'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['upgrade_plugin'] ) ) : '';
             $upgrade_option = get_option( 'ays_chart_builder_upgrade_plugin', '' );
 
             if ( $upgrade_option === '' ) {
@@ -635,7 +640,7 @@ class Chart_Builder_Admin {
 
     public function chart_builder_admin_footer($a){
         if(isset($_REQUEST['page'])){
-            if(false !== strpos( sanitize_text_field( $_REQUEST['page'] ), $this->plugin_name)){
+            if(false !== strpos( sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ), $this->plugin_name)){
                 ?>
                 <div class="ays-chart-footer-support-box">
                     <span class="ays-chart-footer-link-row"><a href="https://wordpress.org/support/plugin/chart-builder" target="_blank"><?php echo esc_html__( "Support", "chart-builder"); ?></a></span>
@@ -684,9 +689,9 @@ class Chart_Builder_Admin {
     }
 
     public function fetch_post_type_props(){
-	    $nonce = isset( $_POST['nonce'] ) ? wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ), 'cbuilder-fetch-post-type-props' ) : '';
+	    $nonce = isset( $_POST['nonce'] ) ? wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'cbuilder-fetch-post-type-props' ) : '';
 	    if ( $nonce ) {
-            $results = CBFunctions()->get_post_type_properties( sanitize_text_field( $_POST['post_type'] ) );
+            $results = CBFunctions()->get_post_type_properties( sanitize_text_field( wp_unslash($_POST['post_type']) ) );
 
 		    return array(
 			    'success' => true,
@@ -754,7 +759,7 @@ class Chart_Builder_Admin {
     
         $ays_chart_builder_flag = intval(get_option('ays_chart_sale_btn'));
         if( $ays_chart_builder_flag == 0 ){
-            if (isset($_GET['page']) && strpos($_GET['page'], CHART_BUILDER_NAME) !== false) {
+            if ( isset( $_GET['page'] ) && strpos( sanitize_text_field( wp_unslash( $_GET['page'] ) ), CHART_BUILDER_NAME ) !== false ) {
                 if( !(Chart_Builder_Admin::get_max_id('charts') <= 1) ){
                     // $this->ays_chart_sale_message_30_emma($ays_chart_builder_flag);
                     $this->ays_chart_sale_message20($ays_chart_builder_flag);
@@ -775,7 +780,7 @@ class Chart_Builder_Admin {
         );
 
         if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'ays_chart_dismiss_button') { 
-            if( (isset( $_REQUEST['_ajax_nonce'] ) && wp_verify_nonce( $_REQUEST['_ajax_nonce'], $this->plugin_name . '-sale-banner' )) && current_user_can( 'manage_options' )){
+            if ( isset( $_REQUEST['_ajax_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_ajax_nonce'] ) ), $this->plugin_name . '-sale-banner' ) && current_user_can( 'manage_options' ) ) {
                 update_option('ays_chart_sale_btn', 1);
                 update_option('ays_chart_sale_date', current_time( 'mysql' ));
                 $data['status'] = true;
@@ -1454,7 +1459,7 @@ class Chart_Builder_Admin {
 
     public function author_user_search() {
         check_ajax_referer( 'cbuilder-author-user-search', 'security' );
-        $params = $_REQUEST['params'];
+        $params = isset($_REQUEST['params']) ? sanitize_text_field(wp_unslash($_REQUEST['params'])) : array();
         $search = isset($params['search']) && $params['search'] != '' ? sanitize_text_field( $params['search'] ) : null;
         $checked = isset($params['val']) && $params['val'] !='' ? sanitize_text_field( $params['val'] ) : null;
         $args = 'search=';
@@ -1573,7 +1578,9 @@ class Chart_Builder_Admin {
     public function ays_chart_activate_plugin() {
 
         // Run a security check.
-        check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
+        if ( isset( $_REQUEST['_ajax_nonce'] ) ) {
+            check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
+        } 
 
         // Check for permissions.
         if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -1616,7 +1623,9 @@ class Chart_Builder_Admin {
     public function ays_chart_install_plugin() {
 
         // Run a security check.
-        check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
+        if ( isset( $_REQUEST['_ajax_nonce'] ) ) {
+            check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
+        } 
 
         $generic_error = esc_html__( 'There was an error while performing your request.', 'chart-builder' );
         $type          = ! empty( $_POST['type'] ) ? sanitize_key( $_POST['type'] ) : '';
@@ -2030,7 +2039,7 @@ class Chart_Builder_Admin {
 	public function fetch_quiz_maker_data(){
 		check_ajax_referer( 'cbuilder-fetch-quiz-maker-data', 'security' );
 
-		$params = $_POST['params'];
+        $params = isset($_REQUEST['params']) ? sanitize_text_field(wp_unslash($_REQUEST['params'])) : array();
 		if ( !isset($params) || empty($params) ) {
 			return array(
 				'success' => false,
@@ -2154,7 +2163,7 @@ class Chart_Builder_Admin {
 	public function save_quiz_maker_data() {
 		check_ajax_referer( 'cbuilder-save-quiz-maker-data', 'security' );
 
-		$params = $_POST['params'];
+        $params = isset($_REQUEST['params']) ? sanitize_text_field(wp_unslash($_REQUEST['params'])) : array();
 		if ( !isset($params) || empty($params) ) {
 			return array(
 				'success' => false,
@@ -2316,7 +2325,7 @@ class Chart_Builder_Admin {
 			$sources[] = $content;
 		}
 		$content_for_escape = implode('' , $sources );
-		echo html_entity_decode( $content_for_escape );
+		echo html_entity_decode( esc_html($content_for_escape) );
 	}
 
     public function source_contents_import_from_csv_settings( $sources, $args ){
@@ -2729,7 +2738,7 @@ class Chart_Builder_Admin {
 		$source = isset($source["commonTypeCharts"]) ? $source["commonTypeCharts"] : $source;
         $settings = $args['settings'];
 		$source_chart_type = $args['source_chart_type'];
-		$action = isset($_GET['action']) ? sanitize_text_field($_GET['action']) : 'add';
+		$action = isset($_GET['action']) ? sanitize_text_field(wp_unslash($_GET['action'])) : 'add';
 		
 		if (isset($source) && !empty($source)) {
             if ( !isset( $source[0] ) ) {
@@ -2906,7 +2915,7 @@ class Chart_Builder_Admin {
 		$source = isset($source["commonTypeCharts"]) ? $source["commonTypeCharts"] : $source;
         $settings = $args['settings'];
 		$source_chart_type = $args['source_chart_type'];
-		$action = isset($_GET['action']) ? sanitize_text_field($_GET['action']) : 'add';
+		$action = isset($_GET['action']) ? sanitize_text_field((wp_unslash($_GET['action']))) : 'add';
 		
         ob_start();
 	    ?>
@@ -4753,7 +4762,7 @@ class Chart_Builder_Admin {
 			$sources[] = $content;
 		}
 		$content_for_escape = implode('' , $sources );
-		echo html_entity_decode( $content_for_escape );
+		echo html_entity_decode( esc_html($content_for_escape) );
 	}
 
 	public function settings_contents_chart_styles_settings( $sources, $args ){
@@ -5198,7 +5207,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-box-shadow" class="form-label">
                             <?php echo esc_html(__( "Box Shadow", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("Tick this option to add shadow to chart's container.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Tick this option to add shadow to chart's container.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6268,7 +6277,7 @@ class Chart_Builder_Admin {
 			$sources[] = $content;
 		}
 		$content_for_escape = implode('' , $sources );
-		echo html_entity_decode( $content_for_escape );
+		echo html_entity_decode( esc_html($content_for_escape) );
 	}
 
 	public function settings_contents_advanced_settings( $sources, $args ){
@@ -6756,13 +6765,13 @@ class Chart_Builder_Admin {
                     </div>
                 </div> <!-- Line dash pattern -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-donut_chart-opt display_none">
-                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_html($html_class_prefix) ?>option-title">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-donut-hole-size">
 				            <?php echo esc_html(__( "Hole size", 'chart-builder' )); ?>
                         </label>
                     </div>
-                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right <?php echo esc_html($html_class_prefix) ?>option-input">
-                        <input class="ays-text-input form-control <?php echo esc_html($html_class_prefix) ?>option-text-input" id="ays-chart-option-donut-hole-size"  type="number" min="0" max="1" step=".1" name="<?php echo $html_name_prefix; ?>settings[donut_hole_size]" value="<?php echo $donut_hole_size ?>">
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-donut-hole-size"  type="number" min="0" max="1" step=".1" name="<?php echo esc_attr($html_name_prefix); ?>settings[donut_hole_size]" value="<?php echo esc_attr($donut_hole_size) ?>">
                     </div>
                 </div> <!-- Donut hole size -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-line_chart-opt display_none ays-pro-features-v2-main-box">
@@ -6775,13 +6784,13 @@ class Chart_Builder_Admin {
                             </div>
                         </a>
                     </div>
-                    <div class="col-sm-5 d-flex align-items-center <?php echo $html_class_prefix ?>option-title">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix )?>option-title">
                         <label for="ays-chart-option-curve-type">
                             <?php echo esc_html(__( "Line curve type", "chart-builder" )); ?>
                         </label>
                     </div>
                     <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
-                        <select class="<?php echo esc_html($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-line-curve-type" name="<?php echo $html_name_prefix; ?>settings[line_curve_type]">
+                        <select class="<?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-line-curve-type" name="<?php echo esc_attr($html_name_prefix); ?>settings[line_curve_type]">
                             <option><?php echo esc_html(__( "Straight", "chart-builder" )); ?></option>
                         </select>
                     </div>
@@ -6832,7 +6841,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-org-classname" class="form-label">
                             <?php echo esc_html(__( "Custom CSS class", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("A class name to assign to node elements to specify styles for the chart elements.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("A class name to assign to node elements to specify styles for the chart elements.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6847,7 +6856,7 @@ class Chart_Builder_Admin {
                         <blockquote>
                         <?php echo sprintf(
                             /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
-                            __( '%1$sNote:%2$s Custom CSS class must be set for the options below to take effect.', 'chart-builder' ), '<strong>', '</strong>'); ?>
+                            esc_html(__( '%1$sNote:%2$s Custom CSS class must be set for the options below to take effect.', 'chart-builder' )), '<strong>', '</strong>'); ?>
                         </blockquote>
                         <br>
                     </div>
@@ -6947,7 +6956,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-org-selected-classname" class="form-label">
                             <?php echo esc_html(__( "Selected node custom CSS class", "chart-builder" )); ?>
-                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("A class name to assign to node elements to specify styles for the selected chart elements.","chart-builder") ); ?>">
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("A class name to assign to node elements to specify styles for the selected chart elements.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -6962,7 +6971,7 @@ class Chart_Builder_Admin {
                         <blockquote>
                         <?php echo sprintf(
                             /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
-                            __( '%1$sNote:%2$s Selected node custom CSS class must be set for the options below to take effect.', 'chart-builder' ), 
+                            esc_html(__( '%1$sNote:%2$s Selected node custom CSS class must be set for the options below to take effect.', 'chart-builder' )), 
                             '<strong>', 
                             '</strong>'
                         ); ?>
@@ -7166,7 +7175,7 @@ class Chart_Builder_Admin {
                                             <path xmlns:default="http://www.w3.org/2000/svg" d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" style="fill: #c4c4c4;" vector-effect="non-scaling-stroke" />
                                         </g>
                                     </svg>
-                                    <span><?php echo $val[0]; ?></span>
+                                    <span><?php echo esc_html($val[0]); ?></span>
                                 </legend>
                                 <div class="ays-slices-accordion-options-content ays-slices-accordion-options-content">
                                     <div class="ays-slices-accordion-data-main-wrap">
@@ -7175,18 +7184,18 @@ class Chart_Builder_Admin {
                                                 <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                                                     <label for="ays-chart-option-slice-color">
                                                         <?php echo esc_html(__( "Color", "chart-builder" )); ?>
-                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The color to use for this slice.","chart-builder") ); ?>">
+                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color to use for this slice.","chart-builder") ); ?>">
                                                             <i class="ays_fa ays_fa_info_circle"></i>
                                                         </a>
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                     <input type="color" 
-                                                        id="ays-chart-option-slice-color-<?php echo $key; ?>" 
+                                                        id="ays-chart-option-slice-color-<?php echo esc_attr($key); ?>" 
                                                         class="ays-chart-option-slice-color form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" 
-                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_color][<?php echo $key; ?>]" 
-                                                        value="<?php echo isset($slice_color[$key]) ? esc_attr($slice_color[$key]) : $slice_colors_default[$key]; ?>" 
-                                                        data-slice-id="<?php echo $key; ?>">
+                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_color][<?php echo esc_attr($key); ?>]" 
+                                                        value="<?php echo isset($slice_color[$key]) ? esc_attr($slice_color[$key]) : esc_attr($slice_colors_default[$key]); ?>" 
+                                                        data-slice-id="<?php echo esc_attr($key); ?>">
                                                 </div>
                                             </div> <!-- Slice color -->
                                             <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
@@ -7200,11 +7209,11 @@ class Chart_Builder_Admin {
                                                 </div>
                                                 <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                     <input type="number" 
-                                                        id="ays-chart-option-slice-offset-<?php echo $key; ?>" 
+                                                        id="ays-chart-option-slice-offset-<?php echo esc_attr($key); ?>" 
                                                         class="ays-chart-option-slice-offset ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" 
-                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_offset][<?php echo $key; ?>]" 
+                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_offset][<?php echo esc_attr($key); ?>]" 
                                                         value="<?php echo isset($slice_offset[$key]) ? esc_attr($slice_offset[$key]) : 0 ; ?>" 
-                                                        data-slice-id="<?php echo $key; ?>" 
+                                                        data-slice-id="<?php echo esc_attr($key); ?>" 
                                                         step=".01" min="0.0" max="1.0">
                                                 </div>
                                             </div> <!-- Slice offset -->
@@ -7212,18 +7221,18 @@ class Chart_Builder_Admin {
                                                 <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                                                     <label for="ays-chart-option-slice-text-color">
                                                         <?php echo esc_html(__( "Text color", "chart-builder" )); ?>
-                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The color to use for the text of this slice.","chart-builder") ); ?>">
+                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color to use for the text of this slice.","chart-builder") ); ?>">
                                                             <i class="ays_fa ays_fa_info_circle"></i>
                                                         </a>
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                     <input type="color" 
-                                                        id="ays-chart-option-slice-text-color-<?php echo $key; ?>" 
+                                                        id="ays-chart-option-slice-text-color-<?php echo esc_attr($key); ?>" 
                                                         class="ays-chart-option-slice-text-color form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" 
-                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_text_color][<?php echo $key; ?>]" 
+                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_text_color][<?php echo esc_attr($key); ?>]" 
                                                         value="<?php echo isset($slice_text_color[$key]) ? esc_attr($slice_text_color[$key]) : '#ffffff'; ?>" 
-                                                        data-slice-id="<?php echo $key; ?>">
+                                                        data-slice-id="<?php echo esc_attr($key); ?>">
                                                 </div>
                                             </div> <!-- Slice color -->
                                         </div>
@@ -7237,7 +7246,7 @@ class Chart_Builder_Admin {
                 </div>
             <br>
             <blockquote>
-                <?php echo __( "Save the chart to update the data.", "chart-builder" ); ?>
+                <?php echo esc_html(__( "Save the chart to update the data.", "chart-builder" )); ?>
             </blockquote>
             </div>
             <?php
@@ -7250,7 +7259,7 @@ class Chart_Builder_Admin {
 
 		$content = ob_get_clean();
 
-		$title = __( 'Slices settings', 'chart-builder' );
+		$title = esc_html(__( 'Slices settings', 'chart-builder' ));
 
 		$sources['slices_settings'] = array(
 			'content' => $content,
@@ -7323,7 +7332,7 @@ class Chart_Builder_Admin {
                                             <path xmlns:default="http://www.w3.org/2000/svg" d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" style="fill: #c4c4c4;" vector-effect="non-scaling-stroke" />
                                         </g>
                                     </svg>
-                                    <span><?php echo $val; ?></span>
+                                    <span><?php echo esc_attr($val); ?></span>
                                 </legend>
                                 <div class="ays-series-accordion-options-content ays-series-accordion-options-content">
                                     <div class="ays-series-accordion-data-main-wrap">
@@ -7336,11 +7345,11 @@ class Chart_Builder_Admin {
                                                 </div>
                                                 <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                     <input type="color" 
-                                                        id="ays-chart-option-series-color-<?php echo $key; ?>" 
+                                                        id="ays-chart-option-series-color-<?php echo esc_attr($key); ?>" 
                                                         class="ays-chart-option-series-color form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" 
-                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[series_color][<?php echo $key; ?>]" 
-                                                        value="<?php echo isset($series_color[$key]) ? esc_attr($series_color[$key]) : $series_colors_default[$key]; ?>" 
-                                                        data-series-id="<?php echo $key; ?>">
+                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[series_color][<?php echo esc_attr($key); ?>]" 
+                                                        value="<?php echo isset($series_color[$key]) ? esc_attr($series_color[$key]) : esc_attr($series_colors_default[$key]); ?>" 
+                                                        data-series-id="<?php echo esc_attr($key); ?>">
                                                 </div>
                                             </div> <!-- series color -->
                                             <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
@@ -7355,11 +7364,11 @@ class Chart_Builder_Admin {
                                                 <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                     <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
                                                         <input type="checkbox" 
-                                                            id="ays-chart-option-series-visible-in-legend-<?php echo $key; ?>" 
+                                                            id="ays-chart-option-series-visible-in-legend-<?php echo esc_attr($key); ?>" 
                                                             class="ays-chart-option-series-visible-in-legend <?php echo esc_attr($html_class_prefix) ?>toggle-switch" 
-                                                            name="<?php echo esc_attr($html_name_prefix); ?>settings[series_visible_in_legend][<?php echo $key; ?>]" 
+                                                            name="<?php echo esc_attr($html_name_prefix); ?>settings[series_visible_in_legend][<?php echo esc_attr($key); ?>]" 
                                                             value="on" 
-                                                            data-series-id="<?php echo $key; ?>" 
+                                                            data-series-id="<?php echo esc_attr($key); ?>" 
                                                             <?php echo isset($series_visible_in_legend[$key]) && $series_visible_in_legend[$key] == 'on' ? 'checked' : (!isset($series_color[$key]) ? 'checked' : ''); ?> >
                                                         <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
                                                     </label>
@@ -7376,11 +7385,11 @@ class Chart_Builder_Admin {
                                                 </div>
                                                 <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                     <input type="number" 
-                                                        id="ays-chart-option-series-line-width-<?php echo $key; ?>" 
+                                                        id="ays-chart-option-series-line-width-<?php echo esc_attr($key); ?>" 
                                                         class="ays-chart-option-series-line-width ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" 
-                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[series_line_width][<?php echo $key; ?>]" 
-                                                        value="<?php echo isset($series_line_width[$key]) ? esc_attr($series_line_width[$key]) : $line_width; ?>" 
-                                                        data-series-id="<?php echo $key; ?>">
+                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[series_line_width][<?php echo esc_attr($key); ?>]" 
+                                                        value="<?php echo isset($series_line_width[$key]) ? esc_attr($series_line_width[$key]) : esc_attr($line_width); ?>" 
+                                                        data-series-id="<?php echo esc_attr($key); ?>">
                                                 </div>
                                             </div> <!-- Line width -->
                                             <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-line_chart-opt display_none">
@@ -7394,11 +7403,11 @@ class Chart_Builder_Admin {
                                                 </div>
                                                 <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                     <input type="number" 
-                                                        id="ays-chart-option-series-point-size-<?php echo $key; ?>" 
+                                                        id="ays-chart-option-series-point-size-<?php echo esc_attr($key); ?>" 
                                                         class="ays-chart-option-series-point-size ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" 
-                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[series_point_size][<?php echo $key; ?>]" 
-                                                        value="<?php echo isset($series_point_size[$key]) ? esc_attr($series_point_size[$key]) : $point_size; ?>" 
-                                                        data-series-id="<?php echo $key; ?>">
+                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[series_point_size][<?php echo esc_attr($key); ?>]" 
+                                                        value="<?php echo isset($series_point_size[$key]) ? esc_attr($series_point_size[$key]) : esc_attr($point_size); ?>" 
+                                                        data-series-id="<?php echo esc_attr($key); ?>">
                                                 </div>
                                             </div> <!-- Point size -->
                                             <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-line_chart-opt display_none">
@@ -7412,10 +7421,10 @@ class Chart_Builder_Admin {
                                                 </div>
                                                 <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                     <select
-                                                        id="ays-chart-option-series-point-shape-<?php echo $key; ?>" 
+                                                        id="ays-chart-option-series-point-shape-<?php echo esc_attr($key); ?>" 
                                                         class="ays-chart-option-series-point-shape <?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" 
-                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[series_point_shape][<?php echo $key; ?>]" 
-                                                        data-series-id="<?php echo $key; ?>">
+                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[series_point_shape][<?php echo esc_attr($key); ?>]" 
+                                                        data-series-id="<?php echo esc_attr($key); ?>">
                                                     >
                                                         <?php
                                                         $value = isset($series_point_shape[$key]) ? esc_attr($series_point_shape[$key]) : $point_shape;
@@ -7440,11 +7449,11 @@ class Chart_Builder_Admin {
                 </div>
             <br>
             <blockquote>
-                <?php echo __( "Save the chart to update the data.", 'chart-builder' ); ?>
+                <?php echo esc_html(__( "Save the chart to update the data.", 'chart-builder' )); ?>
                 <br>
                 <?php echo sprintf(
                     /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
-                    __( '%1$sNote:%2$s If you are not able to set the options, disable the row settings feature.', 'chart-builder' ), 
+                    esc_html(__( '%1$sNote:%2$s If you are not able to set the options, disable the row settings feature.', 'chart-builder' )), 
                     '<strong>', 
                     '</strong>'
                 ); ?>
@@ -7537,7 +7546,7 @@ class Chart_Builder_Admin {
                                         <path xmlns:default="http://www.w3.org/2000/svg" d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" style="fill: #c4c4c4;" vector-effect="non-scaling-stroke" />
                                     </g>
                                 </svg>
-                                <span><?php echo $val; ?></span>
+                                <span><?php echo esc_html($val); ?></span>
                             </legend>
                             <div class="ays-rows-accordion-options-content ays-rows-accordion-options-content">
                                 <div class="ays-rows-accordion-data-main-wrap">
@@ -7550,11 +7559,11 @@ class Chart_Builder_Admin {
                                             </div>
                                             <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                 <input type="color" 
-                                                    id="ays-chart-option-rows-color-<?php echo $key; ?>" 
+                                                    id="ays-chart-option-rows-color-<?php echo esc_attr($key); ?>" 
                                                     class="ays-chart-option-rows-color form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" 
-                                                    name="<?php echo esc_attr($html_name_prefix); ?>settings[rows_color][<?php echo $key; ?>]" 
-                                                    value="<?php echo isset($rows_color[$key]) && '' !== $rows_color[$key] ? esc_attr($rows_color[$key]) : $series_color; ?>" 
-                                                    data-rows-id="<?php echo $key; ?>">
+                                                    name="<?php echo esc_attr($html_name_prefix); ?>settings[rows_color][<?php echo esc_attr($key); ?>]" 
+                                                    value="<?php echo isset($rows_color[$key]) && '' !== $rows_color[$key] ? esc_attr($rows_color[$key]) : esc_attr($series_color); ?>" 
+                                                    data-rows-id="<?php echo esc_attr($key); ?>">
                                             </div>
                                         </div> <!-- color -->
                                         <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
@@ -7565,11 +7574,11 @@ class Chart_Builder_Admin {
                                             </div>
                                             <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
                                                 <input type="number"
-                                                    id="ays-chart-option-rows-opacity-<?php echo $key; ?>" 
+                                                    id="ays-chart-option-rows-opacity-<?php echo esc_attr($key); ?>" 
                                                     class="ays-chart-option-rows-opacity ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" 
-                                                    name="<?php echo esc_attr($html_name_prefix); ?>settings[rows_opacity][<?php echo $key; ?>]" 
+                                                    name="<?php echo esc_attr($html_name_prefix); ?>settings[rows_opacity][<?php echo esc_attr($key); ?>]" 
                                                     value="<?php echo isset($rows_opacity[$key]) && '' !== $rows_opacity[$key] ? esc_attr($rows_opacity[$key]) : 1.0; ?>" 
-                                                    data-rows-id="<?php echo $key; ?>" 
+                                                    data-rows-id="<?php echo esc_attr($key); ?>" 
                                                     step=".1" min="0" max="1">
                                             </div>
                                         </div> <!-- opacity -->
@@ -7582,11 +7591,11 @@ class Chart_Builder_Admin {
                     ?>
                     <br>
                     <blockquote>
-                        <?php echo __( "Save the chart to update the data.", 'chart-builder' ); ?>
+                        <?php echo esc_html(__( "Save the chart to update the data.", 'chart-builder' )); ?>
                         <br>
                         <?php echo sprintf(
                             /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
-                            __( '%1$sNote:%2$s The applied styles will work only if the chart has one column.', 'chart-builder' ), 
+                            esc_html(__( '%1$sNote:%2$s The applied styles will work only if the chart has one column.', 'chart-builder' )), 
                             '<strong>', 
                             '</strong>'
                         ); ?>           
@@ -7597,7 +7606,7 @@ class Chart_Builder_Admin {
                     <blockquote>
                     <?php echo sprintf(
                         /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
-                        __( '%1$sNote:%2$s If this option is disabled, the general options will be set from the series settings.', 'chart-builder' ), 
+                        esc_html(__( '%1$sNote:%2$s If this option is disabled, the general options will be set from the series settings.', 'chart-builder' )), 
                         '<strong>', 
                         '</strong>'
                     ); ?>

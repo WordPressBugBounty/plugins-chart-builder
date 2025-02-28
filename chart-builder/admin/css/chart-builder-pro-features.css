@@ -21,6 +21,10 @@
     background-color: rgba(53, 113, 196, 0.10);
 }
 
+a.ays_help {
+    pointer-events: auto;
+}
+
 .ays-pro-features-v2-main-box label{
     color: #A3A3A3;
 }
