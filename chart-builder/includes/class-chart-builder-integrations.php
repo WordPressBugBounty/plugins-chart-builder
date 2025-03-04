@@ -83,8 +83,8 @@ class Chart_Builder_Integrations
     public function ays_chart_page_integrations_content( $args ){
 
         if( ! $this->settings_obj->get_permission_for_editing_plugin() ){
-            $settings_url = __( "This functionality is disabled.", 'chart-builder' );
-            $blockquote_content = '<blockquote class="error_message">'. $settings_url .'</blockquote>';
+            $settings_url = esc_html__( "This functionality is disabled.", 'chart-builder' );
+            $blockquote_content = '<blockquote class="error_message">'. esc_html( $settings_url ) .'</blockquote>';
             $this->blockquote_content = $blockquote_content;
         }
 
@@ -97,9 +97,9 @@ class Chart_Builder_Integrations
             if(isset($integrations_content['title'])){
                 $content .= '<legend>';
                 if(isset($integrations_content['icon'])){
-                    $content .= '<img class="ays_integration_logo" src="'. $integrations_content['icon'] .'" alt="">';
+                    $content .= '<img class="ays_integration_logo" src="' . esc_url( $integrations_content['icon'] ) . '" alt="">';
                 }
-                $content .= '<h5>'. $integrations_content['title'] .'</h5></legend>';
+                $content .= '<h5>' . esc_html( $integrations_content['title'] ) . '</h5></legend>';
             }
             $content .= $integrations_content['content'];
 
@@ -107,7 +107,7 @@ class Chart_Builder_Integrations
 
             $integrations[] = $content;
         }
-        echo implode('<hr />', $integrations);     
+        echo  implode('<hr />', $integrations) ; 
 
     }
 
@@ -136,7 +136,7 @@ class Chart_Builder_Integrations
             $integrations[] = $content;
         }
 
-        echo implode('<hr />', $integrations);
+        echo  implode('<hr />', $integrations) ; 
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////

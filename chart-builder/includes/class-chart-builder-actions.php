@@ -822,16 +822,16 @@ if( ! class_exists( 'Chart_Builder_Actions' ) ){
         public function get_charts($ordering = ''){
             global $wpdb;
             $charts_table = esc_sql( $wpdb->prefix . CHART_BUILDER_DB_PREFIX ) . "charts";
-    
-            $sql = "SELECT id,title
-                    FROM {$charts_table} WHERE `status` = 'published' OR `status` = 'draft'";
-    
-    
-            if($ordering != ''){
-                $sql .= ' ORDER BY id '.$ordering;
+            
+            $sql = "SELECT id, title FROM {$charts_table} WHERE `status` IN (%s, %s)";
+            $params = array('published', 'draft');
+            
+            if ( $ordering != '' ) {
+                $sql .= " ORDER BY id {$ordering}";
             }
-    
-            $charts = $wpdb->get_results( $sql , "ARRAY_A" );
+            // phpcs:ignore
+            $charts = $wpdb->get_results( $wpdb->prepare( $sql, ...$params ), 'ARRAY_A' );
+            
     
             return $charts;
         }

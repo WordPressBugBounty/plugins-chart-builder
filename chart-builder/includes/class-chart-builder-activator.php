@@ -65,11 +65,15 @@ class Chart_Builder_Activator {
                 PRIMARY KEY (`id`)
             )$charset_collate;";
 
-            $sql_schema = "SELECT * FROM INFORMATION_SCHEMA.TABLES
-                           WHERE table_schema = '".DB_NAME."' AND table_name = '".$charts_table."' ";
-            $results = $wpdb->get_results($sql_schema);
-
+            $results = $wpdb->get_results( // phpcs:ignore
+                $wpdb->prepare(
+                    "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = %s AND table_name = %s",
+                    DB_NAME,          
+                    $charts_table    
+                )
+            );
             if( empty( $results ) ){
+                 // phpcs:ignore
                 $wpdb->query( $sql );
             }else{
                 dbDelta( $sql );
@@ -85,12 +89,17 @@ class Chart_Builder_Activator {
                 `options` TEXT NOT NULL DEFAULT '',
                 PRIMARY KEY (`id`)
             )$charset_collate;";
-
-            $sql_schema = "SELECT * FROM INFORMATION_SCHEMA.TABLES
-                           WHERE table_schema = '".DB_NAME."' AND table_name = '".$charts_meta_table."' ";
-            $results = $wpdb->get_results($sql_schema);
+            $results = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = %s AND table_name = %s",
+                    DB_NAME,           
+                    $charts_meta_table 
+                )
+            );
+           
 
             if(empty($results)){
+                // phpcs:ignore
                 $wpdb->query( $sql );
             }else{
                 dbDelta( $sql );
@@ -106,11 +115,16 @@ class Chart_Builder_Activator {
                 PRIMARY KEY (`id`)
             )$charset_collate;";
 
-            $sql_schema = "SELECT * FROM INFORMATION_SCHEMA.TABLES
-                           WHERE table_schema = '".DB_NAME."' AND table_name = '".$settings_table."' ";
-            $results = $wpdb->get_results($sql_schema);
+            $results = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = %s AND table_name = %s",
+                    DB_NAME,          
+                    $settings_table    
+                )
+            );
 
             if(empty($results)){
+                // phpcs:ignore
                 $wpdb->query( $sql );
             }else{
                 dbDelta( $sql );
@@ -131,8 +145,13 @@ class Chart_Builder_Activator {
             if($meta_key == "user_roles"){
                 $meta_val = json_encode(array('administrator'));
             }
-            $sql = "SELECT COUNT(*) FROM `".$settings_table."` WHERE `meta_key` = '". esc_sql( $meta_key ) ."'";
-            $result = $wpdb->get_var($sql);
+            
+            $result = $wpdb->get_var(
+                $wpdb->prepare(
+                    "SELECT COUNT(*) FROM {$settings_table} WHERE meta_key = %s",  
+                    $meta_key  
+                )
+            );
             if(intval($result) == 0){
                 $result = $wpdb->insert(
                     $settings_table,

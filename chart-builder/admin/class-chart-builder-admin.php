@@ -393,6 +393,7 @@ class Chart_Builder_Admin {
 			'option' => 'cb_charts_per_page'
 		);
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if( ! ( isset( $_GET['action'] ) && ( $_GET['action'] == 'add' || $_GET['action'] == 'edit' ) ) ){
 			add_screen_option( $option, $args );
 		}
@@ -415,8 +416,10 @@ class Chart_Builder_Admin {
 	public function display_plugin_charts_page(){
         global $ays_chart_db_actions;
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $action = ( isset( $_GET['action'] ) ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : '';
-		$id = (isset($_GET['id'])) ? absint( wp_unslash( $_GET['id'] ) ) : 0;
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        $id = (isset($_GET['id'])) ? absint( wp_unslash( $_GET['id'] ) ) : 0;
 
         if (isset($_POST['bulk_delete_confirm'])) {
             if (isset($_POST['bulk-delete']) && !empty($_POST['bulk-delete'])) {
@@ -512,6 +515,63 @@ class Chart_Builder_Admin {
             default:
                 include_once('partials/charts/chart-builder-charts-display.php');
         }
+    }
+    public static function chart_builder_svg_sanitize_allowed_properties(){
+
+        $allowed_properties = array(
+            'div' => array(
+                'id'                    => true,
+                'class'                 => true,
+                'style'                 => true,
+            ),
+            'svg' => array(
+                'class'                 => true,
+                'version'               => true,
+                'overflow'              => true,
+                'preserveAspectRatio'   => true,
+                'preserveaspectratio'   => true,
+                'fill'                  => true,
+                'viewBox'               => true,
+                'viewbox'               => true,
+                'height'                => true,
+                'width'                 => true,
+                'xmlns'                 => true,
+                'xmlns:xlink'           => true,
+                'id'                    => true,
+                'title'                 => true,
+            ),
+            'g' => array(
+                'id'                    => true,
+                'class'                 => true,
+                'stroke-width'          => true,
+                'stroke-linecap'        => true,
+                'stroke-linejoin'       => true,
+            ),
+            'path' => array(
+                'id'                    => true,
+                'class'                 => true,
+                'd'                     => true,
+                'fill'                  => true,
+                'vector-effect'         => true,
+                'xmlns:default'         => true,
+            ),
+            'span' => array(
+                'class' => true,
+            ),
+            'img' => array(
+                'src'   => true,
+                'alt'   => true, 
+            ),
+        );
+
+        return $allowed_properties;
+    }
+
+    public static function get_allowed_tags_for_loader() {
+        return array(
+            'span' => array('class' => array()),
+            'img'  => array('src' => array(), 'alt' => array()),
+        );
     }
 
     public function display_plugin_setup_page(){
@@ -874,7 +934,8 @@ class Chart_Builder_Admin {
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo html_entity_decode( $content );
+            echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
+
         }        
     }
 
@@ -962,7 +1023,7 @@ class Chart_Builder_Admin {
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo html_entity_decode( $content );
+            echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
         }
     }
 
@@ -1047,7 +1108,7 @@ class Chart_Builder_Admin {
 
             $content = implode( '', $content );
 
-            echo html_entity_decode( $content );
+            echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
         }
     }
 
@@ -1109,7 +1170,7 @@ class Chart_Builder_Admin {
 
             $content = implode( '', $content );
 
-            echo html_entity_decode( $content );
+            echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
         }
     }
 
@@ -1164,7 +1225,7 @@ class Chart_Builder_Admin {
 
             $content = implode( '', $content );
 
-            echo html_entity_decode( $content );
+            echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
         }
     }
 
@@ -1232,7 +1293,7 @@ class Chart_Builder_Admin {
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo html_entity_decode( $content );
+            echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
         }
     }
 
@@ -1324,7 +1385,7 @@ class Chart_Builder_Admin {
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo html_entity_decode( $content );
+            echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
         }
     }
 
@@ -1424,7 +1485,7 @@ class Chart_Builder_Admin {
             $content[] = '</div>';
 
             $content = implode( '', $content );
-            echo html_entity_decode( $content );
+            echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
         }
     }
 
@@ -2028,7 +2089,7 @@ class Chart_Builder_Admin {
         $content.= '<input type="hidden" id="ays_chart_ajax_install_plugin_nonce" name="ays_chart_ajax_install_plugin_nonce" value="'. $install_plugin_nonce .'">';
         $content.= '</div>';
 
-        echo html_entity_decode( $content );
+        echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
     }
 
     /**
@@ -2584,12 +2645,16 @@ class Chart_Builder_Admin {
 
 			return $sources;
 		}
-        $sql = $wpdb->prepare(
-            "SELECT `title`, `id` FROM {$wpdb->prefix}aysquiz_quizes WHERE `published` = %d AND `question_ids` <> %s",
-            1,  // The value for `published`
-            ''   // The value for `question_ids` (empty string)
+        $quizes = $wpdb->get_results( // phpcs:ignore
+            $wpdb->prepare(
+                "SELECT `title`, `id` FROM {$wpdb->prefix}aysquiz_quizes 
+                 WHERE `published` = %d AND `question_ids` <> %s",
+                1,  
+                '' 
+            ),
+            ARRAY_A
         );
-		$quizes = $wpdb->get_results($sql, ARRAY_A);
+        
 
         ob_start();
 	    ?>

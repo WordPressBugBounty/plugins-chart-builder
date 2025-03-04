@@ -73,7 +73,9 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
 
     <div class="ays-chart-add-new-button-box" style="margin-top: 10px;">
         <?php
-            echo sprintf( '<a href="?page=%s&action=%s" class="btn btn-primary chart-add-new-bttn chart-add-new-button-new-design"> %s ' . esc_html__( 'Add New', "chart-builder" ) . '</a>', esc_attr( $_REQUEST['page'] ), 'add', $plus_icon_svg);
+            $svg_sanitize_properties = Chart_Builder_Admin::chart_builder_svg_sanitize_allowed_properties();
+            $sanitized_plus_icon_svg = wp_kses($plus_icon_svg, $svg_sanitize_properties);
+            echo sprintf( '<a href="?page=%s&action=%s" class="btn btn-primary chart-add-new-bttn chart-add-new-button-new-design"> %s ' . esc_html__( 'Add New', "chart-builder" ) . '</a>', esc_attr( $_REQUEST['page'] ), 'add',wp_kses_post($sanitized_plus_icon_svg));
         ?>
     </div>
     <div id="poststuff">
@@ -461,7 +463,9 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
         <br class="clear">
         <div class="ays-chart-add-new-button-box">
             <?php
-                echo sprintf( '<a href="?page=%s&action=%s" class="btn btn-primary chart-add-new-bttn chart-add-new-button-new-design"> %s ' . esc_html__( 'Add New', "chart-builder" ) . '</a>', esc_attr( $_REQUEST['page'] ), 'add', $plus_icon_svg);
+                $svg_sanitize_properties = Chart_Builder_Admin::chart_builder_svg_sanitize_allowed_properties();
+                $sanitized_plus_icon_svg = wp_kses($plus_icon_svg, $svg_sanitize_properties);
+                echo sprintf( '<a href="?page=%s&action=%s" class="btn btn-primary chart-add-new-bttn chart-add-new-button-new-design"> %s ' . esc_html__( 'Add New', "chart-builder" ) . '</a>', esc_attr( $_REQUEST['page'] ), 'add', wp_kses_post($plus_icon_svg));
             ?>
         </div>
         <?php if($chart_max_id <= 3): ?>
@@ -476,13 +480,20 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                     <?php echo esc_html__( 'Please note that this video will disappear once you created 4 charts.', 'chart-builder' ); ?>
                 </div>
                 <div class="ays-chart-create-chart-youtube-video-button-box">
-                    <?php echo sprintf( '<a href="?page=%s&action=%s" class="ays-chart-add-new-button-video chart-add-new-button-new-design"> %s ' . esc_html__('Add New', 'chart-builder') . '</a>', esc_attr( $_REQUEST['page'] ), 'add', $plus_icon_svg);?>
+                    <?php
+                        $svg_sanitize_properties = Chart_Builder_Admin::chart_builder_svg_sanitize_allowed_properties();
+                        $sanitized_plus_icon_svg = wp_kses($plus_icon_svg, $svg_sanitize_properties); 
+                        echo sprintf( '<a href="?page=%s&action=%s" class="ays-chart-add-new-button-video chart-add-new-button-new-design"> %s ' . esc_html__('Add New', 'chart-builder') . '</a>', esc_attr( $_REQUEST['page'] ), 'add', wp_kses_post($plus_icon_svg));
+                    ?>
                 </div>
             </div>
         <?php else: ?>
             <div class="ays-chart-create-chart-video-box ays-chart-create-chart-video-box-only-link" style="margin: auto;">
                 <div class="ays-chart-create-chart-youtube-video">
-                    <?php echo $youtube_icon_svg; ?>
+                    <?php
+                        $svg_sanitize_properties = Chart_Builder_Admin::chart_builder_svg_sanitize_allowed_properties();
+                        $sanitized_youtube_icon_svg = wp_kses($youtube_icon_svg, $svg_sanitize_properties);
+                        echo wp_kses_post($sanitized_youtube_icon_svg); ?>
                     <a href="https://www.youtube.com/watch?v=ysjUMK0HH3c" target="_blank" style="color:#2271b1;text-decoration:none" title="YouTube video player"><?php echo esc_html__("How to create chart in one minute?", 'chart-builder'); ?></a>
                 </div>
             </div>

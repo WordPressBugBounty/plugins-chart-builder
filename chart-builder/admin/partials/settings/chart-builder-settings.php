@@ -169,7 +169,9 @@
                 wp_nonce_field('settings_action', 'settings_action');
                 $other_attributes = array();
                 submit_button(esc_html__('Save changes', 'chart-builder'), 'primary ays-chart-loader-banner ays-chart-gen-settings-save', 'ays_submit', true, $other_attributes);
-                echo $loader_iamge;
+                $loader_sanitize_properties = Chart_Builder_Admin::get_allowed_tags_for_loader();
+                $sanitized_loader_iamge = wp_kses($loader_iamge, $loader_sanitize_properties);
+                echo wp_kses_post($sanitized_loader_iamge);        
             ?>
             </div>
         </form>
