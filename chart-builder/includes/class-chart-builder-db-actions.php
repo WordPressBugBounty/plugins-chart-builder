@@ -126,7 +126,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
 
             $page_number = 1;
             if ( ! empty( $_REQUEST['paged'] ) ) {
-                $page_number = absint( sanitize_text_field( $_REQUEST['paged'] ) );
+                $page_number = absint( sanitize_text_field(wp_unslash( $_REQUEST['paged'] ) ));
             }
 
             $sql = "SELECT * FROM " . $this->db_table;
@@ -134,8 +134,8 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             $sql .= self::get_where_condition();
 
             if ( ! empty( $_REQUEST['orderby'] ) ) {
-                $order_by  = ( isset( $_REQUEST['orderby'] ) && sanitize_text_field( $_REQUEST['orderby'] ) != '' ) ? sanitize_text_field( $_REQUEST['orderby'] ) : 'id';
-                $order_by .= ( ! empty( $_REQUEST['order'] ) && strtolower( $_REQUEST['order'] ) == 'asc' ) ? ' ASC' : ' DESC';
+                $order_by  = ( isset( $_REQUEST['orderby'] ) && sanitize_text_field( wp_unslash($_REQUEST['orderby'] )) != '' ) ? sanitize_text_field( wp_unslash($_REQUEST['orderby'] ) ) : 'id';
+                $order_by .= ( ! empty( $_REQUEST['order'] ) && strtolower( sanitize_text_field(wp_unslash( $_REQUEST['order'] ) ) ) == 'asc' ) ? ' ASC' : ' DESC';
 
                 $sql_orderby = sanitize_sql_orderby( $order_by );
 
@@ -208,7 +208,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             $where = array();
             $sql = '';
 
-            $search = (isset($_REQUEST['s'])) ? sanitize_text_field($_REQUEST['s']) : false;
+            $search = (isset($_REQUEST['s'])) ? sanitize_text_field(wp_unslash($_REQUEST['s'])) : false;
             if ($search) {
                 $s = array();
                 $s[] = sprintf( "`title` LIKE '%%%s%%' ", esc_sql( $wpdb->esc_like( $search ) ) );
@@ -220,23 +220,23 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             // } else {
 	        //     $where[] = ' `status` != "trashed" ';
             // }
-            if( isset( $_REQUEST['filterbytype'] ) && absint( sanitize_text_field( $_REQUEST['filterbytype'] ) ) > 0){
-                $key = intval( sanitize_text_field( $_REQUEST['filterbytype'] ) );
+            if( isset( $_REQUEST['filterbytype'] ) && absint( sanitize_text_field( wp_unslash( $_REQUEST['filterbytype'] ) ) ) > 0){
+                $key = intval( sanitize_text_field( wp_unslash( $_REQUEST['filterbytype'] ) ) );
                 $where[] = ' `source_chart_type` = "'. $chart_types[$key-1] .'" ';
             }
 
-            if( isset( $_REQUEST['filterbysource'] ) && absint( sanitize_text_field( $_REQUEST['filterbysource'] ) ) > 0){
-                $key = intval( sanitize_text_field( $_REQUEST['filterbysource'] ) );
+            if( isset( $_REQUEST['filterbysource'] ) && absint( sanitize_text_field( wp_unslash($_REQUEST['filterbysource'] ) ) ) > 0){
+                $key = intval( sanitize_text_field( wp_unslash($_REQUEST['filterbysource'] )) );
                 $where[] = ' `source_type` = "'. $chart_sources[$key-1] .'" ';
             }
             
-            if( isset( $_REQUEST['filterbychartsource'] ) && absint( sanitize_text_field( $_REQUEST['filterbychartsource'] ) ) > 0){
-                $key = intval( sanitize_text_field( $_REQUEST['filterbychartsource'] ) );
+            if( isset( $_REQUEST['filterbychartsource'] ) && absint( sanitize_text_field( wp_unslash($_REQUEST['filterbychartsource'] )) ) > 0){
+                $key = intval( sanitize_text_field( wp_unslash($_REQUEST['filterbychartsource']) ) );
                 $where[] = ' `type` = "'. $chart_source_types[$key-1] .'" ';
             }
 
-            if( isset( $_REQUEST['filterbydate'] ) && sanitize_text_field( $_REQUEST['filterbydate'] ) !== ''){
-                $interval = sanitize_text_field( $_REQUEST['filterbydate'] );
+            if( isset( $_REQUEST['filterbydate'] ) && sanitize_text_field(wp_unslash( $_REQUEST['filterbydate'] )) !== ''){
+                $interval = sanitize_text_field( wp_unslash($_REQUEST['filterbydate'] ));
                 if ($chart_dates[$interval] !== '') {
                     $where[] = ' DATE(date_created) >= DATE_SUB(CURDATE(), INTERVAL 1 '. strtoupper($chart_dates[$interval]) .') AND DATE(date_created) < CURDATE() ';
                 } else{
@@ -244,8 +244,8 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 }
             }
 
-            if( isset( $_REQUEST['filterbyauthor'] ) && absint( sanitize_text_field( $_REQUEST['filterbyauthor'] ) ) > 0){
-                $where[] = ' `author_id` = "'. absint(sanitize_text_field($_REQUEST['filterbyauthor'])) .'" ';
+            if( isset( $_REQUEST['filterbyauthor'] ) && absint( sanitize_text_field( wp_unslash($_REQUEST['filterbyauthor']) ) ) > 0){
+                $where[] = ' `author_id` = "'. absint(sanitize_text_field(wp_unslash($_REQUEST['filterbyauthor']))) .'" ';
             }
 
             if (!empty($where)) {
@@ -256,19 +256,25 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
         }
 
         public static function get_search_value () {
-            $search = (isset($_REQUEST['s'])) ? sanitize_text_field($_REQUEST['s']) : '';
+            $search = (isset($_REQUEST['s'])) ? sanitize_text_field(wp_unslash($_REQUEST['s'])) : '';
             return $search;
         }
 
         public static function get_searched_author_info () {
-            $id = (isset($_REQUEST['filterbyauthor'])) ? absint(sanitize_text_field($_REQUEST['filterbyauthor'])) : 0;
+            $id = (isset($_REQUEST['filterbyauthor'])) ? absint(sanitize_text_field(wp_unslash($_REQUEST['filterbyauthor']))) : 0;
             $author_data = array();
             if ( $id && $id > 0 ) {
                 global $wpdb;
                 $users_table = esc_sql( $wpdb->prefix . 'users' );
-                $sql_users = "SELECT ID, display_name FROM {$users_table} WHERE ID = {$id}";
-        
-                $author_data = $wpdb->get_row($sql_users, "ARRAY_A");
+                $author_data = $wpdb->get_row(
+                    $wpdb->prepare(
+                        "SELECT ID, display_name 
+                        FROM {$wpdb->esc_sql($users_table)} 
+                        WHERE ID = %d",
+                        $id
+                    ),
+                    ARRAY_A
+                );
             }
             
             return $author_data;
@@ -291,8 +297,15 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return false;
             }
 
-            $sql = "SELECT * FROM ". $this->db_table ." WHERE id = '". $id ."'";
-            $result = $wpdb->get_row( $sql, ARRAY_A );
+            $result = $wpdb->get_row(
+                $wpdb->prepare(
+                    "SELECT * 
+                    FROM {$this->db_table} 
+                    WHERE id = %d",
+                    $id
+                ),
+                ARRAY_A
+            );
 
             if( $result ){
                 return $result;
@@ -319,18 +332,18 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return false;
             }
 
-            if( isset( $_POST["chart_builder_action"] ) && wp_verify_nonce( $_POST["chart_builder_action"], 'chart_builder_action' ) ){
+            if ( isset( $_POST["chart_builder_action"] ) && wp_verify_nonce( sanitize_text_field(wp_unslash( $_POST["chart_builder_action"] )), 'chart_builder_action' ) ) {
                 $success = 0;
                 $name_prefix = 'ays_';
 
                 // Save type
-                $save_type = isset( $_POST['save_type'] ) && $_POST['save_type'] != '' ? sanitize_text_field( $_POST['save_type'] ) : '';
+                $save_type = isset( $_POST['save_type'] ) && $_POST['save_type'] != '' ? sanitize_text_field(wp_unslash( $_POST['save_type'] ) ) : '';
 
 	            // Author_id
 	            $author_id = get_current_user_id();
 
 	            // Title
-                $title = isset( $_POST[ $name_prefix . 'title' ] ) && $_POST[ $name_prefix . 'title' ] != '' ? stripslashes( sanitize_text_field( $_POST[ $name_prefix . 'title' ] ) ) : 'Untitled chart';
+                $title = isset( $_POST[ $name_prefix . 'title' ] ) && $_POST[ $name_prefix . 'title' ] != '' ? stripslashes( sanitize_text_field( wp_unslash($_POST[ $name_prefix . 'title' ] )) ) : 'Untitled chart';
 
                 // if( $title == '' ){
                 //     $message = 'empty-title';
@@ -344,21 +357,21 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
 
 
                 // Description
-                $description = isset( $_POST[ $name_prefix . 'description' ] ) && $_POST[ $name_prefix . 'description' ] != '' ? stripslashes( sanitize_text_field($_POST[ $name_prefix . 'description' ]) ) : '';
+                $description = isset( $_POST[ $name_prefix . 'description' ] ) && $_POST[ $name_prefix . 'description' ] != '' ? stripslashes( sanitize_text_field(wp_unslash($_POST[ $name_prefix . 'description' ])) ) : '';
 
                 // Type
-                $type = isset( $_POST[ $name_prefix . 'type' ] ) && $_POST[ $name_prefix . 'type' ] != '' ? sanitize_text_field( $_POST[ $name_prefix . 'type' ] ) : 'google-charts';
+                $type = isset( $_POST[ $name_prefix . 'type' ] ) && $_POST[ $name_prefix . 'type' ] != '' ? sanitize_text_field( wp_unslash($_POST[ $name_prefix . 'type' ] )) : 'google-charts';
 
                 // Source chart type
-                $source_chart_type = isset( $_POST[ $name_prefix . 'source_chart_type' ] ) && $_POST[ $name_prefix . 'source_chart_type' ] != '' ? sanitize_text_field( $_POST[ $name_prefix . 'source_chart_type' ] ) : 'pie_chart';
+                $source_chart_type = isset( $_POST[ $name_prefix . 'source_chart_type' ] ) && $_POST[ $name_prefix . 'source_chart_type' ] != '' ? sanitize_text_field( wp_unslash($_POST[ $name_prefix . 'source_chart_type' ] )) : 'pie_chart';
 
                 // Source type
-                $source_type = isset( $_POST[ $name_prefix . 'source_type' ] ) && $_POST[ $name_prefix . 'source_type' ] != '' ? sanitize_text_field( $_POST[ $name_prefix . 'source_type' ] ) : 'manual';
+                $source_type = isset( $_POST[ $name_prefix . 'source_type' ] ) && $_POST[ $name_prefix . 'source_type' ] != '' ? sanitize_text_field( wp_unslash($_POST[ $name_prefix . 'source_type' ] )) : 'manual';
 
                 // Manual data
                 $chart_source_filtered_data = array();
                 if ($source_chart_type == "org_chart") {
-                    $chart_source_data_add = isset($_POST[ $name_prefix . 'chart_source_data_org_type' ]) && !empty( $_POST[ $name_prefix . 'chart_source_data_org_type' ] ) ? $_POST[ $name_prefix . 'chart_source_data_org_type' ] : array();
+                    $chart_source_data_add = isset($_POST[ $name_prefix . 'chart_source_data_org_type' ]) && !empty( $_POST[ $name_prefix . 'chart_source_data_org_type' ] ) ?  sanitize_text_field( wp_unslash( $_POST[ $name_prefix . 'chart_source_data_org_type' ] ) ) : array();
                     foreach($chart_source_data_add as $chart_source_data_key => $chart_source_data_value){
                         $chart_source_data_key = (int)filter_var($chart_source_data_key, FILTER_SANITIZE_NUMBER_INT);
                         foreach($chart_source_data_value as $s_data_key => $s_data_value){
@@ -399,7 +412,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
 
                 $quiz_maker_data_option_name = $id == 0 ? 'ays_chart_quiz_maker_results_temp' : 'ays_chart_quiz_maker_results_' . $id;
                 $quiz_maker_data = get_option( $quiz_maker_data_option_name, array() );
-                $query_id = isset( $_POST[ $name_prefix . 'quiz_query' ] ) && $_POST[ $name_prefix . 'quiz_query' ] != '' ? sanitize_text_field( $_POST[ $name_prefix . 'quiz_query' ] ) : '';
+                $query_id = isset( $_POST[ $name_prefix . 'quiz_query' ] ) && $_POST[ $name_prefix . 'quiz_query' ] != '' ? sanitize_text_field(wp_unslash($_POST[ $name_prefix . 'quiz_query' ] )) : '';
                 $quiz_id = isset( $_POST[ $name_prefix . 'quiz_id' ] ) && $_POST[ $name_prefix . 'quiz_id' ] != '' ? intval( $_POST[ $name_prefix . 'quiz_id' ] ) : 0;
 
                 // Source
@@ -470,16 +483,16 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 }
 
                 // Status
-                $status = isset( $_POST[ $name_prefix . 'status' ] ) && $_POST[ $name_prefix . 'status' ] != '' ? sanitize_text_field( $_POST[ $name_prefix . 'status' ] ) : 'draft';
+                $status = isset( $_POST[ $name_prefix . 'status' ] ) && $_POST[ $name_prefix . 'status' ] != '' ? sanitize_text_field( wp_unslash($_POST[ $name_prefix . 'status' ] )) : 'draft';
 
                 // Date created
-                $date_created = isset( $_POST[ $name_prefix . 'date_created' ] ) && CBFunctions()->validateDate( $_POST[ $name_prefix . 'date_created' ] ) ? sanitize_text_field($_POST[ $name_prefix . 'date_created' ]) : current_time( 'mysql' );
+                $date_created = isset( $_POST[ $name_prefix . 'date_created' ] ) && CBFunctions()->validateDate( sanitize_text_field(wp_unslash( $_POST[ $name_prefix . 'date_created' ] )) ) ? sanitize_text_field( wp_unslash( $_POST[ $name_prefix . 'date_created' ] ) ) : current_time( 'mysql' );
 
                 // Date modified
-                $date_modified = isset( $_POST[ $name_prefix . 'date_modified' ] ) && CBFunctions()->validateDate( $_POST[ $name_prefix . 'date_modified' ] ) ? sanitize_text_field($_POST[ $name_prefix . 'date_modified' ]) : current_time( 'mysql' );
+                $date_modified = isset( $_POST[ $name_prefix . 'date_modified' ] ) && CBFunctions()->validateDate(sanitize_text_field(wp_unslash($_POST[ $name_prefix . 'date_modified' ])) ) ? sanitize_text_field(wp_unslash($_POST[ $name_prefix . 'date_modified' ])) : current_time( 'mysql' );
 
                 // Change the author of the current chart
-                $create_author = ( isset($_POST[$name_prefix . 'create_author']) && $_POST[$name_prefix . 'create_author'] != "" ) ? absint( sanitize_text_field( $_POST[$name_prefix . 'create_author'] ) ) : '';
+                $create_author = ( isset($_POST[$name_prefix . 'create_author']) && $_POST[$name_prefix . 'create_author'] != "" ) ? absint( sanitize_text_field( wp_unslash($_POST[$name_prefix . 'create_author'] )) ) : '';
 
                 if ( $create_author != "" && $create_author > 0 ) {
                     $user = get_userdata($create_author);
@@ -492,7 +505,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                         $author = json_encode($author, JSON_UNESCAPED_SLASHES);
                     } else {
                         $author_data = json_decode($create_author, true);
-                        $create_author = (isset( $author_data['id'] ) && $author_data['id'] != "") ? absint( sanitize_text_field( $author_data['id'] ) ) : get_current_user_id();
+                        $create_author = (isset( $author_data['id'] ) && $author_data['id'] != "") ? absint( sanitize_text_field( wp_unslash($author_data['id'] )) ) : get_current_user_id();
                     }
                     
                     $author_id = $create_author;
@@ -501,9 +514,9 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 // Options
                 $options = array();
                 if( isset( $_POST[ $name_prefix . 'options' ] ) && !empty( $_POST[ $name_prefix . 'options' ] )) {
-                    foreach($_POST[ $name_prefix . 'options' ] as $each_option_key => $each_option_value){
-                        $each_option_value = isset($each_option_value) && $each_option_value != '' ? sanitize_text_field($each_option_value) : '';
-                        $each_option_key   = isset($each_option_key) && $each_option_key != '' ? sanitize_text_field($each_option_key) : '';
+                    foreach(sanitize_text_field( wp_unslash($_POST[ $name_prefix . 'options' ])) as $each_option_key => $each_option_value){
+                        $each_option_value = isset($each_option_value) && $each_option_value != '' ? sanitize_text_field(wp_unslash($each_option_value)) : '';
+                        $each_option_key   = isset($each_option_key) && $each_option_key != '' ? sanitize_text_field(wp_unslash($each_option_key)) : '';
                         $options[$each_option_key] = sanitize_text_field($each_option_value);
                     }
                 }
@@ -674,7 +687,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                     $message = 'updated';
                 }
 
-                $ays_chart_tab = isset($_POST[ $name_prefix . 'chart_tab' ]) ? $_POST[ $name_prefix . 'chart_tab' ] : 'tab1';
+                $ays_chart_tab = isset($_POST[ $name_prefix . 'chart_tab' ]) ? sanitize_text_field( wp_unslash($_POST[ $name_prefix . 'chart_tab' ])) : 'tab1';
 
                 if($message == 'created'){
                     setcookie('ays_chart_created_new', $inserted_id, time() + 3600, '/');
@@ -927,9 +940,15 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return array();
             }
 
-            $sql = "SELECT * FROM " . $this->db_table_meta . " WHERE chart_id = " . $id;
-
-            $results = $wpdb->get_results($sql, ARRAY_A);
+            $results = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT * 
+                    FROM {$this->db_table_meta} 
+                    WHERE chart_id = %d",
+                    $id
+                ),
+                ARRAY_A
+            );
 
             if( count( $results ) > 0 ){
                 return $results;
@@ -1015,9 +1034,15 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             if( is_null( $meta_key ) || trim( $meta_key ) === '' ){
                 return false;
             }
-
-            $sql = "SELECT ".$select_value." FROM ". $this->db_table_meta ." WHERE meta_key = '".$meta_key."' AND chart_id = '".$id."'";
-            $result = $wpdb->get_var($sql);
+            $result = $wpdb->get_var(
+                $wpdb->prepare(
+                    "SELECT {$select_value}
+                    FROM {$this->db_table_meta}
+                    WHERE meta_key = %s AND chart_id = %d",
+                    $meta_key,
+                    $id
+                )
+            );
 
             if( $result != "" ){
                 return $result;
@@ -1055,8 +1080,8 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 $this->db_table_meta,
                 array(
                     'chart_id'    => absint( $id ),
-                    'meta_key'    => $meta_key,
-                    'meta_value'  => $meta_value,
+                    'meta_key'    => $meta_key,// phpcs:ignore
+                    'meta_value'  => $meta_value,// phpcs:ignore
                     'note'        => $note,
                     'options'     => $options
                 ),
@@ -1096,7 +1121,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             }
 
             $value = array(
-                'meta_value'  => $meta_value,
+                'meta_value'  => $meta_value,// phpcs:ignore
             );
 
             $value_s = array( '%s' );
@@ -1115,7 +1140,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 $value,
                 array(
                     'chart_id' => absint( $id ),
-                    'meta_key' => $meta_key,
+                    'meta_key' => $meta_key,// phpcs:ignore
                 ),
                 $value_s,
                 array( '%d', '%s' )
@@ -1154,7 +1179,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 $this->db_table_meta,
                 array(
                     'chart_id' => absint( $id ),
-                    'meta_key' => $meta_key,
+                    'meta_key' => $meta_key,// phpcs:ignore
                 ),
                 array( '%d', '%s' )
             );
@@ -1187,11 +1212,11 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
          * @return      void|html
 	     */
         public function chart_notices(){
-            $page = (isset($_REQUEST['page'])) ? sanitize_text_field( $_REQUEST['page'] ) : '';
+            $page = (isset($_REQUEST['page'])) ? sanitize_text_field( wp_unslash( $_REQUEST['page'] )) : '';
             if ( !($page == "chart-builder") )
                 return;
 
-            $status = (isset($_REQUEST['status'])) ? sanitize_text_field( $_REQUEST['status'] ) : '';
+            $status = (isset($_REQUEST['status'])) ? sanitize_text_field( wp_unslash( $_REQUEST['status'] )) : '';
 
             if ( empty( $status ) )
                 return;

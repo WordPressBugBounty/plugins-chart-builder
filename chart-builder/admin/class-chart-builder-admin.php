@@ -174,7 +174,7 @@ class Chart_Builder_Admin {
 
 		wp_enqueue_script( $this->plugin_name . '-functions', plugin_dir_url( __FILE__ ) . 'js/functions.js', array( 'jquery' ), $this->version, true );
 
-        wp_register_script( $this->plugin_name . '-localized', '' );
+        wp_register_script( $this->plugin_name . '-localized', '' , array('jquery'), $this->version, true);
 
         wp_localize_script( $this->plugin_name . '-localized', 'aysChartBuilderAdmin', array(
             'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
@@ -420,8 +420,9 @@ class Chart_Builder_Admin {
         $action = ( isset( $_GET['action'] ) ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : '';
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $id = (isset($_GET['id'])) ? absint( wp_unslash( $_GET['id'] ) ) : 0;
-
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         if (isset($_POST['bulk_delete_confirm'])) {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             if (isset($_POST['bulk-delete']) && !empty($_POST['bulk-delete'])) {
                 $ids = wp_unslash( $_POST['bulk-delete'] );
                 $ids = array_map( 'absint', (array) $ids );

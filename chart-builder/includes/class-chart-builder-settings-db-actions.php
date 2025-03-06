@@ -83,19 +83,19 @@ if( ! class_exists( 'Chart_Builder_Settings_DB_Actions' ) ){
 
         public function store_data(){
 
-            if( isset( $_REQUEST["settings_action"] ) && wp_verify_nonce( $_REQUEST["settings_action"], 'settings_action' ) ){
+            if( isset( $_REQUEST["settings_action"] ) && wp_verify_nonce( sanitize_text_field(wp_unslash($_REQUEST["settings_action"])), 'settings_action' ) ){
                 $success = 0;
                 $name_prefix = 'ays_';
 
-	            $user_roles = (isset($_REQUEST['ays_user_roles']) && !empty($_REQUEST['ays_user_roles'])) ? array_map( 'sanitize_text_field', $_REQUEST['ays_user_roles'] ) : array('administrator');
+	            $user_roles = (isset($_REQUEST['ays_user_roles']) && !empty($_REQUEST['ays_user_roles'])) ? array_map( 'sanitize_text_field', wp_unslash($_REQUEST['ays_user_roles']) )  : array('administrator');
 
                 // User roles to change plugin
-                $user_roles_to_change_plugin = (isset($_REQUEST[$name_prefix . 'user_roles_to_change_plugin']) && !empty( $_REQUEST[$name_prefix . 'user_roles_to_change_plugin'] ) ) ? array_map( 'sanitize_text_field', $_REQUEST[$name_prefix . 'user_roles_to_change_plugin'] ) : array('administrator');
+                $user_roles_to_change_plugin = (isset($_REQUEST[$name_prefix . 'user_roles_to_change_plugin']) && !empty( $_REQUEST[$name_prefix . 'user_roles_to_change_plugin'] ) ) ? array_map( 'sanitize_text_field',wp_unslash( $_REQUEST[$name_prefix . 'user_roles_to_change_plugin'] )) : array('administrator');
 
                 // // Do not store IP addresses
                 // $disable_user_ip = (isset($_REQUEST[$name_prefix . 'chart_disable_user_ip']) && $_REQUEST[$name_prefix . 'chart_disable_user_ip'] == 'on') ? stripslashes( sanitize_text_field( $_REQUEST[$name_prefix . 'chart_disable_user_ip'] ) ) : '';
 
-                $chart_title_length = (isset($_REQUEST[$name_prefix . 'chart_title_length']) && $_REQUEST[$name_prefix . 'chart_title_length'] != '') ? absint( sanitize_text_field( $_REQUEST[$name_prefix . 'chart_title_length'] ) ) : 5;
+                $chart_title_length = (isset($_REQUEST[$name_prefix . 'chart_title_length']) && $_REQUEST[$name_prefix . 'chart_title_length'] != '') ? absint( sanitize_text_field( wp_unslash($_REQUEST[$name_prefix . 'chart_title_length'] )) ) : 5;
 
                 // // Textarea height (public)
                 // $textarea_height = (isset($_REQUEST[$name_prefix . 'chart_textarea_height']) && $_REQUEST[$name_prefix . 'chart_textarea_height'] != '' && $_REQUEST[$name_prefix . 'chart_textarea_height'] != 0 ) ? absint( sanitize_text_field($_REQUEST[$name_prefix . 'chart_textarea_height']) ) : 100;
@@ -132,7 +132,7 @@ if( ! class_exists( 'Chart_Builder_Settings_DB_Actions' ) ){
                 if($success > 0){
                     $tab = "";
                     if( isset( $_REQUEST['ays_tab'] ) ){
-                        $tab = "&ays_tab=". sanitize_text_field( $_REQUEST['ays_tab'] );
+                        $tab = "&ays_tab=". sanitize_text_field( wp_unslash($_REQUEST['ays_tab'] ));
                     }
 
                     $url = admin_url('admin.php') . "?page=". $this->plugin_name ."-settings" . $tab . '&status=' . $message;
@@ -196,7 +196,7 @@ if( ! class_exists( 'Chart_Builder_Settings_DB_Actions' ) ){
 		    }
 
 		    $value = array(
-			    'meta_value'  => $meta_value,
+			    'meta_value'  => $meta_value,// phpcs:ignore
 		    );
 
 		    $value_s = array( '%s' );
@@ -214,7 +214,7 @@ if( ! class_exists( 'Chart_Builder_Settings_DB_Actions' ) ){
 			    $this->db_table,
 			    $value,
 			    array(
-				    'meta_key' => $meta_key,
+				    'meta_key' => $meta_key,// phpcs:ignore
 			    ),
 			    $value_s,
 			    array( '%s' )

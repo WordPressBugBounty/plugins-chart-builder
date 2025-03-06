@@ -148,7 +148,8 @@ class Chart_Builder_Activator {
             
             $result = $wpdb->get_var(
                 $wpdb->prepare(
-                    "SELECT COUNT(*) FROM {$settings_table} WHERE meta_key = %s",  
+                    "SELECT COUNT(*) FROM {$settings_table} 
+                    WHERE meta_key = %s",  
                     $meta_key  
                 )
             );
@@ -156,8 +157,8 @@ class Chart_Builder_Activator {
                 $result = $wpdb->insert(
                     $settings_table,
                     array(
-                        'meta_key'    => $meta_key,
-                        'meta_value'  => $meta_val,
+                        'meta_key'    => $meta_key,// phpcs:ignore
+                        'meta_value'  => $meta_val,// phpcs:ignore
                         'note'        => "",
                         'options'     => ""
                     ),
@@ -222,43 +223,43 @@ class Chart_Builder_Activator {
             $default_chart_meta = array(
                 array(
                     'chart_id' => $chart_id,
-                    'meta_key' => 'width',
-                    'meta_value' => '100',
+                    'meta_key' => 'width',// phpcs:ignore
+                    'meta_value' => '100',// phpcs:ignore
                     'note' => '',
                     'options' => ''
                 ),
                 array(
                     'chart_id' => $chart_id,
-                    'meta_key' => 'height',
-                    'meta_value' => '400',
+                    'meta_key' => 'height',// phpcs:ignore
+                    'meta_value' => '400',// phpcs:ignore
                     'note' => '',
                     'options' => ''
                 ),
                 array(
                     'chart_id' => $chart_id,
-                    'meta_key' => 'title_color',
-                    'meta_value' => '#000000',
+                    'meta_key' => 'title_color',// phpcs:ignore
+                    'meta_value' => '#000000',// phpcs:ignore
                     'note' => '',
                     'options' => ''
                 ),
                 array(
                     'chart_id' => $chart_id,
-                    'meta_key' => 'font_size',
-                    'meta_value' => '14',
+                    'meta_key' => 'font_size',// phpcs:ignore
+                    'meta_value' => '14',// phpcs:ignore
                     'note' => '',
                     'options' => ''
                 ),
                 array(
                     'chart_id' => $chart_id,
-                    'meta_key' => 'tooltip_trigger',
-                    'meta_value' => 'hover',
+                    'meta_key' => 'tooltip_trigger',// phpcs:ignore
+                    'meta_value' => 'hover',// phpcs:ignore
                     'note' => '',
                     'options' => ''
                 ),
                 array(
                     'chart_id' => $chart_id,
-                    'meta_key' => 'show_color_code',
-                    'meta_value' => 'off',
+                    'meta_key' => 'show_color_code',// phpcs:ignore
+                    'meta_value' => 'off',// phpcs:ignore
                     'note' => '',
                     'options' => ''
                 )
