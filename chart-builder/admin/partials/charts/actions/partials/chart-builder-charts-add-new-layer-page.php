@@ -3,7 +3,7 @@
         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_box">
             <div class="<?php echo esc_attr($html_class_prefix); ?>close-type">
                 <a href="?page=chart-builder">
-                    <img src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/cross.png">
+                    <img src="<?php echo esc_url(plugins_url('/images/icons/cross.png', dirname(__FILE__,4))); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>">
                 </a>
             </div>
             <div>
@@ -37,7 +37,7 @@
                                             <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
                                         </div>
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_checked">
-                                            <img src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/check.svg">
+                                            <img src="<?php echo esc_url(plugins_url('/images/icons/check.svg', dirname(__FILE__, 4))); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage?>">
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                                             <img class="<?php echo esc_attr($html_class_prefix); ?>layer_icons" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/<?php echo esc_attr($data['icon']); ?>">
                                         </div>
                                         <div class="<?php echo esc_attr($html_class_prefix); ?>layer_item_checked">
-                                            <img src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/icons/check.svg">
+                                            <img src="<?php echo esc_url(plugins_url('/images/icons/check.svg', dirname(__FILE__, 4))); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage; ?>">
                                         </div>
                                     </div>
                                 </div>

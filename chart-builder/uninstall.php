@@ -31,13 +31,13 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 if(get_option('ays_chart_builder_upgrade_plugin','false') === 'false'){
 	global $wpdb;
+	
 	$charts_table          =   $wpdb->prefix . 'ayschart_charts';
-    $charts_meta_table     =   $wpdb->prefix . 'ayschart_charts_meta';
+	$charts_meta_table     =   $wpdb->prefix . 'ayschart_charts_meta';
 	$settings_table        =   $wpdb->prefix . 'ayschart_settings';
-
 	$wpdb->query("DROP TABLE IF EXISTS `".$charts_table."`");
-    $wpdb->query("DROP TABLE IF EXISTS `".$charts_meta_table."`");
-    $wpdb->query("DROP TABLE IF EXISTS `".$settings_table."`");
+	$wpdb->query("DROP TABLE IF EXISTS `".$charts_meta_table."`");
+	$wpdb->query("DROP TABLE IF EXISTS `".$settings_table."`");
 	
 	delete_option( "ays_chart_db_version");
     delete_option( "ays_chart_builder_upgrade_plugin");

@@ -3,17 +3,17 @@ $items = $this->db_obj->get_items();
 
 $all_items = CBFunctions()->get_all_charts_count();
 $chart_count_per_page = count($items) > 0 ? $all_items/$this->db_obj->get_pagination_count() : 0;
-$chart_paged = isset($_GET['paged']) && $_GET['paged'] != '' ? absint( sanitize_text_field($_GET['paged'])) : '';
+$chart_paged = isset($_GET['paged']) && $_GET['paged'] != '' ? absint( sanitize_text_field(wp_unslash($_GET['paged']))) : '';
 $search = $this->db_obj->get_search_value();
 $chart_max_id = Chart_Builder_Admin::get_max_id('charts');
 $this->settings_obj = new Chart_Builder_Settings_DB_Actions($this->plugin_name);
 $chart_title_length = $this->settings_obj->get_listtables_title_length();
-$filter_by_type = (isset($_GET['filterbytype']) && $_GET['filterbytype'] != "") ? intval(sanitize_text_field($_GET['filterbytype'])) : '';
-$filter_by_source = (isset($_GET['filterbysource']) && $_GET['filterbysource'] != "") ? intval(sanitize_text_field($_GET['filterbysource'])) : '';
-$filter_by_chart_source = (isset($_GET['filterbychartsource']) && $_GET['filterbychartsource'] != "") ? intval(sanitize_text_field($_GET['filterbychartsource'])) : '';
-$filter_by_date = (isset($_GET['filterbydate']) && $_GET['filterbydate'] != "") ? sanitize_text_field($_GET['filterbydate']) : '';
-$order_by = (isset($_GET['orderby']) && $_GET['orderby'] != "") ? sanitize_text_field($_GET['orderby']) : '';
-$order = (isset($_GET['order']) && $_GET['order'] != "") ? sanitize_text_field($_GET['order']) : 'desc';
+$filter_by_type = (isset($_GET['filterbytype']) && $_GET['filterbytype'] != "") ? intval(sanitize_text_field(wp_unslash($_GET['filterbytype']))) : '';
+$filter_by_source = (isset($_GET['filterbysource']) && $_GET['filterbysource'] != "") ? intval(sanitize_text_field(wp_unslash($_GET['filterbysource']))) : '';
+$filter_by_chart_source = (isset($_GET['filterbychartsource']) && $_GET['filterbychartsource'] != "") ? intval(sanitize_text_field(wp_unslash($_GET['filterbychartsource']))) : '';
+$filter_by_date = (isset($_GET['filterbydate']) && $_GET['filterbydate'] != "") ? sanitize_text_field(wp_unslash($_GET['filterbydate'])) : '';
+$order_by = (isset($_GET['orderby']) && $_GET['orderby'] != "") ? sanitize_text_field(wp_unslash($_GET['orderby'])) : '';
+$order = (isset($_GET['order']) && $_GET['order'] != "") ? sanitize_text_field(wp_unslash($_GET['order'])) : 'desc';
 $chart_types = array(
     "Line Chart",
     "Bar Chart",
@@ -52,8 +52,8 @@ $order_values = array(
 );
 $filter_by_author_data = $this->db_obj->get_searched_author_info();
 
-$plus_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/images/icons/plus-icon.svg'></span>";
-$youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/images/icons/youtube-video-icon.svg'></span>";
+$plus_icon_svg = "<span class=''><img src='". esc_url(plugins_url('/images/icons/plus-icon.svg', dirname(__FILE__, 2))) ."'></span>";// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
+$youtube_icon_svg = "<span class=''><img src='". esc_url(plugins_url('/images/icons/youtube-video-icon.svg', dirname(__FILE__, 2)))  ."'></span>";// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
 ?>
 <div class="wrap ays_charts_list_table">
@@ -75,7 +75,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
         <?php
             $svg_sanitize_properties = Chart_Builder_Admin::chart_builder_svg_sanitize_allowed_properties();
             $sanitized_plus_icon_svg = wp_kses($plus_icon_svg, $svg_sanitize_properties);
-            echo sprintf( '<a href="?page=%s&action=%s" class="btn btn-primary chart-add-new-bttn chart-add-new-button-new-design"> %s ' . esc_html__( 'Add New', "chart-builder" ) . '</a>', esc_attr( $_REQUEST['page'] ), 'add',wp_kses_post($sanitized_plus_icon_svg));
+            echo sprintf( '<a href="?page=%s&action=%s" class="btn btn-primary chart-add-new-bttn chart-add-new-button-new-design"> %s ' . esc_html__( 'Add New', "chart-builder" ) . '</a>', esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page'])) ), 'add',wp_kses_post($sanitized_plus_icon_svg));
         ?>
     </div>
     <div id="poststuff">
@@ -210,29 +210,29 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
 
                                         $restitle = Chart_Builder_Admin::ays_restriction_string("word", $chart_title, $chart_title_length);
 
-                                        $title = sprintf( '<a href="?page=%s&action=%s&id=%d" title="%s">%s</a>', esc_attr( $_REQUEST['page'] ), 'edit', absint( $item['id'] ), $q, $restitle);
+                                        $title = sprintf( '<a href="?page=%s&action=%s&id=%d" title="%s">%s</a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'edit', absint( $item['id'] ), $q, $restitle);
 
                                         $actions = array();
                                         if($item['status'] == 'trashed'){
                                             $title = sprintf( '<strong><a>%s</a></strong>', $restitle );
-                                            $actions['restore'] = sprintf( '<a href="?page=%s&action=%s&id=%d&_wpnonce=%s">'. __('Restore', "chart-builder") .'</a>', esc_attr( $_REQUEST['page'] ), 'restore', absint( $item['id'] ), $delete_nonce );
-                                            $actions['delete'] = sprintf( '<a class="ays_confirm_del" data-message="%s" href="?page=%s&action=%s&id=%s&_wpnonce=%s">'. esc_html__('Delete Permanently', "chart-builder") .'</a>', $restitle, esc_attr( $_REQUEST['page'] ), 'delete', absint( $item['id'] ), $delete_nonce );
+                                            $actions['restore'] = sprintf( '<a href="?page=%s&action=%s&id=%d&_wpnonce=%s">'. __('Restore', "chart-builder") .'</a>',  esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page']))), 'restore', absint( $item['id'] ), $delete_nonce );
+                                            $actions['delete'] = sprintf( '<a class="ays_confirm_del" data-message="%s" href="?page=%s&action=%s&id=%s&_wpnonce=%s">'. esc_html__('Delete Permanently', "chart-builder") .'</a>', $restitle, esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'delete', absint( $item['id'] ), $delete_nonce );
                                         }else{
-                                            $actions['edit'] = sprintf( '<a class="btn btn-primary btn-sm" href="?page=%s&action=%s&id=%d" data-bs-toggle="tooltip" title="'. esc_html(__('Edit',"chart-builder")) .'"><i class="ays_fa ays_fa_pen_to_square"></i></a>', esc_attr( $_REQUEST['page'] ), 'edit', absint( $item['id'] ) );
+                                            $actions['edit'] = sprintf( '<a class="btn btn-primary btn-sm" href="?page=%s&action=%s&id=%d" data-bs-toggle="tooltip" title="'. esc_html(__('Edit',"chart-builder")) .'"><i class="ays_fa ays_fa_pen_to_square"></i></a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'edit', absint( $item['id'] ) );
                                             
                                             $draft_text = '';
                                             if( $item['status'] == 'draft' && !( isset( $_GET['fstatus'] ) && $_GET['fstatus'] == 'draft' )){
                                                 $draft_text = ' — ' . '<span class="post-state">' . __( "Draft", "chart-builder" ) . '</span>';
-                                                $actions['publish'] = sprintf( '<a class="btn btn-primary btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Publish',"chart-builder")) .'"><i class="ays_fa ays_fa_unpublished"></i></a>', esc_attr( $_REQUEST['page'] ), 'publish', absint( $item['id'] ), $publish_nonce );
+                                                $actions['publish'] = sprintf( '<a class="btn btn-primary btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Publish',"chart-builder")) .'"><i class="ays_fa ays_fa_unpublished"></i></a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'publish', absint( $item['id'] ), $publish_nonce );
                                             } else {
-                                                $actions['unpublish'] = sprintf( '<a class="btn btn-primary btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Unpublish',"chart-builder")) .'"><i class="ays_fa ays_fa_published"></i></a>', esc_attr( $_REQUEST['page'] ), 'unpublish', absint( $item['id'] ), $unpublish_nonce );
+                                                $actions['unpublish'] = sprintf( '<a class="btn btn-primary btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Unpublish',"chart-builder")) .'"><i class="ays_fa ays_fa_published"></i></a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'unpublish', absint( $item['id'] ), $unpublish_nonce );
                                             }
 
-                                            $title = sprintf( '<strong><a href="?page=%s&action=%s&id=%d" title="%s">%s</a>%s</strong>', esc_attr( $_REQUEST['page'] ), 'edit', absint( $item['id'] ), $q, $restitle, $draft_text );
+                                            $title = sprintf( '<strong><a href="?page=%s&action=%s&id=%d" title="%s">%s</a>%s</strong>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'edit', absint( $item['id'] ), $q, $restitle, $draft_text );
 
-                                            $actions['duplicate'] = sprintf( '<a class="btn btn-primary btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Duplicate',"chart-builder")) .'"><i class="ays_fa ays_fa_copy"></i></a>', esc_attr( $_REQUEST['page'] ), 'duplicate', absint( $item['id'] ), $duplicate_nonce );
+                                            $actions['duplicate'] = sprintf( '<a class="btn btn-primary btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Duplicate',"chart-builder")) .'"><i class="ays_fa ays_fa_copy"></i></a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'duplicate', absint( $item['id'] ), $duplicate_nonce );
                                             
-                                            $actions['delete'] = sprintf( '<a class="ays_chart_delete_confirm btn btn-danger btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Delete',"chart-builder")) .'"><i class="ays_fa ays_fa_trash_o"></i></a>', esc_attr( $_REQUEST['page'] ), 'delete', absint( $item['id'] ), $delete_nonce );
+                                            $actions['delete'] = sprintf( '<a class="ays_chart_delete_confirm btn btn-danger btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Delete',"chart-builder")) .'"><i class="ays_fa ays_fa_trash_o"></i></a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'delete', absint( $item['id'] ), $delete_nonce );
                                         }
                                         echo wp_kses_post($title);
 
@@ -251,32 +251,32 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                                     <td class="column-type"><?php
 		                                switch ($item['source_chart_type']) {
                                             case 'line_chart':
-				                                echo "<p><img src='" . esc_url(CHART_BUILDER_ADMIN_URL)  . "/images/icons/line-chart.png" . "' width='20px'>";
+				                                echo "<p><img src='" . esc_url(plugins_url('/images/icons/line-chart.png', dirname(__FILE__, 2))) . "' width='20px'>";// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 				                                echo "<span style='margin-left: 8px'>" . esc_html__('Line Chart', 'chart-builder') . "</span></p>";
 				                                break;
 
 			                                case 'bar_chart':
-				                                echo "<p><img src='" . esc_url(CHART_BUILDER_ADMIN_URL)  . "/images/icons/bar-chart.png" . "' width='20px'>";
+				                                echo "<p><img src='" .  esc_url(plugins_url('/images/icons/bar-chart.png', dirname(__FILE__, 2))) . "' width='20px'>";// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 				                                echo "<span style='margin-left: 8px'>" . esc_html__('Bar Chart', "chart-builder") . "</span></p>";
 				                                break;
 
 			                                case 'pie_chart':
-				                                echo "<p><img src='" . esc_url(CHART_BUILDER_ADMIN_URL)  . "/images/icons/pie-chart.png" . "' width='20px'>";
+				                                echo "<p><img src='" .  esc_url(plugins_url('/images/icons/pie-chart.png', dirname(__FILE__, 2)))  . "' width='20px'>";// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 				                                echo "<span style='margin-left: 8px'>" . esc_html__('Pie Chart', "chart-builder") . "</span></p>";
 				                                break;
 
 			                                case 'column_chart':
-				                                echo "<p><img src='" . esc_url(CHART_BUILDER_ADMIN_URL)  . "/images/icons/column-chart.png" . "' width='20px'>";
+				                                echo "<p><img src='" .  esc_url(plugins_url('/images/icons/column-chart.png', dirname(__FILE__, 2))) . "' width='20px'>";// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 				                                echo "<span style='margin-left: 8px'>" . esc_html__('Column Chart', "chart-builder") . "</span></p>";
 				                                break;
 		                                
                                             case 'donut_chart':
-                                                echo "<p><img src='" . esc_url(CHART_BUILDER_ADMIN_URL)  . "/images/icons/donut-chart.png" . "' width='20px'>";
+                                                echo "<p><img src='" . esc_url(plugins_url('/images/icons/donut-chart.png', dirname(__FILE__, 2))) . "' width='20px'>";// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
                                                 echo "<span style='margin-left: 8px'>" . esc_html__('Donut Chart', "chart-builder") . "</span></p>";
                                                 break;
                                                 
                                             case 'org_chart':
-                                                echo "<p><img src='" . esc_url(CHART_BUILDER_ADMIN_URL)  . "/images/icons/org-chart.png" . "' width='20px'>";
+                                                echo "<p><img src='" . esc_url(plugins_url('/images/icons/org-chart.png', dirname(__FILE__, 2))) . "' width='20px'>";// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
                                                 echo "<span style='margin-left: 8px'>" . esc_html__('Org Chart', 'chart-builder') . "</span></p>";
                                                 break;
                                         }
@@ -465,7 +465,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
             <?php
                 $svg_sanitize_properties = Chart_Builder_Admin::chart_builder_svg_sanitize_allowed_properties();
                 $sanitized_plus_icon_svg = wp_kses($plus_icon_svg, $svg_sanitize_properties);
-                echo sprintf( '<a href="?page=%s&action=%s" class="btn btn-primary chart-add-new-bttn chart-add-new-button-new-design"> %s ' . esc_html__( 'Add New', "chart-builder" ) . '</a>', esc_attr( $_REQUEST['page'] ), 'add', wp_kses_post($plus_icon_svg));
+                echo sprintf( '<a href="?page=%s&action=%s" class="btn btn-primary chart-add-new-bttn chart-add-new-button-new-design"> %s ' . esc_html__( 'Add New', "chart-builder" ) . '</a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'add', wp_kses_post($plus_icon_svg));
             ?>
         </div>
         <?php if($chart_max_id <= 3): ?>
@@ -483,7 +483,7 @@ $youtube_icon_svg = "<span class=''><img src='". CHART_BUILDER_ADMIN_URL ."/imag
                     <?php
                         $svg_sanitize_properties = Chart_Builder_Admin::chart_builder_svg_sanitize_allowed_properties();
                         $sanitized_plus_icon_svg = wp_kses($plus_icon_svg, $svg_sanitize_properties); 
-                        echo sprintf( '<a href="?page=%s&action=%s" class="ays-chart-add-new-button-video chart-add-new-button-new-design"> %s ' . esc_html__('Add New', 'chart-builder') . '</a>', esc_attr( $_REQUEST['page'] ), 'add', wp_kses_post($plus_icon_svg));
+                        echo sprintf( '<a href="?page=%s&action=%s" class="ays-chart-add-new-button-video chart-add-new-button-new-design"> %s ' . esc_html__('Add New', 'chart-builder') . '</a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'add', wp_kses_post($plus_icon_svg));
                     ?>
                 </div>
             </div>

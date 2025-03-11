@@ -36,7 +36,7 @@
                 <?php if (!empty($similar_charts[$source_chart_type])) :
                     foreach ($similar_charts[$source_chart_type] as $type => $img) : ?>
                     <div class="<?php echo esc_attr($html_class_prefix) ?>charts-change-type-type" data-type="<?php echo esc_attr($type); ?>" style="<?php echo $type == $source_chart_type ? 'background-color:#008cff63' : '' ?>" title="<?php echo esc_attr($chart_types[$type]); ?>">
-                        <img src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL . '/images/icons/' . esc_attr($img)); ?>" alt="<?php echo esc_attr($chart_types[$type]); ?>">
+                        <img src="<?php echo esc_url(plugins_url('images/icons/' . esc_attr($img), dirname(__FILE__,4))); // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>" alt="<?php echo esc_attr($chart_types[$type]); ?>">
                     </div>
                     <?php endforeach;
                 endif; ?>

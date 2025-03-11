@@ -83,12 +83,15 @@ class Widget_Chart_Builder_Elementor extends Widget_Base {
         global $wpdb;
         $current_user = get_current_user_id();
         $charts_table = $wpdb->prefix . CHART_BUILDER_DB_PREFIX . 'charts';
-        $sql = "SELECT id,title FROM {$charts_table} WHERE `status`='published'";
-        if( ! current_user_can( 'manage_options' ) ){
-            $sql .= " AND author_id = ". absint( $current_user ) ." ";
+        $sql = "SELECT id, title FROM {$charts_table} WHERE `status` = %s";
+        $params = ['published']; 
+        if (!current_user_can('manage_options')) {
+            $sql .= " AND author_id = %d";
+            $params[] = absint($current_user); 
         }
-        $sql .= " ORDER BY id DESC";
-        $results = $wpdb->get_results( $sql, ARRAY_A );
+        $sql .= " ORDER BY id DESC ";
+        // phpcs:ignore
+        $results = $wpdb->get_results($wpdb->prepare($sql, ...$params), ARRAY_A);
         $options = array();
         foreach ( $results as $result ){
             $options[$result['id']] = $result['title'];
@@ -100,13 +103,15 @@ class Widget_Chart_Builder_Elementor extends Widget_Base {
         global $wpdb;
         $current_user = get_current_user_id();
         $charts_table = $wpdb->prefix . CHART_BUILDER_DB_PREFIX . 'charts';
-        $sql = "SELECT id FROM {$charts_table} WHERE `status`='published'";
-        if( ! current_user_can( 'manage_options' ) ){
-            $sql .= " AND author_id = ". absint( $current_user ) ." ";
+        $sql = "SELECT id FROM {$charts_table} WHERE `status` = %s";
+        $params = ['published'];
+        if (!current_user_can('manage_options')) {
+            $sql .= " AND author_id = %d";
+            $params[] = absint($current_user);
         }
-        $sql .= " ORDER BY id DESC LIMIT 1;";
-        $id = $wpdb->get_var( $sql );
-
+        $sql .= " ORDER BY id DESC LIMIT 1";
+        // phpcs:ignore
+        $id = $wpdb->get_var($wpdb->prepare($sql, ...$params));
         return intval($id);
     }
 

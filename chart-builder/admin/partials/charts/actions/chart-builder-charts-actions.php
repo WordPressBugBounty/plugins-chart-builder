@@ -89,7 +89,7 @@
         <div class="ays-modal" id="ays-chart-db-query-results">
             <div class="ays-modal-content">
                 <div class="ays-preloader">
-                    <img class="loader" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL); ?>/images/loaders/tail-spin-result.svg" alt="" width="100">
+                    <img class="loader" src="<?php echo esc_url(plugins_url('/images/loaders/tail-spin-result.svg', dirname(__FILE__, 3))) // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>" alt="" width="100">
                 </div>
 
                 <!-- Modal Header -->

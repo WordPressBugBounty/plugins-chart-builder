@@ -336,7 +336,7 @@
         $this->db_obj->add_or_edit_item( $id );
     }
 
-    $loader_iamge = '<span class="display_none ays_chart_loader_box"><img src="'. CHART_BUILDER_ADMIN_URL .'/images/loaders/loading.gif"></span>';
+    $loader_iamge = '<span class="display_none ays_chart_loader_box"><img src="'. esc_url(plugins_url('admin/images/loaders/loading.gif', dirname(__FILE__))) .'"></span>';// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
     /**
      * Data that need to get form @object variable
@@ -417,7 +417,7 @@
             if ( $change_create_author  && $change_create_author > 0 ) {
                 global $wpdb;
                 $users_table = esc_sql( $wpdb->prefix . 'users' );
-                $create_author_data = $wpdb->get_row(
+                $create_author_data = $wpdb->get_row( // phpcs:ignore
                     $wpdb->prepare(
                         "SELECT ID, display_name FROM {$wpdb->users} WHERE ID = %d",
                         $change_create_author

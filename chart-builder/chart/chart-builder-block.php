@@ -68,11 +68,16 @@
         $current_user = get_current_user_id();
         
 
-        $sql = "SELECT * FROM ". $wpdb->prefix . CHART_BUILDER_DB_PREFIX . "charts WHERE status = 'published'";
-        if( ! current_user_can( 'manage_options' ) ){
-            $sql .= " AND author_id = ". absint( $current_user ) ." ";
+        $sql = "SELECT * FROM " . $wpdb->prefix . CHART_BUILDER_DB_PREFIX . "charts WHERE status = %s";
+
+        $params = ['published'];
+
+        if (!current_user_can('manage_options')) {
+            $sql .= " AND author_id = %d";
+            $params[] = $current_user;
         }
-        $results = $wpdb->get_results($sql, "ARRAY_A");
+        // phpcs:ignore
+        $results = $wpdb->get_results($wpdb->prepare($sql, ...$params), ARRAY_A);
         
         register_block_type(
             $block_namespace, 

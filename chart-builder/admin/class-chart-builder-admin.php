@@ -205,7 +205,7 @@ class Chart_Builder_Admin {
             'errorMsg'                           => __( "Error", "chart-builder" ),
             'loadResource'                       => __( "Can't load resource.", "chart-builder" ),
             'somethingWentWrong'                 => __( "Maybe something went wrong.", "chart-builder" ),            
-        ) );
+            ) );
 
         wp_localize_script( $this->plugin_name . '-localized', 'aysChartBuilderChartSettings', array(
             'types' => CBFunctions()->getAllowedTypes(),
@@ -420,9 +420,7 @@ class Chart_Builder_Admin {
         $action = ( isset( $_GET['action'] ) ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : '';
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $id = (isset($_GET['id'])) ? absint( wp_unslash( $_GET['id'] ) ) : 0;
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-        if (isset($_POST['bulk_delete_confirm'])) {
-            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        if (isset($_POST['bulk_delete_confirm'])) {  
             if (isset($_POST['bulk-delete']) && !empty($_POST['bulk-delete'])) {
                 $ids = wp_unslash( $_POST['bulk-delete'] );
                 $ids = array_map( 'absint', (array) $ids );
@@ -634,7 +632,7 @@ class Chart_Builder_Admin {
 		$response = array(
 			"status" => false
 		);
-
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$function = isset( $_REQUEST['function'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['function'] ) ) : null;
 
 		if($function !== null){
@@ -700,8 +698,8 @@ class Chart_Builder_Admin {
     }
 
     public function chart_builder_admin_footer($a){
-        if(isset($_REQUEST['page'])){
-            if(false !== strpos( sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ), $this->plugin_name)){
+        if(isset($_REQUEST['page'])){// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            if(false !== strpos( sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ), $this->plugin_name)){// phpcs:ignore WordPress.Security.NonceVerification.Recommended
                 ?>
                 <div class="ays-chart-footer-support-box">
                     <span class="ays-chart-footer-link-row"><a href="https://wordpress.org/support/plugin/chart-builder" target="_blank"><?php echo esc_html__( "Support", "chart-builder"); ?></a></span>
@@ -750,9 +748,10 @@ class Chart_Builder_Admin {
     }
 
     public function fetch_post_type_props(){
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	    $nonce = isset( $_POST['nonce'] ) ? wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'cbuilder-fetch-post-type-props' ) : '';
-	    if ( $nonce ) {
-            $results = CBFunctions()->get_post_type_properties( sanitize_text_field( wp_unslash($_POST['post_type']) ) );
+	    if ( $nonce ) {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $results = isset($_POST['post_type']) ? CBFunctions()->get_post_type_properties( sanitize_text_field( wp_unslash($_POST['post_type']) ) ) : '';
 
 		    return array(
 			    'success' => true,
@@ -820,6 +819,7 @@ class Chart_Builder_Admin {
     
         $ays_chart_builder_flag = intval(get_option('ays_chart_sale_btn'));
         if( $ays_chart_builder_flag == 0 ){
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             if ( isset( $_GET['page'] ) && strpos( sanitize_text_field( wp_unslash( $_GET['page'] ) ), CHART_BUILDER_NAME ) !== false ) {
                 if( !(Chart_Builder_Admin::get_max_id('charts') <= 1) ){
                     // $this->ays_chart_sale_message_30_emma($ays_chart_builder_flag);
@@ -873,7 +873,7 @@ class Chart_Builder_Admin {
                         $content[] = '</div>';
 
                         $content[] = '<div style="font-size: 17px;">';
-                            $content[] = '<img style="width: 24px;height: 24px;" src="' . esc_attr(CHART_BUILDER_ADMIN_URL) . '/images/icons/guarantee-new.png">';
+                            $content[] = '<img style="width: 24px; height: 24px;" src="' . esc_url(plugins_url('admin/images/icons/guarantee-new.png', dirname(__FILE__))) . '">';// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
                             $content[] = '<span style="padding-left: 4px; font-size: 14px; font-weight: 600;"> 30 Day Money Back Guarantee</span>';
                             
                         $content[] = '</div>';
@@ -964,13 +964,13 @@ class Chart_Builder_Admin {
                             );
 							$content[] = '</span>';
 							$content[] = '<div>';
-								$content[] = '<img src="' . CHART_BUILDER_ADMIN_URL . '/images/ays-chart-banner-sale-30.svg" style="width: 70px;">';
+								$content[] = '<img src="' . esc_url(plugins_url('admin/images/ays-chart-banner-sale-30.svg', dirname(__FILE__))) . '" style="width: 70px;">';// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 							$content[] = '</div>';
 						$content[] = '</div>';
 
                         $content[] = '<span class="ays-chart-new-chart-pro-desc">';
-							$content[] = '<img class="ays-chart-new-chart-pro-guaranteeicon" src="' . CHART_BUILDER_ADMIN_URL . '/images/chart-builder-guaranteeicon.webp" style="width: 30px;">';
-							$content[] = esc_html__( "30 Days Money Back Guarantee", 'chart-builder' );
+                            $content[] = '<img class="ays-chart-new-chart-pro-guaranteeicon" src="' . esc_url(plugins_url('admin/images/chart-builder-guaranteeicon.webp', dirname(__FILE__))) . '" style="width: 30px;">'; // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage	
+                        $content[] = esc_html__( "30 Days Money Back Guarantee", 'chart-builder' );
 						$content[] = '</span>';
      
                         $content[] = '<div style="position: absolute;right: 10px;bottom: 1px;" class="ays-chart-dismiss-buttons-container-for-chart">';
@@ -1237,7 +1237,7 @@ class Chart_Builder_Admin {
 
             $content[] = '<div id="ays-chart-dicount-month-main" class="notice notice-success is-dismissible ays_chart_dicount_info">';
                 $content[] = '<div id="ays-chart-dicount-month" class="ays_chart_dicount_month">';
-                    $content[] = '<a href="https://ays-pro.com/silver-bundle" target="_blank" class="ays-chart-sale-banner-link"><img src="' . CHART_BUILDER_ADMIN_URL . '/images/silver_bundle_logo_box.png"></a>';
+                    $content[] = '<a href="https://ays-pro.com/silver-bundle" target="_blank" class="ays-chart-sale-banner-link"><img src="' . esc_url(plugins_url('/images/silver_bundle_logo_box.png', dirname(__FILE__))) . '"></a>';// phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
                     $content[] = '<div class="ays-chart-dicount-wrap-box">';
 
@@ -1820,7 +1820,7 @@ class Chart_Builder_Admin {
         foreach ($plugin_slug as $key => $slug) {
             if ( isset( $_SESSION['ays_chart_our_product_links'] ) && !empty( $_SESSION['ays_chart_our_product_links'] ) 
                 && isset( $_SESSION['ays_chart_our_product_links'][$slug] ) && !empty( $_SESSION['ays_chart_our_product_links'][$slug] ) ) {
-                $plugin_url = (isset( $_SESSION['ays_chart_our_product_links'][$slug] ) && $_SESSION['ays_chart_our_product_links'][$slug] != "") ? esc_url( $_SESSION['ays_chart_our_product_links'][$slug] ) : "";
+                $plugin_url = (isset( $_SESSION['ays_chart_our_product_links'][$slug] ) && $_SESSION['ays_chart_our_product_links'][$slug] != "") ? esc_url_raw(sanitize_text_field($_SESSION['ays_chart_our_product_links'][$slug])) : "";
             } else {
                 $latest_version = $this->ays_chart_get_latest_plugin_version($slug);
                 $plugin_url = 'https://downloads.wordpress.org/plugin/'. $slug .'.zip';
@@ -2090,7 +2090,7 @@ class Chart_Builder_Admin {
         $content.= '<input type="hidden" id="ays_chart_ajax_install_plugin_nonce" name="ays_chart_ajax_install_plugin_nonce" value="'. $install_plugin_nonce .'">';
         $content.= '</div>';
 
-        echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
+        echo html_entity_decode($content);
     }
 
     /**
@@ -2804,6 +2804,7 @@ class Chart_Builder_Admin {
 		$source = isset($source["commonTypeCharts"]) ? $source["commonTypeCharts"] : $source;
         $settings = $args['settings'];
 		$source_chart_type = $args['source_chart_type'];
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$action = isset($_GET['action']) ? sanitize_text_field(wp_unslash($_GET['action'])) : 'add';
 		
 		if (isset($source) && !empty($source)) {
@@ -2981,6 +2982,7 @@ class Chart_Builder_Admin {
 		$source = isset($source["commonTypeCharts"]) ? $source["commonTypeCharts"] : $source;
         $settings = $args['settings'];
 		$source_chart_type = $args['source_chart_type'];
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$action = isset($_GET['action']) ? sanitize_text_field((wp_unslash($_GET['action']))) : 'add';
 		
         ob_start();

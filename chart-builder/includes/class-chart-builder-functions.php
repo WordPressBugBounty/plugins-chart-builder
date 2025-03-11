@@ -110,8 +110,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
         public function get_all_charts_count() {
 			global $wpdb;
 			$where = str_replace("WHERE", "AND", Chart_Builder_DB_Actions::get_where_condition());
-            $sql = "SELECT COUNT(id) FROM " . $this->db_table . " WHERE `status`='published' " . $where;
-			return intval( $wpdb->get_var( $sql ) );
+         
+			$sql = "SELECT COUNT(id) FROM {$this->db_table} WHERE `status` = %s {$where}";
+			return intval( $wpdb->get_var( $wpdb->prepare($sql, 'published') ));// phpcs:ignore
         }
 
 	    /**
@@ -202,7 +203,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 		    }
 			$tables = array();
 			
-		    $sql    = $wpdb->get_col( 'SHOW TABLES', 0 );
+		    $sql    = $wpdb->get_col( 'SHOW TABLES', 0 );// phpcs:ignore
 		    foreach ( $sql as $table ) {
 			    if ( empty( $prefix ) || 0 === strpos( $table, $wpdb->prefix ) ) {
 				    $tables[] = $table;
@@ -357,28 +358,34 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			switch ($query) {
 				case 'q1':
-					$sql = "SELECT CAST(end_date AS date) AS `Date`, COUNT(id) AS `Count` FROM ".$reports_table." WHERE quiz_id = ".$quiz_id." GROUP BY CAST(end_date AS date)";
+					$sql = "SELECT CAST(end_date AS date) AS `Date`, COUNT(id) AS `Count` FROM {$reports_table} WHERE quiz_id = %d GROUP BY CAST(end_date AS date)";
+					$result = $wpdb->get_results($wpdb->prepare($sql, $quiz_id), "ARRAY_A");// phpcs:ignore
 					break;
 				case 'q2':
-					$sql = "SELECT CAST(end_date AS date) AS `Date`, COUNT(id) AS `Count` FROM ".$reports_table." WHERE user_id = ".$user_id." GROUP BY CAST(end_date AS date)";
+					$sql = "SELECT CAST(end_date AS date) AS `Date`, COUNT(id) AS `Count` FROM {$reports_table} WHERE user_id = %d GROUP BY CAST(end_date AS date)";
+					$result = $wpdb->get_results($wpdb->prepare($sql, $user_id), "ARRAY_A");// phpcs:ignore
 					break;
 				case 'q3':
-					$sql = "SELECT CAST(end_date AS date) AS `Date`, COUNT(id) AS `Count` FROM ".$reports_table." WHERE user_id = ".$user_id." AND quiz_id = ".$quiz_id." GROUP BY CAST(end_date AS date)";
+					$sql = "SELECT CAST(end_date AS date) AS `Date`, COUNT(id) AS `Count` FROM {$reports_table} WHERE user_id = %d AND quiz_id = %d GROUP BY CAST(end_date AS date)";
+					$result = $wpdb->get_results($wpdb->prepare($sql, $user_id, $quiz_id), "ARRAY_A");// phpcs:ignore
 					break;
 				case 'q4':
-					$sql = "SELECT ".$quizes_table.".title AS `Quiz`, AVG(".$reports_table.".score) AS `Average` FROM ".$reports_table." LEFT JOIN ".$quizes_table." ON ".$reports_table.".quiz_id = ".$quizes_table.".id WHERE ".$reports_table.".user_id = ".$user_id." GROUP BY ".$quizes_table.".title";
+					$sql = "SELECT {$quizes_table}.title AS `Quiz`, AVG({$reports_table}.score) AS `Average` FROM {$reports_table} LEFT JOIN {$quizes_table} ON {$reports_table}.quiz_id = {$quizes_table}.id WHERE {$reports_table}.user_id = %d GROUP BY {$quizes_table}.title";		
+					$result = $wpdb->get_results($wpdb->prepare($sql, $user_id), "ARRAY_A");// phpcs:ignore
 					break;
 				case 'q5':
-					$sql = "SELECT ".$quizes_table.".title AS `Quiz`, COUNT(".$reports_table.".score) AS `Count` FROM ".$reports_table." LEFT JOIN ".$quizes_table." ON ".$reports_table.".quiz_id = ".$quizes_table.".id WHERE ".$reports_table.".user_id = ".$user_id." GROUP BY ".$quizes_table.".title";
+					$sql = "SELECT {$quizes_table}.title AS `Quiz`, COUNT({$reports_table}.score) AS `Count` FROM {$reports_table} LEFT JOIN {$quizes_table} ON {$reports_table}.quiz_id = {$quizes_table}.id WHERE {$reports_table}.user_id = %d GROUP BY {$quizes_table}.title";
+					$result = $wpdb->get_results($wpdb->prepare($sql, $user_id), "ARRAY_A");// phpcs:ignore
 					break;
 				case 'q6':
-					$sql = "SELECT score AS `Score` FROM ".$reports_table." WHERE user_id = ".$user_id." AND quiz_id = ".$quiz_id."";
+					$sql = "SELECT score AS `Score` FROM {$reports_table} WHERE user_id = %d AND quiz_id = %d";
+					$result = $wpdb->get_results($wpdb->prepare($sql, $user_id, $quiz_id), "ARRAY_A");// phpcs:ignore
 					break;
 				default:
 					break;
 			}
 
-			$result = $wpdb->get_results($sql, "ARRAY_A");
+
 			$message = empty($result) ? __( "There is no data for your query.", "chart-builder" ) : "";
 			return array(
 				'message' => $message,

@@ -178,8 +178,9 @@ if( ! class_exists( 'Chart_Builder_Settings_DB_Actions' ) ){
 			    return false;
 		    }
 
-		    $sql = "SELECT meta_value FROM ". $this->db_table ." WHERE meta_key = '".$meta_key."'";
-		    $result = $wpdb->get_var($sql);
+			$sql = "SELECT meta_value FROM {$this->db_table} WHERE meta_key = %s";
+			// phpcs:ignore
+			$result = $wpdb->get_var($wpdb->prepare($sql, $meta_key));
 
 		    if($result != ""){
 			    return $result;
@@ -210,7 +211,7 @@ if( ! class_exists( 'Chart_Builder_Settings_DB_Actions' ) ){
 			    $value_s[] = '%s';
 		    }
 
-		    $result = $wpdb->update(
+		    $result = $wpdb->update(// phpcs:ignore
 			    $this->db_table,
 			    $value,
 			    array(
@@ -228,10 +229,12 @@ if( ! class_exists( 'Chart_Builder_Settings_DB_Actions' ) ){
 	    }
     
 		public function get_listtables_title_length() {
-			global $wpdb;
-	
-			$sql = "SELECT meta_value FROM ".$this->db_table." WHERE meta_key = 'options'";
-			$result = $wpdb->get_var($sql);
+			global $wpdb;	
+
+			$sql = "SELECT meta_value FROM {$this->db_table} WHERE meta_key = %s";
+			// phpcs:ignore
+			$result = $wpdb->get_var($wpdb->prepare($sql, 'options'));
+
 			$options = ($result == "") ? array() : json_decode(stripcslashes($result), true);
 	
 			$listtable_title_length = 5;

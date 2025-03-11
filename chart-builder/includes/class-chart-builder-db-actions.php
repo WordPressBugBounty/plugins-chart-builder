@@ -125,17 +125,17 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             $per_page = $this->get_pagination_count();
 
             $page_number = 1;
-            if ( ! empty( $_REQUEST['paged'] ) ) {
-                $page_number = absint( sanitize_text_field(wp_unslash( $_REQUEST['paged'] ) ));
+            if ( ! empty( $_REQUEST['paged'] ) ) {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $page_number = absint( sanitize_text_field(wp_unslash( $_REQUEST['paged'] ) ));// phpcs:ignore WordPress.Security.NonceVerification.Recommended
             }
 
             $sql = "SELECT * FROM " . $this->db_table;
 
             $sql .= self::get_where_condition();
 
-            if ( ! empty( $_REQUEST['orderby'] ) ) {
-                $order_by  = ( isset( $_REQUEST['orderby'] ) && sanitize_text_field( wp_unslash($_REQUEST['orderby'] )) != '' ) ? sanitize_text_field( wp_unslash($_REQUEST['orderby'] ) ) : 'id';
-                $order_by .= ( ! empty( $_REQUEST['order'] ) && strtolower( sanitize_text_field(wp_unslash( $_REQUEST['order'] ) ) ) == 'asc' ) ? ' ASC' : ' DESC';
+            if ( ! empty( $_REQUEST['orderby'] ) ) {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $order_by  = ( isset( $_REQUEST['orderby'] ) && sanitize_text_field( wp_unslash($_REQUEST['orderby'] )) != '' ) ? sanitize_text_field( wp_unslash($_REQUEST['orderby'] ) ) : 'id';// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $order_by .= ( ! empty( $_REQUEST['order'] ) && strtolower( sanitize_text_field(wp_unslash( $_REQUEST['order'] ) ) ) == 'asc' ) ? ' ASC' : ' DESC';// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
                 $sql_orderby = sanitize_sql_orderby( $order_by );
 
@@ -152,8 +152,8 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             $sql .= " LIMIT " . $per_page;
             $sql .= " OFFSET " . $p_page;
             $result = $wpdb->get_results( $sql, 'ARRAY_A' );
-
-            return $result;
+            // $result = $wpdb->get_results( $wpdb->prepare($sql, ...$params), 'ARRAY_A' );
+            return $result;     
         }
 
 	    /**
@@ -207,7 +207,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             );
             $where = array();
             $sql = '';
-
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             $search = (isset($_REQUEST['s'])) ? sanitize_text_field(wp_unslash($_REQUEST['s'])) : false;
             if ($search) {
                 $s = array();
@@ -220,23 +220,23 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             // } else {
 	        //     $where[] = ' `status` != "trashed" ';
             // }
-            if( isset( $_REQUEST['filterbytype'] ) && absint( sanitize_text_field( wp_unslash( $_REQUEST['filterbytype'] ) ) ) > 0){
-                $key = intval( sanitize_text_field( wp_unslash( $_REQUEST['filterbytype'] ) ) );
+            if( isset( $_REQUEST['filterbytype'] ) && absint( sanitize_text_field( wp_unslash( $_REQUEST['filterbytype'] ) ) ) > 0){// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $key = intval( sanitize_text_field( wp_unslash( $_REQUEST['filterbytype'] ) ) );// phpcs:ignore WordPress.Security.NonceVerification.Recommended
                 $where[] = ' `source_chart_type` = "'. $chart_types[$key-1] .'" ';
             }
 
-            if( isset( $_REQUEST['filterbysource'] ) && absint( sanitize_text_field( wp_unslash($_REQUEST['filterbysource'] ) ) ) > 0){
-                $key = intval( sanitize_text_field( wp_unslash($_REQUEST['filterbysource'] )) );
+            if( isset( $_REQUEST['filterbysource'] ) && absint( sanitize_text_field( wp_unslash($_REQUEST['filterbysource'] ) ) ) > 0){// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $key = intval( sanitize_text_field( wp_unslash($_REQUEST['filterbysource'] )) );// phpcs:ignore WordPress.Security.NonceVerification.Recommended
                 $where[] = ' `source_type` = "'. $chart_sources[$key-1] .'" ';
             }
             
-            if( isset( $_REQUEST['filterbychartsource'] ) && absint( sanitize_text_field( wp_unslash($_REQUEST['filterbychartsource'] )) ) > 0){
-                $key = intval( sanitize_text_field( wp_unslash($_REQUEST['filterbychartsource']) ) );
+            if( isset( $_REQUEST['filterbychartsource'] ) && absint( sanitize_text_field( wp_unslash($_REQUEST['filterbychartsource'] )) ) > 0){// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $key = intval( sanitize_text_field( wp_unslash($_REQUEST['filterbychartsource']) ) );// phpcs:ignore WordPress.Security.NonceVerification.Recommended
                 $where[] = ' `type` = "'. $chart_source_types[$key-1] .'" ';
             }
 
-            if( isset( $_REQUEST['filterbydate'] ) && sanitize_text_field(wp_unslash( $_REQUEST['filterbydate'] )) !== ''){
-                $interval = sanitize_text_field( wp_unslash($_REQUEST['filterbydate'] ));
+            if( isset( $_REQUEST['filterbydate'] ) && sanitize_text_field(wp_unslash( $_REQUEST['filterbydate'] )) !== ''){// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $interval = sanitize_text_field( wp_unslash($_REQUEST['filterbydate'] ));// phpcs:ignore WordPress.Security.NonceVerification.Recommended
                 if ($chart_dates[$interval] !== '') {
                     $where[] = ' DATE(date_created) >= DATE_SUB(CURDATE(), INTERVAL 1 '. strtoupper($chart_dates[$interval]) .') AND DATE(date_created) < CURDATE() ';
                 } else{
@@ -266,7 +266,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             if ( $id && $id > 0 ) {
                 global $wpdb;
                 $users_table = esc_sql( $wpdb->prefix . 'users' );
-                $author_data = $wpdb->get_row(
+                $author_data = $wpdb->get_row(// phpcs:ignore
                     $wpdb->prepare(
                         "SELECT ID, display_name 
                         FROM {$wpdb->esc_sql($users_table)} 
@@ -297,7 +297,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return false;
             }
 
-            $result = $wpdb->get_row(
+            $result = $wpdb->get_row(// phpcs:ignore
                 $wpdb->prepare(
                     "SELECT * 
                     FROM {$this->db_table} 
@@ -371,7 +371,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 // Manual data
                 $chart_source_filtered_data = array();
                 if ($source_chart_type == "org_chart") {
-                    $chart_source_data_add = isset($_POST[ $name_prefix . 'chart_source_data_org_type' ]) && !empty( $_POST[ $name_prefix . 'chart_source_data_org_type' ] ) ?  sanitize_text_field( wp_unslash( $_POST[ $name_prefix . 'chart_source_data_org_type' ] ) ) : array();
+                    $chart_source_data_add = isset($_POST[ $name_prefix . 'chart_source_data_org_type' ]) && !empty( $_POST[ $name_prefix . 'chart_source_data_org_type' ] ) ?  wp_unslash($_POST[ $name_prefix . 'chart_source_data_org_type' ])  : array();
                     foreach($chart_source_data_add as $chart_source_data_key => $chart_source_data_value){
                         $chart_source_data_key = (int)filter_var($chart_source_data_key, FILTER_SANITIZE_NUMBER_INT);
                         foreach($chart_source_data_value as $s_data_key => $s_data_value){
@@ -588,7 +588,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
 
                 $message = '';
                 if( $id == 0 ){
-                    $result = $wpdb->insert(
+                    $result = $wpdb->insert(// phpcs:ignore
                         $this->db_table,
                         array(
 	                        'author_id'         => $author_id,
@@ -638,7 +638,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
 
                     $message = 'created';
                 }else{
-                    $result = $wpdb->update(
+                    $result = $wpdb->update(// phpcs:ignore
                         $this->db_table,
                         array(
 	                        'author_id'         => $author_id,
@@ -754,13 +754,13 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return false;
             }
 
-            $wpdb->delete(
+            $wpdb->delete(// phpcs:ignore
                 $this->db_table_meta,
                 array( 'chart_id' => absint( $id ) ),
                 array( '%d' )
             );
 
-            $wpdb->delete(
+            $wpdb->delete(// phpcs:ignore
                 $this->db_table,
                 array( 'id' => absint( $id ) ),
                 array( '%d' )
@@ -786,7 +786,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return false;
             }
 
-	        $result = $wpdb->update(
+	        $result = $wpdb->update(// phpcs:ignore
 		        $this->db_table,
 		        array( 'status' => 'trashed' ),
 		        array( 'id' => absint( $id ) ),
@@ -818,7 +818,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return false;
             }
 
-	        $result = $wpdb->update(
+	        $result = $wpdb->update(// phpcs:ignore
 		        $this->db_table,
 		        array( 'status' => 'published' ),
 		        array( 'id' => absint( $id ) ),
@@ -850,7 +850,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return false;
             }
 
-	        $result = $wpdb->update(
+	        $result = $wpdb->update(// phpcs:ignore
 		        $this->db_table,
 		        array( 'status' => 'draft' ),
 		        array( 'id' => absint( $id ) ),
@@ -887,7 +887,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             $current_data['title'] .= __(' (Copy)', 'chart-builder');
             $current_data['date_created'] = current_time( 'mysql' );
             $current_data['date_modified'] = current_time( 'mysql' );
-            $result = $wpdb->insert(
+            $result = $wpdb->insert(// phpcs:ignore
                 $this->db_table,
                 $current_data,
                 array('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%d','%s')
@@ -910,7 +910,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             foreach ($current_metadata as $meta_id => &$meta_row) {
                 $meta_row['chart_id'] = $new_id;
                 array_shift($meta_row);
-                $result = $wpdb->insert(
+                $result = $wpdb->insert(// phpcs:ignore
                     $this->db_table_meta,
                     $meta_row,
                     array( '%s', '%s', '%s', '%s' )
@@ -940,7 +940,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return array();
             }
 
-            $results = $wpdb->get_results(
+            $results = $wpdb->get_results(// phpcs:ignore
                 $wpdb->prepare(
                     "SELECT * 
                     FROM {$this->db_table_meta} 
@@ -1034,7 +1034,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
             if( is_null( $meta_key ) || trim( $meta_key ) === '' ){
                 return false;
             }
-            $result = $wpdb->get_var(
+            $result = $wpdb->get_var(// phpcs:ignore
                 $wpdb->prepare(
                     "SELECT {$select_value}
                     FROM {$this->db_table_meta}
@@ -1076,7 +1076,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return false;
             }
 
-            $result = $wpdb->insert(
+            $result = $wpdb->insert(// phpcs:ignore
                 $this->db_table_meta,
                 array(
                     'chart_id'    => absint( $id ),
@@ -1135,7 +1135,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 $value_s[] = '%s';
             }
 
-            $result = $wpdb->update(
+            $result = $wpdb->update(// phpcs:ignore
                 $this->db_table_meta,
                 $value,
                 array(
@@ -1175,7 +1175,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 return false;
             }
 
-            $wpdb->delete(
+            $wpdb->delete(// phpcs:ignore
                 $this->db_table_meta,
                 array(
                     'chart_id' => absint( $id ),

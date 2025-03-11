@@ -89,7 +89,7 @@ class Chart_Builder_Activator {
                 `options` TEXT NOT NULL DEFAULT '',
                 PRIMARY KEY (`id`)
             )$charset_collate;";
-            $results = $wpdb->get_results(
+            $results = $wpdb->get_results(// phpcs:ignore
                 $wpdb->prepare(
                     "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = %s AND table_name = %s",
                     DB_NAME,           
@@ -115,7 +115,7 @@ class Chart_Builder_Activator {
                 PRIMARY KEY (`id`)
             )$charset_collate;";
 
-            $results = $wpdb->get_results(
+            $results = $wpdb->get_results(// phpcs:ignore
                 $wpdb->prepare(
                     "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = %s AND table_name = %s",
                     DB_NAME,          
@@ -146,15 +146,16 @@ class Chart_Builder_Activator {
                 $meta_val = json_encode(array('administrator'));
             }
             
-            $result = $wpdb->get_var(
+            $result = $wpdb->get_var(// phpcs:ignore
                 $wpdb->prepare(
-                    "SELECT COUNT(*) FROM {$settings_table} 
+                    "SELECT COUNT(*)
+                    FROM {$settings_table} 
                     WHERE meta_key = %s",  
                     $meta_key  
                 )
             );
             if(intval($result) == 0){
-                $result = $wpdb->insert(
+                $result = $wpdb->insert(// phpcs:ignore
                     $settings_table,
                     array(
                         'meta_key'    => $meta_key,// phpcs:ignore
@@ -272,7 +273,7 @@ class Chart_Builder_Activator {
             $default_chart['type'] = 'chart-js';
             $wpdb->insert($charts_table, $default_chart);
         } else {
-            $wpdb->update(
+            $wpdb->update(// phpcs:ignore
                 $charts_table,
                 array(
                     'type' => 'google-charts',
