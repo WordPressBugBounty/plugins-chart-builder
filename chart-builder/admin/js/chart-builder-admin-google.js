@@ -164,7 +164,7 @@
 
 		_this.$el.find('.'+_this.htmlClassPrefix+'toggle-hidden-option').on('change', function () {
 			// var animationOptions = _this.$el.find('.'+_this.htmlClassPrefix+'hidden-options-section');
-			var currentSettings = $(this).parents('.' + _this.htmlClassPrefix + 'settings-data-main-wrap')
+			var currentSettings = $(this).parents('.' + _this.htmlClassPrefix + 'settings-data-main-wrap');
 			var hiddenSection = currentSettings.find('.' + _this.htmlClassPrefix + 'hidden-options-section');
 			var notHiddenSection = currentSettings.find('.' + _this.htmlClassPrefix + 'not-hidden-options-section');
 
@@ -184,6 +184,7 @@
 
 		_this.$el.on("click", '.'+_this.htmlClassPrefix+'charts-change-type-type', function(){
 			_this.chartType = $(this).attr('data-type');
+			_this.configureOptions();
 			_this.changeChartType();
 			_this.$el.find('.'+_this.htmlClassPrefix+'charts-change-type-type').css('backgroundColor', '#e7e7e7');
 			$(this).css('backgroundColor', '#008cff63');

@@ -4,9 +4,9 @@
     } else {
         $ays_chart_tab = 'tab1';
     }
-    $action = isset( $_GET['action'] ) ? sanitize_text_field( $_GET['action'] ) : '';
+    $action = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash($_GET['action'] )) : '';
 
-    $id = (isset($_GET['id'])) ? absint( esc_attr($_GET['id']) ) : 0;
+    $id = (isset($_GET['id'])) ? absint( esc_attr(wp_unslash($_GET['id'])) ) : 0;
 
     $get_all_charts = CBActions()->get_charts('DESC');
 
@@ -363,10 +363,10 @@
             if ($action === "add") {
                 // Chart source type
                 $allowed_sources = ['google-charts', 'chart-js'];
-                $chart_source_type = isset($_GET['source']) && in_array($_GET['source'], $allowed_sources, true) ? sanitize_text_field($_GET['source']) : 'google-charts';
+                $chart_source_type = isset($_GET['source']) && in_array($_GET['source'], $allowed_sources, true) ? sanitize_text_field(wp_unslash($_GET['source'])) : 'google-charts';
 
                 // Chart type
-                $source_chart_type = isset($_GET['type']) ? sanitize_text_field($_GET['type']) : 'pie_chart';
+                $source_chart_type = isset($_GET['type']) ? sanitize_text_field(wp_unslash($_GET['type'])) : 'pie_chart';
             } else {
                 $chart_source_type = stripslashes( $chart['type'] );
                 $source_chart_type = stripslashes( $chart['source_chart_type'] );

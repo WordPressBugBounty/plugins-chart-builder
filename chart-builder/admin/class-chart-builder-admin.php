@@ -3992,9 +3992,9 @@ class Chart_Builder_Admin {
                     </div>
                 </div> <!-- Horizontal axis baseline color -->
 
-                <br>
-                <h6>Format</h6>
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                <br class="cb-changable-opt cb-bar_chart-opt cb-line_chart-opt" >
+                <h6 class="cb-changable-opt cb-bar_chart-opt cb-line_chart-opt">Format</h6>
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt cb-line_chart-opt" >
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-format" class="form-label">
                             <?php echo esc_html(__( "Format", "chart-builder" )); ?>
@@ -4042,7 +4042,7 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- Horizontal axis format -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt cb-line_chart-opt" >
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-max-value" class="form-label">
                             <?php echo esc_html(__( "Max value", "chart-builder" )); ?>
@@ -4055,7 +4055,7 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-max-value" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_max_value]" value="<?php echo esc_attr($haxis_max_value) ?>">
                     </div>
                 </div> <!-- Horizontal axis max value -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt cb-line_chart-opt" >
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-min-value" class="form-label">
                             <?php echo esc_html(__( "Min value", "chart-builder" )); ?>
@@ -4340,9 +4340,9 @@ class Chart_Builder_Admin {
                     </div>
                 </div> <!-- Vertical axis baseline color -->
                                 
-                <br>
-                <h6>Format</h6>
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                <br class="cb-changable-opt cb-column_chart-opt ">
+                <h6 class="cb-changable-opt cb-column_chart-opt">Format</h6>
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-format" class="form-label">
                             <?php echo esc_html(__( "Format", "chart-builder" )); ?>
@@ -4390,7 +4390,7 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- Vertical axis format -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-max-value" class="form-label">
                             <?php echo esc_html(__( "Max value", "chart-builder" )); ?>
@@ -4403,7 +4403,7 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-vaxis-max-value" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_max_value]" value="<?php echo esc_attr($vaxis_max_value) ?>">
                     </div>
                 </div> <!-- Vertical axis max value -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-min-value" class="form-label">
                             <?php echo esc_html(__( "Min value", "chart-builder" )); ?>
