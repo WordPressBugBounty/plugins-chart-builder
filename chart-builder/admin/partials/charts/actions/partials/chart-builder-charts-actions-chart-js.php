@@ -66,6 +66,7 @@
                             border: " . esc_attr($settings['border_width']) . "px " . esc_attr( $settings['border_style']) . " " . esc_attr($settings['border_color']) . ";
                             " . ($settings['box_shadow'] === "checked" ? "box-shadow: 2px 2px 10px 2px #000000;" : "") . "
                             border-radius: " . esc_attr($settings['border_radius']) . "px;
+                            background-color: " . esc_attr($settings['background_color_chart']) . ";
                         }
                             
                         div." . esc_attr($html_class_prefix) . "header-container {

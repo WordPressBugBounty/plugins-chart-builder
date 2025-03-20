@@ -5199,10 +5199,11 @@ class Chart_Builder_Admin {
 		$html_class_prefix = $args['html_class_prefix'];
 		$html_name_prefix = $args['html_name_prefix'];
 		$settings = $args['settings'];
-
+ 
         $border_width = $settings['border_width'];
         $border_radius = $settings['border_radius'];
         $border_color = $settings['border_color'];
+        $background_color_chart = $settings['background_color_chart'];
         $border_style = $settings['border_style'];
         $border_styles = $settings['border_styles'];
         $box_shadow = $settings['box_shadow'];
@@ -5271,6 +5272,19 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- Border style -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-backgorund-color">
+				            <?php echo esc_html(__( "Background Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("With the help of this feature, you will be able to add background color for the Chart JS.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-background-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[background_color_chart]" value="<?php echo esc_attr($background_color_chart) ?>">
+                    </div>
+                </div><!-- Background color -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-box-shadow" class="form-label">

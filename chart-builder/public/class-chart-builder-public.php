@@ -374,38 +374,39 @@ class Chart_Builder_Public {
 
 		$custom_css = "
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . " {
-				border: " . $settings['border_width'] . "px " . $settings['border_style'] . " " . $settings['border_color'] . ";
-				border-radius: " . $settings['border_radius'] . "px;
+				border: " . esc_attr($settings['border_width']) . "px " . esc_attr($settings['border_style']) . " " . esc_attr($settings['border_color']) . ";
+				border-radius: " . esc_attr($settings['border_radius']) . "px;
 				box-shadow: " . ($settings['box_shadow'] === 'checked' ? '2px 2px 10px 2px #000000' : '') . ";
-			}
+				background-color: " . esc_attr($settings['background_color_chart']) . ";
+				}
 
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "header-container {
-				margin-bottom: " . $settings['title_gap'] . "px !important;
+				margin-bottom: " . esc_attr($settings['title_gap']) . "px !important;
 			}
 
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "header-container>." . $this->html_class_prefix . "charts-title" . $this->unique_id . " {
-				color: " . $settings['title_color'] . ";
-				font-size: " . $settings['title_font_size'] . "px;
-				font-weight: " . $settings['title_bold'] . ";
-				text-shadow: " . ($settings['title_text_shadow'] === 'checked' ? '2px 2px 5px '.$settings['title_shadow_color'] : '') . ";
-				font-style: " . $settings['title_italic'] . ";
-				text-align: " . $settings['title_position'] . ";
-				text-transform: " . $settings['title_text_transform'] . ";
-				text-decoration: " . $settings['title_text_decoration'] . ";
-				letter-spacing: " . $settings['title_letter_spacing'] . "px;
-				margin-bottom: " . $settings['title_gap_description'] . "px;
+				color: " . esc_attr($settings['title_color']) . ";
+				font-size: " . esc_attr($settings['title_font_size']) . "px;
+				font-weight: " . esc_attr($settings['title_bold'] ). ";
+				text-shadow: " . ($settings['title_text_shadow'] === 'checked' ? '2px 2px 5px '.esc_attr($settings['title_shadow_color'] ): '') . ";
+				font-style: " . esc_attr($settings['title_italic']) . ";
+				text-align: " . esc_attr($settings['title_position'] ). ";
+				text-transform: " . esc_attr($settings['title_text_transform'] ). ";
+				text-decoration: " . esc_attr($settings['title_text_decoration']) . ";
+				letter-spacing: " . esc_attr($settings['title_letter_spacing'] ). "px;
+				margin-bottom: " . esc_attr($settings['title_gap_description']) . "px;
 			}
 
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "header-container>." . $this->html_class_prefix . "charts-description" . $this->unique_id . " {
-				color: " . $settings['description_color'] . ";
-				font-size: " . $settings['description_font_size'] . "px; 
-				font-weight: " . $settings['description_bold'] . ";
-				text-shadow: " . ($settings['description_text_shadow'] === 'checked' ? '2px 2px 5px '.$settings['description_shadow_color'] : '') . ";
-				font-style: " . $settings['description_italic'] . ";
-				text-align: " . $settings['description_position'] . ";
-				text-transform: " . $settings['description_text_transform'] . ";
-				text-decoration: " . $settings['description_text_decoration'] . ";
-				letter-spacing: " . $settings['description_letter_spacing'] . "px;
+				color: " . esc_attr($settings['description_color']) . ";
+				font-size: " . esc_attr($settings['description_font_size']) . "px; 
+				font-weight: " . esc_attr($settings['description_bold']) . ";
+				text-shadow: " . ($settings['description_text_shadow'] === 'checked' ? '2px 2px 5px '. esc_attr($settings['description_shadow_color']) : '') . ";
+				font-style: " . esc_attr($settings['description_italic']) . ";
+				text-align: " . esc_attr($settings['description_position']) . ";
+				text-transform: " . esc_attr($settings['description_text_transform']) . ";
+				text-decoration: " . esc_attr($settings['description_text_decoration']) . ";
+				letter-spacing: " . esc_attr($settings['description_letter_spacing']) . "px;
 			}
 		";
         wp_add_inline_style($this->plugin_name, $custom_css);

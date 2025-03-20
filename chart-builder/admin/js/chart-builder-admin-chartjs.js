@@ -184,6 +184,12 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-background-color').on('input', function () {
+				_this.chartSourceData.settings.background_color = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('background-color', $(this).val());
+				_this.chartObject.update();
+			});
+			
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-box-shadow').on('change', function () {
 				console.log($(this).is(':checked'));
 				if ($(this).is(':checked')) {
