@@ -1513,7 +1513,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Background color
 			$settings['background_color_chart'] = isset( $settings['background_color_chart'] ) && $settings['background_color_chart'] != '' ? esc_attr( $settings['background_color_chart'] ) : '#ffffff';
-
+			
+			//Box shadow color
+			$settings['box_shadow_color'] = isset( $settings['box_shadow_color'] ) && $settings['box_shadow_color'] != '' ? esc_attr( $settings['box_shadow_color'] ) : $settings['border_color'];
+						
 			// Border style
 			$settings['border_style'] = isset( $settings['border_style'] ) && $settings['border_style'] != '' ? esc_attr( $settings['border_style'] ) : 'solid';
 			$settings['border_styles'] = $border_styles;
@@ -1647,6 +1650,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Border color
 			$settings['border_color'] = isset( $settings['border_color'] ) && $settings['border_color'] != '' ? esc_attr( $settings['border_color'] ) : '#000000';
+
+			//Box shadow color
+			$settings['box_shadow_color'] = isset( $settings['box_shadow_color'] ) && $settings['box_shadow_color'] != '' ? esc_attr( $settings['box_shadow_color'] ) : $settings['border_color'];
 
 			// Border style
 			$settings['border_style'] = isset( $settings['border_style'] ) && $settings['border_style'] != '' ? esc_attr( $settings['border_style'] ) : 'solid';

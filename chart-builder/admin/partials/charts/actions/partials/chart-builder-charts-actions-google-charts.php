@@ -75,7 +75,7 @@
                             width: " . esc_attr($settings['width']).esc_attr($settings['width_format']) . ";
                             height: " . esc_attr($settings['height']).esc_attr($settings['height_format']) . ";
                             border-radius: " . esc_attr($settings['border_radius']) . "px;
-                            " . ($settings['box_shadow'] === "checked" ? "box-shadow: 2px 2px 10px 2px " . esc_attr( $settings['box_shadow_color']) . ";" : "") . "
+                            " . ($settings['box_shadow'] === "checked" ? "box-shadow: 2px 2px 10px 2px " . esc_attr( $settings['box_shadow_color']) . ";" : "") . ";
                             border: " . esc_attr($settings['border_width']) . "px " . esc_attr($settings['border_style'] ). " " . esc_attr($settings['border_color']) . ";
                         }
                             

@@ -376,7 +376,7 @@ class Chart_Builder_Public {
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . " {
 				border: " . esc_attr($settings['border_width']) . "px " . esc_attr($settings['border_style']) . " " . esc_attr($settings['border_color']) . ";
 				border-radius: " . esc_attr($settings['border_radius']) . "px;
-				box-shadow: " . ($settings['box_shadow'] === 'checked' ? '2px 2px 10px 2px #000000' : '') . ";
+				box-shadow: " . ($settings['box_shadow'] === 'checked' ? '2px 2px 10px 2px '. $settings['box_shadow_color'] : '') . ";
 				background-color: " . esc_attr($settings['background_color_chart']) . ";
 				}
 
