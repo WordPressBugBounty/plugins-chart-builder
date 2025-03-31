@@ -5199,7 +5199,7 @@ class Chart_Builder_Admin {
 		$html_class_prefix = $args['html_class_prefix'];
 		$html_name_prefix = $args['html_name_prefix'];
 		$settings = $args['settings'];
- 
+        $border_width_with_title = $settings['border_width_with_title'];
         $border_width = $settings['border_width'];
         $border_radius = $settings['border_radius'];
         $border_color = $settings['border_color'];
@@ -5286,6 +5286,7 @@ class Chart_Builder_Admin {
                         <input id="ays-chart-option-background-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[background_color_chart]" value="<?php echo esc_attr($background_color_chart) ?>">
                     </div>
                 </div><!-- Background color -->
+              
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-box-shadow" class="form-label">
@@ -5315,6 +5316,19 @@ class Chart_Builder_Admin {
                     <input id="ays-chart-option-box-shadow-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[box_shadow_color]" value="<?php echo esc_attr($box_shadow_color) ?>">
                     </div>
                 </div> <!-- box shadow color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-border-width-with-title">
+				            <?php echo esc_html(__( "Border Width (including title)", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The width of the chart container border including chart title and description.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-border-width-with-title" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_width_with_title]" value="<?php echo esc_attr($border_width_with_title) ?>">
+                    </div>
+                </div> <!-- Border Width with title -->
             </div>
         </div>
 		<?php

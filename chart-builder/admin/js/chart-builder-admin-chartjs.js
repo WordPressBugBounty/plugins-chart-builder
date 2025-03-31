@@ -190,6 +190,12 @@
 				_this.chartObject.update();
 			});
 			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-width-with-title').on('input', function () {
+				_this.chartSourceData.settings.border_width_with_title = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'container').css('border-width', $(this).val() + 'px');
+				_this.chartObject.update();
+			});
+			
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-box-shadow').on('change', function () {
 				console.log($(this).is(':checked'));
 				if ($(this).is(':checked')) {

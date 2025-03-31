@@ -1514,6 +1514,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Background color
 			$settings['background_color_chart'] = isset( $settings['background_color_chart'] ) && $settings['background_color_chart'] != '' ? esc_attr( $settings['background_color_chart'] ) : '#ffffff';
 			
+			// Border width with title
+			$settings['border_width_with_title'] = isset( $settings['border_width_with_title'] ) && $settings['border_width_with_title'] != '' ? esc_attr( $settings['border_width_with_title'] ) : '0';
+			
 			//Box shadow color
 			$settings['box_shadow_color'] = isset( $settings['box_shadow_color'] ) && $settings['box_shadow_color'] != '' ? esc_attr( $settings['box_shadow_color'] ) : $settings['border_color'];
 						
@@ -1660,6 +1663,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Background color
 			$settings['background_color_chart'] = isset( $settings['background_color_chart'] ) && $settings['background_color_chart'] != '' ? esc_attr( $settings['background_color_chart'] ) : '#ffffff';
 
+			// Border width with title
+			$settings['border_width_with_title'] = isset( $settings['border_width_with_title'] ) && $settings['border_width_with_title'] != '' ? esc_attr( $settings['border_width_with_title'] ) : '0';
+			
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;
 			

@@ -373,6 +373,10 @@ class Chart_Builder_Public {
 		$content[] = "</div>";
 
 		$custom_css = "
+			#" . $this->html_class_prefix . "container" . $this->unique_id . " {
+				border: " . esc_attr($settings['border_width_with_title']) . "px solid black;
+			}
+
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . " {
 				border: " . esc_attr($settings['border_width']) . "px " . esc_attr($settings['border_style']) . " " . esc_attr($settings['border_color']) . ";
 				border-radius: " . esc_attr($settings['border_radius']) . "px;
