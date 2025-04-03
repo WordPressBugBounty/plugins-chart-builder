@@ -59,6 +59,7 @@
                             position: sticky;
                             top: 50px;
                             border: " . esc_attr($settings['border_width_with_title']) . "px solid black;
+                            border-radius: " . esc_attr($settings['border_radius_with_title']) . "px;
                         }
                             
                         div." . esc_attr($html_class_prefix) . "charts-main-container {

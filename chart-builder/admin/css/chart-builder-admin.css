@@ -1345,6 +1345,9 @@ p.ays-subtitle{
     margin-top: 20px;
     font-size: 18px;
     font-weight: 500;
+    display:flex;
+    gap:20px;
+    align-items: center;
 }
 
 p.submit{

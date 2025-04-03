@@ -31,8 +31,8 @@
                     <div class="ays-chart-subtitle-main-box">
                         <p class="ays-subtitle">
                             <?php if(isset($id) && count($get_all_charts) > 1):?>
-                                <i class="ays_fa ays_fa_arrow_down ays-subtitle-inner-charts-page ays-chart-open-charts-list"></i>   
                                 <strong class="ays_chart_title_in_top"><?php echo esc_attr( stripslashes( $object['title'] ) ); ?></strong>
+                                <img class="ays-subtitle-inner-charts-page ays-chart-open-charts-list" src="<?php echo esc_url(plugins_url('/images/icons/list_icon_svg.svg', dirname(__FILE__, 3))) // phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>" alt="" >
                             <?php endif; ?>
                         </p>
                         <?php if(isset($id) && count($get_all_charts) > 1):?>
@@ -43,7 +43,7 @@
                                         <input type="radio" class="ays-chart-charts-each-data-checker" hidden id="ays_chart_message_var_count_<?php echo esc_attr($var_counter)?>" name="ays_chart_message_var_count">
                                         <div class="ays-chart-charts-each-data">
                                             <input type="hidden" class="ays-chart-charts-each-var" value="<?php echo esc_attr($var); ?>">
-                                            <a href="?page=chart-builder&action=edit&id=<?php echo esc_attr($var_name['id']); ?>" target="_blank" class="ays-chart-go-to-charts"><span><?php echo esc_attr(stripslashes($var_name['title'])); ?></span></a>
+                                            <a href="?page=chart-builder&action=edit&id=<?php echo esc_attr($var_name['id']); ?>" target="_blank" class="ays-chart-go-to-charts" style="color:black;"><span><?php echo esc_attr(stripslashes($var_name['title'])); ?></span></a>
                                         </div>
                                     </label>              
                                 <?php endforeach ?>
