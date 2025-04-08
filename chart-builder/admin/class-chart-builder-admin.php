@@ -823,7 +823,7 @@ class Chart_Builder_Admin {
             if ( isset( $_GET['page'] ) && strpos( sanitize_text_field( wp_unslash( $_GET['page'] ) ), CHART_BUILDER_NAME ) !== false ) {
                 if( !(Chart_Builder_Admin::get_max_id('charts') <= 1) ){
                     // $this->ays_chart_sale_message_30_emma($ays_chart_builder_flag);
-                    $this->ays_chart_sale_message20($ays_chart_builder_flag);
+                    $this->ays_chart_new_silver_bundle_message_2025($ays_chart_builder_flag);
                     // $this->ays_chart_helloween_message($ays_chart_builder_flag);
                     // $this->ays_chart_christmas_message($ays_chart_builder_flag);
                     // $this->ays_chart_silver_bundle_message($ays_chart_builder_flag);
@@ -1389,6 +1389,89 @@ class Chart_Builder_Admin {
             echo wp_kses_post( html_entity_decode( $content, ENT_QUOTES, 'UTF-8' ) );
         }
     }
+
+    //silver bundle
+    public function ays_chart_new_silver_bundle_message_2025($ishmar){
+        if($ishmar == 0 ){
+            $content = array();
+
+            $content[] = '<div id="ays-chart-new-silver-bundle-2025-dicount-month-main" class="notice notice-success is-dismissible ays_chart_dicount_info">';
+                $content[] = '<div id="ays-chart-dicount-month" class="ays_chart_dicount_month">';
+
+                    $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-text-box">';
+                        $content[] = '<div>';
+
+                            $content[] = '<span class="ays-chart-new-silver-bundle-2025-title">';
+                                $content[] = __( "<span><a href='https://ays-pro.com/silver-bundle' target='_blank' style='color:#ffffff; text-decoration: underline;'>Silver Bundle</a></span> (Quiz + Form + Chart)", 'quiz-maker' );
+                            $content[] = '</span>';
+
+                            $content[] = '</br>';
+
+                            $content[] = '<span class="ays-chart-new-silver-bundle-2025-desc">';
+                                $content[] = __( "30 Day Money Back Guarantee", 'chart-builder' );
+                            $content[] = '</span>';
+                        $content[] = '</div>';
+
+                        $content[] = '<div>';
+                                $content[] = '<img class="ays-chart-new-silver-bundle-guaranteeicon" src="' . CHART_BUILDER_ADMIN_URL . '/images/ays-chart-silver-bundle-2025-discount.svg" style="width: 80px;">';
+                        $content[] = '</div>';
+
+                        $content[] = '<div style="position: absolute;right: 10px;bottom: 1px;" class="ays-chart-dismiss-buttons-container-for-form">';
+
+                            $content[] = '<form action="" method="POST">';
+                                $content[] = '<div id="ays-chart-dismiss-buttons-content">';
+                                if( current_user_can( 'manage_options' ) ){
+                                    $content[] = '<button class="btn btn-link ays-button" name="ays_chart_sale_btn" style="height: 32px; margin-left: 0;padding-left: 0">'. __( "Dismiss ad", 'chart-builder' ) .'</button>';
+                                    $content[] = wp_nonce_field( CHART_BUILDER_NAME . '-sale-banner' ,  CHART_BUILDER_NAME . '-sale-banner' );
+                                }
+                                $content[] = '</div>';
+                            $content[] = '</form>';
+                            
+                        $content[] = '</div>';
+
+                    $content[] = '</div>';
+
+                    $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-countdown-box">';
+
+                        $content[] = '<div id="ays-chart-countdown-main-container">';
+                            $content[] = '<div class="ays-chart-countdown-container">';
+
+                                $content[] = '<div id="ays-chart-countdown">';
+
+                                    $content[] = '<ul>';
+                                        $content[] = '<li><span id="ays-chart-countdown-days"></span>'. __( "Days", 'chart-builder' ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-hours"></span>'. __( "Hours", 'chart-builder' ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-minutes"></span>'. __( "Minutes", 'chart-builder' ) .'</li>';
+                                        $content[] = '<li><span id="ays-chart-countdown-seconds"></span>'. __( "Seconds", 'chart-builder' ) .'</li>';
+                                    $content[] = '</ul>';
+                                $content[] = '</div>';
+
+                                $content[] = '<div id="ays-chart-countdown-content" class="emoji">';
+                                    $content[] = '<span></span>';
+                                    $content[] = '<span></span>';
+                                    $content[] = '<span></span>';
+                                    $content[] = '<span></span>';
+                                $content[] = '</div>';
+
+                            $content[] = '</div>';
+                        $content[] = '</div>';
+                            
+                    $content[] = '</div>';
+
+                    $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-button-box">';
+                        $content[] = '<a href="https://ays-pro.com/silver-bundle" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Buy Now', 'chart-builder' ) . '</a>';
+                        $content[] = '<span class="ays-chart-dicount-one-time-text">';
+                            $content[] = __( "One-time payment", 'chart-builder' );
+                        $content[] = '</span>';
+                    $content[] = '</div>';
+                $content[] = '</div>';
+            $content[] = '</div>';
+
+            $content = implode( '', $content );
+            echo wp_kses_post($content);
+        }
+    }
+
 
     // Christmas Top Banner 2024
     public function ays_chart_christmas_message_2024($ishmar){
