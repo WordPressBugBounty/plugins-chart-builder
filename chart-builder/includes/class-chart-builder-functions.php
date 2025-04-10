@@ -985,7 +985,8 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['series_line_width'] = isset( $settings['series_line_width'] ) && $settings['series_line_width'] != '' ? json_decode($settings['series_line_width'], true) : array_fill(0, $count_series, $settings['line_width']);
 			$settings['series_point_size'] = isset( $settings['series_point_size'] ) && $settings['series_point_size'] != '' ? json_decode($settings['series_point_size'], true) : array_fill(0, $count_series, $settings['point_size']);
 			$settings['series_point_shape'] = isset( $settings['series_point_shape'] ) && $settings['series_point_shape'] != '' ? json_decode($settings['series_point_shape'], true) : array_fill(0, $count_series, $settings['point_shape']);
-
+			$settings['series_format'] = isset( $settings['series_format'] ) && $settings['series_format'] != '' ? json_decode($settings['series_format'], true) : array_fill(0, $count_series, '');
+			
 			// Rows settings
 			$settings['enable_row_settings'] = ( isset( $settings['enable_row_settings'] ) && $settings['enable_row_settings'] != '' ) ? $settings['enable_row_settings'] : 'on';
 			$settings['enable_row_settings'] = isset( $settings['enable_row_settings'] ) && $settings['enable_row_settings'] == 'on' ? 'checked' : '';
@@ -1374,7 +1375,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['series_line_width'] = isset( $settings['series_line_width'] ) && $settings['series_line_width'] != '' ? json_decode($settings['series_line_width'], true) : array_fill(0, $count_series, $settings['line_width']);
 			$settings['series_point_size'] = isset( $settings['series_point_size'] ) && $settings['series_point_size'] != '' ? json_decode($settings['series_point_size'], true) : array_fill(0, $count_series, $settings['point_size']);
 			$settings['series_point_shape'] = isset( $settings['series_point_shape'] ) && $settings['series_point_shape'] != '' ? json_decode($settings['series_point_shape'], true) : array_fill(0, $count_series, $settings['point_shape']);
-
+			$settings['series_format'] = isset( $settings['series_format'] ) && $settings['series_format'] != '' ? json_decode($settings['series_format'], true) : array_fill(0, $count_series, '');
 			// Rows settings
 			$settings['enable_row_settings'] = ( isset( $settings['enable_row_settings'] ) && $settings['enable_row_settings'] != '' ) ? $settings['enable_row_settings'] : 'on';
 			

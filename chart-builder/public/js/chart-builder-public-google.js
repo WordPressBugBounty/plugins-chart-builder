@@ -316,7 +316,14 @@
 					easing: nSettings.animationEasing,
 				}
 			}
-
+			for (var i = 1; i < dataTypes[0].length; i++) {
+				if (nSettings.seriesFormat[i - 1]) {
+					var formatter = new google.visualization.NumberFormat({ 
+						pattern: nSettings.seriesFormat[i - 1]
+					});
+					formatter.format(_this.chartData, i);
+				}
+			}
 			_this.chartObj = new google.visualization.BarChart(document.getElementById(_this.htmlClassPrefix + _this.chartType + _this.uniqueId));
 
 			_this.chartObj.draw( _this.chartData, _this.chartOptions );
@@ -465,7 +472,14 @@
 					visibleInLegend: nSettings.seriesVisibleInLegend[i] == 'on' ? true : (typeof nSettings.seriesColor[i] !== 'undefined' ? false : true),
 				}
 			}
-
+			for (var i = 1; i < dataTypes[0].length; i++) {
+				if (nSettings.seriesFormat[i - 1]) {
+					var formatter = new google.visualization.NumberFormat({ 
+						pattern: nSettings.seriesFormat[i - 1]
+					});
+					formatter.format(_this.chartData, i);
+				}
+			}
 			if (nSettings.enableAnimation) {
 				_this.chartOptions.animation = {
 					startup: nSettings.animationStartup,
@@ -632,7 +646,14 @@
 					pointShape: nSettings.seriesPointShape[i],
 				}
 			}
-
+			for (var i = 1; i < dataTypes[0].length; i++) {
+				if (nSettings.seriesFormat[i - 1]) {
+					var formatter = new google.visualization.NumberFormat({ 
+						pattern: nSettings.seriesFormat[i - 1]
+					});
+					formatter.format(_this.chartData, i);
+				}
+			}
 			if (nSettings.enableAnimation) {
 				_this.chartOptions.animation = {
 					startup: nSettings.animationStartup,
@@ -881,6 +902,7 @@
 		newSettings.animationStartup = (settings['animation_startup'] == 'off') ? false : true;
 		newSettings.animationEasing = settings['animation_easing'];
 		newSettings.seriesColor = settings['series_color'];
+		newSettings.seriesFormat = settings['series_format'];
 		newSettings.seriesVisibleInLegend = settings['series_visible_in_legend'];
 		newSettings.seriesLineWidth = settings['series_line_width'];
 		newSettings.seriesPointSize = settings['series_point_size'];

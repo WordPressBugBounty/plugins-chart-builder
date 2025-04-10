@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
 Tested up to: 6.7.2
-Stable tag: 3.3.4
+Stable tag: 3.3.5
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -249,8 +249,11 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 == Changelog ==
 
+= 3.3.5 =
+* Added: Chart Series Format Option
+
 = 3.3.4 =
-* Added: New Silver bundle 2025 banner
+* Improved: Some styles on the admin dashboard
 
 = 3.3.3 =
 * Added: Chart Border Radius (including title) option for Chart JS

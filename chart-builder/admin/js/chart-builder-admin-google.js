@@ -1083,6 +1083,14 @@
 				}
 			});
 			
+			_this.$el.find('.'+_this.htmlClassPrefix+'option-series-format').on('input', function () {
+				// if (!_this.$el.find('#'+_this.htmlClassPrefix+'option-enable-row-settings').is(':checked')) {
+					var id = $(this).attr('data-series-id');
+					_this.chartSourceData.settings.series_format[id] = $(this).val();
+					_this.drawChartFunction(_this.chartData, _this.chartOptions);
+				// }
+			});
+
 			_this.$el.find('.'+_this.htmlClassPrefix+'option-series-visible-in-legend').on('input', function () {
 				if (_this.chartSourceData.source[0].length > 2) {
 					var id = $(this).attr('data-series-id');
@@ -1607,7 +1615,31 @@
 					easing: nSettings.animationEasing,
 				}
 			}
-
+			// if(_this.chartOptions.hAxis.format == 'percent'){
+			// 	for (var row = 0; row < _this.chartData.getNumberOfRows(); row++) {
+			// 		for (var col = 0; col < _this.chartData.getNumberOfColumns(); col++) {
+			// 			var value = _this.chartData.getValue(row, col);
+			// 			if (typeof value === 'number' && !isNaN(value)) {
+			// 				// Divide the value by 100
+			// 				var updatedValue = value / 100;
+			// 				// Set the updated value in the chart data
+			// 				_this.chartData.setValue(row, col, updatedValue);
+			// 			}
+			// 		}
+			// 	}
+			// }
+			
+			for (var i = 1; i < dataTypes[0].length; i++) {
+				
+				if (nSettings.seriesFormat[i - 1]) {
+					var formatter = new google.visualization.NumberFormat({ 
+						pattern: nSettings.seriesFormat[i - 1]
+					});
+					formatter.format(_this.chartData, i);
+				}
+				
+				
+			}
 			_this.chartObj = new google.visualization.BarChart(document.getElementById(_this.htmlClassPrefix + _this.chartType));
 
 			_this.chartObj.draw( _this.chartData, _this.chartOptions );
@@ -1764,7 +1796,14 @@
         			easing: nSettings.animationEasing,
 				}
 			}
-
+			for (var i = 1; i < dataTypes[0].length; i++) {
+				if (nSettings.seriesFormat[i - 1]) {
+					var formatter = new google.visualization.NumberFormat({ 
+						pattern: nSettings.seriesFormat[i - 1]
+					});
+					formatter.format(_this.chartData, i);
+				}
+			}
 			_this.chartObj = new google.visualization.ColumnChart(document.getElementById(_this.htmlClassPrefix + _this.chartType));
 
 			_this.chartObj.draw( _this.chartData, _this.chartOptions );
@@ -1932,6 +1971,15 @@
         			easing: nSettings.animationEasing,
 				}
 			}
+			for (var i = 1; i < dataTypes[0].length; i++) {
+				if (nSettings.seriesFormat[i - 1]) {
+					var formatter = new google.visualization.NumberFormat({ 
+						pattern: nSettings.seriesFormat[i - 1]
+					});
+					formatter.format(_this.chartData, i);
+				}
+			}
+
 
 			_this.chartObj = new google.visualization.LineChart(document.getElementById(_this.htmlClassPrefix + _this.chartType));
 
@@ -2213,6 +2261,7 @@
 		newSettings.animationStartup = (settings['animation_startup'] == 'checked') ? true : false;
 		newSettings.animationEasing = settings['animation_easing'];
 		newSettings.seriesColor = settings['series_color'];
+		newSettings.seriesFormat = settings['series_format'];
 		newSettings.seriesVisibleInLegend = settings['series_visible_in_legend'];
 		newSettings.seriesLineWidth = settings['series_line_width'];
 		newSettings.seriesPointSize = settings['series_point_size'];

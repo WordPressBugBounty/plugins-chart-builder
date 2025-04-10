@@ -7520,6 +7520,7 @@ class Chart_Builder_Admin {
 			$title = array_shift($series_row);
             $series_color = $settings['series_color'];
             $series_colors_default = $settings['series_colors_default'];
+            $series_format = $settings['series_format'];
             $series_visible_in_legend = $settings['series_visible_in_legend'];
             $series_line_width = $settings['series_line_width'];
             $series_point_size = $settings['series_point_size'];
@@ -7581,6 +7582,24 @@ class Chart_Builder_Admin {
                                                     </label>
                                                 </div>
                                             </div> <!-- Series visible in legend -->
+                                            <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                                                <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                                                    <label for="ays-chart-option-series-color">
+                                                        <?php echo esc_html(__( "Format", "chart-builder" )); ?>
+                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The format of series data.The format string is a subset of the ICU pattern set . For instance, '#,###%' will result in output values '1,000%', '750%', and '50%' for values 10, 7.5, and 0.5.","chart-builder") ); ?>">
+															<i class="ays_fa ays_fa_info_circle"></i>
+														</a>
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                                                    <input type="text"
+                                                        id="ays-chart-option-series-format-<?php echo $key; ?>" 
+                                                        class="ays-chart-option-series-format ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" 
+                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[series_format][<?php echo $key; ?>]" 
+                                                        value="<?php echo isset($series_format[$key]) && '' !== $series_format[$key] ? esc_attr($series_format[$key]) : ''; ?>" 
+                                                        data-series-id="<?php echo $key; ?>">
+                                                </div>
+                                            </div> <!-- Format -->
                                             <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-line_chart-opt display_none">
                                                 <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                                                     <label for="ays-chart-option-series-line-width">
