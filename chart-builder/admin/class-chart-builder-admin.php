@@ -3783,6 +3783,7 @@ class Chart_Builder_Admin {
         $haxis_show_text_every = $settings['haxis_show_text_every'];
         $haxis_format_options = $settings['axes_format_options'];
         $haxis_format = $settings['haxis_format'];
+        $haxis_enable_divide_percent = $settings['haxis_enable_divide_percent'];
         $haxis_label_font_size = $settings['haxis_label_font_size'];
         $haxis_max_value = $settings['haxis_max_value'];
         $haxis_min_value = $settings['haxis_min_value'];
@@ -4075,9 +4076,9 @@ class Chart_Builder_Admin {
                     </div>
                 </div> <!-- Horizontal axis baseline color -->
 
-                <br class="cb-changable-opt cb-bar_chart-opt cb-line_chart-opt" >
-                <h6 class="cb-changable-opt cb-bar_chart-opt cb-line_chart-opt">Format</h6>
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt cb-line_chart-opt" >
+                <br class="cb-changable-opt cb-bar_chart-opt " >
+                <h6 class="cb-changable-opt cb-bar_chart-opt">Format</h6>
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt " >
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-format" class="form-label">
                             <?php echo esc_html(__( "Format", "chart-builder" )); ?>
@@ -4125,7 +4126,23 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- Horizontal axis format -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt cb-line_chart-opt" >
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section option-haxis-enable-divide-percent  cb-changable-opt cb-bar_chart-opt" style="<?php echo ($haxis_format == 'percent') ? '' : 'display: none;'; ?>">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-haxis-enable-divide-percent">
+				            <?php echo esc_html(__( "Remove Extra Zeros ", "chart-builder" )); ?>
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to hide extra 00's from the axis text if the Format option is set to 'Percent'. Note: Make sure to save chart, to see changes.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-haxis-enable-divide-percent" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_enable_divide_percent]" value="on" <?php echo esc_attr($haxis_enable_divide_percent); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!--Remove Extra Zeros"-->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt" >
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-max-value" class="form-label">
                             <?php echo esc_html(__( "Max value", "chart-builder" )); ?>
@@ -4138,7 +4155,7 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-haxis-max-value" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[haxis_max_value]" value="<?php echo esc_attr($haxis_max_value) ?>">
                     </div>
                 </div> <!-- Horizontal axis max value -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt cb-line_chart-opt" >
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-bar_chart-opt" >
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-haxis-min-value" class="form-label">
                             <?php echo esc_html(__( "Min value", "chart-builder" )); ?>
@@ -4179,6 +4196,7 @@ class Chart_Builder_Admin {
         $vaxis_baseline_color = $settings['vaxis_baseline_color'];
         $vaxis_format_options = $settings['axes_format_options'];
         $vaxis_format = $settings['vaxis_format'];
+        $vaxis_enable_divide_percent = $settings['vaxis_enable_divide_percent'];
         $vaxis_label_font_size = $settings['vaxis_label_font_size'];
         $vaxis_max_value = $settings['vaxis_max_value'];
         $vaxis_min_value = $settings['vaxis_min_value'];
@@ -4423,9 +4441,9 @@ class Chart_Builder_Admin {
                     </div>
                 </div> <!-- Vertical axis baseline color -->
                                 
-                <br class="cb-changable-opt cb-column_chart-opt ">
-                <h6 class="cb-changable-opt cb-column_chart-opt">Format</h6>
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt">
+                <br class="cb-changable-opt cb-column_chart-opt cb-line_chart-opt">
+                <h6 class="cb-changable-opt cb-column_chart-opt cb-line_chart-opt">Format</h6>
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt cb-line_chart-opt">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-format" class="form-label">
                             <?php echo esc_html(__( "Format", "chart-builder" )); ?>
@@ -4473,7 +4491,23 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- Vertical axis format -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section option-vaxis-enable-divide-percent cb-changable-opt cb-column_chart-opt cb-line_chart-opt" style="<?php echo ($vaxis_format == 'percent') ? '' : 'display: none;'; ?>">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-vaxis-enable-divide-percent">
+				            <?php echo esc_html(__( "Remove Extra Zeros", "chart-builder" )); ?>
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to hide extra 00's from the axis text if the Format option is set to 'Percent'. Note: Make sure to save chart, to see changes.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-vaxis-enable-divide-percent" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_enable_divide_percent]" value="on" <?php echo esc_attr($vaxis_enable_divide_percent); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!--Remove Extra Zeros-->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt cb-line_chart-opt">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-max-value" class="form-label">
                             <?php echo esc_html(__( "Max value", "chart-builder" )); ?>
@@ -4486,7 +4520,7 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-vaxis-max-value" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[vaxis_max_value]" value="<?php echo esc_attr($vaxis_max_value) ?>">
                     </div>
                 </div> <!-- Vertical axis max value -->
-                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-column_chart-opt cb-line_chart-opt">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-vaxis-min-value" class="form-label">
                             <?php echo esc_html(__( "Min value", "chart-builder" )); ?>
@@ -7586,7 +7620,7 @@ class Chart_Builder_Admin {
                                                 <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                                                     <label for="ays-chart-option-series-color">
                                                         <?php echo esc_html(__( "Format", "chart-builder" )); ?>
-                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The format of series data.The format string is a subset of the ICU pattern set . For instance, '#,###%' will result in output values '1,000%', '750%', and '50%' for values 10, 7.5, and 0.5.","chart-builder") ); ?>">
+                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo htmlspecialchars( __("The format of series data. The format string is a subset of the ICU pattern set . For instance, '#,###%' will result in output values '1,000%', '750%', and '50%' for values 10, 7.5, and 0.5. Note: This option won't work if the axes 'Remove Extra Zeros' option is enabled.","chart-builder") ); ?>">
 															<i class="ays_fa ays_fa_info_circle"></i>
 														</a>
                                                     </label>

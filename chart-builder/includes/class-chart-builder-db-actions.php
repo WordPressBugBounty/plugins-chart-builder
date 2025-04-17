@@ -558,6 +558,8 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 $settings['reverse_categories'] = ( isset( $settings['reverse_categories'] ) && $settings['reverse_categories'] != '' ) ? sanitize_text_field($settings['reverse_categories']) : 'off';
                 $settings['haxis_title_italic'] = ( isset( $settings['haxis_title_italic'] ) && $settings['haxis_title_italic'] != '' ) ? sanitize_text_field($settings['haxis_title_italic']) : 'off';
                 $settings['haxis_title_bold'] = ( isset( $settings['haxis_title_bold'] ) && $settings['haxis_title_bold'] != '' ) ? sanitize_text_field($settings['haxis_title_bold']) : 'off';
+                $settings['haxis_enable_divide_percent'] = ( isset( $settings['haxis_enable_divide_percent'] ) && $settings['haxis_enable_divide_percent'] != '' ) ? sanitize_text_field($settings['haxis_enable_divide_percent']) : 'off';
+                $settings['vaxis_enable_divide_percent'] = ( isset( $settings['vaxis_enable_divide_percent'] ) && $settings['vaxis_enable_divide_percent'] != '' ) ? sanitize_text_field($settings['vaxis_enable_divide_percent']) : 'off';
                 $settings['vaxis_title_italic'] = ( isset( $settings['vaxis_title_italic'] ) && $settings['vaxis_title_italic'] != '' ) ? sanitize_text_field($settings['vaxis_title_italic']) : 'off';
                 $settings['vaxis_title_bold'] = ( isset( $settings['vaxis_title_bold'] ) && $settings['vaxis_title_bold'] != '' ) ? sanitize_text_field($settings['vaxis_title_bold']) : 'off';
                 $settings['enable_row_settings'] = ( isset( $settings['enable_row_settings'] ) && $settings['enable_row_settings'] != '' ) ? sanitize_text_field($settings['enable_row_settings']) : 'off';

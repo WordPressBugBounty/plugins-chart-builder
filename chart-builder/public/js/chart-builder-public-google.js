@@ -316,6 +316,31 @@
 					easing: nSettings.animationEasing,
 				}
 			}
+			
+
+			if(_this.chartOptions.hAxis.format == 'percent' && nSettings.hAxisEnableDividePercent){
+				for (var i = 0; i < dataTypes[0].length - 1; i++) {
+						nSettings.seriesFormat[i] = '#%';
+				}
+				
+				for (var row = 0; row < _this.chartData.getNumberOfRows(); row++) {
+					for (var col = 0; col < _this.chartData.getNumberOfColumns(); col++) {
+						var value = _this.chartData.getValue(row, col);
+						if (typeof value === 'number' && !isNaN(value)) {
+							var updatedValue = value / 100;
+							_this.chartData.setValue(row, col, updatedValue);
+						}
+					}
+				}
+				
+			}else {
+				for (var i = 0; i < dataTypes[0].length - 1; i++) {
+					if (nSettings.seriesFormat[i] === '#%') {
+						nSettings.seriesFormat[i] = '';
+					}
+				}
+			}
+		
 			for (var i = 1; i < dataTypes[0].length; i++) {
 				if (nSettings.seriesFormat[i - 1]) {
 					var formatter = new google.visualization.NumberFormat({ 
@@ -470,6 +495,30 @@
 				_this.chartOptions.series[i] = {
 					color: nSettings.seriesColor[i],
 					visibleInLegend: nSettings.seriesVisibleInLegend[i] == 'on' ? true : (typeof nSettings.seriesColor[i] !== 'undefined' ? false : true),
+				}
+			}
+	
+			if(_this.chartOptions.vAxis.format == 'percent' && nSettings.vAxisEnableDividePercent){
+				for (var i = 0; i < dataTypes[0].length - 1; i++) {
+						nSettings.seriesFormat[i] = '#%';
+				}
+		
+
+				for (var row = 0; row < _this.chartData.getNumberOfRows(); row++) {
+					for (var col = 0; col < _this.chartData.getNumberOfColumns(); col++) {
+						var value = _this.chartData.getValue(row, col);
+						if (typeof value === 'number' && !isNaN(value)) {
+							var updatedValue = value / 100;
+							_this.chartData.setValue(row, col, updatedValue);
+						}
+					}
+				}
+				
+			}else {
+				for (var i = 0; i < dataTypes[0].length - 1; i++) {
+					if (nSettings.seriesFormat[i] === '#%') {
+						nSettings.seriesFormat[i] = '';
+					}
 				}
 			}
 			for (var i = 1; i < dataTypes[0].length; i++) {
@@ -644,6 +693,28 @@
 					lineWidth: nSettings.seriesLineWidth[i],
 					pointSize: nSettings.seriesPointSize[i],
 					pointShape: nSettings.seriesPointShape[i],
+				}
+			}
+			
+			if(_this.chartOptions.vAxis.format == 'percent' && nSettings.vAxisEnableDividePercent){
+				for (var i = 0; i < dataTypes[0].length - 1; i++) {
+						nSettings.seriesFormat[i] = '#%';
+				}
+				
+				for (var row = 0; row < _this.chartData.getNumberOfRows(); row++) {
+					for (var col = 0; col < _this.chartData.getNumberOfColumns(); col++) {
+						var value = _this.chartData.getValue(row, col);
+						if (typeof value === 'number' && !isNaN(value)) {
+							var updatedValue = value / 100;
+							_this.chartData.setValue(row, col, updatedValue);
+						}
+					}
+				}
+			}else {
+				for (var i = 0; i < dataTypes[0].length - 1; i++) {
+					if (nSettings.seriesFormat[i] === '#%') {
+						nSettings.seriesFormat[i] = '';
+					}
 				}
 			}
 			for (var i = 1; i < dataTypes[0].length; i++) {
@@ -857,6 +928,8 @@
 		newSettings.groupWidth = settings['group_width'] + newSettings.groupWidthFormat;
 		newSettings.hAxisTitle = settings['haxis_title'];
 		newSettings.vAxisTitle = settings['vaxis_title'];
+		newSettings.hAxisEnableDividePercent = (settings['haxis_enable_divide_percent'] == 'on' && settings['haxis_format'] == 'percent') ? true : false;
+		newSettings.vAxisEnableDividePercent = (settings['vaxis_enable_divide_percent'] == 'on' && settings['vaxis_format'] == 'percent') ? true : false;
 		newSettings.hAxisLabelFontSize = settings['haxis_label_font_size'];
 		newSettings.vAxisLabelFontSize = settings['vaxis_label_font_size'];
 		newSettings.hAxisLabelColor = settings['haxis_label_color'];

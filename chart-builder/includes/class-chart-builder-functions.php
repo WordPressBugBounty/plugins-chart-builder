@@ -916,6 +916,8 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['haxis_slanted_text_angle'] = isset( $settings['haxis_slanted_text_angle'] ) && $settings['haxis_slanted_text_angle'] != '' && $settings['haxis_slanted_text_angle'] != '0' ? esc_attr( $settings['haxis_slanted_text_angle'] ) : '30';
 			$settings['haxis_show_text_every'] = isset( $settings['haxis_show_text_every'] ) && $settings['haxis_show_text_every'] != '' ? esc_attr( $settings['haxis_show_text_every'] ) : '0';
 			$settings['haxis_format'] = isset( $settings['haxis_format'] ) && $settings['haxis_format'] != '' ? esc_attr( $settings['haxis_format'] ) : '';
+			$settings['haxis_enable_divide_percent'] = ( isset( $settings['haxis_enable_divide_percent'] ) && $settings['haxis_enable_divide_percent'] != '' ) ? $settings['haxis_enable_divide_percent'] : 'off';
+			$settings['haxis_enable_divide_percent'] = isset( $settings['haxis_enable_divide_percent'] ) && $settings['haxis_enable_divide_percent'] == 'on' ? 'checked' : '';
 			$settings['haxis_max_value'] = isset( $settings['haxis_max_value'] ) && $settings['haxis_max_value'] != '' ? esc_attr( $settings['haxis_max_value'] ) : null;
 			$settings['haxis_min_value'] = isset( $settings['haxis_min_value'] ) && $settings['haxis_min_value'] != '' ? esc_attr( $settings['haxis_min_value'] ) : null;
 			$settings['haxis_gridlines_count'] = isset( $settings['haxis_gridlines_count'] ) && $settings['haxis_gridlines_count'] != '' ? esc_attr( $settings['haxis_gridlines_count'] ) : -1;$settings['haxis_italic'] = ( isset( $settings['haxis_italic'] ) && $settings['haxis_italic'] != '' ) ? $settings['haxis_italic'] : 'off';
@@ -940,6 +942,8 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['vaxis_baseline_color'] = isset( $settings['vaxis_baseline_color'] ) && $settings['vaxis_baseline_color'] != '' ? esc_attr( $settings['vaxis_baseline_color'] ) : '#000000';
 			$settings['vaxis_text_font_size'] = isset( $settings['vaxis_text_font_size'] ) && $settings['vaxis_text_font_size'] != '' ? absint(esc_attr( $settings['vaxis_text_font_size'] )) : $settings['font_size'];
 			$settings['vaxis_format'] = isset( $settings['vaxis_format'] ) && $settings['vaxis_format'] != '' ? esc_attr( $settings['vaxis_format'] ) : '';
+			$settings['vaxis_enable_divide_percent'] = ( isset( $settings['vaxis_enable_divide_percent'] ) && $settings['vaxis_enable_divide_percent'] != '' ) ? $settings['vaxis_enable_divide_percent'] : 'off';
+			$settings['vaxis_enable_divide_percent'] = isset( $settings['vaxis_enable_divide_percent'] ) && $settings['vaxis_enable_divide_percent'] == 'on' ? 'checked' : '';
 			$settings['vaxis_max_value'] = isset( $settings['vaxis_max_value'] ) && $settings['vaxis_max_value'] != '' ? esc_attr( $settings['vaxis_max_value'] ) : null;
 			$settings['vaxis_min_value'] = isset( $settings['vaxis_min_value'] ) && $settings['vaxis_min_value'] != '' ? esc_attr( $settings['vaxis_min_value'] ) : null;
 			$settings['vaxis_gridlines_count'] = isset( $settings['vaxis_gridlines_count'] ) && $settings['vaxis_gridlines_count'] != '' ? esc_attr( $settings['vaxis_gridlines_count'] ) : -1;
@@ -1320,6 +1324,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['haxis_slanted_text_angle'] = isset( $settings['haxis_slanted_text_angle'] ) && $settings['haxis_slanted_text_angle'] != '' && $settings['haxis_slanted_text_angle'] != '0' ? esc_attr( $settings['haxis_slanted_text_angle'] ) : '30';
 			$settings['haxis_show_text_every'] = isset( $settings['haxis_show_text_every'] ) && $settings['haxis_show_text_every'] != '' ? esc_attr( $settings['haxis_show_text_every'] ) : '0';
 			$settings['haxis_format'] = isset( $settings['haxis_format'] ) && $settings['haxis_format'] != '' ? esc_attr( $settings['haxis_format'] ) : '';
+			$settings['haxis_enable_divide_percent'] = ( isset( $settings['haxis_enable_divide_percent'] ) && $settings['haxis_enable_divide_percent'] != '' ) ? $settings['haxis_enable_divide_percent'] : 'off';
 			$settings['haxis_max_value'] = isset( $settings['haxis_max_value'] ) && $settings['haxis_max_value'] != '' ? esc_attr( $settings['haxis_max_value'] ) : null;
 			$settings['haxis_min_value'] = isset( $settings['haxis_min_value'] ) && $settings['haxis_min_value'] != '' ? esc_attr( $settings['haxis_min_value'] ) : null;
 			$settings['haxis_gridlines_count'] = isset( $settings['haxis_gridlines_count'] ) && $settings['haxis_gridlines_count'] != '' ? esc_attr( $settings['haxis_gridlines_count'] ) : -1;
@@ -1340,6 +1345,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['vaxis_baseline_color'] = isset( $settings['vaxis_baseline_color'] ) && $settings['vaxis_baseline_color'] != '' ? esc_attr( $settings['vaxis_baseline_color'] ) : '#000000';
 			$settings['vaxis_text_font_size'] = isset( $settings['vaxis_text_font_size'] ) && $settings['vaxis_text_font_size'] != '' ? absint(esc_attr( $settings['vaxis_text_font_size'] )) : $settings['font_size'];
 			$settings['vaxis_format'] = isset( $settings['vaxis_format'] ) && $settings['vaxis_format'] != '' ? esc_attr( $settings['vaxis_format'] ) : '';
+			$settings['vaxis_enable_divide_percent'] = ( isset( $settings['vaxis_enable_divide_percent'] ) && $settings['vaxis_enable_divide_percent'] != '' ) ? $settings['vaxis_enable_divide_percent'] : 'off';
 			$settings['vaxis_max_value'] = isset( $settings['vaxis_max_value'] ) && $settings['vaxis_max_value'] != '' ? esc_attr( $settings['vaxis_max_value'] ) : null;
 			$settings['vaxis_min_value'] = isset( $settings['vaxis_min_value'] ) && $settings['vaxis_min_value'] != '' ? esc_attr( $settings['vaxis_min_value'] ) : null;
 			$settings['vaxis_gridlines_count'] = isset( $settings['vaxis_gridlines_count'] ) && $settings['vaxis_gridlines_count'] != '' ? esc_attr( $settings['vaxis_gridlines_count'] ) : -1;
