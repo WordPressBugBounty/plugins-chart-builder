@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 3.3.6
+Stable tag: 3.3.7
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -170,6 +170,7 @@ In case of any further questions feel free to contact us via the following [FREE
 
 * [Quiz Maker](https://wordpress.org/plugins/quiz-maker/) for creating advanced quizzes and exams easily and quickly.
 * [Survey Maker](https://wordpress.org/plugins/survey-maker/) for collecting data and analyze it.  
+* [Fox LMS](https://wordpress.org/plugins/fox-lms/) to easily build and manage online courses directly from your WordPress LMS website.
 * [Poll Maker](https://wordpress.org/plugins/poll-maker/) for creating powerful and interactive polls. 
 * [Popup Box](https://wordpress.org/plugins/ays-popup-box/), an easy way to create eye-catching and engaging popups. 
 * [Secure Copy Content Protection](https://wordpress.org/plugins/secure-copy-content-protection/) to protect web content from being plagiarized.
@@ -248,6 +249,9 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 3.3.7 =
+* Added: Auto-generate custom post for immediate chart preview on front-end
 
 = 3.3.6 =
 * Added: Added: Percent format fix toggle to remove extra zeros

@@ -342,6 +342,17 @@ class Chart_Builder_Public {
 		return $content;
 	}
 
+	public function add_custom_chart_styles() {
+		if (is_singular('ays_chart_preview')) {
+			echo '<style>
+				.entry-content .ays-chart-container-chartjs {
+					width: 60% !important;
+					margin:0 auto;
+				}
+			</style>';
+		}
+	}
+	
 	public function chartJsContent($chart, $settings, $chartData, $id) {
 		$chart_title = (isset($chart['title']) && $chart['title'] != '') ? stripslashes ( sanitize_text_field( $chart['title'] ) ) : '';
 		$chart_description = (isset($chart['description']) && $chart['description'] != '') ? stripslashes ( sanitize_text_field( $chart['description'] ) ) : '';

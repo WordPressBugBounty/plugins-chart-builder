@@ -233,6 +233,8 @@ class Chart_Builder {
 
 
         // Admin AJAX action
+		$this->loader->add_action('init', $plugin_admin, 'ays_chart_register_preview_post_type');
+		$this->loader->add_action('wp_ajax_ays_chart_create_preview',  $plugin_admin, 'ays_chart_create_preview');
         $this->loader->add_action( 'wp_ajax_ays_chart_admin_ajax', $plugin_admin, 'ays_admin_ajax' );
         $this->loader->add_action( 'wp_ajax_nopriv_ays_chart_admin_ajax', $plugin_admin, 'ays_admin_ajax' );
 		$this->loader->add_action( 'wp_ajax_deactivate_plugin_option_cb', $plugin_admin, 'deactivate_plugin_option');
@@ -264,7 +266,7 @@ class Chart_Builder {
 	private function define_public_hooks() {
 
 		$plugin_public = new Chart_Builder_Public( $this->get_plugin_name(), $this->get_version() );
-
+		$this->loader->add_action( 'wp_head', $plugin_public, 'add_custom_chart_styles' );
 		// $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		// $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 

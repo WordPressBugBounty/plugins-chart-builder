@@ -204,7 +204,8 @@ class Chart_Builder_Admin {
             'activated'                          => __( "Activated", "chart-builder" ),
             'errorMsg'                           => __( "Error", "chart-builder" ),
             'loadResource'                       => __( "Can't load resource.", "chart-builder" ),
-            'somethingWentWrong'                 => __( "Maybe something went wrong.", "chart-builder" ),            
+            'somethingWentWrong'                 => __( "Maybe something went wrong.", "chart-builder" ),   
+            'nonce'                              => wp_create_nonce('cbuilder_ajax_nonce'),         
             ) );
 
         wp_localize_script( $this->plugin_name . '-localized', 'aysChartBuilderChartSettings', array(
@@ -225,6 +226,7 @@ class Chart_Builder_Admin {
                     'quiz_maker_get_data' => wp_create_nonce( 'cbuilder-fetch-quiz-maker-data' ),
                     'quiz_maker_save_data' => wp_create_nonce( 'cbuilder-save-quiz-maker-data' ),
                     'author_user_search' => wp_create_nonce( 'cbuilder-author-user-search' ),
+                    
                 ),
                 'actions' => array(
                     'filter_get_props' => 'fetch_post_type_props',
@@ -278,6 +280,17 @@ class Chart_Builder_Admin {
                 wp_dequeue_script('mwai');
                 wp_dequeue_script('mwai-vendor');
             }
+
+            if (is_plugin_active('html5-video-player/html5-video-player.php')) {
+                wp_dequeue_style('h5vp-admin');
+                wp_dequeue_style('fs_common');
+            }
+            
+            if (is_plugin_active('panorama/panorama.php')) {
+                wp_dequeue_style('bppiv_admin_custom_css');
+                wp_dequeue_style('bppiv-custom-style');
+            }
+
         }
 	}
 
@@ -1402,7 +1415,7 @@ class Chart_Builder_Admin {
                         $content[] = '<div>';
 
                             $content[] = '<span class="ays-chart-new-silver-bundle-2025-title">';
-                                $content[] = __( "<span><a href='https://ays-pro.com/silver-bundle' target='_blank' style='color:#ffffff; text-decoration: underline;'>Silver Bundle</a></span> (Quiz + Form + Chart)", 'quiz-maker' );
+                                $content[] = __( "<span><a href='https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=new_silver_bundle_message_2025' style='color:#ffffff; text-decoration: underline;'>Silver Bundle</a></span> (Quiz + Form + Chart)", 'quiz-maker' );
                             $content[] = '</span>';
 
                             $content[] = '</br>';
@@ -1459,7 +1472,7 @@ class Chart_Builder_Admin {
                     $content[] = '</div>';
 
                     $content[] = '<div class="ays-chart-dicount-wrap-box ays-chart-dicount-wrap-button-box">';
-                        $content[] = '<a href="https://ays-pro.com/silver-bundle" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Buy Now', 'chart-builder' ) . '</a>';
+                        $content[] = '<a href="https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=new-silver-bundle-message-2025" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Buy Now', 'chart-builder' ) . '</a>';
                         $content[] = '<span class="ays-chart-dicount-one-time-text">';
                             $content[] = __( "One-time payment", 'chart-builder' );
                         $content[] = '</span>';
@@ -2424,6 +2437,105 @@ class Chart_Builder_Admin {
 				'msg' => __( 'Data was successfully saved.', "chart-builder" )
 			)
 		);
+	}
+
+    public function ays_chart_register_preview_post_type() {
+		register_post_type('ays_chart_preview', array(
+			'labels' => array(
+				'name' => 'Chart Previews',
+				'singular_name' => 'Chart Preview',
+			),
+			'public' => true,
+			'publicly_queryable' => true,
+			'show_ui' => true,
+			'show_in_menu' => false, 
+			'exclude_from_search' => true, 
+			'has_archive' => false,
+			'hierarchical' => false,
+			'supports' => array('title', 'editor'),
+			'rewrite' => array('slug' => 'chart-preview'),
+			'show_in_rest' => false,
+		));
+	}
+    
+    /**
+     * Create a preview post for a chart
+     * This function creates a draft custom post with the chart shortcode
+     * and returns the URL to view it
+     */
+	public function ays_chart_create_preview() {
+		// Check nonce for security
+		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'cbuilder_ajax_nonce')) {
+			wp_send_json(array(
+				'success' => false,
+				'message' => 'Security check failed'
+			));
+			wp_die();
+		}
+        
+		
+		// Get chart ID
+		$chart_id = isset($_POST['chart_id']) ? absint($_POST['chart_id']) : 0;
+		
+		if ($chart_id <= 0) {
+			wp_send_json(array(
+				'success' => false,
+				'message' => 'Invalid chart ID'
+			));
+			wp_die();
+		}
+		
+		// Create a unique title for the preview post
+		$chart_title = 'Chart Preview';
+	
+		global $wpdb;
+		$chart_table = $wpdb->prefix . 'ayschart_charts';
+		$chart_data = $wpdb->get_row($wpdb->prepare("SELECT title FROM $chart_table WHERE id = %d", $chart_id));
+		
+		if ($chart_data && isset($chart_data->title)) {
+			$chart_title = $chart_data->title . ' - Preview';
+		}
+		
+		$new_post = array(
+			'post_title'    => $chart_title,
+			'post_content'  => '[ays_chart id="' . $chart_id . '"]',
+			'post_status'   => 'draft',
+			'post_type'     => 'ays_chart_preview',
+			'post_author'   => get_current_user_id(),
+			'post_date'     => current_time('mysql'),
+		);
+		
+		$post_id = wp_insert_post($new_post);
+		
+		if (is_wp_error($post_id) || empty($post_id)) {
+			wp_send_json(array(
+				'success' => false,
+				'message' => is_wp_error($post_id) ? $post_id->get_error_message() : 'Failed to create preview post'
+			));
+			wp_die();
+		}
+		
+		update_post_meta($post_id, 'ays_chart_preview_id', $chart_id);
+		
+		$preview_url = "#";
+		if (!empty($post_id)) {
+			$custom_post_url = array(
+				'post_type' => 'ays_chart_preview',
+				'p'         => $post_id,
+				'preview'   => 'true',
+			);
+			$custom_post_url_ready = http_build_query($custom_post_url);
+			$preview_url = get_home_url();
+			$preview_url .= '/?' . $custom_post_url_ready;
+		}
+		
+		wp_send_json(array(
+			'success' => true,
+			'preview_url' => $preview_url,
+			'post_id' => $post_id
+		));
+ 
+		wp_die();
 	}
 
 	/**
