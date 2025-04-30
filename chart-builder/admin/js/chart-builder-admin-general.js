@@ -695,6 +695,11 @@
 		var createdNewChart = getCookie('ays_chart_created_new');
         if (createdNewChart && createdNewChart > 1) {
 			var url = new URL(window.location.href);
+			var getCustomPostId = getCookie('ays_chart_created_new_'+createdNewChart+'_post_id');
+            var link = "#";
+            if(getCustomPostId){
+                link = getCustomPostId;
+            }
 
             var parameterValue = url.searchParams.get("action");
             var htmlDefaultText = '<p style="margin-top:1rem;">For more detailed configuration visit <a href="admin.php?page=chart-builder&action=edit&id=' + createdNewChart + '">edit chart page</a>.</p>';
@@ -706,65 +711,17 @@
                 title: '<strong>Great job</strong>',
                 type: 'success',
                 html: '<p>Your chart is Created!<br>Copy the generated shortcode and paste it into any post or page to display the chart.</p><input type="text" id="ays-chart-create-new" onClick="this.setSelectionRange(0, this.value.length)" readonly value="[ays_chart id=\'' + createdNewChart + '\']" />' + htmlContent,
-                confirmButtonText: '<i class="ays_fa ays_fa_eye"></i> Preview Chart ' + previewButtonSvgIcon,
+                confirmButtonText: '<a href="'+ link +'" target="_blank">'+ 'Preview Chart' + ' ' + previewButtonSvgIcon +'</a>',
                 confirmButtonAriaLabel: 'Preview this chart',
 				showCloseButton: true,
                 focusConfirm: false,
                 cancelButtonText: '<i class="ays_fa ays_fa_thumbs_up"></i> Done',
                 cancelButtonAriaLabel: 'Thumbs up, done!',
-            	}).then(function(result) {
-                if (!result.dismiss) {
-					
-                    $.ajax({
-                        url: aysChartBuilderAdmin.ajaxUrl,
-                        method: 'post',
-                        dataType: 'json',
-                        data: {
-                            action: 'ays_chart_create_preview',
-                            chart_id: createdNewChart,
-                            nonce: aysChartBuilderAdmin.nonce
-                        },
-                        success: function(response) {
-						
-                            if(response.success) {
-                                var a = document.createElement('a');
-                                a.href = response.preview_url;
-                                a.target = '_blank';
-                                a.rel = 'noopener noreferrer';
-                                document.body.appendChild(a);
-                                a.click();
-                                document.body.removeChild(a);
-                            } else {
-                                console.error('Preview creation failed:', response.message);
-                            }
-                        },
-                        error: function(xhr, status, error) {
-							console.error('AJAX error:', status, error);
-						}
-                    });
-                }
 			});
-
 			deleteCookie('ays_chart_created_new');
+			deleteCookie('ays_chart_created_new'+createdNewChart+'_post_id');
         }
-		$('.ays-chart-preview-btn').on('click', function(e){
-			e.preventDefault();
-			var $btn = $(this);
-			var chartId = $btn.data('chart-id');
-			var nonce = $btn.data('nonce');
-			$.post(ajaxurl, {
-				action: 'ays_chart_create_preview',
-				chart_id: chartId,
-				nonce: aysChartBuilderAdmin.nonce
-			}, function(response){
-				if(response.success && response.preview_url){
-					window.open(response.preview_url, '_blank');
-				} else {
-					alert(response.message || 'Preview error');
-				}
-			});
-		});
-
+		
 		function getCookie (cname) {
 			let name = cname + "=";
 			let decodedCookie = decodeURIComponent(document.cookie);

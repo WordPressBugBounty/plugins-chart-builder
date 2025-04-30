@@ -1,6 +1,6 @@
 <?php
 global $ays_chart_db_version;
-$ays_chart_db_version = '1.0.2';
+$ays_chart_db_version = '1.0.3';
 
 /**
  * Fired during plugin activation
@@ -58,6 +58,7 @@ class Chart_Builder_Activator {
                 `date_modified` DATETIME NOT NULL DEFAULT '1000-01-01 00:00:00',
                 `status` VARCHAR(256) NOT NULL DEFAULT 'published',
                 `trash_status` VARCHAR(256) NOT NULL DEFAULT '',
+                `custom_post_id` INT(16) UNSIGNED DEFAULT NULL,
                 `ordering` INT(16) NOT NULL,
                 `quiz_query` VARCHAR(256) DEFAULT '',
                 `quiz_id` INT(16) UNSIGNED DEFAULT '0',
@@ -219,7 +220,16 @@ class Chart_Builder_Activator {
             );
 
             $wpdb->insert($charts_table, $default_chart);
+
             $chart_id = $wpdb->insert_id;
+
+            $post_type_args = array(
+                'chart_id'       => $chart_id,
+                'author_id'     => get_current_user_id(),
+                'chart_title'    => 'Default chart',
+            );
+            
+            $custom_post_id = Chart_Builder_Custom_Post_Type::ays_chart_add_custom_post($post_type_args);
 
             $default_chart_meta = array(
                 array(
@@ -272,6 +282,16 @@ class Chart_Builder_Activator {
 
             $default_chart['type'] = 'chart-js';
             $wpdb->insert($charts_table, $default_chart);
+
+            $chart_js_id = $wpdb->insert_id;
+            
+            $post_type_args = array(
+                'chart_id'       => $chart_js_id,
+                'author_id'     => get_current_user_id(),
+                'chart_title'    => 'Default chart',
+            );
+            
+            $custom_post_id = Chart_Builder_Custom_Post_Type::ays_chart_add_custom_post($post_type_args);
         } else {
             $wpdb->update(// phpcs:ignore
                 $charts_table,

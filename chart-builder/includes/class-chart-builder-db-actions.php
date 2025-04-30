@@ -587,7 +587,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 // $settings['index_axis'] = ( isset( $settings['index_axis'] ) && $settings['index_axis'] != '' ) ? sanitize_text_field($settings['index_axis']) : 'off';
 
                 $settings = apply_filters( 'ays_chart_item_save_settings', $settings );
-
+                $current_chart = $this->get_item($id);
                 $message = '';
                 if( $id == 0 ){
                     $result = $wpdb->insert(// phpcs:ignore
@@ -626,6 +626,14 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
 
                     $inserted_id = $wpdb->insert_id;
 
+                    $post_type_args = array(
+                        'chart_id'       => $inserted_id,
+                        'author_id'     => !empty($chart_create_author) ? $chart_create_author : get_current_user_id(),
+                        'chart_title'    => $title,
+                    );
+                    
+                    $custom_post_id = Chart_Builder_Custom_Post_Type::ays_chart_add_custom_post($post_type_args);
+    
                     if( is_array( $settings ) && ! empty( $settings ) ){
                         foreach ( $settings as $key => $setting ){
                             $this->add_meta( $inserted_id, $key, $setting );
@@ -687,12 +695,32 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                     }
 
                     $message = 'updated';
+                    if( !empty($current_chart) && empty($current_chart['custom_post_id']) ){
+                        $post_type_args = array(
+                            'chart_id'       => $inserted_id,
+                            'author_id'     => get_current_user_id(),
+                            'chart_title'    => $title,
+                        );
+                        
+                        $custom_post_id = Chart_Builder_Custom_Post_Type::ays_chart_add_custom_post($post_type_args);
+                    }
                 }
 
                 $ays_chart_tab = isset($_POST[ $name_prefix . 'chart_tab' ]) ? sanitize_text_field( wp_unslash($_POST[ $name_prefix . 'chart_tab' ])) : 'tab1';
 
                 if($message == 'created'){
                     setcookie('ays_chart_created_new', $inserted_id, time() + 3600, '/');
+                    if(!empty($custom_post_id)){
+                        $custom_post_url = array(
+                            'post_type' => 'ays-chart-builder',
+                            'p' => $custom_post_id,
+                            'preview' => 'true',
+                        );
+                        $custom_post_url_ready = http_build_query($custom_post_url);
+                        $ready_url = get_home_url();
+                        $ready_url .= '/?' . $custom_post_url_ready;
+                        setcookie('ays_chart_created_new_'.$inserted_id.'_post_id', $ready_url, time() + 3600, '/');
+                    }
                 }
 
                 if( $result >= 0  ) {

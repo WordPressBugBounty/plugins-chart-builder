@@ -343,7 +343,7 @@ class Chart_Builder_Public {
 	}
 
 	public function add_custom_chart_styles() {
-		if (is_singular('ays_chart_preview')) {
+		if (is_singular('ays-chart-builder')) {
 			echo '<style>
 				.entry-content .ays-chart-container-chartjs {
 					width: 60% !important;

@@ -207,19 +207,8 @@ $youtube_icon_svg = "<span class=''><img src='". esc_url(plugins_url('/images/ic
                                         $duplicate_nonce = wp_create_nonce( $this->plugin_name . '-duplicate-item' );
                                         $chart_title = stripcslashes( $item['title'] );
                                         $q = esc_attr( $chart_title );
-
-                                        $restitle = Chart_Builder_Admin::ays_restriction_string("word", $chart_title, $chart_title_length);
-                                        $show_preview = false;
-                                        if (!empty($item['date_created'])) {
-                                            $min_date = strtotime('2025-04-21');
-                                            $chart_date = strtotime($item['date_created']);
-                                            if ($chart_date >= $min_date) {
-                                                $show_preview = true;
-                                            }
-                                        }
-                            
-                                        $title = sprintf( '<a href="?page=%s&action=%s&id=%d" title="%s">%s</a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'edit', absint( $item['id'] ), $q, $restitle);
-
+                                        $custom_post_id = isset($item['custom_post_id']) && $item['custom_post_id'] != 0 && $item['custom_post_id'] != '' ? esc_attr(intval($item['custom_post_id'])) : 0;
+                                        $restitle = Chart_Builder_Admin::ays_restriction_string("word", $chart_title, $chart_title_length); 
                                         $actions = array();
                                         if($item['status'] == 'trashed'){
                                             $title = sprintf( '<strong><a>%s</a></strong>', $restitle );
@@ -237,16 +226,9 @@ $youtube_icon_svg = "<span class=''><img src='". esc_url(plugins_url('/images/ic
                                             }
 
                                             $title = sprintf( '<strong><a href="?page=%s&action=%s&id=%d" title="%s">%s</a>%s</strong>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'edit', absint( $item['id'] ), $q, $restitle, $draft_text );
-                                            
-                                            if ($show_preview) {
-                                                $actions['s-preview'] = sprintf(
-                                                    '<a href="#" class="btn btn-primary btn-sm ays-chart-preview-btn" data-chart-id="%d" data-nonce="%s" data-bs-toggle="tooltip" title="%s"><i class="fa fa-eye"></i></a>',
-                                                    absint($item['id']),
-                                                    esc_attr(wp_create_nonce('ays_chart_ajax_nonce')),
-                                                    esc_html(__('Preview', 'chart-builder'))
-                                                );
-                                            }
-                                
+                                            if($custom_post_id > 0){
+                                                $actions['custom_posts'] = sprintf( '<a href="%s" class="btn btn-primary btn-sm" target="_blank"><i class="fa fa-eye"></i></a>', esc_url( add_query_arg( 'preview', 'true', get_permalink($custom_post_id) ) ));
+                                            }                                                                 
                                             $actions['duplicate'] = sprintf( '<a class="btn btn-primary btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Duplicate',"chart-builder")) .'"><i class="ays_fa ays_fa_copy"></i></a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'duplicate', absint( $item['id'] ), $duplicate_nonce );
                                             
                                             $actions['delete'] = sprintf( '<a class="ays_chart_delete_confirm btn btn-danger btn-sm" href="?page=%s&action=%s&id=%s&_wpnonce=%s" data-bs-toggle="tooltip" title="'. esc_html(__('Delete',"chart-builder")) .'"><i class="ays_fa ays_fa_trash_o"></i></a>', esc_attr( sanitize_text_field(wp_unslash($_REQUEST['page'] ))), 'delete', absint( $item['id'] ), $delete_nonce );

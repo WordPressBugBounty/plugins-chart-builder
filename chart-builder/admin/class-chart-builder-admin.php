@@ -204,8 +204,7 @@ class Chart_Builder_Admin {
             'activated'                          => __( "Activated", "chart-builder" ),
             'errorMsg'                           => __( "Error", "chart-builder" ),
             'loadResource'                       => __( "Can't load resource.", "chart-builder" ),
-            'somethingWentWrong'                 => __( "Maybe something went wrong.", "chart-builder" ),   
-            'nonce'                              => wp_create_nonce('cbuilder_ajax_nonce'),         
+            'somethingWentWrong'                 => __( "Maybe something went wrong.", "chart-builder" ),            
             ) );
 
         wp_localize_script( $this->plugin_name . '-localized', 'aysChartBuilderChartSettings', array(
@@ -244,7 +243,7 @@ class Chart_Builder_Admin {
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/chart-builder-admin.js', array( 'jquery', $this->plugin_name . '-localized' ), $this->version . time(), true );
         wp_enqueue_script( $this->plugin_name . '-google', plugin_dir_url( __FILE__ ) . 'js/chart-builder-admin-google.js', array( 'jquery', $this->plugin_name . '-localized' ), $this->version . time(), true );
         wp_enqueue_script( $this->plugin_name . '-chartjs', plugin_dir_url( __FILE__ ) . 'js/chart-builder-admin-chartjs.js', array( 'jquery', $this->plugin_name . '-localized' ), $this->version . time(), true );
-        wp_enqueue_script( $this->plugin_name . '-general-js', plugin_dir_url( __FILE__ ) . 'js/chart-builder-admin-general.js', array( 'jquery', $this->plugin_name . '-localized' ), $this->version, true );
+        wp_enqueue_script( $this->plugin_name . '-general-js', plugin_dir_url( __FILE__ ) . 'js/chart-builder-admin-general.js', array( 'jquery', $this->plugin_name . '-localized' ), $this->version . time(), true );
 
 		if ( false !== strpos( $hook_suffix, 'settings' ) ) {
 			wp_enqueue_script( $this->plugin_name . '-settings', plugin_dir_url( __FILE__ ) . 'js/chart-builder-admin-settings.js', array( 'jquery' ), $this->version, true );
@@ -1902,6 +1901,7 @@ class Chart_Builder_Admin {
         $images_url = CHART_BUILDER_ADMIN_URL . '/images/icons/';
 
         $plugin_slug = array(
+            'fox-lms',
             'quiz-maker',
             'survey-maker',
             'poll-maker',
@@ -1930,6 +1930,15 @@ class Chart_Builder_Admin {
         }
 
         $plugins_array = array(
+            'fox-lms/fox-lms.php'        => array(
+                'icon'        => $images_url . 'icon-fox-lms-128x128.png',
+                'name'        => __( 'Fox LMS', 'chart-builder' ),
+                'desc'        => __( 'Build and manage online courses directly on your WordPress site.', 'chart-builder' ),
+                'desc_hidden' => __( 'With the FoxLMS plugin, you can create, sell, and organize courses, lessons, and quizzes, transforming your website into a dynamic e-learning platform.', 'chart-builder' ),
+                'wporg'       => 'https://wordpress.org/plugins/fox-lms/',
+                'buy_now'     => 'https://foxlms.com/pricing/?utm_source=dashboard&utm_medium=chart-free&utm_campaign=fox-lms-our-products-page',
+                'url'         => $plugin_url_arr['fox-lms'],
+            ),
             'quiz-maker/quiz-maker.php'        => array(
                 'icon'        => $images_url . 'icon-quiz-128x128.png',
                 'name'        => __( 'Quiz Maker', 'chart-builder' ),
@@ -2437,106 +2446,7 @@ class Chart_Builder_Admin {
 				'msg' => __( 'Data was successfully saved.', "chart-builder" )
 			)
 		);
-	}
-
-    public function ays_chart_register_preview_post_type() {
-		register_post_type('ays_chart_preview', array(
-			'labels' => array(
-				'name' => 'Chart Previews',
-				'singular_name' => 'Chart Preview',
-			),
-			'public' => true,
-			'publicly_queryable' => true,
-			'show_ui' => true,
-			'show_in_menu' => false, 
-			'exclude_from_search' => true, 
-			'has_archive' => false,
-			'hierarchical' => false,
-			'supports' => array('title', 'editor'),
-			'rewrite' => array('slug' => 'chart-preview'),
-			'show_in_rest' => false,
-		));
-	}
-    
-    /**
-     * Create a preview post for a chart
-     * This function creates a draft custom post with the chart shortcode
-     * and returns the URL to view it
-     */
-	public function ays_chart_create_preview() {
-		// Check nonce for security
-		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'cbuilder_ajax_nonce')) {
-			wp_send_json(array(
-				'success' => false,
-				'message' => 'Security check failed'
-			));
-			wp_die();
-		}
-        
-		
-		// Get chart ID
-		$chart_id = isset($_POST['chart_id']) ? absint($_POST['chart_id']) : 0;
-		
-		if ($chart_id <= 0) {
-			wp_send_json(array(
-				'success' => false,
-				'message' => 'Invalid chart ID'
-			));
-			wp_die();
-		}
-		
-		// Create a unique title for the preview post
-		$chart_title = 'Chart Preview';
-	
-		global $wpdb;
-		$chart_table = $wpdb->prefix . 'ayschart_charts';
-		$chart_data = $wpdb->get_row($wpdb->prepare("SELECT title FROM $chart_table WHERE id = %d", $chart_id));
-		
-		if ($chart_data && isset($chart_data->title)) {
-			$chart_title = $chart_data->title . ' - Preview';
-		}
-		
-		$new_post = array(
-			'post_title'    => $chart_title,
-			'post_content'  => '[ays_chart id="' . $chart_id . '"]',
-			'post_status'   => 'draft',
-			'post_type'     => 'ays_chart_preview',
-			'post_author'   => get_current_user_id(),
-			'post_date'     => current_time('mysql'),
-		);
-		
-		$post_id = wp_insert_post($new_post);
-		
-		if (is_wp_error($post_id) || empty($post_id)) {
-			wp_send_json(array(
-				'success' => false,
-				'message' => is_wp_error($post_id) ? $post_id->get_error_message() : 'Failed to create preview post'
-			));
-			wp_die();
-		}
-		
-		update_post_meta($post_id, 'ays_chart_preview_id', $chart_id);
-		
-		$preview_url = "#";
-		if (!empty($post_id)) {
-			$custom_post_url = array(
-				'post_type' => 'ays_chart_preview',
-				'p'         => $post_id,
-				'preview'   => 'true',
-			);
-			$custom_post_url_ready = http_build_query($custom_post_url);
-			$preview_url = get_home_url();
-			$preview_url .= '/?' . $custom_post_url_ready;
-		}
-		
-		wp_send_json(array(
-			'success' => true,
-			'preview_url' => $preview_url,
-			'post_id' => $post_id
-		));
- 
-		wp_die();
-	}
+	}   
 
 	/**
 	 * Chart page action hooks

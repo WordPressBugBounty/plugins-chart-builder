@@ -250,8 +250,14 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 == Changelog ==
 
+= 3.3.8 =
+* Added: Preview link functionality after saving old charts
+* Added: Fox LMS Plugin to the Our Products page
+
 = 3.3.7 =
-* Added: Auto-generate custom post for immediate chart preview on front-end
+* Added: Auto-generate custom post for the Front-end chart immediate preview
+* Added: Preview link on the charts list table
+* Added: Preview Chart button on the on the Preview popup
 
 = 3.3.6 =
 * Added: Added: Percent format fix toggle to remove extra zeros

@@ -79,6 +79,7 @@ class Chart_Builder {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 		$this->define_integrations_hooks();
+		$this->define_custom_post_type_hooks();
 
 	}
 
@@ -139,6 +140,12 @@ class Chart_Builder {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-chart-builder-public.php';
+
+		/**
+		 * The class responsible for defining all functions for getting all custom post type functions
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-chart-builder-custom-post-type.php';
+		
 
 		$this->loader = new Chart_Builder_Loader();
 
@@ -233,8 +240,6 @@ class Chart_Builder {
 
 
         // Admin AJAX action
-		$this->loader->add_action('init', $plugin_admin, 'ays_chart_register_preview_post_type');
-		$this->loader->add_action('wp_ajax_ays_chart_create_preview',  $plugin_admin, 'ays_chart_create_preview');
         $this->loader->add_action( 'wp_ajax_ays_chart_admin_ajax', $plugin_admin, 'ays_admin_ajax' );
         $this->loader->add_action( 'wp_ajax_nopriv_ays_chart_admin_ajax', $plugin_admin, 'ays_admin_ajax' );
 		$this->loader->add_action( 'wp_ajax_deactivate_plugin_option_cb', $plugin_admin, 'deactivate_plugin_option');
@@ -302,6 +307,15 @@ class Chart_Builder {
 		$this->loader->add_filter( 'ays_cb_settings_page_integrations_contents', $plugin_integrations, 'ays_settings_page_database_content', 50, 3 );
 
 		// ===== Database integration =====
+	}
+
+	/**
+	 * Run the loader to execute all of the hooks with WordPress.
+	 *
+	 * @since    1.0.0
+	 */
+	private function define_custom_post_type_hooks(){
+		$plugin_custom_post_type = new Chart_Builder_Custom_Post_Type( $this->get_plugin_name(), $this->get_version() );
 	}
 
 
