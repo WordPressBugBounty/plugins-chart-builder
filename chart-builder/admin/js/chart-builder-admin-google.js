@@ -749,6 +749,151 @@
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
 			});
 
+		//title
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-gap').on('input', function () {
+			_this.chartSourceData.settings.title_gap = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'header-container').attr('style', 'margin-bottom: ' + $(this).val() + 'px' + ' !important;');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-color').on('input', function () {
+			_this.chartSourceData.settings.title_color = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('color', $(this).val());
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-font-size').on('input', function () {
+			_this.chartSourceData.settings.title_font_size = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('font-size', $(this).val() + 'px');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-bold').on('change', function () {
+			_this.chartSourceData.settings.title_bold = $(this).is(':checked') ? 'checked' : '';
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('font-weight', $(this).is(':checked') ? 'bold' : 'normal');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-italic').on('change', function () {
+			_this.chartSourceData.settings.title_italic = $(this).is(':checked') ? 'checked' : '';
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('font-style', $(this).is(':checked') ? 'italic' : 'normal');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-text-shadow').on('change', function () {
+			if ($(this).is(':checked')) {
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('text-shadow', '2px 2px 5px ' + _this.chartSourceData.settings.title_shadow_color);
+			} else {
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('text-shadow', 'unset');
+			}
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-shadow-color').on('input', function () {
+			if (_this.$el.find('#'+_this.htmlClassPrefix+'option-title-text-shadow').is(':checked')) {
+				_this.chartSourceData.settings.title_shadow_color = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('text-shadow', '2px 2px 5px ' + $(this).val());
+				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+			}
+		});
+
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-position').on('change', function () {
+			_this.chartSourceData.settings.title_position = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('text-align', $(this).val());
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-text-transform').on('change', function () {
+			_this.chartSourceData.settings.title_transform = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('text-transform', $(this).val());
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-text-decoration').on('change', function () {
+			_this.chartSourceData.settings.title_decoration = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('text-decoration', $(this).val());
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-letter-spacing').on('input', function () {
+			_this.chartSourceData.settings.title_letter_spacing = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('letter-spacing', $(this).val() + 'px');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-title-gap-description').on('input', function () {
+			_this.chartSourceData.settings.title_gap_description = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-title').css('margin-bottom', $(this).val() + 'px');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+
+		//description
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-color').on('input', function () {
+			_this.chartSourceData.settings.description_color = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('color', $(this).val());
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-font-size').on('input', function () {
+			_this.chartSourceData.settings.description_font_size = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('font-size', $(this).val() + 'px');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-bold').on('change', function () {
+			_this.chartSourceData.settings.description_bold = $(this).is(':checked') ? 'checked' : '';
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('font-weight', $(this).is(':checked') ? 'bold' : 'normal');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-italic').on('change', function () {
+			_this.chartSourceData.settings.description_italic = $(this).is(':checked') ? 'checked' : '';
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('font-style', $(this).is(':checked') ? 'italic' : 'normal');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-text-shadow').on('change', function () {
+			if ($(this).is(':checked')) {
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('text-shadow', '2px 2px 5px ' + _this.chartSourceData.settings.description_shadow_color);
+			} else {
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('text-shadow', 'unset');
+			}
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-shadow-color').on('input', function () {
+			if (_this.$el.find('#'+_this.htmlClassPrefix+'option-description-text-shadow').is(':checked')) {
+				_this.chartSourceData.settings.description_shadow_color = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('text-shadow', '2px 2px 5px ' + $(this).val());
+				_this.drawChartFunction(_this.chartData, _this.chartOptions);
+			}
+		});
+
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-position').on('change', function () {
+			_this.chartSourceData.settings.description_position = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('text-align', $(this).val());
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-text-transform').on('change', function () {
+			_this.chartSourceData.settings.description_transform = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('text-transform', $(this).val());
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+		
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-text-decoration').on('change', function () {
+			_this.chartSourceData.settings.description_decoration = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('text-decoration', $(this).val());
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+
+		_this.$el.find('#'+_this.htmlClassPrefix+'option-description-letter-spacing').on('input', function () {
+			_this.chartSourceData.settings.description_letter_spacing = $(this).val();
+			_this.$el.find('.'+_this.htmlClassPrefix+'charts-description').css('letter-spacing', $(this).val() + 'px');
+			_this.drawChartFunction(_this.chartData, _this.chartOptions);
+		});
+
+
 		// animation settings
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-enable-animation').on('change', function () {
 				if ($(this).is(':checked')) {
@@ -1041,7 +1186,7 @@
 				}
 			});
 
-			_this.$el.find('#'+_this.htmlClassPrefix+'option-org-seslected-classname').on('input', function () {
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-org-selected-classname').on('input', function () {
 				_this.chartOptions.selectedNodeClass = $(this).val();
 				_this.chartSourceData.settings.org_selected_classname = _this.chartOptions.selectedNodeClass;
 				_this.drawChartFunction(_this.chartData, _this.chartOptions);
