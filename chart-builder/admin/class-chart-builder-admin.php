@@ -1985,7 +1985,7 @@ class Chart_Builder_Admin {
                 'url'         => $plugin_url_arr['secure-copy-content-protection'],
             ),
             'gallery-photo-gallery/gallery-photo-gallery.php'        => array(
-                'icon'        => $images_url . 'icon-gallery-128x128.jpg',
+                'icon'        => $images_url . 'icon-gallery-128x128.png',
                 'name'        => __( 'Gallery Photo Gallery', 'chart-builder' ),
                 'desc'        => __( 'Create unlimited galleries and include unlimited images in those galleries.', 'chart-builder' ),
                 'desc_hidden' => __( 'Represent images in an attractive way. Attract people with your own single and multiple free galleries from your photo library.', 'chart-builder' ),
@@ -7234,7 +7234,7 @@ class Chart_Builder_Admin {
                         <blockquote>
                         <?php echo sprintf(
                             /* translators: %1$s: Opening <strong> tag, %2$s: Closing </strong> tag */
-                            esc_html(__( '%1$sNote:%2$s Selected node custom CSS class must be set for the options below to take effect.', 'chart-builder' )), 
+                            esc_html(__( '%1$sNote:%2$s Selected node custom CSS class must be set for the options below to take effect. Add the Custom CSS Class so that the Selected node custom CSS class can operate correctly for you.', 'chart-builder' )), 
                             '<strong>', 
                             '</strong>'
                         ); ?>

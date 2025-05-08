@@ -2607,7 +2607,7 @@
 				'outline' : borderWidth + 'px solid ' + borderColor,
 			});
 		}
-
+		
 		if (orgSelectedClassname != '') {
 			var selectedNode = _this.$el.find('.' + orgSelectedClassname);
 			selectedNode.css({
@@ -2620,6 +2620,7 @@
 				// 'outline' : borderWidth + 'px solid ' + borderColor,
 			});
 		}
+
 
 		var description = _this.$el.find('.' + _this.htmlClassPrefix + 'org-chart-tree-description');
 		description.css({
