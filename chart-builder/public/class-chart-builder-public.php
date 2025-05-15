@@ -385,7 +385,7 @@ class Chart_Builder_Public {
 
 		$custom_css = "
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " {
-				border: " . esc_attr($settings['border_width_with_title']) . "px solid black;
+				border: " . esc_attr($settings['border_width_with_title']) . "px solid " . $settings['border_color_with_title'] . ";
 				border-radius: " . $settings['border_radius_with_title'] . "px;
 			}
 

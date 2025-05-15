@@ -1415,17 +1415,20 @@ class Chart_Builder_Admin {
 
                             $content[] = '<span class="ays-chart-new-silver-bundle-2025-title">';
                                 $content[] = __( "<span><a href='https://ays-pro.com/silver-bundle?utm_source=chart-free-dashboard&utm_medium=chart-sale-banner&utm_campaign=new_silver_bundle_message_2025' style='color:#ffffff; text-decoration: underline;'>Silver Bundle</a></span> (Quiz + Form + Chart)", 'quiz-maker' );
+                                $content[] = '<span>';
+                                    $content[] = '<img class="ays-chart-new-silver-bundle-discount" src="' . CHART_BUILDER_ADMIN_URL . '/images/ays-chart-banner-50.svg" style="width: 60px;">';
+                                $content[] = '</span>';
+
                             $content[] = '</span>';
 
                             $content[] = '</br>';
 
                             $content[] = '<span class="ays-chart-new-silver-bundle-2025-desc">';
+                                $content[] = '<span>';
+                                    $content[] = '<img class="ays-chart-new-silver-bundle-guaranteeicon" src="' . CHART_BUILDER_ADMIN_URL . '/images/ays-chart-guaranteeicon.svg" style="width: 30px;">';
+                                $content[] = '</span>';
                                 $content[] = __( "30 Day Money Back Guarantee", 'chart-builder' );
                             $content[] = '</span>';
-                        $content[] = '</div>';
-
-                        $content[] = '<div>';
-                                $content[] = '<img class="ays-chart-new-silver-bundle-guaranteeicon" src="' . CHART_BUILDER_ADMIN_URL . '/images/ays-chart-silver-bundle-2025-discount.svg" style="width: 80px;">';
                         $content[] = '</div>';
 
                         $content[] = '<div style="position: absolute;right: 10px;bottom: 1px;" class="ays-chart-dismiss-buttons-container-for-form">';
@@ -5340,6 +5343,7 @@ class Chart_Builder_Admin {
 		$settings = $args['settings'];
         $border_width_with_title = $settings['border_width_with_title'];
         $border_radius_with_title = $settings['border_radius_with_title'];
+        $border_color_with_title = $settings['border_color_with_title'];
         $border_width = $settings['border_width'];
         $border_radius = $settings['border_radius'];
         $border_color = $settings['border_color'];
@@ -5482,6 +5486,19 @@ class Chart_Builder_Admin {
                         <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-border-radius-with-title" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_radius_with_title]" value="<?php echo esc_attr($border_radius_with_title) ?>">
                     </div>
                 </div> <!-- Border radius with title -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-bar_chart-opt cb-column_chart-opt cb-line_chart-opt cb-donut_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-border-color-with-title">
+				            <?php echo esc_html(__( "Border Color (including title)", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the chart container border including chart title and description.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input id="ays-chart-option-border-color-with-title" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_color_with_title]" value="<?php echo esc_attr($border_color_with_title) ?>">
+                    </div>
+                </div> <!-- Border colro with title -->
             </div>
         </div>
 		<?php

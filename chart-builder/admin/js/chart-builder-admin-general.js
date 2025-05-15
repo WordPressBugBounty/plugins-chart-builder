@@ -514,7 +514,10 @@
 	
 			var attr_plugin = $this.attr('data-plugin');
 			var wp_nonce    = thisParent.find('#chart-builder-sale-banner').val();
-	
+			if(typeof wp_nonce == 'undefined'){
+				wp_nonce    = $(document).find('#chart-builder-sale-banner').val();
+			}
+
 			var data = {
 				action: 'ays_chart_dismiss_button',
 				_ajax_nonce: wp_nonce,
@@ -745,3 +748,31 @@
 	});
 
 })(jQuery);
+
+function selectAndCopyElementContents(el) {
+    if (window.getSelection && document.createRange) {
+        var _this = jQuery(document).find('.ays-chart-copy-element-box');
+
+        var text      = el.textContent;
+        var textField = document.createElement('textarea');
+
+        textField.innerText = text;
+        document.body.appendChild(textField);
+        textField.select();
+        document.execCommand('copy');
+        textField.remove();
+
+        var selection = window.getSelection();
+        selection.setBaseAndExtent(el,0,el,1);
+
+        _this.attr( "data-original-title", 'Copied!' );
+        _this.attr( "title", 'Copied!' );
+
+        _this.tooltip("show");
+
+    } else if (document.selection && document.body.createTextRange) {
+        var textRange = document.body.createTextRange();
+        textRange.moveToElementText(el);
+        textRange.select();
+    }
+}

@@ -58,7 +58,7 @@
                     echo "div." . esc_attr($html_class_prefix) . "container {
                             position: sticky;
                             top: 50px;
-                            border: " . esc_attr($settings['border_width_with_title']) . "px solid black;
+                            border: " . esc_attr($settings['border_width_with_title']) . "px solid " . esc_attr($settings['border_color_with_title']) . ";
                             border-radius: " . esc_attr($settings['border_radius_with_title']) . "px;
                         }
                             

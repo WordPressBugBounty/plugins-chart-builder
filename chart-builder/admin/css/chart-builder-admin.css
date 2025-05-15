@@ -3127,3 +3127,60 @@ body.chart-builder_page_chart-builder-dashboard #wpfooter {
 }
 
 /* chart Footer Support box end */
+
+/* Chart Top Banner Coupon Button | Start */
+
+.ays-chart-coupon-container .ays-chart-coupon-box {
+    display: flex;
+    align-items: center;
+    border: 2px dashed #000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    /*color: #0B328E;*/
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: #000;
+    background-color: #f9dc6c;
+    cursor: pointer;
+}
+
+.ays-chart-logo-container-upgrade span.ays-chart-logo-container-one-time-text{
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.ays-chart-coupon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ays-chart-coupon-container .ays-chart-coupon-box span {
+    margin-left: 5px;
+}
+
+.ays-chart-coupon-container .ays-chart-coupon-box img {
+    width: 10px;
+}
+
+.ays-chart-coupon-container .ays-chart-coupon-box img {
+    width: 8px;
+}
+
+.ays-chart-coupon-container .ays-chart-coupon-box:hover {
+    color: #000;
+    background-color: #f1c51b;
+}
+
+.ays-chart-coupon-container .ays-chart-coupon-box:focus {
+    box-shadow: unset;
+}
+
+.ays-chart-coupon-container .ays-chart-coupon-box:hover .ays-chart-svg-light-hover{
+    display: flex;
+}
+/* Chart Top Banner Coupon Button | End */
