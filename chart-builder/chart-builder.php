@@ -16,7 +16,7 @@
  * Plugin Name:       Chart Builder
  * Plugin URI:        https://ays-pro.com/wordpress/chart-builder
  * Description:       Chart Builder is a user-friendly plugin that allows you to create customizable charts and graphs with ease. Perfect for visualising data, it offers various chart types to match your needs. 
- * Version:           3.4.1
+ * Version:           3.4.2
  * Author:            Chart Builder Team
  * Author URI:        https://ays-pro.com/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CHART_BUILDER_VERSION', '3.4.1' );
+define( 'CHART_BUILDER_VERSION', '3.4.2' );
 define( 'CHART_BUILDER_NAME_VERSION', '1.0.0' );
 define( 'CHART_BUILDER_NAME', 'chart-builder' );
 define( 'CHART_BUILDER_DB_PREFIX', 'ayschart_' );
@@ -123,7 +123,7 @@ if( !function_exists( 'chart_builder_general_admin_notice' ) ){
                                 </a>
                             </div>
                             <div>
-                                <a class="ays-btn-upgrade" href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-top-banner&utm_campaign=chart-upgrade-button" target="_blank">
+                                <a class="ays-btn-upgrade" href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-top-banner&utm_campaign=chart-upgrade-button-<?php echo esc_attr(CHART_BUILDER_VERSION);?>" target="_blank">
                                     <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" preserveAspectRatio="none" viewBox="0 0 10 19" width="10" height="19">
                                         <g transform="translate(0, 0)">
                                             <defs>

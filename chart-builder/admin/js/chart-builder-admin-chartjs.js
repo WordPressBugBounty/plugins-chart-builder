@@ -208,6 +208,12 @@
 				_this.chartObject.update();
 			});	
 			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-style-with-title').on('change', function () {
+				_this.chartSourceData.settings.border_style_with_title = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'container').css('border-style', $(this).val());
+				_this.chartObject.update();
+			});
+			
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-box-shadow').on('change', function () {
 				console.log($(this).is(':checked'));
 				if ($(this).is(':checked')) {

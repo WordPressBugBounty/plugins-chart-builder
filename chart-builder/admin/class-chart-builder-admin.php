@@ -5344,6 +5344,7 @@ class Chart_Builder_Admin {
         $border_width_with_title = $settings['border_width_with_title'];
         $border_radius_with_title = $settings['border_radius_with_title'];
         $border_color_with_title = $settings['border_color_with_title'];
+        $border_style_with_title = $settings['border_style_with_title'];
         $border_width = $settings['border_width'];
         $border_radius = $settings['border_radius'];
         $border_color = $settings['border_color'];
@@ -5499,6 +5500,28 @@ class Chart_Builder_Admin {
                         <input id="ays-chart-option-border-color-with-title" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_color_with_title]" value="<?php echo esc_attr($border_color_with_title) ?>">
                     </div>
                 </div> <!-- Border colro with title -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-bar_chart-opt cb-column_chart-opt cb-line_chart-opt cb-donut_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-border-style-with-title">
+				            <?php echo esc_html(__( "Border Style (including title)", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The style of the chart container border including chart title and description.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <select class="<?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-border-style-with-title" name="<?php echo esc_attr($html_name_prefix); ?>settings[border_style_with_title]">
+                            <?php
+				            foreach ( $border_styles as $option_slug => $option ):
+					            $selected = ( $border_style_with_title == $option_slug ) ? 'selected' : '';
+					            ?>
+                                <option value="<?php echo esc_attr($option_slug); ?>" <?php echo esc_attr($selected); ?>><?php echo esc_html($option); ?></option>
+				            <?php
+				            endforeach;
+				            ?>
+                        </select>
+                    </div>
+                </div> <!-- Border style with title -->
             </div>
         </div>
 		<?php
