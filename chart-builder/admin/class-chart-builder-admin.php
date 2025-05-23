@@ -289,6 +289,12 @@ class Chart_Builder_Admin {
                 wp_dequeue_style('bppiv_admin_custom_css');
                 wp_dequeue_style('bppiv-custom-style');
             }
+            
+            if (is_plugin_active('wp-social/wp-social.php')) {
+                wp_dequeue_style('wp_social_select2_css');
+                wp_deregister_script('wp_social_select2_js');
+                wp_dequeue_script('wp_social_select2_js');
+            }
 
         }
 	}
@@ -5353,6 +5359,7 @@ class Chart_Builder_Admin {
         $border_styles = $settings['border_styles'];
         $box_shadow = $settings['box_shadow'];
         $box_shadow_color = $settings['box_shadow_color'];
+        $padding_outer = $settings['padding_outer'];
 		ob_start();
 		?>
         <div class="ays-accordion-data-main-wrap">
@@ -5477,7 +5484,7 @@ class Chart_Builder_Admin {
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-radius-with-title">
-				            <?php echo esc_html(__( "Border radius (including title)", "chart-builder" )); ?>
+				            <?php echo esc_html(__( "Border Radius (including title)", "chart-builder" )); ?>
                             <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The radius of the chart container border including chart title and description.","chart-builder") ); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
@@ -5522,6 +5529,19 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- Border style with title -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-bar_chart-opt cb-column_chart-opt cb-line_chart-opt cb-donut_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-padding-outer">
+				            <?php echo esc_html(__( "Padding", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The padding of the chart container.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-padding-outer" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[padding_outer]" value="<?php echo esc_attr($padding_outer) ?>">
+                    </div>
+                </div> <!-- Padding outer -->
             </div>
         </div>
 		<?php

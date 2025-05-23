@@ -845,7 +845,7 @@ div#ays-chart-new-silver-bundle-2025-dicount-month-main.ays_chart_dicount_info{
     background-image: url("../images/new-mega-bundle-logo-background.svg"); 
     background-position: center right;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 div#ays-chart-new-silver-bundle-2025-dicount-month-main.ays_chart_dicount_info button {
@@ -898,7 +898,7 @@ div#ays-chart-new-silver-bundle-2025-dicount-month-main .btn-link {
 
 #ays-chart-new-silver-bundle-2025-dicount-month-main .ays-chart-dicount-wrap-box {
     font-size:14px;
-    padding:12px;
+    padding:12px 0;
     text-align: center;
 }
 
@@ -911,7 +911,7 @@ div#ays-chart-new-silver-bundle-2025-dicount-month-main .btn-link {
 }
 
 #ays-chart-new-silver-bundle-2025-dicount-month-main .ays-chart-dicount-wrap-box.ays-chart-dicount-wrap-countdown-box {
-    width: 30%;
+    /* width: 30%; */
     display: flex;
     justify-content: flex-start;
     align-items: center;

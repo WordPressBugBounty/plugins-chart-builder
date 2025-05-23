@@ -387,6 +387,7 @@ class Chart_Builder_Public {
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " {
 				border: " . esc_attr($settings['border_width_with_title']) . "px  " . $settings['border_style_with_title'] . " " . $settings['border_color_with_title'] . ";
 				border-radius: " . $settings['border_radius_with_title'] . "px;
+				padding: " . $settings['padding_outer'] . "px;
 			}
 
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . " {

@@ -60,6 +60,7 @@
                             top: 50px;
                             border: " . esc_attr($settings['border_width_with_title']) . "px " . esc_attr($settings['border_style_with_title']) . " " . esc_attr($settings['border_color_with_title']) . ";
                             border-radius: " . esc_attr($settings['border_radius_with_title']) . "px;
+                            padding: " . esc_attr($settings['padding_outer']) . "px;
                         }
                             
                         div." . esc_attr($html_class_prefix) . "charts-main-container {

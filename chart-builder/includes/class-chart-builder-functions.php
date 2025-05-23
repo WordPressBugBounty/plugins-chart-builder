@@ -1544,8 +1544,8 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;
 
-			// slice_spacing
-			$settings['slice_spacing'] = isset( $settings['slice_spacing'] ) && $settings['slice_spacing'] != '' ? esc_attr( absint($settings['slice_spacing']) ) : 1;
+			// Padding outer
+			$settings['padding_outer'] = isset( $settings['padding_outer'] ) && $settings['padding_outer'] != '' ? esc_attr( $settings['padding_outer'] ) : '0';
 
 			// circumference
 			$settings['circumference'] = isset( $settings['circumference'] ) && $settings['circumference'] != '' ? esc_attr( absint($settings['circumference']) ) : 360;
@@ -1691,6 +1691,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			
 			// Border style with title
 			$settings['border_style_with_title'] = isset( $settings['border_style_with_title'] ) && $settings['border_style_with_title'] != '' ? esc_attr( $settings['border_style_with_title'] ) : 'solid';
+
+			// Padding outer
+			$settings['padding_outer'] = isset( $settings['padding_outer'] ) && $settings['padding_outer'] != '' ? esc_attr( $settings['padding_outer'] ) : '0';
 
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;

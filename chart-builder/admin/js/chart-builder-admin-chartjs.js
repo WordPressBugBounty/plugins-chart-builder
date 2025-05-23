@@ -215,7 +215,6 @@
 			});
 			
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-box-shadow').on('change', function () {
-				console.log($(this).is(':checked'));
 				if ($(this).is(':checked')) {
 					_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('box-shadow', '2px 2px 10px 2px ' + _this.chartSourceData.settings.box_shadow_color);
 				} else {
@@ -232,6 +231,12 @@
 				}
 			});
 			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-padding-outer').on('input', function () {
+				_this.chartSourceData.settings.padding_outer = $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'container').css('padding', $(this).val() + 'px');
+				_this.chartObject.update();
+			});
+
 		//title
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-title-gap').on('input', function () {
 				_this.chartSourceData.settings.title_gap = $(this).val();
