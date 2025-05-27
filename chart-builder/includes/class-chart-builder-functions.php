@@ -1399,6 +1399,8 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 	     * @return array
 	    */
 		public function get_chart_settings_chartjs_admin ($settings) {
+			$chart_default_colors = array('#36A2EB','#FF6384','#FF9F40','#FFCD56', '#4BC0C0','#0099c6','#dd4477','#66aa00', '#b82e2e','#316395','#994499','#22aa99', '#aaaa11','#6633cc','#e67300','#8b0707', '#651067','#329262','#5574a6','#3b3eac', '#b77322','#16d620','#b91383','#f4359e', '#9c5935','#a9c413','#2a778d','#668d1c', '#bea413','#0c5922','#743411');
+
 			$title_positions = array(
 				"left" => __("Left", "chart-builder"),
 				"right" => __("Right", "chart-builder"),
@@ -1541,6 +1543,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['border_style'] = isset( $settings['border_style'] ) && $settings['border_style'] != '' ? esc_attr( $settings['border_style'] ) : 'solid';
 			$settings['border_styles'] = $border_styles;
 			
+			// slice_spacing
+			$settings['slice_spacing'] = isset( $settings['slice_spacing'] ) && $settings['slice_spacing'] != '' ? esc_attr( absint($settings['slice_spacing']) ) : 1;
+			
 			// outer_radius
 			$settings['outer_radius'] = isset( $settings['outer_radius'] ) && $settings['outer_radius'] != '' ? esc_attr( absint($settings['outer_radius']) ) : 100;
 
@@ -1569,6 +1574,13 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 				$settings['show_title'] = isset( $settings['show_title'] ) && $settings['show_title'] == 'on' ? 'checked' : '';
 			}
 			
+			$count_slices = (isset($counting_source) && !is_null($counting_source) && count($counting_source) > 0) ? count($counting_source) - 1 : 0;
+
+			// Slices settings
+			$settings['slice_colors_default'] = $chart_default_colors;
+			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : array_slice($chart_default_colors, 0, $count_slices);;
+			// $settings['slice_offset'] = isset( $settings['slice_offset'] ) && $settings['slice_offset'] != '' ? json_decode($settings['slice_offset'], true) : array_fill(0, $count_slices, 0);
+			// $settings['slice_text_color'] = isset( $settings['slice_text_color'] ) && $settings['slice_text_color'] != '' ? json_decode($settings['slice_text_color'], true) : array_fill(0, $count_slices, '#ffffff');
 			return $settings;
 
 		}
@@ -1580,6 +1592,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 	     * @return array
 	    */
 		public function get_chart_settings_chartjs_public ($settings) {
+			$chart_default_colors = array('#36A2EB','#FF6384','#FF9F40','#FFCD56', '#4BC0C0','#0099c6','#dd4477','#66aa00', '#b82e2e','#316395','#994499','#22aa99', '#aaaa11','#6633cc','#e67300','#8b0707', '#651067','#329262','#5574a6','#3b3eac', '#b77322','#16d620','#b91383','#f4359e', '#9c5935','#a9c413','#2a778d','#668d1c', '#bea413','#0c5922','#743411');
 			// Show chart description
 			$settings['show_description'] = isset( $settings['show_description'] ) && $settings['show_description'] != '' ? esc_attr( $settings['show_description'] ) : 'on';
 			
@@ -1706,6 +1719,13 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			
 			// start_angle
 			$settings['start_angle'] = isset( $settings['start_angle'] ) && $settings['start_angle'] != '' ? esc_attr( absint($settings['start_angle']) ) : 0;
+
+			$count_slices = (isset($chartData['source']) && !is_null($chartData['source']) && count($chartData['source']) > 0) ? count($chartData['source']) - 1 : 0;
+			// Slices settings
+			$settings['slice_colors_default'] = $chart_default_colors;
+			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : $chart_default_colors;
+			// $settings['slice_offset'] = isset( $settings['slice_offset'] ) && $settings['slice_offset'] != '' ? json_decode($settings['slice_offset'], true) : array_fill(0, $count_slices, 0);
+			// $settings['slice_text_color'] = isset( $settings['slice_text_color'] ) && $settings['slice_text_color'] != '' ? json_decode($settings['slice_text_color'], true) : array_fill(0, $count_slices, '#ffffff');
 			
 			return $settings;
 

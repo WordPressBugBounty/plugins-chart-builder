@@ -233,6 +233,7 @@ class Chart_Builder {
 		$this->loader->add_filter( 'ays_cb_chart_page_advanced_settings_contents_settings', $plugin_admin, 'settings_contents_series_settings', 70, 2 );
 		$this->loader->add_filter( 'ays_cb_chart_page_advanced_settings_contents_settings', $plugin_admin, 'settings_contents_row_settings', 80, 2 );
 		$this->loader->add_filter( 'ays_cb_chart_page_advanced_settings_contents_settings_chartjs', $plugin_admin, 'settings_contents_advanced_settings_chartjs', 50, 2 );
+		$this->loader->add_filter( 'ays_cb_chart_page_advanced_settings_contents_settings_chartjs', $plugin_admin, 'settings_contents_slices_settings_chartjs', 50, 2 );
 
         // Add Settings link to the plugin
         $plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' );

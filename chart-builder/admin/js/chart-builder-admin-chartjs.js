@@ -409,6 +409,31 @@
 				_this.chartObject.options.rotation = _this.chartSourceData.settings.start_angle;
 				_this.chartObject.update();
 			});
+
+		// Slices settings
+			_this.$el.find('.'+_this.htmlClassPrefix+'option-slice-color').on('input', function () {
+				var id = $(this).attr('data-slice-id');
+				_this.chartSourceData.settings.slice_color[id] = $(this).val();
+				if (_this.chartObject.data.datasets[0].backgroundColor) {
+					_this.chartObject.data.datasets[0].backgroundColor[id] = $(this).val();
+				}
+				_this.chartObject.update();
+			});
+
+			// _this.$el.find('.'+_this.htmlClassPrefix+'option-slice-offset').on('input', function () {
+			// 	var id = $(this).attr('data-slice-id');
+			// 	_this.chartOptions.slices[id].offset = $(this).val();
+			// 	_this.chartSourceData.settings.slice_offset[id] = $(this).val();
+			// 	_this.chartObject.update();
+			// });
+
+			// _this.$el.find('.'+_this.htmlClassPrefix+'option-slice-text-color').on('input', function () {
+			// 	var id = $(this).attr('data-slice-id');
+			// 	_this.chartOptions.slices[id].textStyle.color = $(this).val();
+			// 	_this.chartSourceData.settings.slice_text_color[id] = $(this).val();
+			// 	_this.chartObject.update();
+			// });
+			
 	}
 
 	ChartBuilderChartsJs.prototype.detectManualChange = function (e) {
@@ -589,6 +614,15 @@
 		var nSettings =  _this.configOptionsForCharts(settings);
         
 		var ctx = document.getElementById(_this.htmlClassPrefix + '-canvas');
+		
+		var sliceCount = dataTypes?.dataSets[0]?.data?.length || 0;
+		dataTypes.dataSets[0].backgroundColor = [];
+
+		for (var i = 0; i < sliceCount; i++) {
+			const customColor = nSettings.sliceColor?.[i];
+			const defaultColor = nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
+			dataTypes.dataSets[0].backgroundColor[i] = customColor || defaultColor;
+		}
 
 		_this.chartObject = new Chart(ctx, {
 		  type: 'pie',
@@ -671,7 +705,8 @@
 		newSettings.sliceSpacing = settings['slice_spacing'];
 		newSettings.circumference = settings['circumference'];
 		newSettings.startAngle = settings['start_angle'];
-
+		newSettings.sliceColor = settings['slice_color'];
+		newSettings.sliceColorDefault = settings['slice_colors_default'];
 		return newSettings;
 	}
 

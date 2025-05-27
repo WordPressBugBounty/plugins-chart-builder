@@ -106,6 +106,14 @@
 
 		var ctx = canvasElement;
 
+		var sliceCount = dataTypes?.dataSets[0]?.data?.length || 0;
+		dataTypes.dataSets[0].backgroundColor = [];
+
+		for (var i = 0; i < sliceCount; i++) {
+			const customColor = nSettings.sliceColor?.[i];
+			const defaultColor = nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
+			dataTypes.dataSets[0].backgroundColor[i] = customColor || defaultColor;
+		}
 		_this.chartObject = new Chart(ctx, {
 		  type: 'pie',
 		  data: {
@@ -208,6 +216,8 @@
 		newSettings.sliceSpacing = settings['slice_spacing'];
 		newSettings.circumference = settings['circumference'];
 		newSettings.startAngle = settings['start_angle'];
+		newSettings.sliceColor = settings['slice_color'];
+		newSettings.sliceColorDefault = settings['slice_colors_default'];
 
 		return newSettings;
 	}

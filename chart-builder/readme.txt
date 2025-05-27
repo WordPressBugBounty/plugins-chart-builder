@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 3.4.3
+Stable tag: 3.4.4
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -249,6 +249,9 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 3.4.4 ( May 23, 2025 ) =
+* Added: Chart.js Slice color option
 
 = 3.4.3 ( May 21, 2025 ) =
 * Added: Chart Padding option for Chart JS
