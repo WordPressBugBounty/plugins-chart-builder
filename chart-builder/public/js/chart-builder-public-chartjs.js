@@ -125,6 +125,13 @@
 			spacing: nSettings.sliceSpacing,
 			circumference: nSettings.circumference,
 			rotation: nSettings.startAngle,
+			plugins: {
+				legend: {
+					labels: {
+						color: nSettings.legendColor,
+					}
+				}
+  			}
 		  }
 		});
 
@@ -162,7 +169,15 @@
 			labels: dataTypes?.labels,
 			datasets: dataTypes?.dataSets,
 		  },
-		  options: {}
+		  options: {
+			plugins: {
+				legend: {
+					labels: {
+						color: nSettings.legendColor,
+					}
+				}
+  			}
+		  }
 		});
 
         _this.resizeChart();
@@ -199,7 +214,15 @@
 			labels: dataTypes?.labels,
 			datasets: dataTypes?.dataSets,
 		  },
-		  options: {}
+		  options: {
+			plugins: {
+				legend: {
+					labels: {
+						color: nSettings.legendColor,
+					}
+				}
+  			}
+		  }
 		});
 
         _this.resizeChart();
@@ -218,7 +241,7 @@
 		newSettings.startAngle = settings['start_angle'];
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
-
+		newSettings.legendColor = settings['legend_color'];
 		return newSettings;
 	}
 

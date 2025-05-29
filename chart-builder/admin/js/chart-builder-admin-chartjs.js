@@ -420,20 +420,12 @@
 				_this.chartObject.update();
 			});
 
-			// _this.$el.find('.'+_this.htmlClassPrefix+'option-slice-offset').on('input', function () {
-			// 	var id = $(this).attr('data-slice-id');
-			// 	_this.chartOptions.slices[id].offset = $(this).val();
-			// 	_this.chartSourceData.settings.slice_offset[id] = $(this).val();
-			// 	_this.chartObject.update();
-			// });
-
-			// _this.$el.find('.'+_this.htmlClassPrefix+'option-slice-text-color').on('input', function () {
-			// 	var id = $(this).attr('data-slice-id');
-			// 	_this.chartOptions.slices[id].textStyle.color = $(this).val();
-			// 	_this.chartSourceData.settings.slice_text_color[id] = $(this).val();
-			// 	_this.chartObject.update();
-			// });
-			
+		// legend settings
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-font-color').on('input', function () {
+				_this.chartSourceData.settings.legend_font_color = $(this).val();
+				_this.chartObject.options.plugins.legend.labels.color = _this.chartSourceData.settings.legend_font_color;
+				_this.chartObject.update();
+			});
 	}
 
 	ChartBuilderChartsJs.prototype.detectManualChange = function (e) {
@@ -635,6 +627,13 @@
 			spacing: nSettings.sliceSpacing,
 			circumference: nSettings.circumference,
 			rotation: nSettings.startAngle,
+			plugins: {
+				legend: {
+					labels: {
+						color: nSettings.legendColor,
+					}
+				}
+  			}
 		  }
 		});
 
@@ -661,6 +660,13 @@
 		  },
 		  options: {
 			// indexAxis: nSettings.indexAxis,
+			plugins: {
+				legend: {
+					labels: {
+						color: nSettings.legendColor,
+					}
+				}
+  			}
 		  }
 		});
 
@@ -687,6 +693,13 @@
 		  },
 		  options: {
 			// indexAxis: nSettings.indexAxis,
+			plugins: {
+				legend: {
+					labels: {
+						color: nSettings.legendColor,
+					}
+				}
+  			}
 		  }
 		});
 
@@ -707,6 +720,7 @@
 		newSettings.startAngle = settings['start_angle'];
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
+		newSettings.legendColor = settings['legend_color'];
 		return newSettings;
 	}
 

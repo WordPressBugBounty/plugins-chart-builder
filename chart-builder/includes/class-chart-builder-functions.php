@@ -1579,8 +1579,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Slices settings
 			$settings['slice_colors_default'] = $chart_default_colors;
 			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : array_slice($chart_default_colors, 0, $count_slices);;
-			// $settings['slice_offset'] = isset( $settings['slice_offset'] ) && $settings['slice_offset'] != '' ? json_decode($settings['slice_offset'], true) : array_fill(0, $count_slices, 0);
-			// $settings['slice_text_color'] = isset( $settings['slice_text_color'] ) && $settings['slice_text_color'] != '' ? json_decode($settings['slice_text_color'], true) : array_fill(0, $count_slices, '#ffffff');
+			
+			// Legend font color
+			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
 			return $settings;
 
 		}
@@ -1724,9 +1725,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Slices settings
 			$settings['slice_colors_default'] = $chart_default_colors;
 			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : $chart_default_colors;
-			// $settings['slice_offset'] = isset( $settings['slice_offset'] ) && $settings['slice_offset'] != '' ? json_decode($settings['slice_offset'], true) : array_fill(0, $count_slices, 0);
-			// $settings['slice_text_color'] = isset( $settings['slice_text_color'] ) && $settings['slice_text_color'] != '' ? json_decode($settings['slice_text_color'], true) : array_fill(0, $count_slices, '#ffffff');
 			
+			// Legend font color
+			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
+
 			return $settings;
 
 		}

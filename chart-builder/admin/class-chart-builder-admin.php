@@ -296,6 +296,12 @@ class Chart_Builder_Admin {
                 wp_dequeue_script('wp_social_select2_js');
             }
 
+            // Theme | Pixel Ebook Store
+            wp_dequeue_style('pixel-ebook-store-free-demo-content-style');
+
+            // Theme | Interactive Education
+            wp_dequeue_style('interactive-education-free-demo-content-style');
+
         }
 	}
 
@@ -3782,6 +3788,43 @@ class Chart_Builder_Admin {
                         </label>
                     </div>
                 </div> <!-- Bold text -->
+            </div>
+        </div>
+		<?php
+		$content = ob_get_clean();
+
+		$title = __( 'Legend', "chart-builder" );
+
+		$sources['legend'] = array(
+			'content' => $content,
+			'title' => $title
+		);
+
+		return $sources;
+	}
+
+    public function settings_contents_legend_settings_chartjs( $sources, $args ){
+		$html_class_prefix = $args['html_class_prefix'];
+		$html_name_prefix = $args['html_name_prefix'];
+		$settings = $args['settings'];
+        $legend_color = $settings['legend_color'];
+		ob_start();
+		?>
+        <div class="ays-accordion-data-main-wrap cb-changable-tab cb-pie_chart-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab cb-donut_chart-tab">
+            <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-legend-font-color">
+				            <?php echo esc_html(__( "Font Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Choose the font color for the chart legend.","chart-builder") )); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-legend-font-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[legend_color]" value="<?php echo esc_attr($legend_color) ?>">
+                    </div>
+                </div> <!-- Legend font color -->
             </div>
         </div>
 		<?php
@@ -7631,8 +7674,6 @@ class Chart_Builder_Admin {
         if ($source_chart_type == 'pie_chart')  {
             $slice_color = $settings['slice_color'];
             $slice_colors_default = $settings['slice_colors_default'];
-            // $slice_offset = $settings['slice_offset'];
-            // $slice_text_color = $settings['slice_text_color'];
 
             ?>
             <div class="ays-accordion-data-main-wrap <?php echo esc_attr($html_class_prefix) ?>options-slices-settings-tab cb-changable-tab cb-pie_chart-tab cb-donut_chart-tab">
@@ -7671,43 +7712,6 @@ class Chart_Builder_Admin {
                                                         data-slice-id="<?php echo esc_attr($key); ?>">
                                                 </div>
                                             </div> <!-- Slice color -->
-                                            <!-- <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                                                <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                                                    <label for="ays-chart-option-slice-offset" class="form-label">
-                                                        <?php echo esc_html(__( "Offset", "chart-builder" )); ?>
-                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("How far to separate the slice from the rest of the pie, from 0.0 (not at all) to 1.0 (the chart's radius).","chart-builder") ); ?>">
-                                                            <i class="ays_fa ays_fa_info_circle"></i>
-                                                        </a>
-                                                    </label>
-                                                </div>
-                                                <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                                                    <input type="number" 
-                                                        id="ays-chart-option-slice-offset-<?php echo esc_attr($key); ?>" 
-                                                        class="ays-chart-option-slice-offset ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" 
-                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_offset][<?php echo esc_attr($key); ?>]" 
-                                                        value="<?php echo isset($slice_offset[$key]) ? esc_attr($slice_offset[$key]) : 0 ; ?>" 
-                                                        data-slice-id="<?php echo esc_attr($key); ?>" 
-                                                        step=".01" min="0.0" max="1.0">
-                                                </div>
-                                            </div>  Slice offset 
-                                            <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
-                                                <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
-                                                    <label for="ays-chart-option-slice-text-color">
-                                                        <?php echo esc_html(__( "Text color", "chart-builder" )); ?>
-                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color to use for the text of this slice.","chart-builder") ); ?>">
-                                                            <i class="ays_fa ays_fa_info_circle"></i>
-                                                        </a>
-                                                    </label>
-                                                </div>
-                                                <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
-                                                    <input type="color" 
-                                                        id="ays-chart-option-slice-text-color-<?php echo esc_attr($key); ?>" 
-                                                        class="ays-chart-option-slice-text-color form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" 
-                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_text_color][<?php echo esc_attr($key); ?>]" 
-                                                        value="<?php echo isset($slice_text_color[$key]) ? esc_attr($slice_text_color[$key]) : '#ffffff'; ?>" 
-                                                        data-slice-id="<?php echo esc_attr($key); ?>">
-                                                </div>
-                                            </div> Slice color -->
                                         </div>
                                     </div>
                                 </div>
