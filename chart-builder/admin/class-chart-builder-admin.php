@@ -3808,6 +3808,7 @@ class Chart_Builder_Admin {
 		$html_name_prefix = $args['html_name_prefix'];
 		$settings = $args['settings'];
         $legend_color = $settings['legend_color'];
+        $legend_font_size = $settings['legend_font_size'];
 		ob_start();
 		?>
         <div class="ays-accordion-data-main-wrap cb-changable-tab cb-pie_chart-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab cb-donut_chart-tab">
@@ -3825,6 +3826,20 @@ class Chart_Builder_Admin {
                         <input id="ays-chart-option-legend-font-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[legend_color]" value="<?php echo esc_attr($legend_color) ?>">
                     </div>
                 </div> <!-- Legend font color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-legend-font-size" class="form-label">
+                            <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("The font size for all text within the chart legend, specified in pixels. Please note that if an invalid value is entered, it will revert to the default global font size.","chart-builder") )); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-legend-font-size" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[legend_font_size]" value="<?php echo esc_attr($legend_font_size) ?>">
+						<div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
+                    </div>
+                </div> <!-- Font size -->
             </div>
         </div>
 		<?php

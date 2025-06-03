@@ -426,6 +426,13 @@
 				_this.chartObject.options.plugins.legend.labels.color = _this.chartSourceData.settings.legend_font_color;
 				_this.chartObject.update();
 			});
+
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-font-size').on('input', function () {
+				_this.chartSourceData.settings.legend_font_size = $(this).val();
+				_this.chartObject.options.plugins.legend.labels.font.size = _this.chartSourceData.settings.legend_font_size;
+				_this.chartObject.update();
+			});
+
 	}
 
 	ChartBuilderChartsJs.prototype.detectManualChange = function (e) {
@@ -631,6 +638,9 @@
 				legend: {
 					labels: {
 						color: nSettings.legendColor,
+						font: {
+							size: nSettings.legendFontSize
+						}
 					}
 				}
   			}
@@ -664,6 +674,9 @@
 				legend: {
 					labels: {
 						color: nSettings.legendColor,
+						font: {
+							size: nSettings.legendFontSize
+						}
 					}
 				}
   			}
@@ -697,6 +710,9 @@
 				legend: {
 					labels: {
 						color: nSettings.legendColor,
+						font: {
+							size: nSettings.legendFontSize
+						}
 					}
 				}
   			}
@@ -721,6 +737,7 @@
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
 		newSettings.legendColor = settings['legend_color'];
+		newSettings.legendFontSize = settings['legend_font_size'];
 		return newSettings;
 	}
 

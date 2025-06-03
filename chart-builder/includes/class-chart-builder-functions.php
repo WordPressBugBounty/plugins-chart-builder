@@ -1582,6 +1582,11 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			
 			// Legend font color
 			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
+			
+			// Legend font size
+			$settings['legend_font_size'] = isset( $settings['legend_font_size'] ) && intval($settings['legend_font_size']) > 0 ? esc_attr( $settings['legend_font_size'] ) : 12;
+
+			
 			return $settings;
 
 		}
@@ -1728,6 +1733,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			
 			// Legend font color
 			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
+			
+			// Legend font size
+			$settings['legend_font_size'] = isset( $settings['legend_font_size'] ) && intval($settings['legend_font_size']) > 0 ? esc_attr( $settings['legend_font_size'] ) : 12;
 
 			return $settings;
 

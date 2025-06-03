@@ -129,6 +129,9 @@
 				legend: {
 					labels: {
 						color: nSettings.legendColor,
+						font: {
+							size: nSettings.legendFontSize
+						}
 					}
 				}
   			}
@@ -174,6 +177,9 @@
 				legend: {
 					labels: {
 						color: nSettings.legendColor,
+						font: {
+							size: nSettings.legendFontSize
+						}
 					}
 				}
   			}
@@ -219,6 +225,9 @@
 				legend: {
 					labels: {
 						color: nSettings.legendColor,
+						font: {
+							size: nSettings.legendFontSize
+						}
 					}
 				}
   			}
@@ -242,6 +251,7 @@
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
 		newSettings.legendColor = settings['legend_color'];
+		newSettings.legendFontSize = settings['legend_font_size'];
 		return newSettings;
 	}
 
