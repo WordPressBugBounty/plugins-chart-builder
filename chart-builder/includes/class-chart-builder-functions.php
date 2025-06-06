@@ -1431,6 +1431,13 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 				"outset" => __("Outset", "chart-builder"),
 				"ridge" => __("Ridge", "chart-builder")
 			);
+			
+			$legend_positions = array(
+				"top" => __("Above the chart", "chart-builder"),
+				"bottom" => __("Below the chart", "chart-builder"),
+				"left" => __("Left of the chart", "chart-builder"),
+				"right" => __("Right of the chart", "chart-builder"),
+			);
 
 			// Title color
 			$settings['title_color'] = isset( $settings['title_color'] ) && $settings['title_color'] != '' ? esc_attr( $settings['title_color'] ) : '#000000';
@@ -1585,7 +1592,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			
 			// Legend font size
 			$settings['legend_font_size'] = isset( $settings['legend_font_size'] ) && intval($settings['legend_font_size']) > 0 ? esc_attr( $settings['legend_font_size'] ) : 12;
-
+			
+			// Legend position
+			$settings['legend_position'] = isset( $settings['legend_position'] ) && $settings['legend_position'] != '' ? esc_attr( $settings['legend_position'] ) : 'top';
+			$settings['legend_positions'] = $legend_positions;
 			
 			return $settings;
 
@@ -1736,6 +1746,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			
 			// Legend font size
 			$settings['legend_font_size'] = isset( $settings['legend_font_size'] ) && intval($settings['legend_font_size']) > 0 ? esc_attr( $settings['legend_font_size'] ) : 12;
+
+			// Legend position
+			$settings['legend_position'] = isset( $settings['legend_position'] ) && $settings['legend_position'] != '' ? esc_attr( $settings['legend_position'] ) : 'top';
 
 			return $settings;
 

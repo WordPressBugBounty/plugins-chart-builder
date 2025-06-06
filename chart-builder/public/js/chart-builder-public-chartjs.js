@@ -127,6 +127,7 @@
 			rotation: nSettings.startAngle,
 			plugins: {
 				legend: {
+					position: nSettings.legendPosition,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -175,6 +176,7 @@
 		  options: {
 			plugins: {
 				legend: {
+					position: nSettings.legendPosition,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -223,6 +225,7 @@
 		  options: {
 			plugins: {
 				legend: {
+					position: nSettings.legendPosition,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -250,6 +253,7 @@
 		newSettings.startAngle = settings['start_angle'];
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
+		newSettings.legendPosition = settings['legend_position'];
 		newSettings.legendColor = settings['legend_color'];
 		newSettings.legendFontSize = settings['legend_font_size'];
 		return newSettings;

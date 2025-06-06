@@ -295,6 +295,13 @@ class Chart_Builder_Admin {
                 wp_deregister_script('wp_social_select2_js');
                 wp_dequeue_script('wp_social_select2_js');
             }
+            
+            if (is_plugin_active('real-media-library-lite/index.php')) {
+                wp_dequeue_style('real-media-library-lite-rml');
+            }
+
+            // Theme | Phlox 2.17.6
+            wp_dequeue_style('auxin-admin-style');
 
             // Theme | Pixel Ebook Store
             wp_dequeue_style('pixel-ebook-store-free-demo-content-style');
@@ -3807,12 +3814,36 @@ class Chart_Builder_Admin {
 		$html_class_prefix = $args['html_class_prefix'];
 		$html_name_prefix = $args['html_name_prefix'];
 		$settings = $args['settings'];
+        $legend_positions = $settings['legend_positions'];
+        $legend_position = $settings['legend_position'];
         $legend_color = $settings['legend_color'];
         $legend_font_size = $settings['legend_font_size'];
 		ob_start();
 		?>
-        <div class="ays-accordion-data-main-wrap cb-changable-tab cb-pie_chart-tab cb-bar_chart-tab cb-column_chart-tab cb-line_chart-tab cb-donut_chart-tab">
+        <div class="ays-accordion-data-main-wrap">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-legend-position">
+				            <?php echo esc_html(__( "Position", "chart-builder" )); ?>
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Choose the appropriate position for the chart legend.","chart-builder") )); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <select class="<?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-legend-position" name="<?php echo esc_attr($html_name_prefix); ?>settings[legend_position]">
+                            <?php
+				            foreach ( $legend_positions as $option_slug => $option ):
+					            $selected = ( $legend_position == $option_slug ) ? 'selected' : '';
+					            ?>
+                                <option value="<?php echo esc_attr($option_slug); ?>" <?php echo esc_attr($selected); ?> ><?php echo esc_html($option); ?></option>
+				            <?php
+				            endforeach;
+				            ?>
+                        </select>
+                    </div>
+                </div> <!-- Legend position -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-legend-font-color">
