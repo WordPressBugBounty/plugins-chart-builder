@@ -3816,6 +3816,8 @@ class Chart_Builder_Admin {
 		$settings = $args['settings'];
         $legend_positions = $settings['legend_positions'];
         $legend_position = $settings['legend_position'];
+        $legend_alignments = $settings['legend_alignments'];
+        $legend_alignment = $settings['legend_alignment'];
         $legend_color = $settings['legend_color'];
         $legend_font_size = $settings['legend_font_size'];
 		ob_start();
@@ -3844,6 +3846,28 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- Legend position -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-legend-alignment">
+				            <?php echo esc_html(__( "Alignment", "chart-builder" )); ?>
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Choose the appropriate alignment for the chart legend.","chart-builder") )); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <select class="<?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-legend-alignment" name="<?php echo esc_attr($html_name_prefix); ?>settings[legend_alignment]">
+                            <?php
+				            foreach ( $legend_alignments as $option_slug => $option ):
+					            $selected = ( $legend_alignment == $option_slug ) ? 'selected' : '';
+					            ?>
+                                <option value="<?php echo esc_attr($option_slug); ?>" <?php echo esc_attr($selected); ?>><?php echo esc_html($option); ?></option>
+				            <?php
+				            endforeach;
+				            ?>
+                        </select>
+                    </div>
+                </div> <!-- Legend alignment -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-legend-font-color">

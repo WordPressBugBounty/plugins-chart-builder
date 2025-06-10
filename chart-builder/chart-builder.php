@@ -16,7 +16,7 @@
  * Plugin Name:       Chart Builder
  * Plugin URI:        https://ays-pro.com/wordpress/chart-builder
  * Description:       Chart Builder is a user-friendly plugin that allows you to create customizable charts and graphs with ease. Perfect for visualising data, it offers various chart types to match your needs. 
- * Version:           3.4.7
+ * Version:           3.4.8
  * Author:            Chart Builder Team
  * Author URI:        https://ays-pro.com/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CHART_BUILDER_VERSION', '3.4.7' );
+define( 'CHART_BUILDER_VERSION', '3.4.8' );
 define( 'CHART_BUILDER_NAME_VERSION', '1.0.0' );
 define( 'CHART_BUILDER_NAME', 'chart-builder' );
 define( 'CHART_BUILDER_DB_PREFIX', 'ayschart_' );

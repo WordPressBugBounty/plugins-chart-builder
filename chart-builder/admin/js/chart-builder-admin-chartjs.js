@@ -427,6 +427,12 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-alignment').on('change', function () {
+				_this.chartSourceData.settings.legend_alignment = $(this).val();
+				_this.chartObject.options.plugins.legend.align = _this.chartSourceData.settings.legend_alignment;
+				_this.chartObject.update();
+			});
+
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-font-color').on('input', function () {
 				_this.chartSourceData.settings.legend_font_color = $(this).val();
 				_this.chartObject.options.plugins.legend.labels.color = _this.chartSourceData.settings.legend_font_color;
@@ -643,6 +649,7 @@
 			plugins: {
 				legend: {
 					position: nSettings.legendPosition,
+					align: nSettings.legendAlignment,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -680,6 +687,7 @@
 			plugins: {
 				legend: {
 					position: nSettings.legendPosition,
+					align: nSettings.legendAlignment,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -717,6 +725,7 @@
 			plugins: {
 				legend: {
 					position: nSettings.legendPosition,
+					align: nSettings.legendAlignment,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -747,6 +756,7 @@
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
 		newSettings.legendColor = settings['legend_color'];
 		newSettings.legendPosition = settings['legend_position'];
+		newSettings.legendAlignment = settings['legend_alignment'];
 		newSettings.legendFontSize = settings['legend_font_size'];
 		return newSettings;
 	}

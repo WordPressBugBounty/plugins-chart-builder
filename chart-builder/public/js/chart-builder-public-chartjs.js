@@ -128,6 +128,7 @@
 			plugins: {
 				legend: {
 					position: nSettings.legendPosition,
+					align: nSettings.legendAlignment,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -177,6 +178,7 @@
 			plugins: {
 				legend: {
 					position: nSettings.legendPosition,
+					align: nSettings.legendAlignment,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -226,6 +228,7 @@
 			plugins: {
 				legend: {
 					position: nSettings.legendPosition,
+					align: nSettings.legendAlignment,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -254,6 +257,7 @@
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
 		newSettings.legendPosition = settings['legend_position'];
+		newSettings.legendAlignment = settings['legend_alignment'];
 		newSettings.legendColor = settings['legend_color'];
 		newSettings.legendFontSize = settings['legend_font_size'];
 		return newSettings;

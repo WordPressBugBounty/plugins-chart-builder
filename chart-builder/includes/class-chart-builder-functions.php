@@ -1439,6 +1439,12 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 				"right" => __("Right of the chart", "chart-builder"),
 			);
 
+			$legend_alignments = array(
+				"start" => __("Start", "chart-builder"),
+				"center" => __("Center", "chart-builder"),
+				"end" => __("End", "chart-builder"),
+			);
+
 			// Title color
 			$settings['title_color'] = isset( $settings['title_color'] ) && $settings['title_color'] != '' ? esc_attr( $settings['title_color'] ) : '#000000';
 
@@ -1596,6 +1602,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Legend position
 			$settings['legend_position'] = isset( $settings['legend_position'] ) && $settings['legend_position'] != '' ? esc_attr( $settings['legend_position'] ) : 'top';
 			$settings['legend_positions'] = $legend_positions;
+
+			// Legend alignment
+			$settings['legend_alignment'] = isset( $settings['legend_alignment'] ) && $settings['legend_alignment'] != '' ? esc_attr( $settings['legend_alignment'] ) : 'start';
+			$settings['legend_alignments'] = $legend_alignments;
 			
 			return $settings;
 
