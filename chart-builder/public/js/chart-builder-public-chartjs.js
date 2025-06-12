@@ -129,6 +129,7 @@
 				legend: {
 					position: nSettings.legendPosition,
 					align: nSettings.legendAlignment,
+					reverse: nSettings.legendReverse,
 					labels: {
 						color: nSettings.legendColor,
 						font: {
@@ -260,6 +261,7 @@
 		newSettings.legendAlignment = settings['legend_alignment'];
 		newSettings.legendColor = settings['legend_color'];
 		newSettings.legendFontSize = settings['legend_font_size'];
+		newSettings.legendReverse = settings['legend_reverse'];
 		return newSettings;
 	}
 

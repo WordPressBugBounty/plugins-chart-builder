@@ -445,6 +445,12 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-reverse').on('change', function () {
+				_this.chartSourceData.settings.legend_reverse = $(this).is(':checked');
+				_this.chartObject.options.plugins.legend.reverse = _this.chartSourceData.settings.legend_reverse ? 'checked' : '';
+				_this.chartObject.update();
+			});
+
 	}
 
 	ChartBuilderChartsJs.prototype.detectManualChange = function (e) {
@@ -649,6 +655,7 @@
 			plugins: {
 				legend: {
 					position: nSettings.legendPosition,
+					reverse: nSettings.legendReverse,
 					align: nSettings.legendAlignment,
 					labels: {
 						color: nSettings.legendColor,
@@ -758,6 +765,7 @@
 		newSettings.legendPosition = settings['legend_position'];
 		newSettings.legendAlignment = settings['legend_alignment'];
 		newSettings.legendFontSize = settings['legend_font_size'];
+		newSettings.legendReverse = settings['legend_reverse'];
 		return newSettings;
 	}
 

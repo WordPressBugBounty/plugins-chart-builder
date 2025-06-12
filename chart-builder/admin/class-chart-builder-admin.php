@@ -3820,6 +3820,7 @@ class Chart_Builder_Admin {
         $legend_alignment = $settings['legend_alignment'];
         $legend_color = $settings['legend_color'];
         $legend_font_size = $settings['legend_font_size'];
+        $legend_reverse = $settings['legend_reverse'];
 		ob_start();
 		?>
         <div class="ays-accordion-data-main-wrap">
@@ -3895,6 +3896,22 @@ class Chart_Builder_Admin {
 						<div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
                     </div>
                 </div> <!-- Font size -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-legend-revers">
+				            <?php echo esc_html(__( "Show datasets in reverse order", "chart-builder" )); ?>
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this toggle to show datasets in reverse ordering.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-legend-reverse" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[legend_reverse]" value="on" <?php echo esc_attr($legend_reverse); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!-- reverse datasets -->
             </div>
         </div>
 		<?php

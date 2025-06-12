@@ -1607,6 +1607,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['legend_alignment'] = isset( $settings['legend_alignment'] ) && $settings['legend_alignment'] != '' ? esc_attr( $settings['legend_alignment'] ) : 'start';
 			$settings['legend_alignments'] = $legend_alignments;
 			
+			// Legend reverse
+			$settings['legend_reverse'] = ( isset( $settings['legend_reverse'] ) && $settings['legend_reverse'] != '' ) ? $settings['legend_reverse'] : 'off';
+			$settings['legend_reverse'] = isset( $settings['legend_reverse'] ) && $settings['legend_reverse'] == 'on' ? 'checked' : '';
+
 			return $settings;
 
 		}
@@ -1759,6 +1763,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Legend position
 			$settings['legend_position'] = isset( $settings['legend_position'] ) && $settings['legend_position'] != '' ? esc_attr( $settings['legend_position'] ) : 'top';
+
+			// Legend reverse
+			$settings['legend_reverse'] = ( isset( $settings['legend_reverse'] ) && $settings['legend_reverse'] != '' ) ? $settings['legend_reverse'] : 'off';
 
 			return $settings;
 
