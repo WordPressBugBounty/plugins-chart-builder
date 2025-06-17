@@ -1593,6 +1593,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['slice_colors_default'] = $chart_default_colors;
 			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : array_slice($chart_default_colors, 0, $count_slices);;
 			
+			// Tooltip text color
+			$settings['tooltip_text_color'] = isset( $settings['tooltip_text_color'] ) && $settings['tooltip_text_color'] != '' ? esc_attr( $settings['tooltip_text_color'] ) : '#fff';
+			
 			// Legend font color
 			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
 			
@@ -1755,6 +1758,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['slice_colors_default'] = $chart_default_colors;
 			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : $chart_default_colors;
 			
+			// Tooltip text color
+			$settings['tooltip_text_color'] = isset( $settings['tooltip_text_color'] ) && $settings['tooltip_text_color'] != '' ? esc_attr( $settings['tooltip_text_color'] ) : '#fff';
+
 			// Legend font color
 			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
 			

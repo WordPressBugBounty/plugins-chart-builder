@@ -420,6 +420,14 @@
 				_this.chartObject.update();
 			});
 
+		//tooltip settings
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-tooltip-text-color').on('input', function () {
+				_this.chartSourceData.settings.tooltip_text_color = $(this).val();
+				_this.chartObject.options.plugins.tooltip.titleColor = _this.chartSourceData.settings.tooltip_text_color;
+				_this.chartObject.options.plugins.tooltip.bodyColor = _this.chartSourceData.settings.tooltip_text_color;
+				_this.chartObject.update();
+			});
+
 		// legend settings
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-position').on('change', function () {
 				_this.chartSourceData.settings.legend_position = $(this).val();
@@ -653,6 +661,11 @@
 			circumference: nSettings.circumference,
 			rotation: nSettings.startAngle,
 			plugins: {
+				tooltip:{
+					titleColor: nSettings.tooltipColor,
+					bodyColor: nSettings.tooltipColor,
+					footerColor: nSettings.tooltipColor,
+				},
 				legend: {
 					position: nSettings.legendPosition,
 					reverse: nSettings.legendReverse,
@@ -692,6 +705,11 @@
 		  options: {
 			// indexAxis: nSettings.indexAxis,
 			plugins: {
+				tooltip:{
+					titleColor: nSettings.tooltipColor,
+					bodyColor: nSettings.tooltipColor,
+					footerColor: nSettings.tooltipColor,
+				},
 				legend: {
 					position: nSettings.legendPosition,
 					align: nSettings.legendAlignment,
@@ -730,6 +748,11 @@
 		  options: {
 			// indexAxis: nSettings.indexAxis,
 			plugins: {
+				tooltip:{
+					titleColor: nSettings.tooltipColor,
+					bodyColor: nSettings.tooltipColor,
+					footerColor: nSettings.tooltipColor,
+				},
 				legend: {
 					position: nSettings.legendPosition,
 					align: nSettings.legendAlignment,
@@ -766,6 +789,7 @@
 		newSettings.legendAlignment = settings['legend_alignment'];
 		newSettings.legendFontSize = settings['legend_font_size'];
 		newSettings.legendReverse = settings['legend_reverse'];
+		newSettings.tooltipColor = settings['tooltip_text_color'];
 		return newSettings;
 	}
 

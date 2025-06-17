@@ -215,6 +215,7 @@ class Chart_Builder {
 		$this->loader->add_filter( 'ays_cb_chart_page_settings_contents_settings', $plugin_admin, 'settings_contents_live_chart_settings', 115, 2 );
 		$this->loader->add_filter( 'ays_cb_chart_page_settings_contents_settings', $plugin_admin, 'settings_contents_export_options', 120, 2 );
 		$this->loader->add_filter( 'ays_cb_chart_page_settings_contents_settings_chartjs', $plugin_admin, 'settings_contents_general_settings_chartjs', 50, 2 );
+		$this->loader->add_filter( 'ays_cb_chart_page_settings_contents_settings_chartjs', $plugin_admin, 'settings_contents_tooltip_settings_chartjs', 50, 2 );
 		$this->loader->add_filter( 'ays_cb_chart_page_settings_contents_settings_chartjs', $plugin_admin, 'settings_contents_legend_settings_chartjs', 50, 2 );
 
 		// Add Chart page styles contents

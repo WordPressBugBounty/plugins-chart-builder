@@ -346,7 +346,7 @@ class Chart_Builder_Public {
 		if (is_singular('ays-chart-builder')) {
 			echo '<style>
 				.entry-content .ays-chart-container-chartjs {
-					width: 60% !important;
+					width: 80% !important;
 					margin:0 auto;
 				}
 			</style>';

@@ -126,6 +126,11 @@
 			circumference: nSettings.circumference,
 			rotation: nSettings.startAngle,
 			plugins: {
+				tooltip:{
+					titleColor: nSettings.tooltipColor,
+					bodyColor: nSettings.tooltipColor,
+					footerColor: nSettings.tooltipColor,
+				},
 				legend: {
 					position: nSettings.legendPosition,
 					align: nSettings.legendAlignment,
@@ -177,6 +182,11 @@
 		  },
 		  options: {
 			plugins: {
+				tooltip:{
+					titleColor: nSettings.tooltipColor,
+					bodyColor: nSettings.tooltipColor,
+					footerColor: nSettings.tooltipColor,
+				},
 				legend: {
 					position: nSettings.legendPosition,
 					align: nSettings.legendAlignment,
@@ -227,6 +237,11 @@
 		  },
 		  options: {
 			plugins: {
+				tooltip:{
+					titleColor: nSettings.tooltipColor,
+					bodyColor: nSettings.tooltipColor,
+					footerColor: nSettings.tooltipColor,
+				},
 				legend: {
 					position: nSettings.legendPosition,
 					align: nSettings.legendAlignment,
@@ -262,6 +277,7 @@
 		newSettings.legendColor = settings['legend_color'];
 		newSettings.legendFontSize = settings['legend_font_size'];
 		newSettings.legendReverse = settings['legend_reverse'];
+		newSettings.tooltipColor = settings['tooltip_text_color'];
 		return newSettings;
 	}
 

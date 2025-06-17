@@ -3664,6 +3664,45 @@ class Chart_Builder_Admin {
 		return $sources;
 	}
 
+    public function settings_contents_tooltip_settings_chartjs( $sources, $args ){
+		$html_class_prefix = $args['html_class_prefix'];
+		$html_name_prefix = $args['html_name_prefix'];
+		$settings = $args['settings'];
+
+		$tooltip_text_color = $settings['tooltip_text_color'];
+
+		ob_start();
+		?>
+        <div class="ays-accordion-data-main-wrap ">
+            <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-tooltip-text-color">
+				            <?php echo esc_html(__( "Text color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the tooltip text.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-tooltip-text-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[tooltip_text_color]" value="<?php echo esc_attr($tooltip_text_color) ?>">
+                    </div>
+                </div> <!-- Text color -->
+            </div>
+        </div>
+		<?php
+		$content = ob_get_clean();
+
+		$title = __( 'Tooltip', "chart-builder" );
+
+		$sources['tooltip'] = array(
+			'content' => $content,
+			'title' => $title
+		);
+
+		return $sources;
+	}
+
     public function settings_contents_legend_settings( $sources, $args ){
 		$html_class_prefix = $args['html_class_prefix'];
 		$html_name_prefix = $args['html_name_prefix'];
