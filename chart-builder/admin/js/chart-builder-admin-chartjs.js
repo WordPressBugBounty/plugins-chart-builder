@@ -420,6 +420,19 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-slice-border-color').on('input', function () {
+				_this.chartSourceData.settings.slice_border_color = $(this).val();
+				_this.chartObject.options.borderColor = _this.chartSourceData.settings.slice_border_color;
+				_this.chartObject.update();
+			});
+
+			_this.$el.find('#' + _this.htmlClassPrefix + 'option-slice-border-width').on('input', function () {
+				const val = parseInt($(this).val(), 10) || 0;
+				_this.chartSourceData.settings.slice_border_width = val;
+				_this.chartObject.data.datasets[0].borderWidth = val;
+				_this.chartObject.update();
+			});
+
 		//tooltip settings
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-tooltip-text-color').on('input', function () {
 				_this.chartSourceData.settings.tooltip_text_color = $(this).val();
@@ -648,7 +661,7 @@
 			const defaultColor = nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
 			dataTypes.dataSets[0].backgroundColor[i] = customColor || defaultColor;
 		}
-
+		dataTypes.dataSets[0].borderWidth = nSettings.sliceBorderWidth;
 		_this.chartObject = new Chart(ctx, {
 		  type: 'pie',
 		  data: {
@@ -660,6 +673,7 @@
 			spacing: nSettings.sliceSpacing,
 			circumference: nSettings.circumference,
 			rotation: nSettings.startAngle,
+			borderColor: nSettings.sliceBorderColor,
 			plugins: {
 				tooltip:{
 					titleColor: nSettings.tooltipColor,
@@ -784,6 +798,8 @@
 		newSettings.startAngle = settings['start_angle'];
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
+		newSettings.sliceBorderWidth = settings['slice_border_width'];
+		newSettings.sliceBorderColor = settings['slice_border_color'];
 		newSettings.legendColor = settings['legend_color'];
 		newSettings.legendPosition = settings['legend_position'];
 		newSettings.legendAlignment = settings['legend_alignment'];

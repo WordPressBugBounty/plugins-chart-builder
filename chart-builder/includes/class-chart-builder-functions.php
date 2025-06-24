@@ -1592,6 +1592,12 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Slices settings
 			$settings['slice_colors_default'] = $chart_default_colors;
 			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : array_slice($chart_default_colors, 0, $count_slices);;
+	
+			// Slice border color
+			$settings['slice_border_color'] = isset( $settings['slice_border_color'] ) && $settings['slice_border_color'] != '' ? esc_attr( $settings['slice_border_color'] ) : '#ffffff';
+
+			// Slices border width
+			$settings['slice_border_width'] = isset( $settings['slice_border_width'] ) && $settings['slice_border_width'] != '' ? esc_attr( $settings['slice_border_width'] ) : '1';
 			
 			// Tooltip text color
 			$settings['tooltip_text_color'] = isset( $settings['tooltip_text_color'] ) && $settings['tooltip_text_color'] != '' ? esc_attr( $settings['tooltip_text_color'] ) : '#fff';
@@ -1758,6 +1764,12 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['slice_colors_default'] = $chart_default_colors;
 			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : $chart_default_colors;
 			
+			// Slice border color
+			$settings['slice_border_color'] = isset( $settings['slice_border_color'] ) && $settings['slice_border_color'] != '' ? esc_attr( $settings['slice_border_color'] ) : '#ffffff';
+
+			// Slices border width
+			$settings['slice_border_width'] = isset( $settings['slice_border_width'] ) && $settings['slice_border_width'] != '' ? esc_attr( $settings['slice_border_width'] ) : '1';
+		
 			// Tooltip text color
 			$settings['tooltip_text_color'] = isset( $settings['tooltip_text_color'] ) && $settings['tooltip_text_color'] != '' ? esc_attr( $settings['tooltip_text_color'] ) : '#fff';
 

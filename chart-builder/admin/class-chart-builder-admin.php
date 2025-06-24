@@ -7520,6 +7520,8 @@ class Chart_Builder_Admin {
         $slice_spacing = $settings['slice_spacing'];
         $circumference = $settings['circumference'];
         $start_angle = $settings['start_angle'];
+        $slice_border_color = $settings['slice_border_color'];
+        $slice_border_width = $settings['slice_border_width'];
         // $index_axis = $settings['index_axis'];
 
 		ob_start();
@@ -7582,6 +7584,32 @@ class Chart_Builder_Admin {
                         <div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">°</div>
                     </div>
                 </div> <!-- Start Angle -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt ">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-slice-border-width">
+                            <?php echo esc_html(__( "Border Width", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The width of the slice borders.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-slice-border-width" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_border_width]" value="<?php echo esc_attr($slice_border_width) ?>">
+                    </div>
+                </div> <!-- Border Width -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt ">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-slice-border-color">
+                            <?php echo esc_html(__( "Border Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color of the slice borders.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-slice-border-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_border_color]" value="<?php echo esc_attr($slice_border_color) ?>">
+                    </div>
+                </div> <!-- Slice border color -->
                 <!-- <div class="form-group row mb-2 <?php // echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-donut_chart-opt display_none">
                     <div class="col-sm-5 d-flex align-items-center <?php // echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-index-axis">

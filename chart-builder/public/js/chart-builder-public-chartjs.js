@@ -114,6 +114,7 @@
 			const defaultColor = nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
 			dataTypes.dataSets[0].backgroundColor[i] = customColor || defaultColor;
 		}
+		dataTypes.dataSets[0].borderWidth = nSettings.sliceBorderWidth;
 		_this.chartObject = new Chart(ctx, {
 		  type: 'pie',
 		  data: {
@@ -125,6 +126,7 @@
 			spacing: nSettings.sliceSpacing,
 			circumference: nSettings.circumference,
 			rotation: nSettings.startAngle,
+			borderColor: nSettings.sliceBorderColor,
 			plugins: {
 				tooltip:{
 					titleColor: nSettings.tooltipColor,
@@ -272,6 +274,8 @@
 		newSettings.startAngle = settings['start_angle'];
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
+		newSettings.sliceBorderWidth = settings['slice_border_width'];
+		newSettings.sliceBorderColor = settings['slice_border_color'];
 		newSettings.legendPosition = settings['legend_position'];
 		newSettings.legendAlignment = settings['legend_alignment'];
 		newSettings.legendColor = settings['legend_color'];
