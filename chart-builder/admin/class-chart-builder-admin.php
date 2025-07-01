@@ -3860,6 +3860,8 @@ class Chart_Builder_Admin {
         $legend_color = $settings['legend_color'];
         $legend_font_size = $settings['legend_font_size'];
         $legend_reverse = $settings['legend_reverse'];
+        $legend_bold = $settings['legend_bold'];
+        $legend_italic = $settings['legend_italic'];
 		ob_start();
 		?>
         <div class="ays-accordion-data-main-wrap">
@@ -3935,6 +3937,38 @@ class Chart_Builder_Admin {
 						<div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
                     </div>
                 </div> <!-- Font size -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-legend-italic">
+				            <?php echo esc_html(__( "Italic text", "chart-builder" )); ?>
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to make chart legend text italic.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-legend-italic" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[legend_italic]" value="on" <?php echo esc_attr($legend_italic); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!-- Italic text -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-legend-bold">
+				            <?php echo esc_html(__( "Bold text", "chart-builder" )); ?>
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to make chart legend text bold.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-legend-bold" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[legend_bold]" value="on" <?php echo esc_attr($legend_bold); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!-- Bold text -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-legend-revers">

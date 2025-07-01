@@ -472,6 +472,18 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-italic').on('change', function () {
+				_this.chartSourceData.settings.legend_italic =  $(this).is(':checked');
+				_this.chartObject.options.plugins.legend.labels.font.style = _this.chartSourceData.settings.legend_italic ? 'italic' : 'normal';
+				_this.chartObject.update();
+			});
+
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-bold').on('change', function () {
+				_this.chartSourceData.settings.legend_bold = $(this).is(':checked');
+				_this.chartObject.options.plugins.legend.labels.font.weight = _this.chartSourceData.settings.legend_bold ? 'bold' : 'normal';
+				_this.chartObject.update();
+			});
+
 	}
 
 	ChartBuilderChartsJs.prototype.detectManualChange = function (e) {
@@ -687,7 +699,9 @@
 					labels: {
 						color: nSettings.legendColor,
 						font: {
-							size: nSettings.legendFontSize
+							size: nSettings.legendFontSize,
+							weight: nSettings.legendBoldText ? 'bold' : 'normal',
+            				style: nSettings.legendItalicText ? 'italic' : 'normal'
 						}
 					}
 				}
@@ -730,7 +744,9 @@
 					labels: {
 						color: nSettings.legendColor,
 						font: {
-							size: nSettings.legendFontSize
+							size: nSettings.legendFontSize,
+							weight: nSettings.legendBoldText ? 'bold' : 'normal',
+            				style: nSettings.legendItalicText ? 'italic' : 'normal'
 						}
 					}
 				}
@@ -773,7 +789,9 @@
 					labels: {
 						color: nSettings.legendColor,
 						font: {
-							size: nSettings.legendFontSize
+							size: nSettings.legendFontSize,
+							weight: nSettings.legendBoldText ? 'bold' : 'normal',
+            				style: nSettings.legendItalicText ? 'italic' : 'normal'
 						}
 					}
 				}
@@ -804,6 +822,8 @@
 		newSettings.legendPosition = settings['legend_position'];
 		newSettings.legendAlignment = settings['legend_alignment'];
 		newSettings.legendFontSize = settings['legend_font_size'];
+		newSettings.legendItalicText = (settings['legend_italic'] == 'checked') ? true : false;
+		newSettings.legendBoldText = (settings['legend_bold'] == 'checked') ? true : false;
 		newSettings.legendReverse = settings['legend_reverse'];
 		newSettings.tooltipColor = settings['tooltip_text_color'];
 		return newSettings;

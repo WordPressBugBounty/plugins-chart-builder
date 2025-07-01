@@ -140,7 +140,9 @@
 					labels: {
 						color: nSettings.legendColor,
 						font: {
-							size: nSettings.legendFontSize
+							size: nSettings.legendFontSize,
+							weight: nSettings.legendBoldText ? 'bold' : 'normal',
+            				style: nSettings.legendItalicText ? 'italic' : 'normal'
 						}
 					}
 				}
@@ -195,7 +197,9 @@
 					labels: {
 						color: nSettings.legendColor,
 						font: {
-							size: nSettings.legendFontSize
+							size: nSettings.legendFontSize,
+							weight: nSettings.legendBoldText ? 'bold' : 'normal',
+            				style: nSettings.legendItalicText ? 'italic' : 'normal'
 						}
 					}
 				}
@@ -250,7 +254,9 @@
 					labels: {
 						color: nSettings.legendColor,
 						font: {
-							size: nSettings.legendFontSize
+							size: nSettings.legendFontSize,
+							weight: nSettings.legendBoldText ? 'bold' : 'normal',
+            				style: nSettings.legendItalicText ? 'italic' : 'normal'
 						}
 					}
 				}
@@ -281,6 +287,8 @@
 		newSettings.legendColor = settings['legend_color'];
 		newSettings.legendFontSize = settings['legend_font_size'];
 		newSettings.legendReverse = settings['legend_reverse'];
+		newSettings.legendItalicText = (settings['legend_italic'] == 'on') ? true : false;
+		newSettings.legendBoldText = (settings['legend_bold'] == 'on') ? true : false;
 		newSettings.tooltipColor = settings['tooltip_text_color'];
 		return newSettings;
 	}
