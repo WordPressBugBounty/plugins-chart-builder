@@ -653,6 +653,36 @@
 		}		
 	}
 
+	Chart.register({
+		id: 'hoverGlowPlugin',
+		beforeDraw(chart) {
+			if (chart.config.type !== 'pie') {
+				return;
+			}
+			const ctx = chart.ctx;
+			const activeElements = chart.getActiveElements();
+			
+			if (activeElements.length === 0) {
+				return;
+			}
+			const meta = chart.getDatasetMeta(activeElements[0].datasetIndex);
+			const element = meta.data[activeElements[0].index];
+
+			if (!element) {
+				return;
+			}
+			const sliceColor = element.options.backgroundColor || 'rgba(0, 0, 0, 1)';
+			ctx.save();
+			ctx.shadowColor = sliceColor;
+			ctx.shadowBlur = 15;
+			ctx.shadowOffsetX = 0;
+			ctx.shadowOffsetY = 0;
+
+			element.draw(ctx);
+			ctx.restore();
+		}
+	});
+
 	// Load chart by pie chart
 	ChartBuilderChartsJs.prototype.pieChartView = function(isChangedType){
 		var _this = this;
