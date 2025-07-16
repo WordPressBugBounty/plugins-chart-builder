@@ -198,9 +198,9 @@ $youtube_icon_svg = "<span class=''><img src='". esc_url(plugins_url('/images/ic
                                     </td>
                                     <td class="column-title"><?php
                                         if($item['status'] == 'trashed'){
-                                            $delete_nonce = wp_create_nonce( $this->plugin_name . '-delete-item' );
-                                        }else{
                                             $delete_nonce = wp_create_nonce( $this->plugin_name . '-trash-item' );
+                                        }else{
+                                            $delete_nonce = wp_create_nonce( $this->plugin_name . '-delete-item' );
                                         }
                                         $publish_nonce = wp_create_nonce( $this->plugin_name . '-publish-item' );
                                         $unpublish_nonce = wp_create_nonce( $this->plugin_name . '-unpublish-item' );

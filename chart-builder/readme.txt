@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 3.5.3
+Stable tag: 3.5.4
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -249,6 +249,11 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 3.5.4 ( Jul 15, 2025 ) =
+* Added: Chart.js width and height options
+* Fixed: Vulnerability issue
+* Fixed: Some language translation issues
 
 = 3.5.3 ( Jul 8, 2025 ) =
 * Added: Shadow effect on pie chart slices when hovered in Chart.js

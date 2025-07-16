@@ -391,12 +391,17 @@ class Chart_Builder_Public {
 			}
 
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . " {
+				width: " . esc_attr($settings['width'] ?: '100') . esc_attr($settings['width_format'] ?: '%') . ";
+                height: " . esc_attr($settings['height']).esc_attr($settings['height_format']) . ";
 				border: " . esc_attr($settings['border_width']) . "px " . esc_attr($settings['border_style']) . " " . esc_attr($settings['border_color']) . ";
 				border-radius: " . esc_attr($settings['border_radius']) . "px;
 				box-shadow: " . ($settings['box_shadow'] === 'checked' ? '2px 2px 10px 2px '. $settings['box_shadow_color'] : '') . ";
 				background-color: " . esc_attr($settings['background_color_chart']) . ";
-				}
-
+			}
+			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "charts-main-container" . $this->unique_id . " canvas {
+				width: 100% !important;
+				height: 100% !important;
+			}
 			#" . $this->html_class_prefix . "container" . $this->unique_id . " div." . $this->html_class_prefix . "header-container {
 				margin-bottom: " . esc_attr($settings['title_gap']) . "px !important;
 			}

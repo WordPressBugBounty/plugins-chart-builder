@@ -36,7 +36,12 @@ class Chart_Builder_i18n {
 
 		if ( version_compare( get_bloginfo( 'version' ), '6.7', '>=' ) ) {
             $plugin = 'chart-builder';
-            $locale = get_locale();
+            if( is_admin() ){
+                $locale = get_user_locale();
+            } else {
+                $locale = get_locale();
+            }
+
 
             if ( is_textdomain_loaded( $plugin ) ) {
                 unload_textdomain( $plugin );

@@ -160,6 +160,40 @@
 			});
 
 		// chart styles
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-width').on('input', function () {
+				var format = _this.$el.find('#'+_this.htmlClassPrefix+'option-width-format').val() == '%' ? '%' : '';
+				_this.chartSourceData.settings.chart_width =  $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('width', $(this).val() + format);
+				_this.chartObject.update();
+			});
+			
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-width-format').on('change', function () {
+				var format = '%';
+				if ($(this).val() == 'px') {
+					format = '';
+				}
+				var value = _this.$el.find('#'+_this.htmlClassPrefix+'option-width').val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('width', value + format);
+				_this.chartObject.update();
+			});
+
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-height').on('input', function () {
+				var format = _this.$el.find('#'+_this.htmlClassPrefix+'option-height-format').val() == '%' ? '%' : '';
+				_this.chartSourceData.settings.chart_height =  $(this).val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('height', $(this).val() + format);
+				_this.chartObject.update();
+			});
+
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-height-format').on('change', function () {
+				var format = '';
+				if ($(this).val() == '%') {
+					format = '%';
+				}
+				var value = _this.$el.find('#'+_this.htmlClassPrefix+'option-height').val();
+				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('height', value + format);
+				_this.chartObject.update();
+			});
+
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-border-width').on('input', function () {
 				_this.chartSourceData.settings.border_width = $(this).val();
 				_this.$el.find('.'+_this.htmlClassPrefix+'charts-main-container').css('border-width', $(this).val() + 'px');
@@ -694,7 +728,22 @@
 		var nSettings =  _this.configOptionsForCharts(settings);
         
 		var ctx = document.getElementById(_this.htmlClassPrefix + '-canvas');
-		
+
+		ctx.width = nSettings.chartWidth;
+		ctx.height = nSettings.chartHeight;
+
+		if (nSettings.chartWidthFormat === 'px') {
+			ctx.width = parseInt(nSettings.chartWidth);
+		} else if (nSettings.chartWidthFormat === '%') {
+			ctx.style.width = nSettings.chartWidth + '%';
+		}
+
+		if (nSettings.chartHeightFormat === 'px') {
+			ctx.height = parseInt(nSettings.chartHeight);
+		} else if (nSettings.chartHeightFormat === '%') {
+			ctx.style.height = nSettings.chartHeight + '%';
+		}
+
 		var sliceCount = dataTypes?.dataSets[0]?.data?.length || 0;
 		dataTypes.dataSets[0].backgroundColor = [];
 
@@ -717,6 +766,7 @@
 			rotation: nSettings.startAngle,
 			borderColor: nSettings.sliceBorderColor,
 			plugins: {
+				maintainAspectRatio: false,
 				tooltip:{
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
@@ -754,6 +804,21 @@
         
 		var ctx = document.getElementById(_this.htmlClassPrefix + '-canvas');
 
+		ctx.width = nSettings.chartWidth;
+		ctx.height = nSettings.chartHeight;
+
+		if (nSettings.chartWidthFormat === 'px') {
+			ctx.width = parseInt(nSettings.chartWidth);
+		} else if (nSettings.chartWidthFormat === '%') {
+			ctx.style.width = nSettings.chartWidth + '%';
+		}
+
+		if (nSettings.chartHeightFormat === 'px') {
+			ctx.height = parseInt(nSettings.chartHeight);
+		} else if (nSettings.chartHeightFormat === '%') {
+			ctx.style.height = nSettings.chartHeight + '%';
+		}
+
 		_this.chartObject = new Chart(ctx, {
 		  type: 'bar',
 		  data: {
@@ -761,6 +826,7 @@
 			datasets: dataTypes?.dataSets,
 		  },
 		  options: {
+    		maintainAspectRatio: false,
 			// indexAxis: nSettings.indexAxis,
 			plugins: {
 				tooltip:{
@@ -799,6 +865,20 @@
         
 		var ctx = document.getElementById(_this.htmlClassPrefix + '-canvas');
 
+		ctx.width = nSettings.chartWidth;
+		ctx.height = nSettings.chartHeight;
+
+		if (nSettings.chartWidthFormat === 'px') {
+			ctx.width = parseInt(nSettings.chartWidth);
+		} else if (nSettings.chartWidthFormat === '%') {
+			ctx.style.width = nSettings.chartWidth + '%';
+		}
+
+		if (nSettings.chartHeightFormat === 'px') {
+			ctx.height = parseInt(nSettings.chartHeight);
+		} else if (nSettings.chartHeightFormat === '%') {
+			ctx.style.height = nSettings.chartHeight + '%';
+		}
 		_this.chartObject = new Chart(ctx, {
 		  type: 'line',
 		  data: {
@@ -806,6 +886,7 @@
 			datasets: dataTypes?.dataSets,
 		  },
 		  options: {
+    		maintainAspectRatio: false,
 			// indexAxis: nSettings.indexAxis,
 			plugins: {
 				tooltip:{
@@ -840,6 +921,10 @@
 		var newSettings = {};
 
 		// newSettings.indexAxis = (settings['index_axis'] == 'checked') ? 'y' : 'x';
+		newSettings.chartWidth = parseInt(settings['chart_width']);  
+		newSettings.chartWidthFormat = settings['chart_width_format']; 
+		newSettings.chartHeight = settings['chart_height'];
+		newSettings.chartHeightFormat = settings['chart_height_format']; 
 		newSettings.outerRadius = settings['outer_radius'];
 		newSettings.sliceSpacing = settings['slice_spacing'];
 		newSettings.circumference = settings['circumference'];

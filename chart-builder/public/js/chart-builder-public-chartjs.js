@@ -1,6 +1,43 @@
 (function($) {
 	'use strict';
 
+	var hoverGlowPluginRegistered = false;
+	function registerHoverGlowPlugin() {
+		if (hoverGlowPluginRegistered || typeof Chart === 'undefined') {
+			return;
+		}
+		Chart.register({
+			id: 'hoverGlowPlugin',
+			beforeDraw(chart) {
+				if (chart.config.type !== 'pie') {
+					return;
+				}
+				var ctx = chart.ctx;
+				var activeElements = chart.getActiveElements();
+				
+				if (activeElements.length === 0) {
+					return;
+				}
+				var meta = chart.getDatasetMeta(activeElements[0].datasetIndex);
+				var element = meta.data[activeElements[0].index];
+
+				if (!element) {
+					return;
+				}
+				var sliceColor = element.options.backgroundColor || 'rgba(0, 0, 0, 1)';
+				ctx.save();
+				ctx.shadowColor = sliceColor;
+				ctx.shadowBlur = 15;
+				ctx.shadowOffsetX = 0;
+				ctx.shadowOffsetY = 0;
+
+				element.draw(ctx);
+				ctx.restore();
+			}
+		});
+		hoverGlowPluginRegistered = true;
+	}
+
 	function ChartBuilderChartJs(element, options) {
 		this.el = element;
 		this.$el = $(element);
@@ -24,6 +61,7 @@
 			'line_chart'   : 'Line Chart',
 		}
 	
+		registerHoverGlowPlugin();
 		this.init();
 	
 		return this;
@@ -80,36 +118,7 @@
 			}
 		}
 	}
-
-	Chart.register({
-		id: 'hoverGlowPlugin',
-		beforeDraw(chart) {
-			if (chart.config.type !== 'pie') {
-				return;
-			}
-			const ctx = chart.ctx;
-			const activeElements = chart.getActiveElements();
-			
-			if (activeElements.length === 0) {
-				return;
-			}
-			const meta = chart.getDatasetMeta(activeElements[0].datasetIndex);
-			const element = meta.data[activeElements[0].index];
-
-			if (!element) {
-				return;
-			}
-			const sliceColor = element.options.backgroundColor || 'rgba(0, 0, 0, 1)';
-			ctx.save();
-			ctx.shadowColor = sliceColor;
-			ctx.shadowBlur = 15;
-			ctx.shadowOffsetX = 0;
-			ctx.shadowOffsetY = 0;
-
-			element.draw(ctx);
-			ctx.restore();
-		}
-	});
+	
 	
 	// Load chart by pie chart
 	ChartBuilderChartJs.prototype.pieChartView = function(){
@@ -135,13 +144,27 @@
 		}
 
 		var ctx = canvasElement;
+		ctx.width = nSettings.chartWidth;
+		ctx.height = nSettings.chartHeight;
+
+		if (nSettings.chartWidthFormat === 'px') {
+			ctx.width = parseInt(nSettings.chartWidth);
+		} else if (nSettings.chartWidthFormat === '%') {
+			ctx.style.width = nSettings.chartWidth + '%';
+		}
+
+		if (nSettings.chartHeightFormat === 'px') {
+			ctx.height = parseInt(nSettings.chartHeight);
+		} else if (nSettings.chartHeightFormat === '%') {
+			ctx.style.height = nSettings.chartHeight + '%';
+		}
 
 		var sliceCount = dataTypes?.dataSets[0]?.data?.length || 0;
 		dataTypes.dataSets[0].backgroundColor = [];
 
 		for (var i = 0; i < sliceCount; i++) {
-			const customColor = nSettings.sliceColor?.[i];
-			const defaultColor = nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
+			var customColor = nSettings.sliceColor?.[i];
+			var defaultColor = nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
 			dataTypes.dataSets[0].backgroundColor[i] = customColor || defaultColor;
 		}
 		dataTypes.dataSets[0].borderWidth = nSettings.sliceBorderWidth;
@@ -208,6 +231,20 @@
 
 		var ctx = canvasElement;
 		
+		ctx.width = nSettings.chartWidth;
+		ctx.height = nSettings.chartHeight;
+
+		if (nSettings.chartWidthFormat === 'px') {
+			ctx.width = parseInt(nSettings.chartWidth);
+		} else if (nSettings.chartWidthFormat === '%') {
+			ctx.style.width = nSettings.chartWidth + '%';
+		}
+
+		if (nSettings.chartHeightFormat === 'px') {
+			ctx.height = parseInt(nSettings.chartHeight);
+		} else if (nSettings.chartHeightFormat === '%') {
+			ctx.style.height = nSettings.chartHeight + '%';
+		}
 		_this.chartObject = new Chart(ctx, {
 		  type: 'bar',
 		  data: {
@@ -265,6 +302,21 @@
 
 		var ctx = canvasElement;
 
+		ctx.width = nSettings.chartWidth;
+		ctx.height = nSettings.chartHeight;
+
+		if (nSettings.chartWidthFormat === 'px') {
+			ctx.width = parseInt(nSettings.chartWidth);
+		} else if (nSettings.chartWidthFormat === '%') {
+			ctx.style.width = nSettings.chartWidth + '%';
+		}
+
+		if (nSettings.chartHeightFormat === 'px') {
+			ctx.height = parseInt(nSettings.chartHeight);
+		} else if (nSettings.chartHeightFormat === '%') {
+			ctx.style.height = nSettings.chartHeight + '%';
+		}
+
 		_this.chartObject = new Chart(ctx, {
 		  type: 'line',
 		  data: {
@@ -272,6 +324,7 @@
 			datasets: dataTypes?.dataSets,
 		  },
 		  options: {
+			maintainAspectRatio: false,
 			plugins: {
 				tooltip:{
 					titleColor: nSettings.tooltipColor,
@@ -304,6 +357,10 @@
 	ChartBuilderChartJs.prototype.configOptionsForCharts = function (settings) {
 		var newSettings = {};
 
+		newSettings.chartWidth = parseInt(settings['chart_width']);  
+		newSettings.chartWidthFormat = settings['chart_width_format']; 
+		newSettings.chartHeight = settings['chart_height'];
+		newSettings.chartHeightFormat = settings['chart_height_format']; 
 		newSettings.outerRadius = settings['outer_radius'];
 		newSettings.sliceSpacing = settings['slice_spacing'];
 		newSettings.circumference = settings['circumference'];

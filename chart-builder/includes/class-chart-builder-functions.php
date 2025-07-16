@@ -1444,6 +1444,20 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 				"center" => __("Center", "chart-builder"),
 				"end" => __("End", "chart-builder"),
 			);
+			
+			$group_width_format_options = array(
+				"%" => __("%", "chart-builder"),
+				"px" => __("px", "chart-builder"),
+			);
+
+			// Width
+			$settings['width'] = isset( $settings['width'] ) && $settings['width'] != '' ? esc_attr( $settings['width'] ) : '100';
+			$settings['width_format'] = isset( $settings['width_format'] ) && $settings['width_format'] != '' ? esc_attr( $settings['width_format'] ) : '%';
+			$settings['width_format_options'] = $group_width_format_options;
+
+			// Height
+			$settings['height'] = isset( $settings['height'] ) && $settings['height'] != '' ? esc_attr( $settings['height'] ) : '400';
+			$settings['height_format'] = isset( $settings['height_format'] ) && $settings['height_format'] != '' ? esc_attr( $settings['height_format'] ) : 'px';
 
 			// Title color
 			$settings['title_color'] = isset( $settings['title_color'] ) && $settings['title_color'] != '' ? esc_attr( $settings['title_color'] ) : '#000000';
@@ -1640,6 +1654,17 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 	    */
 		public function get_chart_settings_chartjs_public ($settings) {
 			$chart_default_colors = array('#36A2EB','#FF6384','#FF9F40','#FFCD56', '#4BC0C0','#0099c6','#dd4477','#66aa00', '#b82e2e','#316395','#994499','#22aa99', '#aaaa11','#6633cc','#e67300','#8b0707', '#651067','#329262','#5574a6','#3b3eac', '#b77322','#16d620','#b91383','#f4359e', '#9c5935','#a9c413','#2a778d','#668d1c', '#bea413','#0c5922','#743411');
+			
+			// Width
+			$settings['width'] = isset( $settings['width'] ) && $settings['width'] != '' ? esc_attr( $settings['width'] ) : '100';
+			$settings['width_format'] = isset( $settings['width_format'] ) && $settings['width_format'] != '' ? esc_attr( $settings['width_format'] ) : '%';
+			$settings['chart_width'] = $settings['width'].$settings['width_format'];
+			
+			// height
+			$settings['height'] = isset( $settings['height'] ) && $settings['height'] != '' ? esc_attr( $settings['height'] ) : '400';
+			$settings['height_format'] = isset( $settings['height_format'] ) && $settings['height_format'] != '' ? esc_attr( $settings['height_format'] ) : 'px';
+			$settings['chart_height'] = $settings['height'].$settings['height_format'];
+
 			// Show chart description
 			$settings['show_description'] = isset( $settings['show_description'] ) && $settings['show_description'] != '' ? esc_attr( $settings['show_description'] ) : 'on';
 			

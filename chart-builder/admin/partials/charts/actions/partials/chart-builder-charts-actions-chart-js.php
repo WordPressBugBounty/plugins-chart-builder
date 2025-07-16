@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="<?php echo esc_attr($html_class_prefix) ?>charts-main-container" id="<?php echo esc_attr($html_class_prefix).esc_attr($source_chart_type) ?>">
-                    <canvas id="<?php echo esc_attr($html_class_prefix).'-canvas' ?>" style="margin:auto;width:100%"></canvas>
+                    <canvas id="<?php echo esc_attr($html_class_prefix).'-canvas' ?>" style="margin:auto;"></canvas>
                 </div>
             </div>
 
@@ -64,14 +64,17 @@
                         }
                             
                         div." . esc_attr($html_class_prefix) . "charts-main-container {
-                            width: 100%;
-                            height: 400px;
+                            width: " . esc_attr($settings['width'] ?: '100') . esc_attr($settings['width_format'] ?: '%') . ";
+                            height: " . esc_attr($settings['height']).esc_attr($settings['height_format']) . ";
                             border: " . esc_attr($settings['border_width']) . "px " . esc_attr( $settings['border_style']) . " " . esc_attr($settings['border_color']) . ";
                             " . ($settings['box_shadow'] === "checked" ? "box-shadow: 2px 2px 10px 2px" . esc_attr( $settings['box_shadow_color']) . ";" : "") . ";
                             border-radius: " . esc_attr($settings['border_radius']) . "px;
                             background-color: " . esc_attr($settings['background_color_chart']) . ";
                         }
-                            
+                        div." . esc_attr($html_class_prefix) . "charts-main-container canvas{
+                            width: 100% !important;
+                            height: 100% !important;
+                        }
                         div." . esc_attr($html_class_prefix) . "header-container {
                             margin-bottom: " . esc_attr($settings['title_gap']) . "px !important;
                         }

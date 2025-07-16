@@ -444,6 +444,15 @@ class Chart_Builder_Admin {
 		}
 	}
 
+    private function check_permissions_and_nonce($nonce_action) {
+        if (!is_user_logged_in() || !current_user_can('manage_options')) {
+            wp_die(__('Access denied.', 'chart-builder'));
+        }
+
+        if (!isset($_GET['_wpnonce']) || !wp_verify_nonce($_GET['_wpnonce'], $this->plugin_name . '-' . $nonce_action)) {
+            wp_die(__('Security check failed. Invalid or missing nonce.', 'chart-builder'));
+        }
+    }
 	public function display_plugin_charts_page(){
         global $ays_chart_db_actions;
 
@@ -471,7 +480,8 @@ class Chart_Builder_Admin {
 
         switch ($action) {
             case 'trash':
-                if( $id > 0 ){
+                $this->check_permissions_and_nonce('trash-item');
+                if ($id > 0){
                     $this->db_obj->trash_item( $id );
 	                $url = remove_query_arg( array('action', 'id', '_wpnonce') );
 	                $url = esc_url_raw( add_query_arg( array(
@@ -482,7 +492,8 @@ class Chart_Builder_Admin {
                 }
                 break;
             case 'restore':
-                if( $id > 0 ){
+                $this->check_permissions_and_nonce('delete-item');
+                if ($id > 0 ) {
                     $this->db_obj->restore_item( $id );
 	                $url = remove_query_arg( array('action', 'id', '_wpnonce') );
 	                $url = esc_url_raw( add_query_arg( array(
@@ -493,7 +504,8 @@ class Chart_Builder_Admin {
                 }
                 break;
             case 'delete':
-                if( $id > 0 ){
+                $this->check_permissions_and_nonce('delete-item');
+                if ($id > 0) {
                     $this->db_obj->delete_item( $id );
 	                $url = remove_query_arg( array('action', 'id', '_wpnonce') );
 	                $url = esc_url_raw( add_query_arg( array(
@@ -504,7 +516,8 @@ class Chart_Builder_Admin {
                 }
                 break;
             case 'publish':
-                if( $id > 0 ){
+                $this->check_permissions_and_nonce('publish-item');
+                if ($id > 0) {
                     $this->db_obj->publish_item( $id );
 	                $url = remove_query_arg( array('action', 'id', '_wpnonce') );
 	                $url = esc_url_raw( add_query_arg( array(
@@ -515,7 +528,8 @@ class Chart_Builder_Admin {
                 }
                 break;
             case 'unpublish':
-                if( $id > 0 ){
+                $this->check_permissions_and_nonce('unpublish-item');
+                if ($id > 0) {
                     $this->db_obj->restore_item( $id );
 	                $url = remove_query_arg( array('action', 'id', '_wpnonce') );
 	                $url = esc_url_raw( add_query_arg( array(
@@ -526,7 +540,8 @@ class Chart_Builder_Admin {
                 }
                 break;
             case 'duplicate':
-                if( $id > 0 ){
+                $this->check_permissions_and_nonce('duplicate-item');
+                if ($id > 0) {
                     $this->db_obj->duplicate_item( $id );
                     $url = remove_query_arg( array('action', 'id', '_wpnonce') );
                     $url = esc_url_raw( add_query_arg( array(
@@ -5554,6 +5569,11 @@ class Chart_Builder_Admin {
         $border_radius_with_title = $settings['border_radius_with_title'];
         $border_color_with_title = $settings['border_color_with_title'];
         $border_style_with_title = $settings['border_style_with_title'];
+        $width = $settings['width'];
+		$width_format = $settings['width_format'];
+        $height = $settings['height'];
+        $height_format = $settings['height_format'];
+        $width_format_options = $settings['width_format_options'];
         $border_width = $settings['border_width'];
         $border_radius = $settings['border_radius'];
         $border_color = $settings['border_color'];
@@ -5567,6 +5587,52 @@ class Chart_Builder_Admin {
 		?>
         <div class="ays-accordion-data-main-wrap">
             <div class="<?php echo esc_attr($html_class_prefix) ?>settings-data-main-wrap">
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-width" class="form-label">
+                            <?php echo esc_html(__( "Width", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The width of the chart container, in percents.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-width" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[width]" value="<?php echo esc_attr($width) ?>">
+						<select class="<?php echo esc_attr($html_class_prefix) ?>option-width-format-change <?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-width-format" name="<?php echo esc_attr($html_name_prefix); ?>settings[width_format]">
+                            <?php
+                            foreach ( $width_format_options as $option_slug => $option ):
+                                $selected = ( $width_format == $option_slug ) ? 'selected' : '';
+                                ?>
+                                <option value="<?php echo esc_attr($option_slug); ?>" <?php echo esc_attr($selected); ?>><?php echo esc_html($option); ?></option>
+                            <?php
+                            endforeach;
+                            ?>
+                        </select>
+                    </div>
+                </div> <!-- Width -->    
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-height" class="form-label">
+                            <?php echo esc_html(__( "Height", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The height of the chart container, in pixels.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-height" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[height]" value="<?php echo esc_attr($height) ?>">
+						<select class="<?php echo esc_attr($html_class_prefix) ?>option-width-format-change <?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-height-format" name="<?php echo esc_attr($html_name_prefix); ?>settings[height_format]">
+                            <?php
+                            foreach ( $width_format_options as $option_slug => $option ):
+                                $selected = ( $height_format == $option_slug ) ? 'selected' : '';
+                                ?>
+                                <option value="<?php echo esc_attr($option_slug); ?>" <?php echo esc_attr($selected); ?>><?php echo esc_html($option); ?></option>
+                            <?php
+                            endforeach;
+                            ?>
+                        </select>
+                    </div>
+                </div> <!-- Height -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-border-width">
