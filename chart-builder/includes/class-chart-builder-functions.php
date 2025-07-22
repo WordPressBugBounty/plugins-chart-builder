@@ -1456,8 +1456,8 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['width_format_options'] = $group_width_format_options;
 
 			// Height
-			$settings['height'] = isset( $settings['height'] ) && $settings['height'] != '' ? esc_attr( $settings['height'] ) : '400';
-			$settings['height_format'] = isset( $settings['height_format'] ) && $settings['height_format'] != '' ? esc_attr( $settings['height_format'] ) : 'px';
+			$settings['height'] = isset( $settings['height'] ) && $settings['height'] != '' ? esc_attr( $settings['height'] ) : '100';
+			$settings['height_format'] = isset( $settings['height_format'] ) && $settings['height_format'] != '' ? esc_attr( $settings['height_format'] ) : '%';
 
 			// Title color
 			$settings['title_color'] = isset( $settings['title_color'] ) && $settings['title_color'] != '' ? esc_attr( $settings['title_color'] ) : '#000000';
@@ -1661,8 +1661,8 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['chart_width'] = $settings['width'].$settings['width_format'];
 			
 			// height
-			$settings['height'] = isset( $settings['height'] ) && $settings['height'] != '' ? esc_attr( $settings['height'] ) : '400';
-			$settings['height_format'] = isset( $settings['height_format'] ) && $settings['height_format'] != '' ? esc_attr( $settings['height_format'] ) : 'px';
+			$settings['height'] = isset( $settings['height'] ) && $settings['height'] != '' ? esc_attr( $settings['height'] ) : '100';
+			$settings['height_format'] = isset( $settings['height_format'] ) && $settings['height_format'] != '' ? esc_attr( $settings['height_format'] ) : '%';
 			$settings['chart_height'] = $settings['height'].$settings['height_format'];
 
 			// Show chart description
