@@ -1605,11 +1605,14 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Slices settings
 			$settings['slice_colors_default'] = $chart_default_colors;
-			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : array_slice($chart_default_colors, 0, $count_slices);;
-	
+			$settings['slice_color'] = isset( $settings['slice_color'] ) && $settings['slice_color'] != '' ? json_decode($settings['slice_color'], true) : array_slice($chart_default_colors, 0, $count_slices);
+
 			// Slice border color
 			$settings['slice_border_color'] = isset( $settings['slice_border_color'] ) && $settings['slice_border_color'] != '' ? esc_attr( $settings['slice_border_color'] ) : '#ffffff';
-
+			
+			// Slice border color
+			$settings['slices_border_color'] = isset( $settings['slices_border_color'] ) && $settings['slices_border_color'] != '' ? json_decode($settings['slices_border_color'], true) : array_fill(0, $count_slices, $settings['slice_border_color']);
+			
 			// Slices border width
 			$settings['slice_border_width'] = isset( $settings['slice_border_width'] ) && $settings['slice_border_width'] != '' ? esc_attr( $settings['slice_border_width'] ) : '1';
 			
@@ -1654,7 +1657,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 	    */
 		public function get_chart_settings_chartjs_public ($settings) {
 			$chart_default_colors = array('#36A2EB','#FF6384','#FF9F40','#FFCD56', '#4BC0C0','#0099c6','#dd4477','#66aa00', '#b82e2e','#316395','#994499','#22aa99', '#aaaa11','#6633cc','#e67300','#8b0707', '#651067','#329262','#5574a6','#3b3eac', '#b77322','#16d620','#b91383','#f4359e', '#9c5935','#a9c413','#2a778d','#668d1c', '#bea413','#0c5922','#743411');
-			
+			// echo "<pre>"; var_dump($settings); echo "</pre>";
 			// Width
 			$settings['width'] = isset( $settings['width'] ) && $settings['width'] != '' ? esc_attr( $settings['width'] ) : '100';
 			$settings['width_format'] = isset( $settings['width_format'] ) && $settings['width_format'] != '' ? esc_attr( $settings['width_format'] ) : '%';
@@ -1799,6 +1802,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			
 			// Slice border color
 			$settings['slice_border_color'] = isset( $settings['slice_border_color'] ) && $settings['slice_border_color'] != '' ? esc_attr( $settings['slice_border_color'] ) : '#ffffff';
+			
+			// Slice border color
+			$settings['slices_border_color'] = isset( $settings['slices_border_color'] ) && $settings['slices_border_color'] != '' ? json_decode($settings['slices_border_color'], true) : array_fill(0, $count_slices, $settings['slice_border_color']);
 
 			// Slices border width
 			$settings['slice_border_width'] = isset( $settings['slice_border_width'] ) && $settings['slice_border_width'] != '' ? esc_attr( $settings['slice_border_width'] ) : '1';

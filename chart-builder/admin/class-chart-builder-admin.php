@@ -7927,6 +7927,7 @@ class Chart_Builder_Admin {
         ob_start();
         if ($source_chart_type == 'pie_chart')  {
             $slice_color = $settings['slice_color'];
+            $slices_border_color = $settings['slices_border_color'];
             $slice_colors_default = $settings['slice_colors_default'];
 
             ?>
@@ -7966,6 +7967,24 @@ class Chart_Builder_Admin {
                                                         data-slice-id="<?php echo esc_attr($key); ?>">
                                                 </div>
                                             </div> <!-- Slice color -->
+                                            <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                                                <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                                                    <label for="ays-chart-option-slice-border-color">
+                                                        <?php echo esc_html(__( "Border Color", "chart-builder" )); ?>
+                                                        <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The color to use for this slice border.","chart-builder") ); ?>">
+                                                            <i class="ays_fa ays_fa_info_circle"></i>
+                                                        </a>
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                                                    <input type="color" 
+                                                        id="ays-chart-option-slice-border-color-<?php echo esc_attr($key); ?>" 
+                                                        class="ays-chart-option-slice-border-color form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" 
+                                                        name="<?php echo esc_attr($html_name_prefix); ?>settings[slices_border_color][<?php echo esc_attr($key); ?>]" 
+                                                        value="<?php echo isset($slices_border_color[$key]) ? esc_attr($slices_border_color[$key]) : esc_attr($settings['slice_border_color']); ?>" 
+                                                        data-slice-id="<?php echo esc_attr($key); ?>">
+                                                </div>
+                                            </div> <!-- Slice border color -->
                                         </div>
                                     </div>
                                 </div>

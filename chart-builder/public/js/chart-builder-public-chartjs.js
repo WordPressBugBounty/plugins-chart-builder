@@ -161,11 +161,11 @@
 
 		var sliceCount = dataTypes?.dataSets[0]?.data?.length || 0;
 		dataTypes.dataSets[0].backgroundColor = [];
+		dataTypes.dataSets[0].borderColor = [];
 
 		for (var i = 0; i < sliceCount; i++) {
-			var customColor = nSettings.sliceColor?.[i];
-			var defaultColor = nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
-			dataTypes.dataSets[0].backgroundColor[i] = customColor || defaultColor;
+			dataTypes.dataSets[0].backgroundColor[i] = nSettings.sliceColor?.[i] || nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
+			dataTypes.dataSets[0].borderColor[i] = nSettings.slicesBorderColor?.[i] || 'transparent';
 		}
 		dataTypes.dataSets[0].borderWidth = nSettings.sliceBorderWidth;
 		_this.chartObject = new Chart(ctx, {
@@ -185,6 +185,7 @@
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
+					position: 'nearest',
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -366,6 +367,7 @@
 		newSettings.circumference = settings['circumference'];
 		newSettings.startAngle = settings['start_angle'];
 		newSettings.sliceColor = settings['slice_color'];
+		newSettings.slicesBorderColor = settings['slices_border_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
 		newSettings.sliceBorderWidth = settings['slice_border_width'];
 		newSettings.sliceBorderColor = settings['slice_border_color'];

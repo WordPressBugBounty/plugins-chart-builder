@@ -454,6 +454,15 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('.'+_this.htmlClassPrefix+'option-slice-border-color').on('input', function () {
+				var id = $(this).attr('data-slice-id');
+				_this.chartSourceData.settings.slices_border_color[id] = $(this).val();
+				if (_this.chartObject.data.datasets[0].borderColor) {
+					_this.chartObject.data.datasets[0].borderColor[id] = $(this).val();
+				}
+				_this.chartObject.update();
+			});
+
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-slice-border-color').on('input', function () {
 				_this.chartSourceData.settings.slice_border_color = $(this).val();
 				_this.chartObject.options.borderColor = _this.chartSourceData.settings.slice_border_color;
@@ -746,11 +755,11 @@
 
 		var sliceCount = dataTypes?.dataSets[0]?.data?.length || 0;
 		dataTypes.dataSets[0].backgroundColor = [];
+		dataTypes.dataSets[0].borderColor = [];
 
 		for (var i = 0; i < sliceCount; i++) {
-			const customColor = nSettings.sliceColor?.[i];
-			const defaultColor = nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
-			dataTypes.dataSets[0].backgroundColor[i] = customColor || defaultColor;
+			dataTypes.dataSets[0].backgroundColor[i] = nSettings.sliceColor?.[i] || nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
+			dataTypes.dataSets[0].borderColor[i] = nSettings.slicesBorderColor?.[i] || 'transparent';
 		}
 		dataTypes.dataSets[0].borderWidth = nSettings.sliceBorderWidth;
 		_this.chartObject = new Chart(ctx, {
@@ -771,6 +780,7 @@
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
+					position: 'nearest',
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -930,6 +940,7 @@
 		newSettings.circumference = settings['circumference'];
 		newSettings.startAngle = settings['start_angle'];
 		newSettings.sliceColor = settings['slice_color'];
+		newSettings.slicesBorderColor = settings['slices_border_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
 		newSettings.sliceBorderWidth = settings['slice_border_width'];
 		newSettings.sliceBorderColor = settings['slice_border_color'];
