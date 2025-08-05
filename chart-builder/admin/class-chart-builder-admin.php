@@ -8395,4 +8395,59 @@ class Chart_Builder_Admin {
 
 		return $sources;
 	}
+
+    public function ays_chart_disable_all_notice_from_plugin() {
+        if (!function_exists('get_current_screen')) {
+            return;
+        }
+
+        $screen = get_current_screen();
+
+        if (empty($screen) || strpos($screen->id, $this->plugin_name) === false) {
+            return;
+        }
+
+        global $wp_filter;
+
+        // Keep plugin-specific notices
+        $our_plugin_notices = array();
+
+        $exclude_functions = [
+            'chart_builder_general_admin_notice',
+        ];
+
+        if (!empty($wp_filter['admin_notices'])) {
+            foreach ($wp_filter['admin_notices']->callbacks as $priority => $callbacks) {
+                foreach ($callbacks as $key => $callback) {
+                    // For class-based methods
+                    if (
+                        is_array($callback['function']) &&
+                        is_object($callback['function'][0]) &&
+                        get_class($callback['function'][0]) === __CLASS__
+                    ) {
+                        $our_plugin_notices[$priority][$key] = $callback;
+                    }
+                    // For standalone functions
+                    elseif (
+                        is_string($callback['function']) &&
+                        in_array($callback['function'], $exclude_functions)
+                    ) {
+                        $our_plugin_notices[$priority][$key] = $callback;
+                    }
+                }
+            }
+        }
+
+        // Remove all notices
+        remove_all_actions('admin_notices');
+        remove_all_actions('all_admin_notices');
+
+        // Re-add only your plugin's notices
+        foreach ($our_plugin_notices as $priority => $callbacks) {
+            foreach ($callbacks as $callback) {
+                add_action('admin_notices', $callback['function'], $priority);
+            }
+        }
+    }
+
 }

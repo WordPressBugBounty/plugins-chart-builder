@@ -262,6 +262,8 @@ class Chart_Builder {
 		$this->loader->add_action( 'admin_notices', $plugin_admin, 'ays_chart_sale_banner', 1 );
 		$this->loader->add_action( 'wp_ajax_ays_chart_dismiss_button', $plugin_admin, 'ays_chart_dismiss_button' );
         $this->loader->add_action( 'wp_ajax_nopriv_ays_chart_dismiss_button', $plugin_admin, 'ays_chart_dismiss_button' );
+	
+		$this->loader->add_action('current_screen', $plugin_admin, 'ays_chart_disable_all_notice_from_plugin', 200, 1);
 	}
 
 	/**

@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 3.5.6
+Stable tag: 3.5.7
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -249,6 +249,9 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 3.5.7 ( Aug 5, 2025 ) =
+* Improved: Admin dashboard performance
 
 = 3.5.6 ( Jul 29, 2025 ) =
 * Added: Chart.js pie chart slice border color option
