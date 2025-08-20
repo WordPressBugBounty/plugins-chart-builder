@@ -868,8 +868,8 @@ class Chart_Builder_Admin {
             // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             if ( isset( $_GET['page'] ) && strpos( sanitize_text_field( wp_unslash( $_GET['page'] ) ), CHART_BUILDER_NAME ) !== false ) {
                 if( !(Chart_Builder_Admin::get_max_id('charts') <= 1) ){
-                    // $this->ays_chart_sale_message_30_emma($ays_chart_builder_flag);
-                    $this->ays_chart_new_silver_bundle_message_2025($ays_chart_builder_flag);
+                    $this->ays_chart_sale_message20($ays_chart_builder_flag);
+                    // $this->ays_chart_new_silver_bundle_message_2025($ays_chart_builder_flag);
                     // $this->ays_chart_helloween_message($ays_chart_builder_flag);
                     // $this->ays_chart_christmas_message($ays_chart_builder_flag);
                     // $this->ays_chart_silver_bundle_message($ays_chart_builder_flag);

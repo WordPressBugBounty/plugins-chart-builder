@@ -473,7 +473,9 @@ $youtube_icon_svg = "<span class=''><img src='". esc_url(plugins_url('/images/ic
                     <h4><?php echo esc_html__( "Create Your First Chart in Under One Minute", 'chart-builder' ); ?></h4>
                 </div>
                 <div class="ays-chart-create-chart-youtube-video">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ysjUMK0HH3c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy" allowfullscreen style="max-width: 100%;"></iframe>
+                    <div class="ays-chart-youtube-placeholder" data-video-id="ysjUMK0HH3c" style="cursor: pointer">
+                        <img src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL .'/images/create-chart-on-wordpress.webp'); ?>" loading="lazy" width="560" height="315">
+                    </div>
                 </div>
                 <div class="ays_chart_small_hint_text_for_message_variables" style="text-align: center;">
                     <?php echo esc_html__( 'Please note that this video will disappear once you created 4 charts.', 'chart-builder' ); ?>
