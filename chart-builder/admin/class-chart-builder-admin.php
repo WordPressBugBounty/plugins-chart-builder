@@ -676,6 +676,16 @@ class Chart_Builder_Admin {
     }
 
 	public function ays_admin_ajax(){
+        // Add nonce verification
+        if (!wp_verify_nonce($_REQUEST['nonce'], 'ays_chart_admin_nonce')) {
+            wp_die('Security check failed');
+        }
+
+        // Add capability check
+        if (!current_user_can('manage_options')) {
+            wp_die('Insufficient permissions');
+        }
+
 		global $wpdb;
 
 		$response = array(
@@ -687,7 +697,13 @@ class Chart_Builder_Admin {
 		if($function !== null){
 			$response = array();
 			if( is_callable( array( $this, $function ) ) ){
-				$response = $this->$function();
+				$allowed_functions = array(
+                    'ays_chart_update_banner_time' => 'manage_options'
+                );
+
+                if (isset($allowed_functions[$function]) && current_user_can($allowed_functions[$function])) {
+                    $response = $this->$function();
+                }
 
 	            ob_end_clean();
 	            $ob_get_clean = ob_get_clean();
@@ -1976,6 +1992,9 @@ class Chart_Builder_Admin {
     }
 
     public function ays_chart_update_banner_time(){
+        if (!current_user_can('manage_options')) {
+            return array('error' => 'Insufficient permissions');
+        }
 
         $date = time() + ( 3 * 24 * 60 * 60 ) + (int) ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS);
         // $date = time() + ( 60 ) + (int) ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS); // for testing | 1 min

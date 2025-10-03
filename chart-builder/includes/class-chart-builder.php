@@ -244,7 +244,7 @@ class Chart_Builder {
 
         // Admin AJAX action
         $this->loader->add_action( 'wp_ajax_ays_chart_admin_ajax', $plugin_admin, 'ays_admin_ajax' );
-        $this->loader->add_action( 'wp_ajax_nopriv_ays_chart_admin_ajax', $plugin_admin, 'ays_admin_ajax' );
+        // $this->loader->add_action( 'wp_ajax_nopriv_ays_chart_admin_ajax', $plugin_admin, 'ays_admin_ajax' );
 		$this->loader->add_action( 'wp_ajax_deactivate_plugin_option_cb', $plugin_admin, 'deactivate_plugin_option');
         $this->loader->add_action( 'wp_ajax_nopriv_deactivate_plugin_option_cb', $plugin_admin, 'deactivate_plugin_option');
 
