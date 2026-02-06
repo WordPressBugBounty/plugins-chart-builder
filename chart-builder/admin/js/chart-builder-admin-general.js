@@ -590,7 +590,7 @@
 		});
 		// Pro features end
 
-		var checkCountdownIsExists = $(document).find('#ays-chart-countdown-main-container');
+		var checkCountdownIsExists = $(document).find('#ays-chart-new-silver-bundle-dicount-month-main');
 
 		if ( checkCountdownIsExists.length > 0 ) {
             var second  = 1000,
@@ -599,7 +599,7 @@
                 day     = hour * 24;
 
 			var chartCountdownEndTime = aysChartBuilderAdmin.chartBannerDate;
-			// var chartCountdownEndTime = "JAN 15, 2025 23:59:59";
+			// var chartCountdownEndTime = "NOV 28, 2025 23:59:59";
 			var countDown_new = new Date(chartCountdownEndTime).getTime();
 
             if ( isNaN(countDown_new) || isFinite(countDown_new) == false ) {

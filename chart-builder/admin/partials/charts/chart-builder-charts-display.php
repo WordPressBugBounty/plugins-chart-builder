@@ -86,6 +86,7 @@ $youtube_icon_svg = "<span class=''><img src='". esc_url(plugins_url('/images/ic
                         <div class="ays-chart-table-actions-row">
                             <div class="ays-chart-table-actions-row-section">
                                 <div class="ays-chart-delete-button">
+                                    <?php wp_nonce_field( $this->plugin_name . '-bulk-delete' ); ?>
                                     <button name="bulk_delete" id="ays-chart-bulk-delete" disabled><i class="ays_fa ays_fa_trash"></i><?php echo esc_html(__( 'Delete', "chart-builder" )); ?></button>
                                     <button type="submit" name="bulk_delete_confirm" id="ays-chart-bulk-delete-confirm" style="display: none;"></button>
                                 </div>

@@ -38,10 +38,10 @@
                             </div>
                         </th>
                         <th class="price-info">
-                            <!-- <div class="price-now"><span>$49</span></div> -->
+                            <!-- <div class="price-now"><span>$39</span></div> -->
                             <div class="price-now"><span style="text-decoration: line-through; color: red;">$75</span>
                             </div>
-                            <div class="price-now"><span>$49</span>
+                            <div class="price-now"><span>$39</span>
                             </div> 
                             <!-- <div class="price-now"><span style="color: red; font-size: 12px;">Until December 31</span>
                             </div> -->
@@ -71,120 +71,120 @@
                         <td colspan="4"><?php echo esc_html__('Support for','chart-builder')?></td>
                     </tr>
                     <tr class="compare-row">
-                        <td><?php echo esc_html__('Support for','chart-builder')?></td>
-                        <td><?php echo esc_html__('1 site','chart-builder')?></td>
-                        <td><?php echo esc_html__('5 site','chart-builder')?></td>
-                        <td><?php echo esc_html__('Unlimited sites','chart-builder')?></td>
+                         <td><?php echo esc_html__('Support for','chart-builder')?></td>
+                         <td><?php echo esc_html__('1 site','chart-builder')?></td>
+                         <td><?php echo esc_html__('5 site','chart-builder')?></td>
+                         <td><?php echo esc_html__('Unlimited sites','chart-builder')?></td>
                     </tr>
                     <tr>
                         <td> </td>
                         <td colspan="3"><?php echo esc_html__('Update for','chart-builder')?></td>
                     </tr>
                     <tr>
-                        <td><?php echo esc_html__('Update for','chart-builder')?></td>
-                        <td><?php echo esc_html__('1 months','chart-builder')?></td>
-                        <td><?php echo esc_html__('12 months','chart-builder')?></td>
-                        <td><?php echo esc_html__('Lifetime','chart-builder')?></td>
+                         <td><?php echo esc_html__('Update for','chart-builder')?></td>
+                         <td><?php echo esc_html__('1 months','chart-builder')?></td>
+                         <td><?php echo esc_html__('12 months','chart-builder')?></td>
+                         <td><?php echo esc_html__('Lifetime','chart-builder')?></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td colspan="4"><?php echo esc_html__('Support for','chart-builder')?></td>
                     </tr>
                     <tr class="compare-row">
-                        <td><?php echo esc_html__('Support for','chart-builder')?></td>
-                        <td><?php echo esc_html__('1 months','chart-builder')?></td>
-                        <td><?php echo esc_html__('12 months','chart-builder')?></td>
-                        <td><?php echo esc_html__('Lifetime','chart-builder')?></td>
+                         <td><?php echo esc_html__('Support for','chart-builder')?></td>
+                         <td><?php echo esc_html__('1 months','chart-builder')?></td>
+                         <td><?php echo esc_html__('12 months','chart-builder')?></td>
+                         <td><?php echo esc_html__('Lifetime','chart-builder')?></td>
                     </tr>
                     <tr>
                         <td> </td>
                         <td colspan="4"><?php echo esc_html__('Usage for','chart-builder')?></td>
                     </tr>
                     <tr>
-                        <td><?php echo esc_html__('Usage for','chart-builder')?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><?php echo esc_html__('Usage for','chart-builder')?></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>
                     <tr>
-                        <td> </td>
-                        <td colspan="4"><?php echo esc_html__('Responsive design','chart-builder')?></td>
+                         <td> </td>
+                         <td colspan="4"><?php echo esc_html__('Responsive design','chart-builder')?></td>
                     </tr>
                     <tr class="compare-row">
-                        <td><?php echo esc_html__('Responsive design','chart-builder')?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><?php echo esc_html__('Responsive design','chart-builder')?></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>                   
                     <tr>
-                        <td> </td>
-                        <td colspan="4"><?php echo esc_html__('Line Chart','chart-builder')?></td>
+                         <td> </td>
+                         <td colspan="4"><?php echo esc_html__('Line Chart','chart-builder')?></td>
                     </tr>
                     <tr>
-                        <td><?php echo esc_html__('Line Chart','chart-builder')?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><?php echo esc_html__('Line Chart','chart-builder')?></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>
                     <tr>
-                        <td> </td>
-                        <td colspan="4"><?php echo esc_html__('Bar Chart','chart-builder')?></td>
+                         <td> </td>
+                         <td colspan="4"><?php echo esc_html__('Bar Chart','chart-builder')?></td>
                     </tr>
                     <tr class="compare-row">
-                        <td><?php echo esc_html__('Bar Chart','chart-builder')?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><?php echo esc_html__('Bar Chart','chart-builder')?></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>
                     <tr>
-                        <td> </td>
-                        <td colspan="4"><?php echo esc_html__('Pie Chart','chart-builder')?></td>
+                         <td> </td>
+                         <td colspan="4"><?php echo esc_html__('Pie Chart','chart-builder')?></td>
                     </tr>
                     <tr>
-                        <td><?php echo esc_html__('Pie Chart','chart-builder')?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><?php echo esc_html__('Pie Chart','chart-builder')?></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>
                     <tr>
-                        <td> </td>
-                        <td colspan="4"><?php echo esc_html__('Column Chart','chart-builder')?></td>
+                         <td> </td>
+                         <td colspan="4"><?php echo esc_html__('Column Chart','chart-builder')?></td>
                     </tr>
                     <tr class="compare-row">
-                        <td><?php echo esc_html__('Column Chart','chart-builder')?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><?php echo esc_html__('Column Chart','chart-builder')?></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>
                     <tr>
-                        <td> </td>
-                        <td colspan="4"><?php echo esc_html__('Donut Chart','chart-builder')?></td>
+                         <td> </td>
+                         <td colspan="4"><?php echo esc_html__('Donut Chart','chart-builder')?></td>
                     </tr>
                     <tr>
-                        <td><?php echo esc_html__('Donut Chart','chart-builder')?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><?php echo esc_html__('Donut Chart','chart-builder')?></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>
                     <tr>
-                        <td> </td>
-                        <td colspan="4"><?php echo esc_html__('Organizational Chart','chart-builder')?></td>
+                         <td> </td>
+                         <td colspan="4"><?php echo esc_html__('Organizational Chart','chart-builder')?></td>
                     </tr>
                     <tr class="compare-row">
-                        <td><?php echo esc_html__('Organizational Chart','chart-builder')?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><?php echo esc_html__('Organizational Chart','chart-builder')?></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>
                     <tr>
-                        <td> </td>
-                        <td colspan="4"><?php echo esc_html__('Source - Manual','chart-builder')?></td>
+                         <td> </td>
+                         <td colspan="4"><?php echo esc_html__('Source - Manual','chart-builder')?></td>
                     </tr>
                     <tr>
-                        <td><?php echo esc_html__('Source - Manual','chart-builder')?></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td> 
-                        <td><i class="ays_fa ays_fa_check"></i></td>
-                        <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><?php echo esc_html__('Source - Manual','chart-builder')?></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td> 
+                         <td><i class="ays_fa ays_fa_check"></i></td>
+                         <td><i class="ays_fa ays_fa_check"></i></td>
                     </tr>
                     <tr>
                         <td> </td>

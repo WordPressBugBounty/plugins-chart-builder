@@ -1601,6 +1601,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 				$settings['show_title'] = isset( $settings['show_title'] ) && $settings['show_title'] == 'on' ? 'checked' : '';
 			}
 			
+			$counting_source = $source;
 			$count_slices = (isset($counting_source) && !is_null($counting_source) && count($counting_source) > 0) ? count($counting_source) - 1 : 0;
 
 			// Slices settings
@@ -1655,7 +1656,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 	     * @access public
 	     * @return array
 	    */
-		public function get_chart_settings_chartjs_public ($settings) {
+		public function get_chart_settings_chartjs_public ($settings, $chartData) {
 			$chart_default_colors = array('#36A2EB','#FF6384','#FF9F40','#FFCD56', '#4BC0C0','#0099c6','#dd4477','#66aa00', '#b82e2e','#316395','#994499','#22aa99', '#aaaa11','#6633cc','#e67300','#8b0707', '#651067','#329262','#5574a6','#3b3eac', '#b77322','#16d620','#b91383','#f4359e', '#9c5935','#a9c413','#2a778d','#668d1c', '#bea413','#0c5922','#743411');
 			// echo "<pre>"; var_dump($settings); echo "</pre>";
 			// Width

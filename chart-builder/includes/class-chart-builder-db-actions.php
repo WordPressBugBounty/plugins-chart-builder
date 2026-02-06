@@ -261,6 +261,8 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
         }
 
         public static function get_searched_author_info () {
+            global $wpdb;
+
             $id = (isset($_REQUEST['filterbyauthor'])) ? absint(sanitize_text_field(wp_unslash($_REQUEST['filterbyauthor']))) : 0;
             $author_data = array();
             if ( $id && $id > 0 ) {
@@ -269,7 +271,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
                 $author_data = $wpdb->get_row(// phpcs:ignore
                     $wpdb->prepare(
                         "SELECT ID, display_name 
-                        FROM {$wpdb->esc_sql($users_table)} 
+                        FROM {$users_table}
                         WHERE ID = %d",
                         $id
                     ),
@@ -628,7 +630,7 @@ if( !class_exists( 'Chart_Builder_DB_Actions' ) ){
 
                     $post_type_args = array(
                         'chart_id'       => $inserted_id,
-                        'author_id'     => !empty($chart_create_author) ? $chart_create_author : get_current_user_id(),
+                        'author_id'     => !empty($create_author) ? $create_author : get_current_user_id(),
                         'chart_title'    => $title,
                     );
                     

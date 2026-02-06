@@ -462,7 +462,7 @@
     }
 
     div#ays-chart-dicount-month-main.ays_chart_dicount_info {
-        background-image: url("../images/chart-builder-banner-background-30.svg");
+        background-image: url("../images/chart-builder-banner-background-50.svg");
         background-position: center right;
         background-repeat: no-repeat;
         background-size: cover;
@@ -494,7 +494,7 @@
 
     #ays-chart-dicount-month-main .ays-chart-dicount-wrap-box.ays-chart-dicount-wrap-text-box {
         text-align: left;
-        width: 30%;
+        width: 40%;
     }
 
     .ays-chart-dicount-sale-name-discount-box {

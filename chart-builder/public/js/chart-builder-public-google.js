@@ -167,6 +167,10 @@
 
 			_this.chartObj.draw( _this.chartData, _this.chartOptions );
 			_this.resizeChart();
+			// Fix ARIA attributes for accessibility compliance
+			setTimeout(function() {
+				_this.fixAriaAttributes();
+			}, 100);
 		}
 		/* */
 	}
@@ -353,6 +357,10 @@
 
 			_this.chartObj.draw( _this.chartData, _this.chartOptions );
 			_this.resizeChart();
+			// Fix ARIA attributes for accessibility compliance
+			setTimeout(function() {
+				_this.fixAriaAttributes();
+			}, 100);
 		}
 		/* */
 	}
@@ -541,6 +549,10 @@
 
 			_this.chartObj.draw( _this.chartData, _this.chartOptions );
 			_this.resizeChart();
+			// Fix ARIA attributes for accessibility compliance
+			setTimeout(function() {
+				_this.fixAriaAttributes();
+			}, 100);
 		}
 		/* */
 	}
@@ -738,6 +750,10 @@
 
 			_this.chartObj.draw( _this.chartData, _this.chartOptions );
 			_this.resizeChart();
+			// Fix ARIA attributes for accessibility compliance
+			setTimeout(function() {
+				_this.fixAriaAttributes();
+			}, 100);
 		}
 		/* */
 	}
@@ -821,6 +837,10 @@
 
 			_this.chartObj.draw( _this.chartData, _this.chartOptions );
 			_this.resizeChart();
+			// Fix ARIA attributes for accessibility compliance
+			setTimeout(function() {
+				_this.fixAriaAttributes();
+			}, 100);
 		}
 		/* */
 	}
@@ -872,6 +892,10 @@
 			_this.chartObj.draw( _this.chartData, _this.chartOptions );
 			_this.resizeChart();
 			_this.setOrgChartCustomStyles();
+			// Fix ARIA attributes for accessibility compliance
+			setTimeout(function() {
+				_this.fixAriaAttributes();
+			}, 100);
 		}
 		
 		_this.$el.on('click', '.google-visualization-orgchart-node-small, .google-visualization-orgchart-node-medium, .google-visualization-orgchart-node-large', function(e) {
@@ -1178,31 +1202,42 @@
 	ChartBuilderGoogleCharts.prototype.orgChartConvertData = function( data ){
 		var _this = this;
 		var dataTypes = [['Name', 'Manager', 'Tooltip', 'Url']];
+
+		var ordering = (_this.dbData && Array.isArray(_this.dbData.source_ordering)) 
+			? _this.dbData.source_ordering.slice() 
+			: [];
+
+		ordering = ordering.map(String);
+
+		Object.keys(data).forEach(function(key) {
+			if (!ordering.includes(key)) {
+				ordering.push(key);
+			}
+		});
+
 		// var name = "";
 		// Collect data in new array for chart rendering
-		for ( var key in data ) {
-			if ( data.hasOwnProperty( key ) ) {
-				if (key != 0) {
-					var name = data[key][0];
-					var description = data[key][1];
-					var image = (data[key].length > 6) ? data[key][2] : '';
-					var parent_name = (data[key].length > 6) ? data[key][3] : data[key][2];
-					var tooltip = (data[key].length > 6) ? data[key][4] : data[key][3];
-					var url = (data[key].length > 6) ? data[key][5] : '';
-					
-					if (description) {
-						name += _this.orgChartFormatName(description);
-					}
-					if (image && image != '') {
-						name = _this.orgChartFormatImage(image) + name;
-					}
-					name = {'v': data[key][0], 'f': name};
-					dataTypes.push([
-						name, parent_name, tooltip, url
-					]);
-				}
+		ordering.forEach(function(key) {
+			if (!data.hasOwnProperty(key) || key == 0) return;
+
+			var row = data[key];
+			var name = row[0];
+			var description = row[1];
+			var image = (row.length > 6) ? row[2] : '';
+			var parent_name = (row.length > 6) ? row[3] : row[2];
+			var tooltip = (row.length > 6) ? row[4] : row[3];
+			var url = (row.length > 6) ? row[5] : '';
+
+			if (description) {
+				name += _this.orgChartFormatName(description);
 			}
-		}
+			if (image && image !== '') {
+				name = _this.orgChartFormatImage(image) + name;
+			}
+
+			name = {'v': row[0], 'f': name};
+			dataTypes.push([name, parent_name, tooltip, url]);
+		});
 
 		return dataTypes;
 	}
@@ -1335,11 +1370,64 @@
 		return e.childNodes[0].nodeValue;
 	}
 
+	// Fix ARIA attributes for WCAG compliance
+	ChartBuilderGoogleCharts.prototype.fixAriaAttributes = function() {
+		var _this = this;
+		var chartContainer = document.getElementById(_this.htmlClassPrefix + _this.chartType + _this.uniqueId);
+		
+		if (!chartContainer) {
+			return;
+		}
+
+		// Find all divs with aria-label
+		var divsWithAriaLabel = chartContainer.querySelectorAll('div[aria-label]');
+		divsWithAriaLabel.forEach(function(div) {
+			// Check if this div contains a table (the data table representation)
+			if (div.querySelector('table')) {
+				// Add role="region" to the table container div
+				if (!div.hasAttribute('role')) {
+					div.setAttribute('role', 'region');
+				}
+			} else {
+				// Remove aria-label from divs without roles (not table containers)
+				if (!div.hasAttribute('role')) {
+					div.removeAttribute('aria-label');
+				}
+			}
+		});
+
+		// Add role="img" to SVG elements with aria-label
+		var svgElements = chartContainer.querySelectorAll('svg[aria-label]');
+		svgElements.forEach(function(svg) {
+			if (!svg.hasAttribute('role')) {
+				svg.setAttribute('role', 'img');
+			}
+		});
+	}
+
 	ChartBuilderGoogleCharts.prototype.drawChartFunction = function (source, options) {
 		var _this = this;
 
 		var view = new google.visualization.DataView(source);
 		_this.chartData = source;
+		
+		// Set role="img" on the chart container
+		var chartContainer = document.getElementById(_this.htmlClassPrefix + _this.chartType + _this.uniqueId);
+		if (chartContainer) {
+			chartContainer.setAttribute('role', 'img');
+		}
+		
+		// Fix ARIA attributes after chart is drawn
+		var drawCallback = function() {
+			_this.fixAriaAttributes();
+		};
+		
+		// Add callback to options if it doesn't exist
+		if (typeof options.chartArea === 'object') {
+			options.chartArea.chartReady = drawCallback;
+		} else {
+			options.chartReady = drawCallback;
+		}
 
 		if (_this.chartType == 'org_chart') {
 			view.setColumns([0, 1, 2]);

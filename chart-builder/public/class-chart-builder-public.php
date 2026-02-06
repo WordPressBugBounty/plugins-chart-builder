@@ -210,6 +210,17 @@ class Chart_Builder_Public {
 		$data['chart_type'] = $chartData['source_chart_type'];
 		$data['source'] = $chartData['source'];
 
+		$ordering = [];
+		if (isset($data['source']) && !empty($data['source'])) {
+			foreach($data['source'] as $key => $value) {
+				if ($key != 0) {
+					array_push($ordering, $key);
+				}
+			}
+		} else {
+			$ordering = [1, 2, 3, 4, 5];
+		}
+		$data['source_ordering'] = $ordering;
 
 		$data['options'] = $settings;
 

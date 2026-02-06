@@ -3,8 +3,8 @@ Contributors: ays-pro
 Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
-Tested up to: 6.8
-Stable tag: 3.6.0
+Tested up to: 6.9
+Stable tag: 3.6.9
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -249,6 +249,35 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 3.6.9 ( Jan 26, 2026 ) =
+* Improved: Some changes on the admin dashboard
+* Updated: POT file
+* Tested: Compatible up to 6.9
+
+= 3.6.8 ( Jan 20, 2025 ) =
+* Improved: Styles on the admin dashboard
+
+= 3.6.7 ( Dec 25, 2025 ) =
+* Improved: Styles on the admin dashboard
+
+= 3.6.6 ( Dec 5, 2025 ) =
+* Improved: Styles on the admin dashboard
+
+= 3.6.5 ( Nov 25, 2025 ) =
+* Improved: Styles on the admin dashboard
+
+= 3.6.4 ( Nov 20, 2025 ) =
+* Improved: Admin dashboard functionality
+
+= 3.6.3 ( Oct 23, 2025 ) =
+* Improved: Styles on the admin dashboard
+
+= 3.6.2 ( Oct 20, 2025 ) =
+* Fixed: Org Chart siblings ordering issue
+
+= 3.6.1 ( Oct 8, 2025 ) =
+* Improved: Admin dashboard functionality
 
 = 3.6.0 ( Oct 3, 2025 ) =
 * Improved: Admin dashboard functionality

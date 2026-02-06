@@ -89,10 +89,12 @@ class  Chart_Builder_Custom_Post_Type {
     }
 
     public function ays_chart_flush_permalinks(){
-        if ( get_site_option( 'ays_chart_flush_version' ) != $this->ays_chart_flush_version ) {
+        $option_key = 'ays_chart_flush_version';
+        // Only flush and update when the stored version differs
+        if ( get_option( $option_key ) !== $this->ays_chart_flush_version ) {
             flush_rewrite_rules();
+            update_option( $option_key, $this->ays_chart_flush_version );
         }
-        update_option( 'ays_chart_flush_version', $this->ays_chart_flush_version );            
     }
     
     public function ays_chart_custom_rewrite_rule() {
