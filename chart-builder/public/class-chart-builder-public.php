@@ -202,7 +202,7 @@ class Chart_Builder_Public {
 		}
 		
 		if ($chart_source_type === "chart-js") {
-			$settings = CBFunctions()->get_chart_settings_chartjs_public($settings);
+			$settings = CBFunctions()->get_chart_settings_chartjs_public($settings, $chartData['source']);
 		} else {
 			$settings = CBFunctions()->get_chart_settings_google_public($settings, $chartData['source']);
 		}

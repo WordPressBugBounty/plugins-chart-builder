@@ -443,7 +443,7 @@
          * Data that need to get form @settings variable
          */
             if ($chart_source_type === "chart-js") {
-                $settings = CBFunctions()->get_chart_settings_chartjs_admin($chart_data['settings']);
+                $settings = CBFunctions()->get_chart_settings_chartjs_admin($chart_data['settings'], $source);
             } else {
                 $settings = CBFunctions()->get_chart_settings_google_admin($chart_data['settings'], $action, $source);
             }

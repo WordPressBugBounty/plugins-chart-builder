@@ -233,46 +233,46 @@ class Chart_Builder_Activator {
 
             $default_chart_meta = array(
                 array(
-                    'chart_id' => $chart_id,
-                    'meta_key' => 'width',// phpcs:ignore
-                    'meta_value' => '100',// phpcs:ignore
-                    'note' => '',
-                    'options' => ''
+                    'chart_id'      => $chart_id,
+                    'meta_key'      => 'width',// phpcs:ignore
+                    'meta_value'    => '100',// phpcs:ignore
+                    'note'          => '',
+                    'options'       => ''
                 ),
                 array(
-                    'chart_id' => $chart_id,
-                    'meta_key' => 'height',// phpcs:ignore
-                    'meta_value' => '400',// phpcs:ignore
-                    'note' => '',
-                    'options' => ''
+                    'chart_id'      => $chart_id,
+                    'meta_key'      => 'height',// phpcs:ignore
+                    'meta_value'    => '400',// phpcs:ignore
+                    'note'          => '',
+                    'options'       => ''
                 ),
                 array(
-                    'chart_id' => $chart_id,
-                    'meta_key' => 'title_color',// phpcs:ignore
-                    'meta_value' => '#000000',// phpcs:ignore
-                    'note' => '',
-                    'options' => ''
+                    'chart_id'      => $chart_id,
+                    'meta_key'      => 'title_color',// phpcs:ignore
+                    'meta_value'    => '#000000',// phpcs:ignore
+                    'note'          => '',
+                    'options'       => ''
                 ),
                 array(
-                    'chart_id' => $chart_id,
-                    'meta_key' => 'font_size',// phpcs:ignore
-                    'meta_value' => '14',// phpcs:ignore
-                    'note' => '',
-                    'options' => ''
+                    'chart_id'      => $chart_id,
+                    'meta_key'      => 'font_size',// phpcs:ignore
+                    'meta_value'    => '14',// phpcs:ignore
+                    'note'          => '',
+                    'options'       => ''
                 ),
                 array(
-                    'chart_id' => $chart_id,
-                    'meta_key' => 'tooltip_trigger',// phpcs:ignore
-                    'meta_value' => 'hover',// phpcs:ignore
-                    'note' => '',
-                    'options' => ''
+                    'chart_id'      => $chart_id,
+                    'meta_key'      => 'tooltip_trigger',// phpcs:ignore
+                    'meta_value'    => 'hover',// phpcs:ignore
+                    'note'          => '',
+                    'options'       => ''
                 ),
                 array(
-                    'chart_id' => $chart_id,
-                    'meta_key' => 'show_color_code',// phpcs:ignore
-                    'meta_value' => 'off',// phpcs:ignore
-                    'note' => '',
-                    'options' => ''
+                    'chart_id'      => $chart_id,
+                    'meta_key'      => 'show_color_code',// phpcs:ignore
+                    'meta_value'    => 'off',// phpcs:ignore
+                    'note'          => '',
+                    'options'       => ''
                 )
             );
 

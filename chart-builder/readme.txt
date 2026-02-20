@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 3.6.9
+Stable tag: 3.7.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -250,6 +250,10 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 == Changelog ==
 
+= 3.7.0 ( Feb 20, 2026 ) =
+* Improved: Code quality on the admin dashboard
+* Fixed: PHP error on the front end when using the Chart.js type
+
 = 3.6.9 ( Jan 26, 2026 ) =
 * Improved: Some changes on the admin dashboard
 * Updated: POT file
@@ -316,7 +320,7 @@ If you have suggestions or questions about the free version, do not hesitate to 
 * Added: Chart.js Tooltip color option
 
 = 3.4.9 ( Jun 12, 2025 ) =
-* Added: “Show datasets in reverse order” toggle to the Legend settings for Chart.js 
+* Added: "Show datasets in reverse order" toggle to the Legend settings for Chart.js 
 * Fixed: Language translation problem
 
 = 3.4.8 ( Jun 10, 2025 ) =
@@ -1175,7 +1179,6 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 = 1.0.1 =
 * Fixed: CSS Style issue on admin page
-
 
 = 1.0.0 =
 * Relaesed

@@ -400,7 +400,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 	     * @access public
 	     * @return array
 	    */
-		public function get_chart_settings_google_admin ($settings, $action, $source) {
+		public function get_chart_settings_google_admin($settings, $action, $source) {
 			$chart_default_colors = array('#3366cc','#dc3912','#ff9900','#109618', '#990099','#0099c6','#dd4477','#66aa00', '#b82e2e','#316395','#994499','#22aa99', '#aaaa11','#6633cc','#e67300','#8b0707', '#651067','#329262','#5574a6','#3b3eac', '#b77322','#16d620','#b91383','#f4359e', '#9c5935','#a9c413','#2a778d','#668d1c', '#bea413','#0c5922','#743411');
 
 			$tooltip_trigger_options = array(
@@ -970,7 +970,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['enable_img'] = ( isset( $settings['enable_img'] ) && $settings['enable_img'] != '' ) ? $settings['enable_img'] : 'off';
 			$settings['enable_img'] = isset( $settings['enable_img'] ) && $settings['enable_img'] == 'on' ? 'checked' : '';
 
-			$counting_source = $source;
+			$counting_source = !empty($source) ? $source : array();
 
 			$count_slices = (isset($counting_source) && !is_null($counting_source) && count($counting_source) > 0) ? count($counting_source) - 1 : 0;
 			$count_series = (isset($counting_source[0]) && !is_null($counting_source[0]) && count($counting_source[0]) > 0) ? count($counting_source[0]) - 1 : 0;
@@ -1398,56 +1398,56 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 	     * @access public
 	     * @return array
 	    */
-		public function get_chart_settings_chartjs_admin ($settings) {
+		public function get_chart_settings_chartjs_admin($settings, $source) {
 			$chart_default_colors = array('#36A2EB','#FF6384','#FF9F40','#FFCD56', '#4BC0C0','#0099c6','#dd4477','#66aa00', '#b82e2e','#316395','#994499','#22aa99', '#aaaa11','#6633cc','#e67300','#8b0707', '#651067','#329262','#5574a6','#3b3eac', '#b77322','#16d620','#b91383','#f4359e', '#9c5935','#a9c413','#2a778d','#668d1c', '#bea413','#0c5922','#743411');
 
 			$title_positions = array(
-				"left" => __("Left", "chart-builder"),
-				"right" => __("Right", "chart-builder"),
-				"center" => __("Center", "chart-builder")
+				"left" 			=> __("Left", "chart-builder"),
+				"right" 		=> __("Right", "chart-builder"),
+				"center" 		=> __("Center", "chart-builder")
 			);
 		
 			$text_transforms = array(
-				"uppercase" => __("Uppercase", "chart-builder"),
-				"lowercase" => __("Lowercase", "chart-builder"),
-				"capitalize" => __("Capitalize", "chart-builder"),
-				"none" => __("None", "chart-builder"),
+				"uppercase" 	=> __("Uppercase", "chart-builder"),
+				"lowercase" 	=> __("Lowercase", "chart-builder"),
+				"capitalize" 	=> __("Capitalize", "chart-builder"),
+				"none" 			=> __("None", "chart-builder"),
 			);
 		
 			$text_decorations = array(
-				"overline" => __("Overline", "chart-builder"),
-				"underline" => __("Underline", "chart-builder"),
-				"line-through" => __("Line through", "chart-builder"),
-				"none" => __("None", "chart-builder"),
+				"overline" 		=> __("Overline", "chart-builder"),
+				"underline" 	=> __("Underline", "chart-builder"),
+				"line-through" 	=> __("Line through", "chart-builder"),
+				"none" 			=> __("None", "chart-builder"),
 			);
 			
 			$border_styles = array(
-				"solid" => __("Solid", "chart-builder"),
-				"dashed" => __("Dashed", "chart-builder"),
-				"dotted" => __("Dotted", "chart-builder"),
-				"double" => __("Double", "chart-builder"),
-				"groove" => __("Groove", "chart-builder"),
-				"inset" => __("Inset", "chart-builder"),
-				"outset" => __("Outset", "chart-builder"),
-				"ridge" => __("Ridge", "chart-builder")
+				"solid" 		=> __("Solid", "chart-builder"),
+				"dashed" 		=> __("Dashed", "chart-builder"),
+				"dotted" 		=> __("Dotted", "chart-builder"),
+				"double" 		=> __("Double", "chart-builder"),
+				"groove" 		=> __("Groove", "chart-builder"),
+				"inset" 		=> __("Inset", "chart-builder"),
+				"outset" 		=> __("Outset", "chart-builder"),
+				"ridge" 		=> __("Ridge", "chart-builder")
 			);
 			
 			$legend_positions = array(
-				"top" => __("Above the chart", "chart-builder"),
-				"bottom" => __("Below the chart", "chart-builder"),
-				"left" => __("Left of the chart", "chart-builder"),
-				"right" => __("Right of the chart", "chart-builder"),
+				"top" 			=> __("Above the chart", "chart-builder"),
+				"bottom" 		=> __("Below the chart", "chart-builder"),
+				"left" 			=> __("Left of the chart", "chart-builder"),
+				"right" 		=> __("Right of the chart", "chart-builder"),
 			);
 
 			$legend_alignments = array(
-				"start" => __("Start", "chart-builder"),
-				"center" => __("Center", "chart-builder"),
-				"end" => __("End", "chart-builder"),
+				"start" 		=> __("Start", "chart-builder"),
+				"center" 		=> __("Center", "chart-builder"),
+				"end" 			=> __("End", "chart-builder"),
 			);
 			
 			$group_width_format_options = array(
-				"%" => __("%", "chart-builder"),
-				"px" => __("px", "chart-builder"),
+				"%" 			=> __("%", "chart-builder"),
+				"px" 			=> __("px", "chart-builder"),
 			);
 
 			// Width
@@ -1601,7 +1601,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 				$settings['show_title'] = isset( $settings['show_title'] ) && $settings['show_title'] == 'on' ? 'checked' : '';
 			}
 			
-			$counting_source = $source;
+			$counting_source = !empty($source) ? $source : array();
 			$count_slices = (isset($counting_source) && !is_null($counting_source) && count($counting_source) > 0) ? count($counting_source) - 1 : 0;
 
 			// Slices settings
@@ -1656,7 +1656,7 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 	     * @access public
 	     * @return array
 	    */
-		public function get_chart_settings_chartjs_public ($settings, $chartData) {
+		public function get_chart_settings_chartjs_public($settings, $chartData) {
 			$chart_default_colors = array('#36A2EB','#FF6384','#FF9F40','#FFCD56', '#4BC0C0','#0099c6','#dd4477','#66aa00', '#b82e2e','#316395','#994499','#22aa99', '#aaaa11','#6633cc','#e67300','#8b0707', '#651067','#329262','#5574a6','#3b3eac', '#b77322','#16d620','#b91383','#f4359e', '#9c5935','#a9c413','#2a778d','#668d1c', '#bea413','#0c5922','#743411');
 			// echo "<pre>"; var_dump($settings); echo "</pre>";
 			// Width
