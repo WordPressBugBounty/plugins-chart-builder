@@ -204,19 +204,19 @@ class Chart_Builder_Activator {
             );
 
             $default_chart = array(
-                'title' => 'Default chart',
-                'description' => '',
-                'type' => 'google-charts',
-                'source_chart_type' => 'pie_chart',
-                'source_type' => 'manual',
-                'source' => json_encode($default_chart_source),
-                'date_created' => current_time('mysql'),
-                'date_modified' => current_time('mysql'),
-                'status' => 'published',
-                'trash_status' => '',
-                'ordering' => '0',
-                'options' => json_encode($default_chart_options),
-                'author_id' => get_current_user_id()
+                'title'                 => 'Default chart',
+                'description'           => '',
+                'type'                  => 'google-charts',
+                'source_chart_type'     => 'pie_chart',
+                'source_type'           => 'manual',
+                'source'                => json_encode($default_chart_source),
+                'date_created'          => current_time('mysql'),
+                'date_modified'         => current_time('mysql'),
+                'status'                => 'published',
+                'trash_status'          => '',
+                'ordering'              => '0',
+                'options'               => json_encode($default_chart_options),
+                'author_id'             => get_current_user_id()
             );
 
             $wpdb->insert($charts_table, $default_chart);
@@ -224,55 +224,55 @@ class Chart_Builder_Activator {
             $chart_id = $wpdb->insert_id;
 
             $post_type_args = array(
-                'chart_id'       => $chart_id,
-                'author_id'     => get_current_user_id(),
-                'chart_title'    => 'Default chart',
+                'chart_id'          => $chart_id,
+                'author_id'         => get_current_user_id(),
+                'chart_title'       => 'Default chart',
             );
             
             $custom_post_id = Chart_Builder_Custom_Post_Type::ays_chart_add_custom_post($post_type_args);
 
             $default_chart_meta = array(
                 array(
-                    'chart_id'      => $chart_id,
-                    'meta_key'      => 'width',// phpcs:ignore
-                    'meta_value'    => '100',// phpcs:ignore
-                    'note'          => '',
-                    'options'       => ''
+                    'chart_id'       => $chart_id,
+                    'meta_key'       => 'width',// phpcs:ignore
+                    'meta_value'     => '100',// phpcs:ignore
+                    'note'           => '',
+                    'options'        => ''
                 ),
                 array(
-                    'chart_id'      => $chart_id,
-                    'meta_key'      => 'height',// phpcs:ignore
-                    'meta_value'    => '400',// phpcs:ignore
-                    'note'          => '',
-                    'options'       => ''
+                    'chart_id'       => $chart_id,
+                    'meta_key'       => 'height',// phpcs:ignore
+                    'meta_value'     => '400',// phpcs:ignore
+                    'note'           => '',
+                    'options'        => ''
                 ),
                 array(
-                    'chart_id'      => $chart_id,
-                    'meta_key'      => 'title_color',// phpcs:ignore
-                    'meta_value'    => '#000000',// phpcs:ignore
-                    'note'          => '',
-                    'options'       => ''
+                    'chart_id'       => $chart_id,
+                    'meta_key'       => 'title_color',// phpcs:ignore
+                    'meta_value'     => '#000000',// phpcs:ignore
+                    'note'           => '',
+                    'options'        => ''
                 ),
                 array(
-                    'chart_id'      => $chart_id,
-                    'meta_key'      => 'font_size',// phpcs:ignore
-                    'meta_value'    => '14',// phpcs:ignore
-                    'note'          => '',
-                    'options'       => ''
+                    'chart_id'       => $chart_id,
+                    'meta_key'       => 'font_size',// phpcs:ignore
+                    'meta_value'     => '14',// phpcs:ignore
+                    'note'           => '',
+                    'options'        => ''
                 ),
                 array(
-                    'chart_id'      => $chart_id,
-                    'meta_key'      => 'tooltip_trigger',// phpcs:ignore
-                    'meta_value'    => 'hover',// phpcs:ignore
-                    'note'          => '',
-                    'options'       => ''
+                    'chart_id'       => $chart_id,
+                    'meta_key'       => 'tooltip_trigger',// phpcs:ignore
+                    'meta_value'     => 'hover',// phpcs:ignore
+                    'note'           => '',
+                    'options'        => ''
                 ),
                 array(
-                    'chart_id'      => $chart_id,
-                    'meta_key'      => 'show_color_code',// phpcs:ignore
-                    'meta_value'    => 'off',// phpcs:ignore
-                    'note'          => '',
-                    'options'       => ''
+                    'chart_id'       => $chart_id,
+                    'meta_key'       => 'show_color_code',// phpcs:ignore
+                    'meta_value'     => 'off',// phpcs:ignore
+                    'note'           => '',
+                    'options'        => ''
                 )
             );
 

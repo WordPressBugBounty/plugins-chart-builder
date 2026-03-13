@@ -3238,9 +3238,8 @@ class Chart_Builder_Admin {
     public function ays_chart_activate_plugin() {
 
         // Run a security check.
-        if ( isset( $_REQUEST['_ajax_nonce'] ) ) {
-            check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
-        } 
+        check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', '_ajax_nonce' );
+
 
         // Check for permissions.
         if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -3283,9 +3282,8 @@ class Chart_Builder_Admin {
     public function ays_chart_install_plugin() {
 
         // Run a security check.
-        if ( isset( $_REQUEST['_ajax_nonce'] ) ) {
-            check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
-        } 
+        check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', '_ajax_nonce' );
+
 
         $generic_error = esc_html__( 'There was an error while performing your request.', 'chart-builder' );
         $type          = ! empty( $_POST['type'] ) ? sanitize_key( $_POST['type'] ) : '';

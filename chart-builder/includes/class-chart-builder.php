@@ -249,10 +249,10 @@ class Chart_Builder {
         $this->loader->add_action( 'wp_ajax_nopriv_deactivate_plugin_option_cb', $plugin_admin, 'deactivate_plugin_option');
 
 		$this->loader->add_action( 'wp_ajax_ays_chart_install_plugin', $plugin_admin, 'ays_chart_install_plugin' );
-        $this->loader->add_action( 'wp_ajax_nopriv_ays_chart_install_plugin', $plugin_admin, 'ays_chart_install_plugin' );
+        // $this->loader->add_action( 'wp_ajax_nopriv_ays_chart_install_plugin', $plugin_admin, 'ays_chart_install_plugin' );
 
         $this->loader->add_action( 'wp_ajax_ays_chart_activate_plugin', $plugin_admin, 'ays_chart_activate_plugin' );
-        $this->loader->add_action( 'wp_ajax_nopriv_ays_chart_activate_plugin', $plugin_admin, 'ays_chart_activate_plugin' );
+        // $this->loader->add_action( 'wp_ajax_nopriv_ays_chart_activate_plugin', $plugin_admin, 'ays_chart_activate_plugin' );
 
 		$this->loader->add_action( 'elementor/widgets/widgets_registered', $plugin_admin, 'chart_builder_el_widgets_registered' );
 
