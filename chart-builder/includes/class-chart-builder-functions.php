@@ -1620,6 +1620,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Tooltip text color
 			$settings['tooltip_text_color'] = isset( $settings['tooltip_text_color'] ) && $settings['tooltip_text_color'] != '' ? esc_attr( $settings['tooltip_text_color'] ) : '#fff';
 			
+			$settings['show_color_code'] = isset( $settings['show_color_code'] ) && $settings['show_color_code'] != '' ? esc_attr( $settings['show_color_code'] ) : 'off';
+			$settings['show_color_code'] = isset( $settings['show_color_code'] ) && $settings['show_color_code'] == 'on' ? 'checked' : '';
+
 			// Legend font color
 			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
 			
@@ -1812,6 +1815,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 		
 			// Tooltip text color
 			$settings['tooltip_text_color'] = isset( $settings['tooltip_text_color'] ) && $settings['tooltip_text_color'] != '' ? esc_attr( $settings['tooltip_text_color'] ) : '#fff';
+
+			// Show color code
+			$settings['show_color_code'] = isset( $settings['show_color_code'] ) && $settings['show_color_code'] != '' ? esc_attr( $settings['show_color_code'] ) : 'off';
+			$settings['show_color_code'] = isset( $settings['show_color_code'] ) && $settings['show_color_code'] == 'on' ? 'checked' : '';
 
 			// Legend font color
 			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';

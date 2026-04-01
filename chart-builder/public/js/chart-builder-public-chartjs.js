@@ -186,6 +186,21 @@
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
 					position: 'nearest',
+					events: ['click'],
+					callbacks: nSettings.showColorCode ? {
+						label: function(context) {
+							var label = context.label || '';
+							var value = context.parsed || 0;
+							var color = context.dataset.backgroundColor[context.dataIndex];
+							return label + ': ' + value + ' (Color: ' + color + ')';
+						}
+					} : {
+						label: function(context) {
+							var label = context.label || '';
+							var value = context.parsed || 0;
+							return label + ': ' + value;
+						}
+					}
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -379,6 +394,7 @@
 		newSettings.legendItalicText = (settings['legend_italic'] == 'on') ? true : false;
 		newSettings.legendBoldText = (settings['legend_bold'] == 'on') ? true : false;
 		newSettings.tooltipColor = settings['tooltip_text_color'];
+		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
 		return newSettings;
 	}
 

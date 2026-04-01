@@ -484,6 +484,12 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-show-color-code').on('change', function () {
+				_this.chartSourceData.settings.show_color_code = $(this).is(':checked') ? 'checked' : '';
+				_this.updateTooltipColorCode();
+				_this.chartObject.update();
+			});
+
 		// legend settings
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-position').on('change', function () {
 				_this.chartSourceData.settings.legend_position = $(this).val();
@@ -527,6 +533,32 @@
 				_this.chartObject.update();
 			});
 
+	}
+
+	ChartBuilderChartsJs.prototype.updateTooltipColorCode = function() {
+		var _this = this;
+		var showColorCode = _this.chartSourceData.settings.show_color_code === 'checked';
+		
+		_this.chartObject.options.plugins.tooltip.events = ['click'];
+		
+		if (showColorCode) {
+			_this.chartObject.options.plugins.tooltip.callbacks = {
+				label: function(context) {
+					var label = context.label || '';
+					var value = context.parsed || context.parsed.y || 0;
+					var color = context.dataset.backgroundColor[context.dataIndex];
+					return label + ': ' + value + ' (Color: ' + color + ')';
+				}
+			};
+		} else {
+			_this.chartObject.options.plugins.tooltip.callbacks = {
+				label: function(context) {
+					var label = context.label || '';
+					var value = context.parsed || context.parsed.y || 0;
+					return label + ': ' + value;
+				}
+			};
+		}
 	}
 
 	ChartBuilderChartsJs.prototype.detectManualChange = function (e) {
@@ -781,6 +813,19 @@
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
 					position: 'nearest',
+					events: ['click'],
+					callbacks: nSettings.showColorCode ? {
+						label: function(context) {
+							var color = context.dataset.backgroundColor[context.dataIndex];
+							return 'Color: ' + color;
+						}
+					} : {
+						label: function(context) {
+							var label = context.label || '';
+							var value = context.parsed || 0;
+							return label + ': ' + value;
+						}
+					}
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -952,6 +997,7 @@
 		newSettings.legendBoldText = (settings['legend_bold'] == 'checked') ? true : false;
 		newSettings.legendReverse = settings['legend_reverse'];
 		newSettings.tooltipColor = settings['tooltip_text_color'];
+		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
 		return newSettings;
 	}
 
