@@ -3,8 +3,8 @@ Contributors: ays-pro
 Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
-Tested up to: 6.9
-Stable tag: 3.7.2
+Tested up to: 7.0
+Stable tag: 3.7.3
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -249,6 +249,10 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 3.7.3 ( Apr 13, 2026 ) =
+* Improved: Some changes on the admin dashboard
+* Tested: Compatible up to WP 7.0
 
 = 3.7.2 ( Mar 31, 2026 ) =
 * Added: "Show Color Code" option for Pie chart in Chart.js

@@ -3117,6 +3117,21 @@ class Chart_Builder_Admin {
         return $get_ays_chart_banner_time;
     }
 
+    
+    	public function ays_chart_add_body_class( $classes ) {
+        global $pagenow;
+
+        if ( $pagenow === 'admin.php' ) {
+            $page = isset( $_GET['page'] ) ? sanitize_key( $_GET['page'] ) : '';
+            
+            if ( strpos( $page, $this->plugin_name ) === 0 ) {
+                $classes .= ' ays-chart-builder-admin';
+            }
+        }
+
+        return $classes;
+    }
+
     public function author_user_search() {
         check_ajax_referer( 'cbuilder-author-user-search', 'security' );
         $params = isset($_REQUEST['params']) ? sanitize_text_field(wp_unslash($_REQUEST['params'])) : array();

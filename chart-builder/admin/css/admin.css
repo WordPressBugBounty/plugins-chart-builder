@@ -90,3 +90,174 @@
 #ays-chart-plugins-buy-now-button:hover {
     color: #3B8D3F;
 }
+
+body.ays-chart-builder-admin input[type=checkbox], 
+
+body.ays-chart-builder-admin input[type=radio] {
+    accent-color: #005AE0;
+    background-color: #fff;
+    box-shadow: unset;
+    border: 1px solid #8c8f94;
+}
+
+body.ays-chart-builder-admin input[type=checkbox]:focus, 
+body.ays-chart-builder-admin input[type=radio]:focus {
+    accent-color: #005AE0;
+    background-color: #fff;
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: 2px solid transparent;
+}
+
+body.ays-chart-builder-admin input[type=checkbox]:checked::before {
+    filter: brightness(0) saturate(100%) invert(20%) sepia(95%) saturate(6593%) hue-rotate(211deg) brightness(98%) contrast(103%);
+}
+
+body.ays-chart-builder-admin input[type=radio]:checked::before {
+    background-color: #005ae0;
+}
+
+body.ays-chart-builder-admin input[type="text"], 
+body.ays-chart-builder-admin input[type="password"], 
+body.ays-chart-builder-admin input[type="date"], 
+body.ays-chart-builder-admin input[type="datetime"], 
+body.ays-chart-builder-admin input[type="datetime-local"], 
+body.ays-chart-builder-admin input[type="email"], 
+body.ays-chart-builder-admin input[type="month"], 
+body.ays-chart-builder-admin input[type="number"], 
+body.ays-chart-builder-admin input[type="search"], 
+body.ays-chart-builder-admin input[type="tel"], 
+body.ays-chart-builder-admin input[type="time"], 
+body.ays-chart-builder-admin input[type="url"], 
+body.ays-chart-builder-admin input[type="week"] {
+    padding: 0 8px;
+    line-height: 2;
+    min-height: 30px;    
+}
+
+body.ays-chart-builder-admin input[type="text"]:focus, 
+body.ays-chart-builder-admin input[type="password"]:focus, 
+body.ays-chart-builder-admin input[type="date"]:focus, 
+body.ays-chart-builder-admin input[type="datetime"]:focus, 
+body.ays-chart-builder-admin input[type="datetime-local"]:focus, 
+body.ays-chart-builder-admin input[type="email"]:focus, 
+body.ays-chart-builder-admin input[type="month"]:focus, 
+body.ays-chart-builder-admin input[type="number"]:focus, 
+body.ays-chart-builder-admin input[type="search"]:focus, 
+body.ays-chart-builder-admin input[type="tel"]:focus, 
+body.ays-chart-builder-admin input[type="time"]:focus, 
+body.ays-chart-builder-admin input[type="url"]:focus, 
+body.ays-chart-builder-admin input[type="week"]:focus {
+    border-color: #005ae0;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: transparent solid 2px;
+}
+
+body.ays-chart-builder-admin input[type=color]:focus, 
+body.ays-chart-builder-admin input[type=date]:focus, 
+body.ays-chart-builder-admin input[type=datetime-local]:focus, 
+body.ays-chart-builder-admin input[type=datetime]:focus, 
+body.ays-chart-builder-admin input[type=email]:focus, 
+body.ays-chart-builder-admin input[type=month]:focus, 
+body.ays-chart-builder-admin input[type=number]:focus, 
+body.ays-chart-builder-admin input[type=password]:focus, 
+body.ays-chart-builder-admin input[type=search]:focus, 
+body.ays-chart-builder-admin input[type=tel]:focus, 
+body.ays-chart-builder-admin input[type=text]:focus, 
+body.ays-chart-builder-admin input[type=time]:focus, 
+body.ays-chart-builder-admin input[type=url]:focus, 
+body.ays-chart-builder-admin input[type=week]:focus, 
+body.ays-chart-builder-admin select:focus, 
+body.ays-chart-builder-admin textarea:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+body.ays-chart-builder-admin input[type=search]:focus {
+    box-shadow: unset;
+}
+
+body.ays-chart-builder-admin .button, 
+body.ays-chart-builder-admin .button-primary, 
+body.ays-chart-builder-admin .button-secondary {
+    padding: 0 10px;
+    line-height: 2.15384615;
+    min-height: 30px;
+    font-weight: 400;
+}
+
+body.ays-chart-builder-admin .button.hover, 
+body.ays-chart-builder-admin .button:hover {
+    background: #135e96;
+    border-color: #135e96;
+    color: #fff;
+}
+
+body.ays-chart-builder-admin .button.add_new_block_content, 
+body.ays-chart-builder-admin .button.wp-picker-default, 
+body.ays-chart-builder-admin .button.action, 
+body.ays-chart-builder-admin #ays-button-apply.button, 
+body.ays-chart-builder-admin .button.add-bg-image, 
+body.ays-chart-builder-admin .button.add-logo-image, 
+body.ays-chart-builder-admin .button.ays-top-menu-save-and-close, 
+body.ays-chart-builder-admin .button.ays-bottom-menu-save-and-close, 
+body.ays-chart-builder-admin .button.add-question-image, 
+body.ays-chart-builder-admin .button.insert-media, 
+body.ays-chart-builder-admin .button.action-button:not(.button-primary), 
+body.ays-chart-builder-admin .button-secondary {
+    background: #f6f7f7;
+    border-color: #2271b1;
+    color: #2271b1;
+}
+
+body.ays-chart-builder-admin .button.add_new_block_content:focus, 
+body.ays-chart-builder-admin .button.wp-picker-default:focus, 
+body.ays-chart-builder-admin .button.action:focus, 
+body.ays-chart-builder-admin #ays-button-apply.button:focus, 
+body.ays-chart-builder-admin .button.add-bg-image:focus, 
+body.ays-chart-builder-admin .button.add-logo-image:focus, 
+body.ays-chart-builder-admin .button.ays-top-menu-save-and-close:focus, 
+body.ays-chart-builder-admin .button.ays-bottom-menu-save-and-close:focus, 
+body.ays-chart-builder-admin .button.add-question-image:focus, 
+body.ays-chart-builder-admin .button.insert-media:focus, 
+body.ays-chart-builder-admin .button.action-button:not(.button-primary):focus, 
+body.ays-chart-builder-admin .button-secondary:focus, 
+body.ays-chart-builder-admin .button.add_new_block_content:hover,
+body.ays-chart-builder-admin .button.wp-picker-default:hover,
+body.ays-chart-builder-admin .button.action:hover,
+body.ays-chart-builder-admin #ays-button-apply.button:hover,
+body.ays-chart-builder-admin .button.add-bg-image:hover,
+body.ays-chart-builder-admin .button.add-logo-image:hover,
+body.ays-chart-builder-admin .button.ays-top-menu-save-and-close:hover,
+body.ays-chart-builder-admin .button.ays-bottom-menu-save-and-close:hover,
+body.ays-chart-builder-admin .button.add-question-image:hover,
+body.ays-chart-builder-admin .button.insert-media:hover,
+body.ays-chart-builder-admin .button.action-button:not(.button-primary):hover,
+body.ays-chart-builder-admin .button-secondary:hover {
+    background: #f0f0f1;
+    border-color: #135e96;
+    color: #135e96;
+    box-shadow: 0 0 0 1px #3582c4;
+}
+
+body.ays-chart-builder-admin a:focus {    
+    box-shadow: 0 0 0 1px #3582c4;
+}
+
+body.ays-chart-builder-admin .button:focus, 
+body.ays-chart-builder-admin .button-primary:focus {
+    background: #135e96;
+    border-color: #135e96;
+    color: #fff;    
+    box-shadow: 0 0 0 1px #3582c4,inset 0 0 0 1px #fff;
+}
+
+body.ays-chart-builder-admin .button-primary {
+    background: #2271b1;
+    border-color: #2271b1;
+}
+
+body.ays-chart-builder-admin select {
+    line-height: 2;
+    min-height: 30px;
+}
