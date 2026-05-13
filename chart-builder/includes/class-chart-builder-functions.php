@@ -1623,6 +1623,8 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['show_color_code'] = isset( $settings['show_color_code'] ) && $settings['show_color_code'] != '' ? esc_attr( $settings['show_color_code'] ) : 'off';
 			$settings['show_color_code'] = isset( $settings['show_color_code'] ) && $settings['show_color_code'] == 'on' ? 'checked' : '';
 
+			$settings['tooltip_italic'] = ( isset( $settings['tooltip_italic'] ) && $settings['tooltip_italic'] != '' ) ? $settings['tooltip_italic'] : 'off';
+			$settings['tooltip_italic'] = isset( $settings['tooltip_italic'] ) && $settings['tooltip_italic'] == 'on' ? 'checked' : '';
 			// Legend font color
 			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
 			
@@ -1820,6 +1822,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			$settings['show_color_code'] = isset( $settings['show_color_code'] ) && $settings['show_color_code'] != '' ? esc_attr( $settings['show_color_code'] ) : 'off';
 			$settings['show_color_code'] = isset( $settings['show_color_code'] ) && $settings['show_color_code'] == 'on' ? 'checked' : '';
 
+			// Tooltip Italic text
+			$settings['tooltip_italic'] = ( isset( $settings['tooltip_italic'] ) && $settings['tooltip_italic'] != '' ) ? $settings['tooltip_italic'] : 'off';
+			//$settings['tooltip_italic'] = isset( $settings['tooltip_italic'] ) && $settings['tooltip_italic'] == 'checked' ? 'italic' : 'normal';
+			$settings['tooltip_italic'] = ( isset( $settings['tooltip_italic'] ) && ($settings['tooltip_italic'] == 'checked' || $settings['tooltip_italic'] == 'on') ) ? 'italic' : 'normal';
 			// Legend font color
 			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
 			

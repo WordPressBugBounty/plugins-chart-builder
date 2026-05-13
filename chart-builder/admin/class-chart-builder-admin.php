@@ -3420,6 +3420,7 @@ class Chart_Builder_Admin {
             'fox-lms',
             'quiz-maker',
             'survey-maker',
+            'poll-maker',
             'chart-builder',
             'ays-popup-box',
             'secure-copy-content-protection',
@@ -5165,6 +5166,7 @@ class Chart_Builder_Admin {
 
 		$tooltip_text_color = $settings['tooltip_text_color'];
 		$show_color_code = $settings['show_color_code'];
+		$tooltip_italic = $settings['tooltip_italic'];
 
 		ob_start();
 		?>
@@ -5199,6 +5201,22 @@ class Chart_Builder_Admin {
                         <input id="ays-chart-option-tooltip-text-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[tooltip_text_color]" value="<?php echo esc_attr($tooltip_text_color) ?>">
                     </div>
                 </div> <!-- Text color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-tooltip-italic">
+				            <?php echo esc_html(__( "Italic text", "chart-builder" )); ?>
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Enable this option to make chart tooltip text italic.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-tooltip-italic" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[tooltip_italic]" value="on" <?php echo esc_attr($tooltip_italic); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!-- Italic text -->
             </div>
         </div>
 		<?php

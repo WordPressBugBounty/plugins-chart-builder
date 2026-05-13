@@ -16,7 +16,7 @@
  * Plugin Name:       Chart Builder
  * Plugin URI:        https://ays-pro.com/wordpress/chart-builder
  * Description:       Chart Builder is a user-friendly plugin that allows you to create customizable charts and graphs with ease. Perfect for visualising data, it offers various chart types to match your needs. 
- * Version:           3.7.3
+ * Version:           3.7.4
  * Author:            Chart Builder Team
  * Author URI:        https://ays-pro.com/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CHART_BUILDER_VERSION', '3.7.3' );
+define( 'CHART_BUILDER_VERSION', '3.7.4' );
 define( 'CHART_BUILDER_NAME_VERSION', '1.0.0' );
 define( 'CHART_BUILDER_NAME', 'chart-builder' );
 define( 'CHART_BUILDER_DB_PREFIX', 'ayschart_' );
@@ -153,7 +153,7 @@ if( !function_exists( 'chart_builder_general_admin_notice' ) ){
                             <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder" target="_blank">PRICING</a></li>
                             <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://ays-demo.com/chart-builder-demo/" target="_blank">DEMO</a></li>
                             <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">SUPPORT FORUM</a></li>
-                            <li class="modile-ddmenu-lg take_survay"><a class="ays-btn" href="https://ays-demo.com/chart-coupon-code-as-a-gift/" target="_blank">GRAB YOUR GIFT</a></li>
+                            <li class="modile-ddmenu-lg take_survay"><a class="ays-btn" href="https://ays-demo.com/chart-coupon-code-as-a-gift/" target="_blank">Get 50% discount</a></li>
                             <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">CONTACT US</a></li>
                             <li class="modile-ddmenu-md">
                                 <a class="toggle_ddmenu" href="javascript:void(0);"><i class="ays_fa ays_fa_ellipsis_h"></i></a>
@@ -162,7 +162,7 @@ if( !function_exists( 'chart_builder_general_admin_notice' ) ){
                                     <li><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder" target="_blank">PRICING</a></li>
                                     <li><a class="ays-btn" href="https://ays-demo.com/chart-builder-demo/" target="_blank">DEMO</a></li>
                                     <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">SUPPORT FORUM</a></li>
-                                    <li class="take_survay"><a class="ays-btn" href="https://ays-demo.com/chart-coupon-code-as-a-gift/" target="_blank">GRAB YOUR GIFT</a></li>
+                                    <li class="take_survay"><a class="ays-btn" href="https://ays-demo.com/chart-coupon-code-as-a-gift/" target="_blank">Get 50% discount</a></li>
                                     <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">CONTACT US</a></li>
                                 </ul>
                             </li>
@@ -174,7 +174,7 @@ if( !function_exists( 'chart_builder_general_admin_notice' ) ){
                                     <li><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder" target="_blank">PRICING</a></li>
                                     <li><a class="ays-btn" href="https://ays-demo.com/chart-builder-demo/" target="_blank">DEMO</a></li>
                                     <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">SUPPORT FORUM</a></li>
-                                    <li class="take_survay"><a class="ays-btn" href="https://ays-demo.com/chart-coupon-code-as-a-gift/" target="_blank">GRAB YOUR GIFT</a></li>
+                                    <li class="take_survay"><a class="ays-btn" href="https://ays-demo.com/chart-coupon-code-as-a-gift/" target="_blank">Get 50% discount</a></li>
                                     <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">CONTACT US</a></li>
                                 </ul>
                             </li>

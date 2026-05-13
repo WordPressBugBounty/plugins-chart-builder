@@ -490,6 +490,12 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-tooltip-italic').on('change', function () {
+				_this.chartSourceData.settings.tooltip_italic = $(this).is(':checked') ? 'checked' : '';
+				_this.updateTooltipItalic();
+				_this.chartObject.update();
+			});
+
 		// legend settings
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-position').on('change', function () {
 				_this.chartSourceData.settings.legend_position = $(this).val();
@@ -557,6 +563,36 @@
 					var value = context.parsed || context.parsed.y || 0;
 					return label + ': ' + value;
 				}
+			};
+		}
+	}
+
+	ChartBuilderChartsJs.prototype.updateTooltipItalic = function() {
+		var _this = this;
+		var isItalic = _this.chartSourceData.settings.tooltip_italic === 'checked';
+		
+		// Set tooltip font style based on italic setting
+		if (_this.chartObject.options.plugins.tooltip.titleFont) {
+			_this.chartObject.options.plugins.tooltip.titleFont.style = isItalic ? 'italic' : 'normal';
+		} else {
+			_this.chartObject.options.plugins.tooltip.titleFont = {
+				style: isItalic ? 'italic' : 'normal'
+			};
+		}
+		
+		if (_this.chartObject.options.plugins.tooltip.bodyFont) {
+			_this.chartObject.options.plugins.tooltip.bodyFont.style = isItalic ? 'italic' : 'normal';
+		} else {
+			_this.chartObject.options.plugins.tooltip.bodyFont = {
+				style: isItalic ? 'italic' : 'normal'
+			};
+		}
+		
+		if (_this.chartObject.options.plugins.tooltip.footerFont) {
+			_this.chartObject.options.plugins.tooltip.footerFont.style = isItalic ? 'italic' : 'normal';
+		} else {
+			_this.chartObject.options.plugins.tooltip.footerFont = {
+				style: isItalic ? 'italic' : 'normal'
 			};
 		}
 	}
@@ -812,6 +848,15 @@
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
+					titleFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
+					bodyFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
+					footerFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
 					position: 'nearest',
 					events: ['click'],
 					callbacks: nSettings.showColorCode ? {
@@ -888,6 +933,15 @@
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
+					titleFont: {
+						style: nSettings.tooltipItalicText ? "italic" : "normal"
+					},
+					bodyFont: {
+						style: nSettings.tooltipItalicText ? "italic" : "normal"
+					},
+					footerFont: {
+						style: nSettings.tooltipItalicText ? "italic" : "normal"
+					}
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -948,6 +1002,15 @@
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
+					titleFont: {
+						style: nSettings.tooltipItalicText ? "italic" : "normal"
+					},
+					bodyFont: {
+						style: nSettings.tooltipItalicText ? "italic" : "normal"
+					},
+					footerFont: {
+						style: nSettings.tooltipItalicText ? "italic" : "normal"
+					}
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -998,6 +1061,7 @@
 		newSettings.legendReverse = settings['legend_reverse'];
 		newSettings.tooltipColor = settings['tooltip_text_color'];
 		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
+		newSettings.tooltipItalicText = (settings['tooltip_italic'] == 'checked') ? true : false;
 		return newSettings;
 	}
 

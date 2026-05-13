@@ -185,6 +185,15 @@
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
+					titleFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
+					bodyFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
+					footerFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
 					position: 'nearest',
 					events: ['click'],
 					callbacks: nSettings.showColorCode ? {
@@ -273,6 +282,15 @@
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
+					titleFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
+					bodyFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
+					footerFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -346,6 +364,15 @@
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
+					titleFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
+					bodyFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
+					footerFont: {
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+					},
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -394,6 +421,8 @@
 		newSettings.legendItalicText = (settings['legend_italic'] == 'on') ? true : false;
 		newSettings.legendBoldText = (settings['legend_bold'] == 'on') ? true : false;
 		newSettings.tooltipColor = settings['tooltip_text_color'];
+console.log('tooltip_italic value:', settings['tooltip_italic']);
+newSettings.tooltipItalicText = (settings['tooltip_italic'] == 'italic') ? true : false;
 		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
 		return newSettings;
 	}
