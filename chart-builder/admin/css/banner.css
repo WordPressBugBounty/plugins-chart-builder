@@ -8,13 +8,14 @@
     box-shadow: 0px 3px 4px 0px rgb(188 198 216 / 11%);
     border-radius: 0px 0px 12px 12px;
     background-image: unset;
-    padding-bottom:10px;
+    /* padding-bottom:10px;
     padding-left:10px;
-    padding-top: 15px;
+    padding-top: 15px; */
 }
 
 .ays-notice-banner #navigation-container {
     width: 100%;
+    margin: 33px 0 0 0;
     margin: 0 auto;
     display:  flex;
     flex-direction: row;
@@ -23,13 +24,52 @@
     align-items: stretch;
     align-content: stretch;
     /* padding-top: 20px; */
-    gap:5px;
+    gap:0;
 }
 
 .ays-notice-banner .navigation-bar {
     width: 100%;
     text-align:center;
 }
+
+.ays-chart-top-banner-title span.ays-chart-top-banner-main-title {
+    color: #0f172a;
+    font-size: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    text-wrap-mode: nowrap;
+}
+.ays-chart-top-banner-title {
+    margin-right: 30px;
+    text-align: left;
+}
+.ays-chart-logo-container-one-time-text{
+    margin-top: 5px;
+    color: #475569;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    font-style: italic !important;
+    white-space: nowrap;
+}
+.ays-chart-top-banner-title span.ays-chart-top-banner-sub-title {
+    margin-top: 4px;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .05em;
+    text-transform: none;
+}
+
+.ays-chart-upgrade-container div:first-child {
+    margin-left: 20px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+/* .ays-chart-upgrade-container div:first-child a svg {
+    width: 8px;
+    height: 13px;
+} */
 /* .ays-notice-banner .navigation-bar a.logo-container{
     margin: 0 0 0 20px;
 } */
@@ -171,10 +211,10 @@
     padding-left: 20px;
 }
 
-.ays-notice-banner .logo-container {
+/* .ays-notice-banner .logo-container {
     width:75px;
     height:75px;
-}
+} */
 
 .ays-notice-banner .logo-container img {
     width:100%;
@@ -188,7 +228,7 @@
     align-items: center;
 }
 
-.ays-notice-banner a.ays-btn-upgrade:link, .ays-notice-banner a.ays-btn-upgrade:visited {
+/* .ays-notice-banner a.ays-btn-upgrade:link, .ays-notice-banner a.ays-btn-upgrade:visited {
     padding: 5px 18px;
     border: 2px solid #10A37F;
     border-radius: 30px;
@@ -196,7 +236,7 @@
     width: fit-content;
     font-weight: 700;
     font-size: 14px;
-    /* display: inline-block; */
+    display: inline-block;
     display: flex;
     text-decoration: none;
     justify-content: space-between;
@@ -205,7 +245,7 @@
     margin: auto;
     margin-top: 6px;
     background-color: #10a37f;
-}
+} */
 
 .ays-notice-banner #navigation-container a.ays-btn-upgrade:focus {
     outline: none;
@@ -290,3 +330,343 @@ div#screen-meta {
 
 
 /* ~~ Top Navigation Bar ~~ */
+/*  top banner redesign | Start */
+div.ays-notice-banner {
+    width: calc(100% - 20px);
+    max-width: 100%;
+    margin: 30px 0 0 0;
+    background: #fff;
+    /* border: 1px solid rgba(203, 213, 225, .8); */
+    border: unset;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px -8px rgba(15, 23, 42, .08);
+    overflow: visible;
+}
+
+.ays-notice-banner #navigation-container {
+    min-height: 76px;
+    padding: 0 20px;
+    background: #fff;
+    border-radius: 16px;
+    align-items: center;
+    gap: 22px;
+}
+
+.ays-notice-banner .navigation-bar {
+    text-align: left;
+}
+
+.ays-notice-banner .ays-navigation-container-logo-upgrade-box {
+    flex: 0 0 auto;
+    gap: 3px;
+}
+
+ .ays-notice-banner .logo-container {
+    width: 50px;
+    height: 50px;
+    margin-left: 0;
+    flex: 0 0 60px;
+} 
+
+.ays-notice-banner .logo-container{
+    display: flex !important;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.ays-notice-banner .logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ays-chart-top-banner-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 80px;
+    line-height: 1.1;
+}
+
+.ays-chart-top-banner-title span:first-child {
+    color: #0f172a;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.ays-chart-top-banner-title span:last-child {
+    margin-top: 4px;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+/* .ays-notice-banner .ays-chart-upgrade-container {
+    margin-left: 0;
+    align-self: center;
+} */
+
+.ays-notice-banner .ays-chart-upgrade-container div a {
+    text-decoration: none;
+    min-height: 30px;
+    padding: 5px 12px;
+    border: 1px solid rgba(4, 120, 87, .2);
+    border-radius: 999px;
+    background: #059669;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, .08);
+    transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+
+.ays-notice-banner .ays-chart-upgrade-container div a:hover,
+.ays-notice-banner .ays-chart-upgrade-container div a:focus {
+    background: #047857;
+    color: #fff;
+    box-shadow: 0 4px 10px -6px rgba(15, 23, 42, .35);
+}
+
+.ays-notice-banner .ays-chart-upgrade-container div a img {
+    width: 13px;
+    height: 13px;
+}
+
+.ays-notice-banner .ays-chart-logo-container-one-time-text {
+    margin-top: 5px;
+    color: #475569;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    white-space: nowrap;
+}
+
+.ays-notice-banner .navigation-bar #menu {
+    align-items: center;
+    min-width: 0;
+    margin: 0;
+    gap: 0;
+}
+
+.ays-notice-banner .navigation-bar #menu::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 32px;
+    margin-right: 20px;
+    background: #e2e8f0;
+}
+
+.ays-notice-banner .navigation-bar li {
+    margin: 0;
+    list-style: none;
+}
+
+.ays-notice-banner .navigation-bar li a {
+    display: inline-flex;
+    width: auto;
+    max-width: none;
+    min-height: 36px;
+    align-items: center;
+    padding: 0 15px;
+    margin: 0;
+    border-radius: 999px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: none;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.ays-notice-banner .logo-container img.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 75px;
+    min-width: 50px;
+}
+.ays-notice-banner .navigation-bar li a:hover,
+.ays-notice-banner .navigation-bar li a:focus {
+    background: #f1f5f9;
+    color: #0f172a;
+    outline: none;
+    box-shadow: none;
+}
+
+.ays-notice-banner .navigation-bar li.take_survay a {
+    border: 1px solid #fecdd3;
+    background: #fff1f2;
+    color: #be123c;
+    font-weight: 700;
+}
+
+.ays-notice-banner .navigation-bar li.take_survay a:hover,
+.ays-notice-banner .navigation-bar li.take_survay a:focus {
+    border-color: #fda4af;
+    background: #ffe4e6;
+    color: #be123c;
+}
+
+.ays-notice-banner .modile-ddmenu-sm,
+.ays-notice-banner .modile-ddmenu-md {
+    width: auto;
+}
+
+.ays-notice-banner #menu li a.toggle_ddmenu {
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    justify-content: center;
+    padding: 0;
+    color: #475569;
+    font-size: 18px;
+}
+
+.ays-notice-banner li ul.ddmenu {
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 220px;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 18px 40px -24px rgba(15, 23, 42, .45);
+}
+
+.ays-notice-banner li ul.ddmenu li {
+    width: 100%;
+    padding-left: 0;
+}
+
+.ays-notice-banner li ul.ddmenu li a {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.ays-notice-banner .ays-chatgp-checklist-open-icon {
+    position: unset;
+    flex: 0 0 auto;
+    margin-left: 4px;
+}
+
+.ays-notice-banner .ays-chatgp-upgrade-container a img {
+    width: 8px;
+    height: 13px;
+}
+@media screen and (min-width: 1321px) {
+    .ays-notice-banner .modile-ddmenu-lg.modile-ddmenu-lg-custom {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1320px) {
+    .ays-notice-banner .modile-ddmenu-lg {
+        display: none;
+    }
+
+    .ays-notice-banner .modile-ddmenu-md {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    div.ays-notice-banner {
+        width: calc(100% - 24px);
+        margin-top: 14px;
+    }
+
+    .ays-notice-banner #navigation-container {
+        gap: 14px;
+        padding: 0 14px;
+    }
+
+    .ays-notice-banner .navigation-bar #menu::before {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div.ays-notice-banner {
+        width: calc(100% - 40px);
+    }
+
+    .ays-notice-banner #navigation-container {
+        min-height: 72px;
+    }
+
+    .ays-notice-banner .modile-ddmenu-md {
+        display: none;
+    }
+
+    .ays-notice-banner .modile-ddmenu-sm {
+        display: block;
+    }
+
+    .ays-notice-banner .navigation-bar #menu {
+        flex: 0 0 auto;
+        width: auto !important;
+        min-width: 40px !important;
+        margin-left: auto;
+    }
+
+    .ays-notice-banner .navigation-bar #menu::before {
+        display: none;
+    }
+
+    .ays-notice-banner li ul.ddmenu {
+        right: 0;
+    }
+    .ays-chart-top-banner-title {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .ays-notice-banner #navigation-container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 12px;
+    }
+
+    .ays-notice-banner .ays-chart-logo-container-upgrade {
+        width: auto;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .ays-notice-banner .navigation-bar #menu {
+        margin-left: auto;
+        justify-content: flex-end;
+    }
+
+    .ays-notice-banner .ays-chart-checklist-open-icon {
+        position: unset;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .ays-notice-banner .logo-container {
+        width: 54px;
+        height: 54px;
+        flex-basis: 54px;
+    }
+
+    .ays-chart-top-banner-title {
+        min-width: 70px;
+    }
+
+    .ays-chart-top-banner-title span:first-child {
+        font-size: 14px;
+    }
+
+    .ays-notice-banner .ays-chart-top-banner-upgrade-container a {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
+
+/* top banner redesign | End */

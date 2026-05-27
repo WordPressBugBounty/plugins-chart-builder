@@ -16,7 +16,7 @@
  * Plugin Name:       Chart Builder
  * Plugin URI:        https://ays-pro.com/wordpress/chart-builder
  * Description:       Chart Builder is a user-friendly plugin that allows you to create customizable charts and graphs with ease. Perfect for visualising data, it offers various chart types to match your needs. 
- * Version:           3.7.4
+ * Version:           3.7.5
  * Author:            Chart Builder Team
  * Author URI:        https://ays-pro.com/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CHART_BUILDER_VERSION', '3.7.4' );
+define( 'CHART_BUILDER_VERSION', '3.7.5' );
 define( 'CHART_BUILDER_NAME_VERSION', '1.0.0' );
 define( 'CHART_BUILDER_NAME', 'chart-builder' );
 define( 'CHART_BUILDER_DB_PREFIX', 'ayschart_' );
@@ -117,13 +117,18 @@ if( !function_exists( 'chart_builder_general_admin_notice' ) ){
                 <div class="navigation-bar">
                     <div id="navigation-container">
                         <div class="ays-navigation-container-logo-upgrade-box">
-                            <div>
-                                <a class="logo-container" href="https://ays-pro.com/wordpress/chart-builder" target="_blank">
+                            <div class="logo-container">
+                                <a href="https://ays-pro.com/wordpress/chart-builder" target="_blank">
                                     <img class="logo" src="<?php echo esc_url(CHART_BUILDER_ADMIN_URL) . '/images/ays_chart_logo.png'; ?>" alt="Chart Builder logo" title="Chart Builder logo" />
                                 </a>
-                            </div>
+                            </div>     
+                        <div class="ays-chart-top-banner-title">
+                            <span class="ays-chart-top-banner-main-title"><?php echo esc_html__( "Chart Builder by AYS", 'chart-builder' ); ?></span>
+                            <span class="ays-chart-top-banner-sub-title"><?php echo esc_html__( "Create Dynamic Charts" ); ?></span>
+                        </div>
+                            <div class="ays-chart-upgrade-container">
                             <div>
-                                <a class="ays-btn-upgrade" href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-top-banner&utm_campaign=chart-upgrade-button-<?php echo esc_attr(CHART_BUILDER_VERSION);?>" target="_blank">
+                                <a class="ays-btn-upgrade" href="https://ays-pro.com/wordpress/chart-builder?utm_source=chart-free-dashboard&utm_medium=chart-top-banner&utm_campaign=chart-upgrade-button-<?php echo esc_attr(CHART_BUILDER_VERSION);?>#ays-pro-cb-plans-box-sg" target="_blank">
                                     <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" preserveAspectRatio="none" viewBox="0 0 10 19" width="10" height="19">
                                         <g transform="translate(0, 0)">
                                             <defs>
@@ -136,7 +141,8 @@ if( !function_exists( 'chart_builder_general_admin_notice' ) ){
                                     </svg>
                                     <span class="ays-navigation-container-upgrade-button-text"><?php echo esc_html__("Upgrade", "chart-builder"); ?></span>
                                 </a>
-                                <span style="font-size:10px;font-style:normal;font-weight:600;line-height:normal;margin-top:5px;"><?php echo esc_html__('One-time payment', 'chart-builder')?></span>
+                                <span  class="ays-chart-logo-container-one-time-text" style="font-size:10px;font-style:normal;font-weight:600;line-height:normal;margin-top:5px;"><?php echo esc_html__('One-time payment', 'chart-builder')?></span>
+                            </div>
                             </div>
                             <!-- <div class="ays-chart-coupon-container">
                                 <div class="ays-chart-coupon-box ays-chart-copy-element-box-parent">
@@ -150,20 +156,20 @@ if( !function_exists( 'chart_builder_general_admin_notice' ) ){
                             <!-- <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://ays-pro.com/wordpress-chart-builder-user-manual" target="_blank">Documentation</a></li> -->
                             <!-- <li class="modile-ddmenu-xs"><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/reviews/?rate=5#new-post" target="_blank">Rate Us</a></li> -->
                             <!-- <li class="modile-ddmenu-xss"><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder/" target="_blank"><i class="ays_fa ays_fa_diamond ays-fa-margin-right"></i>PRO</a></li> -->
-                            <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder" target="_blank">PRICING</a></li>
-                            <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://ays-demo.com/chart-builder-demo/" target="_blank">DEMO</a></li>
-                            <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">SUPPORT FORUM</a></li>
+                            <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder#ays-pro-cb-plans-box-sg" target="_blank">Pricing</a></li>
+                            <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://ays-demo.com/chart-builder-demo/" target="_blank">Demo</a></li>
+                            <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">Support Forum</a></li>
                             <li class="modile-ddmenu-lg take_survay"><a class="ays-btn" href="https://ays-demo.com/chart-coupon-code-as-a-gift/" target="_blank">Get 50% discount</a></li>
-                            <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">CONTACT US</a></li>
+                            <li class="modile-ddmenu-lg"><a class="ays-btn" href="https://ays-pro.com/contact" target="_blank">Contact Us</a></li>
                             <li class="modile-ddmenu-md">
                                 <a class="toggle_ddmenu" href="javascript:void(0);"><i class="ays_fa ays_fa_ellipsis_h"></i></a>
                                 <ul class="ddmenu" data-expanded="false" style="align-items: flex-start;">
                                     <!-- <li><a class="ays-btn" href="https://ays-pro.com/wordpress-chart-builder-user-manual" target="_blank">Documentation</a></li> -->
-                                    <li><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder" target="_blank">PRICING</a></li>
-                                    <li><a class="ays-btn" href="https://ays-demo.com/chart-builder-demo/" target="_blank">DEMO</a></li>
-                                    <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">SUPPORT FORUM</a></li>
+                                    <li><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder#ays-pro-cb-plans-box-sg" target="_blank">Pricing</a></li>
+                                    <li><a class="ays-btn" href="https://ays-demo.com/chart-builder-demo/" target="_blank">Demo</a></li>
+                                    <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">Support Forum</a></li>
                                     <li class="take_survay"><a class="ays-btn" href="https://ays-demo.com/chart-coupon-code-as-a-gift/" target="_blank">Get 50% discount</a></li>
-                                    <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">CONTACT US</a></li>
+                                    <li><a class="ays-btn" href="https://ays-pro.com/contact" target="_blank">Contact Us</a></li>
                                 </ul>
                             </li>
                             <li class="modile-ddmenu-sm">
@@ -171,11 +177,11 @@ if( !function_exists( 'chart_builder_general_admin_notice' ) ){
                                 <ul class="ddmenu" data-expanded="false" style="align-items: flex-start;">
                                     <!-- <li><a class="ays-btn" href="https://ays-pro.com/wordpress-chart-builder-user-manual" target="_blank">Documentation</a></li> -->
                                     <!-- <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/reviews/?rate=5#new-post" target="_blank">RATE US</a></li> -->
-                                    <li><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder" target="_blank">PRICING</a></li>
-                                    <li><a class="ays-btn" href="https://ays-demo.com/chart-builder-demo/" target="_blank">DEMO</a></li>
-                                    <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">SUPPORT FORUM</a></li>
+                                    <li><a class="ays-btn" href="https://ays-pro.com/wordpress/chart-builder#ays-pro-cb-plans-box-sg" target="_blank">Pricing</a></li>
+                                    <li><a class="ays-btn" href="https://ays-demo.com/chart-builder-demo/" target="_blank">Demo</a></li>
+                                    <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">Support Forum</a></li>
                                     <li class="take_survay"><a class="ays-btn" href="https://ays-demo.com/chart-coupon-code-as-a-gift/" target="_blank">Get 50% discount</a></li>
-                                    <li><a class="ays-btn" href="https://wordpress.org/support/plugin/chart-builder/" target="_blank">CONTACT US</a></li>
+                                    <li><a class="ays-btn" href="https://ays-pro.com/contact" target="_blank">Contact Us</a></li>
                                 </ul>
                             </li>
                         </ul>
