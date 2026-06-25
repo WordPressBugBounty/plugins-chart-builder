@@ -186,13 +186,19 @@
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
 					titleFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					bodyFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					footerFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					position: 'nearest',
 					events: ['click'],
@@ -283,13 +289,19 @@
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
 					titleFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					bodyFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					footerFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 				},
 				legend: {
@@ -365,13 +377,19 @@
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
 					titleFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					bodyFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					footerFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 				},
 				legend: {
@@ -421,8 +439,9 @@
 		newSettings.legendItalicText = (settings['legend_italic'] == 'on') ? true : false;
 		newSettings.legendBoldText = (settings['legend_bold'] == 'on') ? true : false;
 		newSettings.tooltipColor = settings['tooltip_text_color'];
-console.log('tooltip_italic value:', settings['tooltip_italic']);
-newSettings.tooltipItalicText = (settings['tooltip_italic'] == 'italic') ? true : false;
+		newSettings.tooltipItalicText = (settings['tooltip_italic'] == 'italic') ? true : false;
+		newSettings.tooltipFontSize = settings['tooltip_font_size'];
+		newSettings.tooltipBoldText = settings['tooltip_bold'];
 		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
 		return newSettings;
 	}

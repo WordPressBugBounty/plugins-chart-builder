@@ -1625,6 +1625,21 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			$settings['tooltip_italic'] = ( isset( $settings['tooltip_italic'] ) && $settings['tooltip_italic'] != '' ) ? $settings['tooltip_italic'] : 'off';
 			$settings['tooltip_italic'] = isset( $settings['tooltip_italic'] ) && $settings['tooltip_italic'] == 'on' ? 'checked' : '';
+
+			// Tooltip font size
+			$settings['tooltip_font_size'] = isset( $settings['tooltip_font_size'] ) && intval($settings['tooltip_font_size']) > 0 ? esc_attr( $settings['tooltip_font_size'] ) : '12';
+
+			// Tooltip bold options
+			$tooltip_bold_options = array(
+				"default" => __("Default", "chart-builder"),
+				"true" => __("Enable", "chart-builder"),
+				"false" => __("Disable", "chart-builder")
+			);
+
+			// Tooltip bold text
+			$settings['tooltip_bold'] = isset( $settings['tooltip_bold'] ) && $settings['tooltip_bold'] != '' ? esc_attr( $settings['tooltip_bold'] ) : 'default';
+			$settings['tooltip_bold_options'] = $tooltip_bold_options;
+
 			// Legend font color
 			$settings['legend_color'] = isset( $settings['legend_color'] ) && $settings['legend_color'] != '' ? esc_attr( $settings['legend_color'] ) : '#000000';
 			
@@ -1817,6 +1832,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 		
 			// Tooltip text color
 			$settings['tooltip_text_color'] = isset( $settings['tooltip_text_color'] ) && $settings['tooltip_text_color'] != '' ? esc_attr( $settings['tooltip_text_color'] ) : '#fff';
+
+			// Tooltip font size
+			$settings['tooltip_font_size'] = isset( $settings['tooltip_font_size'] ) && intval($settings['tooltip_font_size']) > 0 ? esc_attr( $settings['tooltip_font_size'] ) : 12;
 
 			// Show color code
 			$settings['show_color_code'] = isset( $settings['show_color_code'] ) && $settings['show_color_code'] != '' ? esc_attr( $settings['show_color_code'] ) : 'off';

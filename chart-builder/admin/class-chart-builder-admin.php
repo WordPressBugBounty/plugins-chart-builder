@@ -5444,7 +5444,7 @@ class Chart_Builder_Admin {
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-tooltip-bold">
 				            <?php echo esc_html(__( "Bold text", "chart-builder" )); ?>
-							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Choose when to display the results on the chart.","chart-builder") )); ?>">
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Make the tooltip text bold. Choose 'Enable' to apply bold formatting, 'Disable' for normal text, or 'Default' to use the chart's default font weight.","chart-builder") )); ?>">
                                 <i class="ays_fa ays_fa_info_circle"></i>
                             </a>
                         </label>
@@ -5485,6 +5485,9 @@ class Chart_Builder_Admin {
 		$tooltip_text_color = $settings['tooltip_text_color'];
 		$show_color_code = $settings['show_color_code'];
 		$tooltip_italic = $settings['tooltip_italic'];
+		$tooltip_font_size = $settings['tooltip_font_size'];
+		$tooltip_bold = $settings['tooltip_bold'];
+		$tooltip_bold_options = $settings['tooltip_bold_options'];
 
 		ob_start();
 		?>
@@ -5535,6 +5538,42 @@ class Chart_Builder_Admin {
                         </label>
                     </div>
                 </div> <!-- Italic text -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-tooltip-font-size" class="form-label">
+                            <?php echo esc_html(__( "Font size", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("The font size for all text within the chart tooltip, specified in pixels. Please note that if an invalid value is entered, it will revert to the default global font size.","chart-builder") )); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-tooltip-font-size" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[tooltip_font_size]" value="<?php echo esc_attr($tooltip_font_size) ?>">
+						<div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">px</div>
+                    </div>
+                </div> <!-- Font size -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-tooltip-bold">
+				            <?php echo esc_html(__( "Bold text", "chart-builder" )); ?>
+							<a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr(htmlspecialchars( __("Make the tooltip text bold. Choose 'Enable' to apply bold formatting, 'Disable' for normal text, or 'Default' to use the chart's default font weight.","chart-builder") )); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <select class="<?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-tooltip-bold" name="<?php echo esc_attr($html_name_prefix); ?>settings[tooltip_bold]">
+				            <?php
+				            foreach ( $tooltip_bold_options as $option_slug => $option ):
+					            $selected = ( $tooltip_bold == $option_slug ) ? 'selected' : '';
+					            ?>
+                                <option value="<?php echo esc_attr($option_slug); ?>" <?php echo esc_attr($selected); ?>><?php echo esc_html($option); ?></option>
+				            <?php
+				            endforeach;
+				            ?>
+                        </select>
+                    </div>
+                </div> <!-- Bold text -->
             </div>
         </div>
 		<?php

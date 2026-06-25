@@ -496,6 +496,18 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-tooltip-font-size').on('input', function () {
+				_this.chartSourceData.settings.tooltip_font_size = $(this).val();
+				_this.updateTooltipFontSize();
+				_this.chartObject.update();
+			});
+
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-tooltip-bold').on('change', function () {
+				_this.chartSourceData.settings.tooltip_bold = $(this).val();
+				_this.updateTooltipBold();
+				_this.chartObject.update();
+			});
+
 		// legend settings
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-legend-position').on('change', function () {
 				_this.chartSourceData.settings.legend_position = $(this).val();
@@ -594,6 +606,82 @@
 			_this.chartObject.options.plugins.tooltip.footerFont = {
 				style: isItalic ? 'italic' : 'normal'
 			};
+		}
+	}
+
+	ChartBuilderChartsJs.prototype.updateTooltipFontSize = function() {
+		var _this = this;
+		var fontSize = parseInt(_this.chartSourceData.settings.tooltip_font_size) || 12;
+		
+		// Set tooltip font size based on setting
+		if (_this.chartObject.options.plugins.tooltip.titleFont) {
+			_this.chartObject.options.plugins.tooltip.titleFont.size = fontSize;
+		} else {
+			_this.chartObject.options.plugins.tooltip.titleFont = {
+				size: fontSize
+			};
+		}
+		
+		if (_this.chartObject.options.plugins.tooltip.bodyFont) {
+			_this.chartObject.options.plugins.tooltip.bodyFont.size = fontSize;
+		} else {
+			_this.chartObject.options.plugins.tooltip.bodyFont = {
+				size: fontSize
+			};
+		}
+		
+		if (_this.chartObject.options.plugins.tooltip.footerFont) {
+			_this.chartObject.options.plugins.tooltip.footerFont.size = fontSize;
+		} else {
+			_this.chartObject.options.plugins.tooltip.footerFont = {
+				size: fontSize
+			};
+		}
+	}
+
+	ChartBuilderChartsJs.prototype.updateTooltipBold = function() {
+		var _this = this;
+		var boldSetting = _this.chartSourceData.settings.tooltip_bold;
+		var isBold = boldSetting === 'true';
+		
+		// Set tooltip font weight based on bold setting
+		if (boldSetting === 'default') {
+			// Use default (remove custom weight)
+			if (_this.chartObject.options.plugins.tooltip.titleFont) {
+				delete _this.chartObject.options.plugins.tooltip.titleFont.weight;
+			}
+			if (_this.chartObject.options.plugins.tooltip.bodyFont) {
+				delete _this.chartObject.options.plugins.tooltip.bodyFont.weight;
+			}
+			if (_this.chartObject.options.plugins.tooltip.footerFont) {
+				delete _this.chartObject.options.plugins.tooltip.footerFont.weight;
+			}
+		} else {
+			var weight = isBold ? 'bold' : 'normal';
+			
+			if (_this.chartObject.options.plugins.tooltip.titleFont) {
+				_this.chartObject.options.plugins.tooltip.titleFont.weight = weight;
+			} else {
+				_this.chartObject.options.plugins.tooltip.titleFont = {
+					weight: weight
+				};
+			}
+			
+			if (_this.chartObject.options.plugins.tooltip.bodyFont) {
+				_this.chartObject.options.plugins.tooltip.bodyFont.weight = weight;
+			} else {
+				_this.chartObject.options.plugins.tooltip.bodyFont = {
+					weight: weight
+				};
+			}
+			
+			if (_this.chartObject.options.plugins.tooltip.footerFont) {
+				_this.chartObject.options.plugins.tooltip.footerFont.weight = weight;
+			} else {
+				_this.chartObject.options.plugins.tooltip.footerFont = {
+					weight: weight
+				};
+			}
 		}
 	}
 
@@ -849,13 +937,19 @@
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
 					titleFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					bodyFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					footerFont: {
-						style: nSettings.tooltipItalicText ? 'italic' : 'normal'
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					position: 'nearest',
 					events: ['click'],
@@ -934,13 +1028,19 @@
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
 					titleFont: {
-						style: nSettings.tooltipItalicText ? "italic" : "normal"
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? "italic" : "normal",
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					bodyFont: {
-						style: nSettings.tooltipItalicText ? "italic" : "normal"
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? "italic" : "normal",
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					footerFont: {
-						style: nSettings.tooltipItalicText ? "italic" : "normal"
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? "italic" : "normal",
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					}
 				},
 				legend: {
@@ -1003,13 +1103,19 @@
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
 					titleFont: {
-						style: nSettings.tooltipItalicText ? "italic" : "normal"
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? "italic" : "normal",
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					bodyFont: {
-						style: nSettings.tooltipItalicText ? "italic" : "normal"
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? "italic" : "normal",
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					},
 					footerFont: {
-						style: nSettings.tooltipItalicText ? "italic" : "normal"
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? "italic" : "normal",
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
 					}
 				},
 				legend: {
@@ -1062,6 +1168,8 @@
 		newSettings.tooltipColor = settings['tooltip_text_color'];
 		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
 		newSettings.tooltipItalicText = (settings['tooltip_italic'] == 'checked') ? true : false;
+		newSettings.tooltipFontSize = settings['tooltip_font_size'];
+		newSettings.tooltipBoldText = settings['tooltip_bold'];
 		return newSettings;
 	}
 
