@@ -5242,6 +5242,7 @@ class Chart_Builder_Admin {
 
         $show_title = $settings['show_title'];
         $show_description = $settings['show_description'];
+        $enable_interactivity = $settings['enable_interactivity'];
 
 		ob_start();
 		?>
@@ -5326,6 +5327,22 @@ class Chart_Builder_Admin {
                         </label>
                     </div>
                 </div> <!-- Show description -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section">
+                    <div class="col-sm-5 <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-enable-interactivity" class="form-label">
+                            <?php echo esc_html(__('Enable interactivity', "chart-builder")); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Decide if the chart shows events based on user actions or responds to user interaction. If not, the chart won't generate 'select' or similar interaction-based events (but will generate ready or error events), and won't show hovertext or change based on user input.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 py-1 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+						<label class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-switch">
+                            <input class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch" id="ays-chart-option-enable-interactivity" type="checkbox" name="<?php echo esc_attr($html_name_prefix); ?>settings[enable_interactivity]" value="on" <?php echo esc_attr($enable_interactivity); ?> >
+                            <span class="<?php echo esc_attr($html_class_prefix) ?>toggle-switch-slider <?php echo esc_attr($html_class_prefix) ?>toggle-switch-round"></span>
+                        </label>
+                    </div>
+                </div> <!-- Enable interactivity -->
             </div>
         </div>
 		<?php

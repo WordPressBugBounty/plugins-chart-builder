@@ -551,6 +551,34 @@
 				_this.chartObject.update();
 			});
 
+		// interactivity settings
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-enable-interactivity').on('change', function () {
+				_this.chartSourceData.settings.enable_interactivity = $(this).is(':checked') ? 'checked' : '';
+				_this.updateInteractivity();
+				_this.chartObject.update();
+			});
+
+	}
+
+	ChartBuilderChartsJs.prototype.updateInteractivity = function() {
+		var _this = this;
+		var enableInteractivity = _this.chartSourceData.settings.enable_interactivity === 'checked';
+		
+		if (enableInteractivity) {
+			// Enable tooltips and hover
+			_this.chartObject.options.plugins.tooltip.enabled = true;
+			_this.chartObject.options.hover = {
+				mode: 'nearest',
+				intersect: true
+			};
+		} else {
+			// Disable tooltips and hover
+			_this.chartObject.options.plugins.tooltip.enabled = false;
+			_this.chartObject.options.hover = {
+				mode: null,
+				intersect: false
+			};
+		}
 	}
 
 	ChartBuilderChartsJs.prototype.updateTooltipColorCode = function() {
@@ -1221,6 +1249,47 @@
 	ChartBuilderChartsJs.prototype.updateChartData =  function(){
 		var _this = this;
         var newData = _this.chartConvertData( _this.chartData );
+
+		var settings = _this.chartSourceData.settings;
+		var nSettings = _this.configOptionsForCharts(settings);
+		var defaultColors = nSettings.sliceColorDefault || ['#36A2EB','#FF6384','#FF9F40','#FFCD56', '#4BC0C0','#0099c6','#dd4477','#66aa00', '#b82e2e','#316395','#994499','#22aa99', '#aaaa11','#6633cc','#e67300','#8b0707', '#651067','#329262','#5574a6','#3b3eac', '#b77322','#16d620','#b91383','#f4359e', '#9c5935','#a9c413','#2a778d','#668d1c', '#bea413','#0c5922','#743411'];
+
+		var existingDatasets = _this.chartObject.data.datasets || [];
+		newData.dataSets = newData.dataSets.map((dataset, index) => {
+			var existingDataset = existingDatasets[index] || {};
+			
+			// Handle backgroundColor for pie charts (array of colors per data point)
+			if (_this.chartType === 'pie_chart' && Array.isArray(existingDataset.backgroundColor)) {
+				var newBgColor = [...existingDataset.backgroundColor];
+				for (var i = existingDataset.backgroundColor.length; i < dataset.data.length; i++) {
+					newBgColor[i] = nSettings.sliceColor?.[i] || defaultColors[i % defaultColors.length];
+				}
+				return {
+					...dataset,
+					backgroundColor: newBgColor,
+					borderColor: existingDataset.borderColor || dataset.borderColor,
+					borderWidth: existingDataset.borderWidth !== undefined ? existingDataset.borderWidth : dataset.borderWidth
+				};
+			}
+			
+			// Handle backgroundColor for bar/line charts (single color per dataset)
+			var bgColor = existingDataset.backgroundColor;
+			var borderColor = existingDataset.borderColor;
+			
+			if (!bgColor) {
+				bgColor = defaultColors[index % defaultColors.length];
+			}
+			if (!borderColor) {
+				borderColor = bgColor;
+			}
+			
+			return {
+				...dataset,
+				backgroundColor: bgColor,
+				borderColor: borderColor,
+				borderWidth: existingDataset.borderWidth !== undefined ? existingDataset.borderWidth : dataset.borderWidth
+			};
+		});
 
         _this.chartObject.data = {
             ..._this.chartObject.data,

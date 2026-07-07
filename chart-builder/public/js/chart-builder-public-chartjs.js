@@ -180,8 +180,16 @@
 			circumference: nSettings.circumference,
 			rotation: nSettings.startAngle,
 			borderColor: nSettings.sliceBorderColor,
+			hover: nSettings.enableInteractivity ? {
+				mode: 'nearest',
+				intersect: true
+			} : {
+				mode: null,
+				intersect: false
+			},
 			plugins: {
 				tooltip:{
+					enabled: nSettings.enableInteractivity,
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
@@ -283,8 +291,16 @@
 			datasets: dataTypes?.dataSets,
 		  },
 		  options: {
+			hover: nSettings.enableInteractivity ? {
+				mode: 'nearest',
+				intersect: true
+			} : {
+				mode: null,
+				intersect: false
+			},
 			plugins: {
 				tooltip:{
+					enabled: nSettings.enableInteractivity,
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
@@ -371,8 +387,16 @@
 		  },
 		  options: {
 			maintainAspectRatio: false,
+			hover: nSettings.enableInteractivity ? {
+				mode: 'nearest',
+				intersect: true
+			} : {
+				mode: null,
+				intersect: false
+			},
 			plugins: {
 				tooltip:{
+					enabled: nSettings.enableInteractivity,
 					titleColor: nSettings.tooltipColor,
 					bodyColor: nSettings.tooltipColor,
 					footerColor: nSettings.tooltipColor,
@@ -443,6 +467,7 @@
 		newSettings.tooltipFontSize = settings['tooltip_font_size'];
 		newSettings.tooltipBoldText = settings['tooltip_bold'];
 		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
+		newSettings.enableInteractivity = (settings['enable_interactivity'] == 'off') ? false : true;
 		return newSettings;
 	}
 

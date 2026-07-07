@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2026-06-23 17:17+0400\n"
+"POT-Creation-Date: 2026-07-03 18:17+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -198,7 +198,7 @@ msgstr ""
 #: admin/class-chart-builder-admin.php:388
 #: admin/class-chart-builder-admin.php:389
 #: admin/class-chart-builder-admin.php:5225
-#: admin/class-chart-builder-admin.php:5334
+#: admin/class-chart-builder-admin.php:5351
 #: admin/partials/settings/chart-builder-settings.php:49
 #: admin/partials/settings/chart-builder-settings.php:66
 msgid "General Settings"
@@ -668,12 +668,12 @@ msgstr ""
 
 #: admin/class-chart-builder-admin.php:4344
 #: admin/class-chart-builder-admin.php:4410
-#: admin/class-chart-builder-admin.php:6800
-#: admin/class-chart-builder-admin.php:6830
-#: admin/class-chart-builder-admin.php:6885
-#: admin/class-chart-builder-admin.php:6915
-#: admin/class-chart-builder-admin.php:6945
-#: admin/class-chart-builder-admin.php:6975
+#: admin/class-chart-builder-admin.php:6817
+#: admin/class-chart-builder-admin.php:6847
+#: admin/class-chart-builder-admin.php:6902
+#: admin/class-chart-builder-admin.php:6932
+#: admin/class-chart-builder-admin.php:6962
+#: admin/class-chart-builder-admin.php:6992
 #: includes/class-chart-builder-integrations.php:160
 #: includes/class-chart-builder-integrations.php:227
 msgid "Watch Video"
@@ -683,13 +683,13 @@ msgstr ""
 #: admin/class-chart-builder-admin.php:4416
 #: admin/class-chart-builder-admin.php:4488
 #: admin/class-chart-builder-admin.php:4683
-#: admin/class-chart-builder-admin.php:6806
-#: admin/class-chart-builder-admin.php:6836
-#: admin/class-chart-builder-admin.php:6891
-#: admin/class-chart-builder-admin.php:6921
-#: admin/class-chart-builder-admin.php:6951
-#: admin/class-chart-builder-admin.php:6981
-#: admin/class-chart-builder-admin.php:9246
+#: admin/class-chart-builder-admin.php:6823
+#: admin/class-chart-builder-admin.php:6853
+#: admin/class-chart-builder-admin.php:6908
+#: admin/class-chart-builder-admin.php:6938
+#: admin/class-chart-builder-admin.php:6968
+#: admin/class-chart-builder-admin.php:6998
+#: admin/class-chart-builder-admin.php:9263
 #: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:27
 #: admin/partials/charts/actions/partials/chart-builder-charts-add-new-layer-page.php:66
 #: admin/partials/settings/chart-builder-settings.php:80 chart-builder.php:142
@@ -821,12 +821,12 @@ msgid "By using this option, you can display the WooCommerce statistics by chart
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:4755
-#: admin/class-chart-builder-admin.php:8047
-#: admin/class-chart-builder-admin.php:8282
-#: admin/class-chart-builder-admin.php:9628
-#: admin/class-chart-builder-admin.php:9778
-#: admin/class-chart-builder-admin.php:9911
-#: admin/class-chart-builder-admin.php:10135
+#: admin/class-chart-builder-admin.php:8064
+#: admin/class-chart-builder-admin.php:8299
+#: admin/class-chart-builder-admin.php:9645
+#: admin/class-chart-builder-admin.php:9795
+#: admin/class-chart-builder-admin.php:9928
+#: admin/class-chart-builder-admin.php:10152
 #: admin/partials/charts/actions/partials/chart-builder-charts-actions-chart-js.php:5
 #: admin/partials/charts/actions/partials/chart-builder-charts-actions-google-charts.php:5
 #: admin/partials/charts/chart-builder-charts-display.php:45
@@ -835,18 +835,18 @@ msgid "Title"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:4760
-#: admin/class-chart-builder-admin.php:9633
-#: admin/class-chart-builder-admin.php:9783
-#: admin/class-chart-builder-admin.php:9916
-#: admin/class-chart-builder-admin.php:10140
+#: admin/class-chart-builder-admin.php:9650
+#: admin/class-chart-builder-admin.php:9800
+#: admin/class-chart-builder-admin.php:9933
+#: admin/class-chart-builder-admin.php:10157
 msgid "Country"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:4761
-#: admin/class-chart-builder-admin.php:9634
-#: admin/class-chart-builder-admin.php:9784
-#: admin/class-chart-builder-admin.php:9917
-#: admin/class-chart-builder-admin.php:10141
+#: admin/class-chart-builder-admin.php:9651
+#: admin/class-chart-builder-admin.php:9801
+#: admin/class-chart-builder-admin.php:9934
+#: admin/class-chart-builder-admin.php:10158
 msgid "Population"
 msgstr ""
 
@@ -871,68 +871,70 @@ msgid "Add the data manually. By clicking on the Add Row button you will be able
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5112
-#: admin/class-chart-builder-admin.php:5253
+#: admin/class-chart-builder-admin.php:5254
 #: admin/partials/charts/chart-builder-charts-display.php:188
 msgid "Status"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5113
-#: admin/class-chart-builder-admin.php:5254
+#: admin/class-chart-builder-admin.php:5255
 msgid "Decide whether the chart is active or not. If the chart is a draft, it won't be shown anywhere on your website (you don't need to remove shortcodes)."
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5128
-#: admin/class-chart-builder-admin.php:5269
-#: admin/class-chart-builder-admin.php:8488
-#: admin/class-chart-builder-admin.php:8694
+#: admin/class-chart-builder-admin.php:5270
+#: admin/class-chart-builder-admin.php:8505
+#: admin/class-chart-builder-admin.php:8711
 msgid "Description"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5129
-#: admin/class-chart-builder-admin.php:5270
+#: admin/class-chart-builder-admin.php:5271
 msgid "Set the chart description"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5141
-#: admin/class-chart-builder-admin.php:5282
+#: admin/class-chart-builder-admin.php:5283
 msgid "Change the author of the current chart"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5142
-#: admin/class-chart-builder-admin.php:5283
+#: admin/class-chart-builder-admin.php:5284
 msgid "You can change the author who created the current chart to your preferred one. You need to write the User ID here. Please note, that in case you write an ID, by which there are no users found, the changes will not be applied and the previous author will remain the same."
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5149
-#: admin/class-chart-builder-admin.php:5290
+#: admin/class-chart-builder-admin.php:5291
 msgid "Select User"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5159
-#: admin/class-chart-builder-admin.php:5300
+#: admin/class-chart-builder-admin.php:5301
 msgid "Show chart title"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5160
-#: admin/class-chart-builder-admin.php:5301
+#: admin/class-chart-builder-admin.php:5302
 msgid "If you disable the toggle, the Chart title will not be displayed on the Front-end. By default, the toggle is enabled."
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5175
-#: admin/class-chart-builder-admin.php:5316
+#: admin/class-chart-builder-admin.php:5317
 msgid "Show chart description"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5176
-#: admin/class-chart-builder-admin.php:5317
+#: admin/class-chart-builder-admin.php:5318
 msgid "If you disable the toggle, the Chart description will not be displayed on the Front-end. By default, the toggle is enabled."
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5191
+#: admin/class-chart-builder-admin.php:5333
 msgid "Enable interactivity"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5192
+#: admin/class-chart-builder-admin.php:5334
 msgid "Decide if the chart shows events based on user actions or responds to user interaction. If not, the chart won't generate 'select' or similar interaction-based events (but will generate ready or error events), and won't show hovertext or change based on user input."
 msgstr ""
 
@@ -944,1420 +946,1423 @@ msgstr ""
 msgid "If checked, maximizes the area of the chart."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5365
+#: admin/class-chart-builder-admin.php:5382
 msgid "Trigger"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5366
-#: admin/class-chart-builder-admin.php:5447
-#: admin/class-chart-builder-admin.php:5559
+#: admin/class-chart-builder-admin.php:5383
 msgid "Choose when to display the results on the chart."
-msgstr ""
-
-#: admin/class-chart-builder-admin.php:5387
-#: admin/class-chart-builder-admin.php:5499
-msgid "Show Color Code"
-msgstr ""
-
-#: admin/class-chart-builder-admin.php:5388
-#: admin/class-chart-builder-admin.php:5500
-msgid "The color will be displayed while clicking on a particular part of the chart."
-msgstr ""
-
-#: admin/class-chart-builder-admin.php:5403
-#: admin/class-chart-builder-admin.php:5515
-#: admin/class-chart-builder-admin.php:9394
-#: admin/class-chart-builder-admin.php:9460
-#: admin/class-chart-builder-admin.php:9714
-msgid "Text color"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:5404
 #: admin/class-chart-builder-admin.php:5516
+msgid "Show Color Code"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:5405
+#: admin/class-chart-builder-admin.php:5517
+msgid "The color will be displayed while clicking on a particular part of the chart."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:5420
+#: admin/class-chart-builder-admin.php:5532
+#: admin/class-chart-builder-admin.php:9411
+#: admin/class-chart-builder-admin.php:9477
+#: admin/class-chart-builder-admin.php:9731
+msgid "Text color"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:5421
+#: admin/class-chart-builder-admin.php:5533
 msgid "The color of the tooltip text."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5416
-#: admin/class-chart-builder-admin.php:5544
-#: admin/class-chart-builder-admin.php:5680
-#: admin/class-chart-builder-admin.php:5815
-#: admin/class-chart-builder-admin.php:5941
-#: admin/class-chart-builder-admin.php:6050
-#: admin/class-chart-builder-admin.php:6354
-#: admin/class-chart-builder-admin.php:6450
-#: admin/class-chart-builder-admin.php:7194
-#: admin/class-chart-builder-admin.php:7862
-#: admin/class-chart-builder-admin.php:8097
-#: admin/class-chart-builder-admin.php:8331
-#: admin/class-chart-builder-admin.php:8537
+#: admin/class-chart-builder-admin.php:5433
+#: admin/class-chart-builder-admin.php:5561
+#: admin/class-chart-builder-admin.php:5697
+#: admin/class-chart-builder-admin.php:5832
+#: admin/class-chart-builder-admin.php:5958
+#: admin/class-chart-builder-admin.php:6067
+#: admin/class-chart-builder-admin.php:6371
+#: admin/class-chart-builder-admin.php:6467
+#: admin/class-chart-builder-admin.php:7211
+#: admin/class-chart-builder-admin.php:7879
+#: admin/class-chart-builder-admin.php:8114
+#: admin/class-chart-builder-admin.php:8348
+#: admin/class-chart-builder-admin.php:8554
 msgid "Font size"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5417
-#: admin/class-chart-builder-admin.php:5545
+#: admin/class-chart-builder-admin.php:5434
+#: admin/class-chart-builder-admin.php:5562
 msgid "The font size for all text within the chart tooltip, specified in pixels. Please note that if an invalid value is entered, it will revert to the default global font size."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5430
-#: admin/class-chart-builder-admin.php:5528
-#: admin/class-chart-builder-admin.php:5694
-#: admin/class-chart-builder-admin.php:5829
-#: admin/class-chart-builder-admin.php:6479
-#: admin/class-chart-builder-admin.php:7892
-#: admin/class-chart-builder-admin.php:8127
-#: admin/class-chart-builder-admin.php:8361
-#: admin/class-chart-builder-admin.php:8567
+#: admin/class-chart-builder-admin.php:5447
+#: admin/class-chart-builder-admin.php:5545
+#: admin/class-chart-builder-admin.php:5711
+#: admin/class-chart-builder-admin.php:5846
+#: admin/class-chart-builder-admin.php:6496
+#: admin/class-chart-builder-admin.php:7909
+#: admin/class-chart-builder-admin.php:8144
+#: admin/class-chart-builder-admin.php:8378
+#: admin/class-chart-builder-admin.php:8584
 msgid "Italic text"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5431
-#: admin/class-chart-builder-admin.php:5529
+#: admin/class-chart-builder-admin.php:5448
+#: admin/class-chart-builder-admin.php:5546
 msgid "Enable this option to make chart tooltip text italic."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5446
-#: admin/class-chart-builder-admin.php:5558
-#: admin/class-chart-builder-admin.php:5710
-#: admin/class-chart-builder-admin.php:5845
-#: admin/class-chart-builder-admin.php:6495
-#: admin/class-chart-builder-admin.php:7876
-#: admin/class-chart-builder-admin.php:8111
-#: admin/class-chart-builder-admin.php:8345
-#: admin/class-chart-builder-admin.php:8551
+#: admin/class-chart-builder-admin.php:5463
+#: admin/class-chart-builder-admin.php:5575
+#: admin/class-chart-builder-admin.php:5727
+#: admin/class-chart-builder-admin.php:5862
+#: admin/class-chart-builder-admin.php:6512
+#: admin/class-chart-builder-admin.php:7893
+#: admin/class-chart-builder-admin.php:8128
+#: admin/class-chart-builder-admin.php:8362
+#: admin/class-chart-builder-admin.php:8568
 msgid "Bold text"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5470
-#: admin/class-chart-builder-admin.php:5582
+#: admin/class-chart-builder-admin.php:5464
+#: admin/class-chart-builder-admin.php:5576
+msgid "Make the tooltip text bold. Choose 'Enable' to apply bold formatting, 'Disable' for normal text, or 'Default' to use the chart's default font weight."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:5487
+#: admin/class-chart-builder-admin.php:5599
 msgid "Tooltip"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5612
-#: admin/class-chart-builder-admin.php:5758
-#: admin/class-chart-builder-admin.php:6015
-#: admin/class-chart-builder-admin.php:6415
-#: admin/class-chart-builder-admin.php:7149
-#: admin/class-chart-builder-admin.php:7908
-#: admin/class-chart-builder-admin.php:8143
-#: admin/class-chart-builder-admin.php:8377
-#: admin/class-chart-builder-admin.php:8583
+#: admin/class-chart-builder-admin.php:5629
+#: admin/class-chart-builder-admin.php:5775
+#: admin/class-chart-builder-admin.php:6032
+#: admin/class-chart-builder-admin.php:6432
+#: admin/class-chart-builder-admin.php:7166
+#: admin/class-chart-builder-admin.php:7925
+#: admin/class-chart-builder-admin.php:8160
+#: admin/class-chart-builder-admin.php:8394
+#: admin/class-chart-builder-admin.php:8600
 msgid "Position"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5613
-#: admin/class-chart-builder-admin.php:5759
+#: admin/class-chart-builder-admin.php:5630
+#: admin/class-chart-builder-admin.php:5776
 msgid "Choose the appropriate position for the chart legend."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5645
-#: admin/class-chart-builder-admin.php:5780
+#: admin/class-chart-builder-admin.php:5662
+#: admin/class-chart-builder-admin.php:5797
 msgid "Alignment"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5646
-#: admin/class-chart-builder-admin.php:5781
+#: admin/class-chart-builder-admin.php:5663
+#: admin/class-chart-builder-admin.php:5798
 msgid "Choose the appropriate alignment for the chart legend."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5667
-#: admin/class-chart-builder-admin.php:5802
+#: admin/class-chart-builder-admin.php:5684
+#: admin/class-chart-builder-admin.php:5819
 msgid "Font Color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5668
-#: admin/class-chart-builder-admin.php:5803
+#: admin/class-chart-builder-admin.php:5685
+#: admin/class-chart-builder-admin.php:5820
 msgid "Choose the font color for the chart legend."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5681
-#: admin/class-chart-builder-admin.php:5816
+#: admin/class-chart-builder-admin.php:5698
+#: admin/class-chart-builder-admin.php:5833
 msgid "The font size for all text within the chart legend, specified in pixels. Please note that if an invalid value is entered, it will revert to the default global font size."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5695
-#: admin/class-chart-builder-admin.php:5830
+#: admin/class-chart-builder-admin.php:5712
+#: admin/class-chart-builder-admin.php:5847
 msgid "Enable this option to make chart legend text italic."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5711
-#: admin/class-chart-builder-admin.php:5846
+#: admin/class-chart-builder-admin.php:5728
+#: admin/class-chart-builder-admin.php:5863
 msgid "Enable this option to make chart legend text bold."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5728
-#: admin/class-chart-builder-admin.php:5879
+#: admin/class-chart-builder-admin.php:5745
+#: admin/class-chart-builder-admin.php:5896
 msgid "Legend"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5861
+#: admin/class-chart-builder-admin.php:5878
 msgid "Show datasets in reverse order"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5862
+#: admin/class-chart-builder-admin.php:5879
 msgid "Enable this toggle to show datasets in reverse ordering."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5928
-#: admin/class-chart-builder-admin.php:6341
+#: admin/class-chart-builder-admin.php:5945
+#: admin/class-chart-builder-admin.php:6358
 msgid "Label"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5929
+#: admin/class-chart-builder-admin.php:5946
 msgid "The title of the horizontal axis"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5942
+#: admin/class-chart-builder-admin.php:5959
 msgid "The font size of the horizontal axis label."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5954
-#: admin/class-chart-builder-admin.php:6037
-#: admin/class-chart-builder-admin.php:6162
-#: admin/class-chart-builder-admin.php:6367
-#: admin/class-chart-builder-admin.php:6437
-#: admin/class-chart-builder-admin.php:6527
-#: admin/class-chart-builder-admin.php:7849
-#: admin/class-chart-builder-admin.php:8084
-#: admin/class-chart-builder-admin.php:8318
-#: admin/class-chart-builder-admin.php:8524
-#: admin/class-chart-builder-admin.php:9677
-#: admin/class-chart-builder-admin.php:9826
-#: admin/class-chart-builder-admin.php:9965
-#: admin/class-chart-builder-admin.php:10197
+#: admin/class-chart-builder-admin.php:5971
+#: admin/class-chart-builder-admin.php:6054
+#: admin/class-chart-builder-admin.php:6179
+#: admin/class-chart-builder-admin.php:6384
+#: admin/class-chart-builder-admin.php:6454
+#: admin/class-chart-builder-admin.php:6544
+#: admin/class-chart-builder-admin.php:7866
+#: admin/class-chart-builder-admin.php:8101
+#: admin/class-chart-builder-admin.php:8335
+#: admin/class-chart-builder-admin.php:8541
+#: admin/class-chart-builder-admin.php:9694
+#: admin/class-chart-builder-admin.php:9843
+#: admin/class-chart-builder-admin.php:9982
+#: admin/class-chart-builder-admin.php:10214
 msgid "Color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5955
-#: admin/class-chart-builder-admin.php:6368
+#: admin/class-chart-builder-admin.php:5972
+#: admin/class-chart-builder-admin.php:6385
 msgid "The color of the horizontal axis label."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5967
-#: admin/class-chart-builder-admin.php:6079
-#: admin/class-chart-builder-admin.php:6380
+#: admin/class-chart-builder-admin.php:5984
+#: admin/class-chart-builder-admin.php:6096
+#: admin/class-chart-builder-admin.php:6397
 msgid "Italic"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5968
+#: admin/class-chart-builder-admin.php:5985
 msgid "Enable this option to make chart horizontal axis label italic."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5983
-#: admin/class-chart-builder-admin.php:6095
-#: admin/class-chart-builder-admin.php:6396
+#: admin/class-chart-builder-admin.php:6000
+#: admin/class-chart-builder-admin.php:6112
+#: admin/class-chart-builder-admin.php:6413
 msgid "Bold"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5984
+#: admin/class-chart-builder-admin.php:6001
 msgid "Enable this option to make chart horizontal axis label bold."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:5999
-#: admin/class-chart-builder-admin.php:6842
+#: admin/class-chart-builder-admin.php:6016
+#: admin/class-chart-builder-admin.php:6859
 msgid "Interval"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6000
+#: admin/class-chart-builder-admin.php:6017
 msgid "How many horizontal axis labels to show, where 1 means show every label, 2 means show every other label, and so on. 0 is to try to show as many labels as possible without overlapping."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6016
+#: admin/class-chart-builder-admin.php:6033
 msgid "Position of the horizontal axis text, relative to the chart area."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6038
+#: admin/class-chart-builder-admin.php:6055
 msgid "The color of the horizontal axis text."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6051
-#: admin/class-chart-builder-admin.php:6451
+#: admin/class-chart-builder-admin.php:6068
+#: admin/class-chart-builder-admin.php:6468
 msgid "The font size of the horizontal axis text."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6063
-#: admin/class-chart-builder-admin.php:6463
+#: admin/class-chart-builder-admin.php:6080
+#: admin/class-chart-builder-admin.php:6480
 msgid "Reverse Direction"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6064
+#: admin/class-chart-builder-admin.php:6081
 msgid "The direction in which the values grow along the horizontal axis. By default, low values are on the left of the chart."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6080
+#: admin/class-chart-builder-admin.php:6097
 msgid "Enable this option to make chart horizontal axis text italic."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6096
+#: admin/class-chart-builder-admin.php:6113
 msgid "Enable this option to make chart horizontal axis text bold."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6111
+#: admin/class-chart-builder-admin.php:6128
 msgid "Slanted text"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6112
+#: admin/class-chart-builder-admin.php:6129
 msgid "By choosing true the text will be slanted. In false it will be horizontal. In Automatic based on the size, it will be displayed either in horizontal or slanted. Note: This option only works, if 'Text position' option is set to 'Outside the chart'"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6133
+#: admin/class-chart-builder-admin.php:6150
 msgid "Slanted text angle"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6134
+#: admin/class-chart-builder-admin.php:6151
 msgid "The slanted text angle will define the angle. It will tilt in between -90 from 90 (except 0)."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6149
-#: admin/class-chart-builder-admin.php:6514
+#: admin/class-chart-builder-admin.php:6166
+#: admin/class-chart-builder-admin.php:6531
 msgid "Count"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6150
+#: admin/class-chart-builder-admin.php:6167
 msgid "The approximate number of vertical gridlines inside the chart area. If you specify a positive number for gridlines count, it will be used to compute the min spacing between gridlines. You can specify a value of 1 to only draw one gridline, or 0 to draw no gridlines. Specify -1, which is the default, to automatically compute the number of gridlines based on other options. Note: This option will not work with 'Rotate vertical' option."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6163
+#: admin/class-chart-builder-admin.php:6180
 msgid "The color of the horizontal axis gridlines."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6175
-#: admin/class-chart-builder-admin.php:6540
+#: admin/class-chart-builder-admin.php:6192
+#: admin/class-chart-builder-admin.php:6557
 msgid "Minor gridlines color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6176
+#: admin/class-chart-builder-admin.php:6193
 msgid "The color of the horizontal axis minor gridlines."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6188
-#: admin/class-chart-builder-admin.php:6553
+#: admin/class-chart-builder-admin.php:6205
+#: admin/class-chart-builder-admin.php:6570
 msgid "Baseline color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6189
+#: admin/class-chart-builder-admin.php:6206
 msgid "Specifies the color of the baseline for the horizontal axis."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6204
-#: admin/class-chart-builder-admin.php:6569
-#: admin/class-chart-builder-admin.php:10002
+#: admin/class-chart-builder-admin.php:6221
+#: admin/class-chart-builder-admin.php:6586
+#: admin/class-chart-builder-admin.php:10019
 msgid "Format"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6208
-#: admin/class-chart-builder-admin.php:6573
+#: admin/class-chart-builder-admin.php:6225
+#: admin/class-chart-builder-admin.php:6590
 msgid "A format string for numeric axis labels. You can choose any of the following:"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6210
-#: admin/class-chart-builder-admin.php:6575
+#: admin/class-chart-builder-admin.php:6227
+#: admin/class-chart-builder-admin.php:6592
 #, php-format
 msgid "%1$sNone:%2$s Displays numbers with no formatting (e.g., 8000000)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6212
-#: admin/class-chart-builder-admin.php:6577
+#: admin/class-chart-builder-admin.php:6229
+#: admin/class-chart-builder-admin.php:6594
 #, php-format
 msgid "%1$sDecimal:%2$s Displays numbers with thousands separators (e.g., 8,000,000)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6214
-#: admin/class-chart-builder-admin.php:6579
+#: admin/class-chart-builder-admin.php:6231
+#: admin/class-chart-builder-admin.php:6596
 #, php-format
 msgid "%1$sScientific:%2$s Displays numbers in scientific notation (e.g., 8e6)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6216
-#: admin/class-chart-builder-admin.php:6581
+#: admin/class-chart-builder-admin.php:6233
+#: admin/class-chart-builder-admin.php:6598
 #, php-format
 msgid "%1$sCurrency:%2$s Displays numbers in the local currency (e.g., $8,000,000.00)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6218
-#: admin/class-chart-builder-admin.php:6583
+#: admin/class-chart-builder-admin.php:6235
+#: admin/class-chart-builder-admin.php:6600
 #, php-format
 msgid "%1$sPercent:%2$s Displays numbers as percentages (e.g., 800,000,000%%)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6220
-#: admin/class-chart-builder-admin.php:6585
+#: admin/class-chart-builder-admin.php:6237
+#: admin/class-chart-builder-admin.php:6602
 #, php-format
 msgid "%1$sShort:%2$s Displays abbreviated numbers (e.g., 8M)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6222
-#: admin/class-chart-builder-admin.php:6587
+#: admin/class-chart-builder-admin.php:6239
+#: admin/class-chart-builder-admin.php:6604
 #, php-format
 msgid "%1$sLong:%2$s Displays numbers as full words (e.g., 8 million)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6252
+#: admin/class-chart-builder-admin.php:6269
 msgid "Remove Extra Zeros "
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6253
-#: admin/class-chart-builder-admin.php:6618
+#: admin/class-chart-builder-admin.php:6270
+#: admin/class-chart-builder-admin.php:6635
 msgid "Enable this option to hide extra 00's from the axis text if the Format option is set to 'Percent'. Note: Make sure to save chart, to see changes."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6268
-#: admin/class-chart-builder-admin.php:6633
+#: admin/class-chart-builder-admin.php:6285
+#: admin/class-chart-builder-admin.php:6650
 msgid "Max value"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6269
-#: admin/class-chart-builder-admin.php:6634
+#: admin/class-chart-builder-admin.php:6286
+#: admin/class-chart-builder-admin.php:6651
 msgid "The maximum value of the axis."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6281
-#: admin/class-chart-builder-admin.php:6646
+#: admin/class-chart-builder-admin.php:6298
+#: admin/class-chart-builder-admin.php:6663
 msgid "Min value"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6282
-#: admin/class-chart-builder-admin.php:6647
+#: admin/class-chart-builder-admin.php:6299
+#: admin/class-chart-builder-admin.php:6664
 msgid "The minimum value of the axis."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6296
+#: admin/class-chart-builder-admin.php:6313
 msgid "Horizontal Axis Settings"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6342
+#: admin/class-chart-builder-admin.php:6359
 msgid "The title of the vertical axis"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6355
+#: admin/class-chart-builder-admin.php:6372
 msgid "The font size of the vertical axis label."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6381
+#: admin/class-chart-builder-admin.php:6398
 msgid "Enable this option to make chart vertical axis label italic."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6397
+#: admin/class-chart-builder-admin.php:6414
 msgid "Enable this option to make chart vertical axis label bold."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6416
+#: admin/class-chart-builder-admin.php:6433
 msgid "Position of the vertical axis text, relative to the chart area."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6438
+#: admin/class-chart-builder-admin.php:6455
 msgid "The color of the vertical axis text."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6464
+#: admin/class-chart-builder-admin.php:6481
 msgid "The direction in which the values along the vertical axis grow. By default, low values are on the bottom of the chart."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6480
+#: admin/class-chart-builder-admin.php:6497
 msgid "Enable this option to make chart vertical axis text italic."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6496
+#: admin/class-chart-builder-admin.php:6513
 msgid "Enable this option to make chart vertical axis text bold."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6515
+#: admin/class-chart-builder-admin.php:6532
 msgid "The approximate number of horizontal gridlines inside the chart area. If you specify a positive number for gridlines count, it will be used to compute the min spacing between gridlines. You can specify a value of 1 to only draw one gridline, or 0 to draw no gridlines. Specify -1, which is the default, to automatically compute the number of gridlines based on other options. Note: This option will not work with 'Rotate vertical' option."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6528
+#: admin/class-chart-builder-admin.php:6545
 msgid "The color of the vertical axis gridlines."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6541
+#: admin/class-chart-builder-admin.php:6558
 msgid "The color of the vertical axis minor gridlines."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6554
+#: admin/class-chart-builder-admin.php:6571
 msgid "Specifies the color of the baseline for the vertical axis."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6617
+#: admin/class-chart-builder-admin.php:6634
 msgid "Remove Extra Zeros"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6661
+#: admin/class-chart-builder-admin.php:6678
 msgid "Vertical Axis Settings"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6689
+#: admin/class-chart-builder-admin.php:6706
 msgid "Enable chart animation"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6690
+#: admin/class-chart-builder-admin.php:6707
 msgid "Enable chart animation."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6706
+#: admin/class-chart-builder-admin.php:6723
 msgid "Duration"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6707
+#: admin/class-chart-builder-admin.php:6724
 msgid "The duration of the chart animation, in milliseconds."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6719
+#: admin/class-chart-builder-admin.php:6736
 msgid "Startup"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6720
+#: admin/class-chart-builder-admin.php:6737
 msgid "Determine if the chart will animate on the window load. If checked, the chart will start at the baseline and animate to its final state, else it will animate on size or data change."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6735
+#: admin/class-chart-builder-admin.php:6752
 msgid "Easing"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6739
+#: admin/class-chart-builder-admin.php:6756
 msgid "The easing function applied to the chart animation. The following options are available:"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6741
+#: admin/class-chart-builder-admin.php:6758
 #, php-format
 msgid "%1$sLinear:%2$s Constant speed."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6743
+#: admin/class-chart-builder-admin.php:6760
 #, php-format
 msgid "%1$sEase in:%2$s Start slow and speed up."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6745
+#: admin/class-chart-builder-admin.php:6762
 #, php-format
 msgid "%1$sEase out:%2$s Start fast and slow down."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6747
+#: admin/class-chart-builder-admin.php:6764
 #, php-format
 msgid "%1$sEase in and out:%2$s Start slow, speed up, then slow down."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6777
+#: admin/class-chart-builder-admin.php:6794
 msgid "Chart animation"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6812
+#: admin/class-chart-builder-admin.php:6829
 msgid "Enable live chart"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6813
+#: admin/class-chart-builder-admin.php:6830
 msgid "If you enable this option, the chart data will be dynamically updated on the front end. Note: If the option is enabled, the chart data will be periodically updated (e.g., once in 3 seconds) without refreshing the page.."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6843
+#: admin/class-chart-builder-admin.php:6860
 msgid "Specify the time intervals to update the chart on the front end (e.g., once in 3 seconds). The option works via milliseconds. Note: The minimum interval must be 3000 milliseconds."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6858
+#: admin/class-chart-builder-admin.php:6875
 #: admin/partials/features/chart-builder-features-display.php:431
 #: admin/partials/features/chart-builder-features-display.php:434
 msgid "Live Chart"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6897
+#: admin/class-chart-builder-admin.php:6914
 msgid "Print chart"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6898
+#: admin/class-chart-builder-admin.php:6915
 msgid "Enable the toggle and the users can print the chart data."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6927
+#: admin/class-chart-builder-admin.php:6944
 msgid "Excel download"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6928
+#: admin/class-chart-builder-admin.php:6945
 msgid "Enable the toggle and the users can export the chart data in Excel file format."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6957
+#: admin/class-chart-builder-admin.php:6974
 msgid "CSV download"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6958
+#: admin/class-chart-builder-admin.php:6975
 msgid "Enable the toggle and the users can export the chart data in CSV file format."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6987
+#: admin/class-chart-builder-admin.php:7004
 msgid "Copy chart data"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:6988
+#: admin/class-chart-builder-admin.php:7005
 msgid "Enable the toggle and the users can copy the chart data (CTRL+C, CTRL+V)."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7003
+#: admin/class-chart-builder-admin.php:7020
 msgid "Download chart image"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7004
+#: admin/class-chart-builder-admin.php:7021
 msgid "Enable the toggle and the users can download the chart as an image."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7022
+#: admin/class-chart-builder-admin.php:7039
 msgid "Frontend Actions"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7110
-#: admin/class-chart-builder-admin.php:7464
+#: admin/class-chart-builder-admin.php:7127
+#: admin/class-chart-builder-admin.php:7481
 msgid "Width"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7111
-#: admin/class-chart-builder-admin.php:7465
+#: admin/class-chart-builder-admin.php:7128
+#: admin/class-chart-builder-admin.php:7482
 msgid "The width of the chart container, in percents."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7133
+#: admin/class-chart-builder-admin.php:7150
 msgid "Responsive Width"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7134
+#: admin/class-chart-builder-admin.php:7151
 msgid "Tick this option to keep the chart's width fixed at 100%, no matter what is set for the Width option. This makes the chart more responsive."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7150
+#: admin/class-chart-builder-admin.php:7167
 msgid "The position of the chart. Note: The changes will be visible when the width option is not set to 100%"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7171
-#: admin/class-chart-builder-admin.php:7487
+#: admin/class-chart-builder-admin.php:7188
+#: admin/class-chart-builder-admin.php:7504
 msgid "Height"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7172
-#: admin/class-chart-builder-admin.php:7488
+#: admin/class-chart-builder-admin.php:7189
+#: admin/class-chart-builder-admin.php:7505
 msgid "The height of the chart container, in pixels."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7195
+#: admin/class-chart-builder-admin.php:7212
 msgid "The font size of the chart text."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7208
+#: admin/class-chart-builder-admin.php:7225
 msgid "Element size"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7209
+#: admin/class-chart-builder-admin.php:7226
 msgid "The size of the chart element."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7230
-#: admin/class-chart-builder-admin.php:7571
-#: admin/class-chart-builder-admin.php:7719
+#: admin/class-chart-builder-admin.php:7247
+#: admin/class-chart-builder-admin.php:7588
+#: admin/class-chart-builder-admin.php:7736
 msgid "Background Color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7231
+#: admin/class-chart-builder-admin.php:7248
 msgid "The background color of the chart container."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7243
+#: admin/class-chart-builder-admin.php:7260
 msgid "Transparent background"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7244
+#: admin/class-chart-builder-admin.php:7261
 msgid "Tick this option to make the chart's background transparent. When enabled, both Background Color and Chart Area Background Color options will not work"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7259
-#: admin/class-chart-builder-admin.php:7510
-#: admin/class-chart-builder-admin.php:7732
-#: admin/class-chart-builder-admin.php:9561
+#: admin/class-chart-builder-admin.php:7276
+#: admin/class-chart-builder-admin.php:7527
+#: admin/class-chart-builder-admin.php:7749
+#: admin/class-chart-builder-admin.php:9578
 msgid "Border Width"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7260
-#: admin/class-chart-builder-admin.php:7511
+#: admin/class-chart-builder-admin.php:7277
+#: admin/class-chart-builder-admin.php:7528
 msgid "The width of the chart container border."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7272
-#: admin/class-chart-builder-admin.php:7536
-#: admin/class-chart-builder-admin.php:7745
-#: admin/class-chart-builder-admin.php:9574
-#: admin/class-chart-builder-admin.php:9844
+#: admin/class-chart-builder-admin.php:7289
+#: admin/class-chart-builder-admin.php:7553
+#: admin/class-chart-builder-admin.php:7762
+#: admin/class-chart-builder-admin.php:9591
+#: admin/class-chart-builder-admin.php:9861
 msgid "Border Color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7273
-#: admin/class-chart-builder-admin.php:7537
+#: admin/class-chart-builder-admin.php:7290
+#: admin/class-chart-builder-admin.php:7554
 msgid "The border color of the chart container."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7285
-#: admin/class-chart-builder-admin.php:7523
+#: admin/class-chart-builder-admin.php:7302
+#: admin/class-chart-builder-admin.php:7540
 msgid "Border Radius"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7286
+#: admin/class-chart-builder-admin.php:7303
 msgid "The border radius of the chart container."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7298
-#: admin/class-chart-builder-admin.php:7549
+#: admin/class-chart-builder-admin.php:7315
+#: admin/class-chart-builder-admin.php:7566
 msgid "Border Style"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7299
-#: admin/class-chart-builder-admin.php:7550
+#: admin/class-chart-builder-admin.php:7316
+#: admin/class-chart-builder-admin.php:7567
 msgid "The style of the chart container border."
-msgstr ""
-
-#: admin/class-chart-builder-admin.php:7320
-#: admin/class-chart-builder-admin.php:7585
-msgid "Box Shadow"
-msgstr ""
-
-#: admin/class-chart-builder-admin.php:7321
-#: admin/class-chart-builder-admin.php:7586
-msgid "Tick this option to add shadow to chart's container."
-msgstr ""
-
-#: admin/class-chart-builder-admin.php:7336
-#: admin/class-chart-builder-admin.php:7601
-msgid "Box Shadow Color"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:7337
 #: admin/class-chart-builder-admin.php:7602
+msgid "Box Shadow"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:7338
+#: admin/class-chart-builder-admin.php:7603
+msgid "Tick this option to add shadow to chart's container."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:7353
+#: admin/class-chart-builder-admin.php:7618
+msgid "Box Shadow Color"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:7354
+#: admin/class-chart-builder-admin.php:7619
 msgid "Choose chart container's box shadow color."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7349
-#: admin/class-chart-builder-admin.php:7614
+#: admin/class-chart-builder-admin.php:7366
+#: admin/class-chart-builder-admin.php:7631
 msgid "Border Width (including title)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7350
-#: admin/class-chart-builder-admin.php:7615
+#: admin/class-chart-builder-admin.php:7367
+#: admin/class-chart-builder-admin.php:7632
 msgid "The width of the chart container border including chart title and description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7362
+#: admin/class-chart-builder-admin.php:7379
 msgid "Border radius (including title)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7363
-#: admin/class-chart-builder-admin.php:7628
+#: admin/class-chart-builder-admin.php:7380
+#: admin/class-chart-builder-admin.php:7645
 msgid "The radius of the chart container border including chart title and description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7375
-#: admin/class-chart-builder-admin.php:7640
+#: admin/class-chart-builder-admin.php:7392
+#: admin/class-chart-builder-admin.php:7657
 msgid "Border Color (including title)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7376
-#: admin/class-chart-builder-admin.php:7641
+#: admin/class-chart-builder-admin.php:7393
+#: admin/class-chart-builder-admin.php:7658
 msgid "The color of the chart container border including chart title and description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7388
-#: admin/class-chart-builder-admin.php:7653
+#: admin/class-chart-builder-admin.php:7405
+#: admin/class-chart-builder-admin.php:7670
 msgid "Border Style (including title)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7389
-#: admin/class-chart-builder-admin.php:7654
+#: admin/class-chart-builder-admin.php:7406
+#: admin/class-chart-builder-admin.php:7671
 msgid "The style of the chart container border including chart title and description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7410
-#: admin/class-chart-builder-admin.php:7675
-#: admin/class-chart-builder-admin.php:9342
+#: admin/class-chart-builder-admin.php:7427
+#: admin/class-chart-builder-admin.php:7692
+#: admin/class-chart-builder-admin.php:9359
 msgid "Padding"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7411
-#: admin/class-chart-builder-admin.php:7676
+#: admin/class-chart-builder-admin.php:7428
+#: admin/class-chart-builder-admin.php:7693
 msgid "The padding of the chart container."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7425
-#: admin/class-chart-builder-admin.php:7690
+#: admin/class-chart-builder-admin.php:7442
+#: admin/class-chart-builder-admin.php:7707
 msgid "Chart"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7524
+#: admin/class-chart-builder-admin.php:7541
 msgid "The radius of the chart container border."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7572
+#: admin/class-chart-builder-admin.php:7589
 msgid "With the help of this feature, you will be able to add background color for the Chart JS."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7627
+#: admin/class-chart-builder-admin.php:7644
 msgid "Border Radius (including title)"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7720
+#: admin/class-chart-builder-admin.php:7737
 msgid "The background color of the chart area."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7733
+#: admin/class-chart-builder-admin.php:7750
 msgid "The border width of the chart area."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7746
+#: admin/class-chart-builder-admin.php:7763
 msgid "The border color of the chart area."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7758
+#: admin/class-chart-builder-admin.php:7775
 msgid "Left Margin"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7759
+#: admin/class-chart-builder-admin.php:7776
 msgid "Specify the chart's distance from the left border. Leave blank for auto-positioning."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7771
+#: admin/class-chart-builder-admin.php:7788
 msgid "Right Margin"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7772
+#: admin/class-chart-builder-admin.php:7789
 msgid "Specify the chart's distance from the right border. Leave blank for auto-positioning."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7784
+#: admin/class-chart-builder-admin.php:7801
 msgid "Top Margin"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7785
+#: admin/class-chart-builder-admin.php:7802
 msgid "Specify the chart's distance from the top border. Leave blank for auto-positioning."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7797
+#: admin/class-chart-builder-admin.php:7814
 msgid "Bottom Margin"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7798
+#: admin/class-chart-builder-admin.php:7815
 msgid "Specify the chart's distance from the bottom border. Leave blank for auto-positioning."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7812
+#: admin/class-chart-builder-admin.php:7829
 msgid "Chart Area"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7850
-#: admin/class-chart-builder-admin.php:8085
+#: admin/class-chart-builder-admin.php:7867
+#: admin/class-chart-builder-admin.php:8102
 msgid "The color of the chart title."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7863
-#: admin/class-chart-builder-admin.php:8098
+#: admin/class-chart-builder-admin.php:7880
+#: admin/class-chart-builder-admin.php:8115
 msgid "The font size of the chart title."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7877
-#: admin/class-chart-builder-admin.php:8112
+#: admin/class-chart-builder-admin.php:7894
+#: admin/class-chart-builder-admin.php:8129
 msgid "Tick this option to make the chart title text bold."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7893
-#: admin/class-chart-builder-admin.php:8128
+#: admin/class-chart-builder-admin.php:7910
+#: admin/class-chart-builder-admin.php:8145
 msgid "Tick this option to make the chart title text italic."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7909
-#: admin/class-chart-builder-admin.php:8144
+#: admin/class-chart-builder-admin.php:7926
+#: admin/class-chart-builder-admin.php:8161
 msgid "The position of the chart title."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7930
-#: admin/class-chart-builder-admin.php:8165
+#: admin/class-chart-builder-admin.php:7947
+#: admin/class-chart-builder-admin.php:8182
 msgid "Gap"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7931
-#: admin/class-chart-builder-admin.php:8166
+#: admin/class-chart-builder-admin.php:7948
+#: admin/class-chart-builder-admin.php:8183
 msgid "Specify the space between the chart title and the chart container."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7944
-#: admin/class-chart-builder-admin.php:8179
+#: admin/class-chart-builder-admin.php:7961
+#: admin/class-chart-builder-admin.php:8196
 msgid "Distance from description"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7945
-#: admin/class-chart-builder-admin.php:8180
+#: admin/class-chart-builder-admin.php:7962
+#: admin/class-chart-builder-admin.php:8197
 msgid "Specify the space between the chart title and the chart description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7958
-#: admin/class-chart-builder-admin.php:8193
-#: admin/class-chart-builder-admin.php:8399
-#: admin/class-chart-builder-admin.php:8605
+#: admin/class-chart-builder-admin.php:7975
+#: admin/class-chart-builder-admin.php:8210
+#: admin/class-chart-builder-admin.php:8416
+#: admin/class-chart-builder-admin.php:8622
 msgid "Text-transform"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7959
-#: admin/class-chart-builder-admin.php:7995
-#: admin/class-chart-builder-admin.php:8194
-#: admin/class-chart-builder-admin.php:8230
+#: admin/class-chart-builder-admin.php:7976
+#: admin/class-chart-builder-admin.php:8012
+#: admin/class-chart-builder-admin.php:8211
+#: admin/class-chart-builder-admin.php:8247
 msgid "Specify how to capitalize the text of the chart title."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7980
-#: admin/class-chart-builder-admin.php:8215
-#: admin/class-chart-builder-admin.php:8421
-#: admin/class-chart-builder-admin.php:8627
+#: admin/class-chart-builder-admin.php:7997
+#: admin/class-chart-builder-admin.php:8232
+#: admin/class-chart-builder-admin.php:8438
+#: admin/class-chart-builder-admin.php:8644
 msgid "Letter spacing"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7981
-#: admin/class-chart-builder-admin.php:8216
+#: admin/class-chart-builder-admin.php:7998
+#: admin/class-chart-builder-admin.php:8233
 msgid "Specify the space between the chart title letters."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:7994
-#: admin/class-chart-builder-admin.php:8229
-#: admin/class-chart-builder-admin.php:8435
-#: admin/class-chart-builder-admin.php:8641
+#: admin/class-chart-builder-admin.php:8011
+#: admin/class-chart-builder-admin.php:8246
+#: admin/class-chart-builder-admin.php:8452
+#: admin/class-chart-builder-admin.php:8658
 msgid "Text-decoration"
-msgstr ""
-
-#: admin/class-chart-builder-admin.php:8016
-#: admin/class-chart-builder-admin.php:8251
-#: admin/class-chart-builder-admin.php:8457
-#: admin/class-chart-builder-admin.php:8663
-msgid "Text shadow"
-msgstr ""
-
-#: admin/class-chart-builder-admin.php:8017
-#: admin/class-chart-builder-admin.php:8252
-msgid "Tick this option to add a text shadow to chart title."
-msgstr ""
-
-#: admin/class-chart-builder-admin.php:8032
-#: admin/class-chart-builder-admin.php:8267
-#: admin/class-chart-builder-admin.php:8473
-#: admin/class-chart-builder-admin.php:8679
-msgid "Text Shadow Color"
 msgstr ""
 
 #: admin/class-chart-builder-admin.php:8033
 #: admin/class-chart-builder-admin.php:8268
+#: admin/class-chart-builder-admin.php:8474
+#: admin/class-chart-builder-admin.php:8680
+msgid "Text shadow"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:8034
+#: admin/class-chart-builder-admin.php:8269
+msgid "Tick this option to add a text shadow to chart title."
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:8049
+#: admin/class-chart-builder-admin.php:8284
+#: admin/class-chart-builder-admin.php:8490
+#: admin/class-chart-builder-admin.php:8696
+msgid "Text Shadow Color"
+msgstr ""
+
+#: admin/class-chart-builder-admin.php:8050
+#: admin/class-chart-builder-admin.php:8285
 msgid "The text shadow color of the chart title."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8319
-#: admin/class-chart-builder-admin.php:8525
+#: admin/class-chart-builder-admin.php:8336
+#: admin/class-chart-builder-admin.php:8542
 msgid "The color of the chart description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8332
-#: admin/class-chart-builder-admin.php:8538
+#: admin/class-chart-builder-admin.php:8349
+#: admin/class-chart-builder-admin.php:8555
 msgid "The font size of the chart description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8346
-#: admin/class-chart-builder-admin.php:8552
+#: admin/class-chart-builder-admin.php:8363
+#: admin/class-chart-builder-admin.php:8569
 msgid "Tick this option to make the chart description text bold."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8362
-#: admin/class-chart-builder-admin.php:8568
+#: admin/class-chart-builder-admin.php:8379
+#: admin/class-chart-builder-admin.php:8585
 msgid "Tick this option to make the chart description text italic."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8378
-#: admin/class-chart-builder-admin.php:8584
+#: admin/class-chart-builder-admin.php:8395
+#: admin/class-chart-builder-admin.php:8601
 msgid "The position of the chart description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8400
-#: admin/class-chart-builder-admin.php:8436
-#: admin/class-chart-builder-admin.php:8606
-#: admin/class-chart-builder-admin.php:8642
+#: admin/class-chart-builder-admin.php:8417
+#: admin/class-chart-builder-admin.php:8453
+#: admin/class-chart-builder-admin.php:8623
+#: admin/class-chart-builder-admin.php:8659
 msgid "Specify how to capitalize the text of the chart description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8422
-#: admin/class-chart-builder-admin.php:8628
+#: admin/class-chart-builder-admin.php:8439
+#: admin/class-chart-builder-admin.php:8645
 msgid "Specify the space between the chart description letters."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8458
-#: admin/class-chart-builder-admin.php:8664
+#: admin/class-chart-builder-admin.php:8475
+#: admin/class-chart-builder-admin.php:8681
 msgid "Tick this option to add a text shadow to chart description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8474
-#: admin/class-chart-builder-admin.php:8680
+#: admin/class-chart-builder-admin.php:8491
+#: admin/class-chart-builder-admin.php:8697
 msgid "The text shadow color of the chart description."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8807
+#: admin/class-chart-builder-admin.php:8824
 msgid "Degree of chart rotation"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8808
+#: admin/class-chart-builder-admin.php:8825
 msgid "The angle, in degrees, to rotate the chart by. The default of 0 will orient the leftmost edge of the first slice directly up."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8820
+#: admin/class-chart-builder-admin.php:8837
 msgid "Reverse Categories"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8821
+#: admin/class-chart-builder-admin.php:8838
 msgid "If this option is enabled, the pie slices will be drawn counterclockwise."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8836
+#: admin/class-chart-builder-admin.php:8853
 msgid "Slice Border Color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8837
-#: admin/class-chart-builder-admin.php:9575
+#: admin/class-chart-builder-admin.php:8854
+#: admin/class-chart-builder-admin.php:9592
 msgid "The color of the slice borders."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8849
+#: admin/class-chart-builder-admin.php:8866
 msgid "Slice text"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8850
+#: admin/class-chart-builder-admin.php:8867
 msgid "Choose the content of the text to be displayed on the pie slice."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8871
+#: admin/class-chart-builder-admin.php:8888
 msgid "Slice tooltip text"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8872
+#: admin/class-chart-builder-admin.php:8889
 msgid "Choose how to display the text in the chart tooltip."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8893
+#: admin/class-chart-builder-admin.php:8910
 msgid "Chart Data Grouping Limit"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8894
+#: admin/class-chart-builder-admin.php:8911
 msgid "The percentage value of the pie, below which a slice will not show individually. All slices that have not passed this value will be combined to a single 'Other' slice, whose size is the sum of all their sizes. Default is not to show individually any slice which is smaller than half a degree."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8906
+#: admin/class-chart-builder-admin.php:8923
 msgid "Chart Data Grouping Label"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8907
+#: admin/class-chart-builder-admin.php:8924
 msgid "A label for the combination slice that holds all slices below chart data grouping limit."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8919
+#: admin/class-chart-builder-admin.php:8936
 msgid "Chart Data Grouping Color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8920
+#: admin/class-chart-builder-admin.php:8937
 msgid "Color for the combination slice that holds all slices below chart data grouping limit."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8932
+#: admin/class-chart-builder-admin.php:8949
 msgid "Is stacked"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8933
+#: admin/class-chart-builder-admin.php:8950
 msgid "Is stacked: If this option is enabled, the chart will be displayed in the proportional contribution of individual data points in comparison to a total."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8948
+#: admin/class-chart-builder-admin.php:8965
 msgid "Focus target"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8952
+#: admin/class-chart-builder-admin.php:8969
 msgid "There are two ways to focus the data table elements."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8954
+#: admin/class-chart-builder-admin.php:8971
 #, php-format
 msgid "%1$sSingle data:%2$s If you choose the Single Data option, the focus will be on the single data point. By this, the particular cell of the data table will be focused."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8956
+#: admin/class-chart-builder-admin.php:8973
 #, php-format
 msgid "%1$sGroup data:%2$s If you choose the Group Data option, the focus will be on the grouped data points. By this, a row of the data table will be focused."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8981
-#: admin/class-chart-builder-admin.php:10212
+#: admin/class-chart-builder-admin.php:8998
+#: admin/class-chart-builder-admin.php:10229
 msgid "Opacity"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8982
+#: admin/class-chart-builder-admin.php:8999
 msgid "The transparency of data points, with 1.0 being completely opaque and 0.0 fully transparent. In bar and column charts, this refers to the visible data: rectangles. In charts where selecting data creates a dot, such as the line chart, this refers to the circles that appear upon hover or selection."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8994
+#: admin/class-chart-builder-admin.php:9011
 msgid "Bar width"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:8998
+#: admin/class-chart-builder-admin.php:9015
 msgid "The width of the bars, specified in either of these formats:"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9000
+#: admin/class-chart-builder-admin.php:9017
 #, php-format
 msgid "%1$sPixels:%2$s Set the width of the bars in pixels."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9002
+#: admin/class-chart-builder-admin.php:9019
 #, php-format
 msgid "%1$sPercentage:%2$s Set the width of the bars in percentage."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9028
-#: admin/class-chart-builder-admin.php:10020
+#: admin/class-chart-builder-admin.php:9045
+#: admin/class-chart-builder-admin.php:10037
 msgid "Line width"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9029
+#: admin/class-chart-builder-admin.php:9046
 msgid "Data line width in pixels. Set 0 for hiding all the lines and show only the point. Note: If a line width is specified for series, it will override this setting."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9041
+#: admin/class-chart-builder-admin.php:9058
 msgid "Multiple data selection"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9042
+#: admin/class-chart-builder-admin.php:9059
 msgid "When enabled, you may select multiple data points at once. To remove a data point from selection, click on it again. Note: This option works only when 'Tooltip trigger' option is set to 'When selected'."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9057
+#: admin/class-chart-builder-admin.php:9074
 msgid "Multiple data format"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9061
+#: admin/class-chart-builder-admin.php:9078
 msgid "How multiple data selections are rolled up into tooltips:"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9063
+#: admin/class-chart-builder-admin.php:9080
 #, php-format
 msgid "%1$sCategory:%2$s Group selected data by row titles."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9065
+#: admin/class-chart-builder-admin.php:9082
 #, php-format
 msgid "%1$sSeries:%2$s Group selected data by column titles."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9067
+#: admin/class-chart-builder-admin.php:9084
 #, php-format
 msgid "%1$sAuto:%2$s Group selected data by row titles, if they have the same titles or by column titles"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9069
+#: admin/class-chart-builder-admin.php:9086
 #, php-format
 msgid "%1$sNone:%2$s Show only one tooltip per selection."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9096
-#: admin/class-chart-builder-admin.php:10056
+#: admin/class-chart-builder-admin.php:9113
+#: admin/class-chart-builder-admin.php:10073
 msgid "Point shape"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9097
-#: admin/class-chart-builder-admin.php:10057
+#: admin/class-chart-builder-admin.php:9114
+#: admin/class-chart-builder-admin.php:10074
 msgid "The shape of individual data elements: 'Circle', 'Triangle', 'Square', 'Diamond', 'Star', or 'Polygon'."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9118
-#: admin/class-chart-builder-admin.php:10038
+#: admin/class-chart-builder-admin.php:9135
+#: admin/class-chart-builder-admin.php:10055
 msgid "Point size"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9119
+#: admin/class-chart-builder-admin.php:9136
 msgid "Diameter of displayed points in pixels. Use zero to hide all points."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9131
+#: admin/class-chart-builder-admin.php:9148
 msgid "Rotate Vertical"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9132
+#: admin/class-chart-builder-admin.php:9149
 msgid "Enable the option, if you want to change the direction of the chart from horizontal to vertical."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9147
+#: admin/class-chart-builder-admin.php:9164
 msgid "Autofill nulls"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9148
+#: admin/class-chart-builder-admin.php:9165
 msgid "Whether to guess and autofill the value of missing points when something goes wrong with the chart data. If checked, the chart will automatically fill the value of any missing data based on neighboring points. Else, it will leave a break in the line at the unknown point."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9163
+#: admin/class-chart-builder-admin.php:9180
 msgid "Crosshair trigger"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9164
+#: admin/class-chart-builder-admin.php:9181
 msgid "Choose when to display crosshairs. Crosshairs are thin vertical and horizontal lines centered on a data point in a chart."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9185
+#: admin/class-chart-builder-admin.php:9202
 msgid "Crosshair orientation"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9186
+#: admin/class-chart-builder-admin.php:9203
 msgid "The crosshair orientation, which can be 'vertical' for vertical hairs only, 'horizontal' for horizontal hairs only, or 'both' for traditional crosshairs."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9207
+#: admin/class-chart-builder-admin.php:9224
 msgid "Crosshair opacity"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9208
+#: admin/class-chart-builder-admin.php:9225
 msgid "The crosshair opacity, with 0.0 being fully transparent and 1.0 fully opaque."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9220
+#: admin/class-chart-builder-admin.php:9237
 msgid "Dash Pattern"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9221
+#: admin/class-chart-builder-admin.php:9238
 msgid "Enter a sequence of numbers separated by commas to define the dash pattern. The first number specifies the length of the first dash, the second number specifies the length of the gap after it, and so on. For example, '4,4' will create a pattern of 4-length dashes followed by 4-length gaps, and '5,1,3' will create a pattern of a 5-length dash, a 1-length gap, a 3-length dash, a 5-length gap, and so on."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9233
+#: admin/class-chart-builder-admin.php:9250
 msgid "Hole size"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9252
+#: admin/class-chart-builder-admin.php:9269
 msgid "Line curve type"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9257
+#: admin/class-chart-builder-admin.php:9274
 msgid "Straight"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9264
+#: admin/class-chart-builder-admin.php:9281
 msgid "Allow collapse"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9265
+#: admin/class-chart-builder-admin.php:9282
 msgid "If checked, double click on the node will collapse a node. Note: If the node has an Url option set in the source tab, this option will not work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9280
+#: admin/class-chart-builder-admin.php:9297
 msgid "Description color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9281
+#: admin/class-chart-builder-admin.php:9298
 msgid "Description text color of the node."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9293
+#: admin/class-chart-builder-admin.php:9310
 msgid "Description font size"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9294
+#: admin/class-chart-builder-admin.php:9311
 msgid "Description font size of the node."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9306
+#: admin/class-chart-builder-admin.php:9323
 msgid "Custom CSS class"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9307
+#: admin/class-chart-builder-admin.php:9324
 msgid "A class name to assign to node elements to specify styles for the chart elements."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9322
+#: admin/class-chart-builder-admin.php:9339
 #, php-format
 msgid "%1$sNote:%2$s Custom CSS class must be set for the options below to take effect."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9329
-#: admin/class-chart-builder-admin.php:9447
+#: admin/class-chart-builder-admin.php:9346
+#: admin/class-chart-builder-admin.php:9464
 msgid "Background color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9330
+#: admin/class-chart-builder-admin.php:9347
 msgid "Background color of the node. Note: You need to set a Custom CSS class for this option to work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9343
+#: admin/class-chart-builder-admin.php:9360
 msgid "Padding of the node. Note: You need to set a Custom CSS class for this option to work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9355
+#: admin/class-chart-builder-admin.php:9372
 msgid "Border radius"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9356
+#: admin/class-chart-builder-admin.php:9373
 msgid "Border radius of the node. Note: You need to set a Custom CSS class for this option to work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9368
+#: admin/class-chart-builder-admin.php:9385
 msgid "Border width"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9369
+#: admin/class-chart-builder-admin.php:9386
 msgid "Border width of the node. Note: You need to set a Custom CSS class for this option to work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9381
+#: admin/class-chart-builder-admin.php:9398
 msgid "Border color"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9382
+#: admin/class-chart-builder-admin.php:9399
 msgid "Border color of the node. Note: You need to set a Custom CSS class for this option to work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9395
+#: admin/class-chart-builder-admin.php:9412
 msgid "Text color of the node. Note: You need to set a Custom CSS class for this option to work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9407
+#: admin/class-chart-builder-admin.php:9424
 msgid "Text font size"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9408
+#: admin/class-chart-builder-admin.php:9425
 msgid "Font size of the text of the node. Note: You need to set a Custom CSS class for this option to work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9421
+#: admin/class-chart-builder-admin.php:9438
 msgid "Selected node custom CSS class"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9422
+#: admin/class-chart-builder-admin.php:9439
 msgid "A class name to assign to node elements to specify styles for the selected chart elements."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9437
+#: admin/class-chart-builder-admin.php:9454
 #, php-format
 msgid "%1$sNote:%2$s Selected node custom CSS class must be set for the options below to take effect. Add the Custom CSS Class so that the Selected node custom CSS class can operate correctly for you."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9448
+#: admin/class-chart-builder-admin.php:9465
 msgid "Background color of the selected node. Note: You need to set a Selected node custom CSS class for this option to work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9461
+#: admin/class-chart-builder-admin.php:9478
 msgid "Text color of the selected node. Note: You need to set a Selected node custom CSS class for this option to work."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9505
+#: admin/class-chart-builder-admin.php:9522
 msgid "Outer Radius"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9506
+#: admin/class-chart-builder-admin.php:9523
 msgid "The outer radius of the chart."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9519
+#: admin/class-chart-builder-admin.php:9536
 msgid "Slices Spacing"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9520
+#: admin/class-chart-builder-admin.php:9537
 msgid "Fixed arc offset (in pixels)."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9533
+#: admin/class-chart-builder-admin.php:9550
 msgid "Arc Coverage"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9534
+#: admin/class-chart-builder-admin.php:9551
 msgid "Adjust the sweep angle to define the arc's coverage area along the circumference."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9547
+#: admin/class-chart-builder-admin.php:9564
 msgid "Start Angle"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9548
+#: admin/class-chart-builder-admin.php:9565
 msgid "Starting angle to draw arcs from."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9562
+#: admin/class-chart-builder-admin.php:9579
 msgid "The width of the slice borders."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9678
-#: admin/class-chart-builder-admin.php:9827
+#: admin/class-chart-builder-admin.php:9695
+#: admin/class-chart-builder-admin.php:9844
 msgid "The color to use for this slice."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9695
+#: admin/class-chart-builder-admin.php:9712
 msgid "Offset"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9696
+#: admin/class-chart-builder-admin.php:9713
 msgid "How far to separate the slice from the rest of the pie, from 0.0 (not at all) to 1.0 (the chart's radius)."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9715
+#: admin/class-chart-builder-admin.php:9732
 msgid "The color to use for the text of this slice."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9740
-#: admin/class-chart-builder-admin.php:9870
-#: admin/class-chart-builder-admin.php:10092
-#: admin/class-chart-builder-admin.php:10234
+#: admin/class-chart-builder-admin.php:9757
+#: admin/class-chart-builder-admin.php:9887
+#: admin/class-chart-builder-admin.php:10109
+#: admin/class-chart-builder-admin.php:10251
 msgid "Save the chart to update the data."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9753
-#: admin/class-chart-builder-admin.php:9883
+#: admin/class-chart-builder-admin.php:9770
+#: admin/class-chart-builder-admin.php:9900
 msgid "Slices settings"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9845
+#: admin/class-chart-builder-admin.php:9862
 msgid "The color to use for this slice border."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9980
+#: admin/class-chart-builder-admin.php:9997
 msgid "Visible in legend"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:9981
+#: admin/class-chart-builder-admin.php:9998
 msgid "Tick this option to have the series shown in the legend, otherwise it won`t be shown. If the chart has only one column, disabling this option will not work. If you don't want any of the labels to be shown in the legend, change the 'Legend position' option to 'Hide' to entirely hide the legend ."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10003
+#: admin/class-chart-builder-admin.php:10020
 msgid "The format of series data. The format string is a subset of the ICU pattern set . For instance, '#,###%' will result in output values '1,000%', '750%', and '50%' for values 10, 7.5, and 0.5. Note: This option won't work if the axes 'Remove Extra Zeros' option is enabled."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10021
+#: admin/class-chart-builder-admin.php:10038
 msgid "Line width in pixels. Set 0 for hiding all the lines and show only the point."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10039
+#: admin/class-chart-builder-admin.php:10056
 msgid "Point size in pixels. Set 0 for hiding all points."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10096
+#: admin/class-chart-builder-admin.php:10113
 #, php-format
 msgid "%1$sNote:%2$s If you are not able to set the options, disable the row settings feature."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10112
+#: admin/class-chart-builder-admin.php:10129
 msgid "Series settings"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10164
+#: admin/class-chart-builder-admin.php:10181
 msgid "Enable row settings"
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10165
+#: admin/class-chart-builder-admin.php:10182
 msgid "Enable this option to be able to choose the row settings. If this option is disabled, you will be able to set the general color form the series settings."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10238
+#: admin/class-chart-builder-admin.php:10255
 #, php-format
 msgid "%1$sNote:%2$s The applied styles will work only if the chart has one column."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10249
+#: admin/class-chart-builder-admin.php:10266
 #, php-format
 msgid "%1$sNote:%2$s If this option is disabled, the general options will be set from the series settings."
 msgstr ""
 
-#: admin/class-chart-builder-admin.php:10260
+#: admin/class-chart-builder-admin.php:10277
 msgid "Row settings"
 msgstr ""
 
@@ -3246,17 +3251,17 @@ msgstr ""
 #: includes/class-chart-builder-functions.php:415
 #: includes/class-chart-builder-functions.php:449
 #: includes/class-chart-builder-functions.php:508
-#: includes/class-chart-builder-functions.php:1636
+#: includes/class-chart-builder-functions.php:1644
 msgid "Disable"
 msgstr ""
 
 #: includes/class-chart-builder-functions.php:413
-#: includes/class-chart-builder-functions.php:1634
+#: includes/class-chart-builder-functions.php:1642
 msgid "Default"
 msgstr ""
 
 #: includes/class-chart-builder-functions.php:414
-#: includes/class-chart-builder-functions.php:1635
+#: includes/class-chart-builder-functions.php:1643
 msgid "Enable"
 msgstr ""
 

@@ -1600,7 +1600,15 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 				$settings['show_title'] = ( $settings['show_title'] != '' ) ? $settings['show_title'] : 'off';
 				$settings['show_title'] = isset( $settings['show_title'] ) && $settings['show_title'] == 'on' ? 'checked' : '';
 			}
-			
+
+			// Enable interactivity
+			if (!isset($settings['enable_interactivity'])) {
+				$settings['enable_interactivity'] = 'checked';
+			} else {
+				$settings['enable_interactivity'] = ( $settings['enable_interactivity'] != '' ) ? $settings['enable_interactivity'] : 'off';
+				$settings['enable_interactivity'] = isset( $settings['enable_interactivity'] ) && $settings['enable_interactivity'] == 'on' ? 'checked' : '';
+			}
+
 			$counting_source = !empty($source) ? $source : array();
 			$count_slices = (isset($counting_source) && !is_null($counting_source) && count($counting_source) > 0) ? count($counting_source) - 1 : 0;
 
@@ -1694,7 +1702,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			
 			// Show chart title
 			$settings['show_title'] = isset( $settings['show_title'] ) && $settings['show_title'] != '' ? esc_attr( $settings['show_title'] ) : 'on';
-			
+
+			// Enable interactivity
+			$settings['enable_interactivity'] = isset( $settings['enable_interactivity'] ) && $settings['enable_interactivity'] != '' ? esc_attr( $settings['enable_interactivity'] ) : 'on';
+
 			// Title color
 			$settings['title_color'] = isset( $settings['title_color'] ) && $settings['title_color'] != '' ? esc_attr( $settings['title_color'] ) : '#000000';
 
