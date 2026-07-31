@@ -1585,6 +1585,8 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// start_angle
 			$settings['start_angle'] = isset( $settings['start_angle'] ) && $settings['start_angle'] != '' ? esc_attr( absint($settings['start_angle']) ) : 0;
 
+			// rotation_degree
+			$settings['rotation_degree'] = isset( $settings['rotation_degree'] ) && $settings['rotation_degree'] != '' ? esc_attr( absint($settings['rotation_degree']) ) : 0;
 			// Show chart description
 			if (!isset($settings['show_description'])) {
 				$settings['show_description'] = 'checked';
@@ -1827,6 +1829,9 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// start_angle
 			$settings['start_angle'] = isset( $settings['start_angle'] ) && $settings['start_angle'] != '' ? esc_attr( absint($settings['start_angle']) ) : 0;
 
+			// rotation_degree
+			$settings['rotation_degree'] = isset( $settings['rotation_degree'] ) && $settings['rotation_degree'] != '' ? esc_attr( absint($settings['rotation_degree']) ) : 0;
+			
 			$count_slices = (isset($chartData['source']) && !is_null($chartData['source']) && count($chartData['source']) > 0) ? count($chartData['source']) - 1 : 0;
 			// Slices settings
 			$settings['slice_colors_default'] = $chart_default_colors;

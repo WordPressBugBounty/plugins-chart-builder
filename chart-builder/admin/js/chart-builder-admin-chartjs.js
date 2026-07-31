@@ -444,6 +444,11 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-rotation-degree').on('input', function () {
+				_this.chartSourceData.settings.rotation_degree = $(this).val();
+				_this.chartObject.options.rotation = _this.chartSourceData.settings.rotation_degree;
+				_this.chartObject.update();
+			});
 		// Slices settings
 			_this.$el.find('.'+_this.htmlClassPrefix+'option-slice-color').on('input', function () {
 				var id = $(this).attr('data-slice-id');
@@ -956,7 +961,7 @@
 			radius: nSettings.outerRadius,
 			spacing: nSettings.sliceSpacing,
 			circumference: nSettings.circumference,
-			rotation: nSettings.startAngle,
+			rotation: nSettings.rotationDegree,
 			borderColor: nSettings.sliceBorderColor,
 			plugins: {
 				maintainAspectRatio: false,
@@ -1181,6 +1186,7 @@
 		newSettings.sliceSpacing = settings['slice_spacing'];
 		newSettings.circumference = settings['circumference'];
 		newSettings.startAngle = settings['start_angle'];
+		newSettings.rotationDegree = settings['rotation_degree'];
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.slicesBorderColor = settings['slices_border_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];

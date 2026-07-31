@@ -4574,7 +4574,7 @@ class Chart_Builder_Admin {
 		$quiz_id = $args['quiz_id'];
 		$quiz_query = $args['quiz_query'];
 
-		if ( !is_plugin_active('quiz-maker/quiz-maker.php') ) {
+		if ( !is_plugin_active('quiz-maker/quiz-maker.php') && !is_plugin_active('quiz-maker-pro/quiz-maker-pro.php') ) {
 			// $title = sprintf( __( 'Get Quiz Maker data', "chart-builder" ) . ' <a class="ays_help" data-bs-toggle="tooltip" data-bs-html="true" title="' . __("By using this option, you can display the quiz statistics by charts.%s %sNote:%s The Quiz Maker plugin must be active.","chart-builder") . '">
 			// 			<i class="ays_fa ays_fa_info_circle"></i>
 			// 		</a>', '<br>', '<b>', '</b>');
@@ -9508,6 +9508,7 @@ class Chart_Builder_Admin {
         $slice_spacing = $settings['slice_spacing'];
         $circumference = $settings['circumference'];
         $start_angle = $settings['start_angle'];
+        $rotation_degree = $settings['rotation_degree'];
         $slice_border_color = $settings['slice_border_color'];
         $slice_border_width = $settings['slice_border_width'];
         // $index_axis = $settings['index_axis'];
@@ -9572,6 +9573,19 @@ class Chart_Builder_Admin {
                         <div class="<?php echo esc_attr($html_class_prefix) ?>option-desc-box">°</div>
                     </div>
                 </div> <!-- Start Angle -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt display_none">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-rotation-degree" class="form-label">
+                            <?php echo esc_html(__( "Degree of chart rotation", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("The angle, in degrees, to rotate the chart by. The default of 0 will orient the leftmost edge of the first slice directly up.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-rotation-degree" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[rotation_degree]" value="<?php echo esc_attr($rotation_degree) ?>">
+                    </div>
+                </div> <!-- Rotation degree -->
                 <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt ">
                     <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-slice-border-width">

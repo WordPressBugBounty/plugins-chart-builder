@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 3.7.7
+Stable tag: 3.7.8
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -249,6 +249,10 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 3.7.8( Jul 31, 2026 ) =
+* Added: "Degree of chart rotation" option for Pie chart in Chart.js Pie Settings
+* Updated: POT file
 
 = 3.7.7( Jul 07, 2026 ) =
 * Added: "Enable interactivity" option in Chart.js charts general settings

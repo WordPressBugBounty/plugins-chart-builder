@@ -178,7 +178,7 @@
 			radius: nSettings.outerRadius,
 			spacing: nSettings.sliceSpacing,
 			circumference: nSettings.circumference,
-			rotation: nSettings.startAngle,
+			rotation: nSettings.rotationDegree,
 			borderColor: nSettings.sliceBorderColor,
 			hover: nSettings.enableInteractivity ? {
 				mode: 'nearest',
@@ -450,6 +450,7 @@
 		newSettings.sliceSpacing = settings['slice_spacing'];
 		newSettings.circumference = settings['circumference'];
 		newSettings.startAngle = settings['start_angle'];
+		newSettings.rotationDegree = settings['rotation_degree'];
 		newSettings.sliceColor = settings['slice_color'];
 		newSettings.slicesBorderColor = settings['slices_border_color'];
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
