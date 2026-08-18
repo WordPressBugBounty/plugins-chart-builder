@@ -106,6 +106,9 @@
 				case 'pie_chart':
 					_this.pieChartView();
 					break;
+				case 'donut_chart':
+					_this.donutChartView();
+					break;
 				case 'bar_chart':
 					_this.barChartView();
 					break;
@@ -210,20 +213,119 @@
 					},
 					position: 'nearest',
 					events: ['click'],
-					callbacks: nSettings.showColorCode ? {
-						label: function(context) {
-							var label = context.label || '';
-							var value = context.parsed || 0;
-							var color = context.dataset.backgroundColor[context.dataIndex];
-							return label + ': ' + value + ' (Color: ' + color + ')';
-						}
-					} : {
-						label: function(context) {
-							var label = context.label || '';
-							var value = context.parsed || 0;
-							return label + ': ' + value;
+					callbacks: _this.getTooltipCallbacks(nSettings.tooltipText, nSettings.showColorCode)
+				},
+				legend: {
+					position: nSettings.legendPosition,
+					align: nSettings.legendAlignment,
+					reverse: nSettings.legendReverse,
+					labels: {
+						color: nSettings.legendColor,
+						font: {
+							size: nSettings.legendFontSize,
+							weight: nSettings.legendBoldText ? 'bold' : 'normal',
+            				style: nSettings.legendItalicText ? 'italic' : 'normal'
 						}
 					}
+				}
+  			}
+		  }
+		});
+
+        _this.resizeChart();
+	}
+
+	// Load chart by pie chart
+	ChartBuilderChartJs.prototype.donutChartView = function(){
+		var _this = this;
+		var getChartSource = _this.dbData.source;
+
+		var dataTypes = _this.chartConvertData( getChartSource );
+
+        var settings = _this.dbData.options;
+		var nSettings =  _this.configOptionsForCharts(settings);
+        
+		// var ctx = document.getElementById(_this.htmlClassPrefix + _this.uniqueId + '-canvas');
+		var parentId = _this.htmlClassPrefix + _this.chartType + '-' + _this.uniqueId;
+		var canvasId = parentId + '-canvas';
+
+		var parentElement = document.getElementById(parentId);
+		var canvasElement = document.getElementById(canvasId);
+
+		if (!canvasElement) {
+			canvasElement = document.createElement('canvas');
+			canvasElement.id = canvasId;
+			parentElement.appendChild(canvasElement);
+		}
+
+		var ctx = canvasElement;
+		ctx.width = nSettings.chartWidth;
+		ctx.height = nSettings.chartHeight;
+
+		if (nSettings.chartWidthFormat === 'px') {
+			ctx.width = parseInt(nSettings.chartWidth);
+		} else if (nSettings.chartWidthFormat === '%') {
+			ctx.style.width = nSettings.chartWidth + '%';
+		}
+
+		if (nSettings.chartHeightFormat === 'px') {
+			ctx.height = parseInt(nSettings.chartHeight);
+		} else if (nSettings.chartHeightFormat === '%') {
+			ctx.style.height = nSettings.chartHeight + '%';
+		}
+
+		var sliceCount = dataTypes?.dataSets[0]?.data?.length || 0;
+		dataTypes.dataSets[0].backgroundColor = [];
+		dataTypes.dataSets[0].borderColor = [];
+
+		for (var i = 0; i < sliceCount; i++) {
+			dataTypes.dataSets[0].backgroundColor[i] = nSettings.sliceColor?.[i] || nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
+			dataTypes.dataSets[0].borderColor[i] = nSettings.slicesBorderColor?.[i] || 'transparent';
+		}
+		dataTypes.dataSets[0].borderWidth = nSettings.sliceBorderWidth;
+		_this.chartObject = new Chart(ctx, {
+		  type: 'doughnut',
+		  data: {
+			labels: dataTypes?.labels,
+			datasets: dataTypes?.dataSets,
+		  },
+		  options: {
+			radius: nSettings.outerRadius,
+			spacing: nSettings.sliceSpacing,
+			circumference: nSettings.circumference,
+			rotation: nSettings.rotationDegree,
+			borderColor: nSettings.sliceBorderColor,
+			hover: nSettings.enableInteractivity ? {
+				mode: 'nearest',
+				intersect: true
+			} : {
+				mode: null,
+				intersect: false
+			},
+			plugins: {
+				tooltip:{
+					enabled: nSettings.enableInteractivity,
+					titleColor: nSettings.tooltipColor,
+					bodyColor: nSettings.tooltipColor,
+					footerColor: nSettings.tooltipColor,
+					titleFont: {
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
+					},
+					bodyFont: {
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
+					},
+					footerFont: {
+						size: nSettings.tooltipFontSize || 12,
+						style: nSettings.tooltipItalicText ? 'italic' : 'normal',
+						weight: nSettings.tooltipBoldText === 'true' ? 'bold' : (nSettings.tooltipBoldText === 'false' ? 'normal' : undefined)
+					},
+					position: 'nearest',
+					events: ['click'],
+					callbacks: _this.getTooltipCallbacks(nSettings.tooltipText, nSettings.showColorCode)
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -468,6 +570,7 @@
 		newSettings.tooltipFontSize = settings['tooltip_font_size'];
 		newSettings.tooltipBoldText = settings['tooltip_bold'];
 		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
+		newSettings.tooltipText = settings['tooltip_text'];
 		newSettings.enableInteractivity = (settings['enable_interactivity'] == 'off') ? false : true;
 		return newSettings;
 	}
@@ -514,6 +617,52 @@
         }));
 
         return {labels, dataSets};
+	}
+
+	ChartBuilderChartJs.prototype.getTooltipCallbacks = function(tooltipText, showColorCode) {
+		var _this = this;
+		if (showColorCode === true) {
+			return {
+				label: function(context) {
+					var label = context.label || '';
+					var value = context.parsed || 0;
+					var color = context.dataset.backgroundColor[context.dataIndex];
+					return '     ' + label + ': ' + value + ' (Color: ' + color + ')';
+				}
+			};
+		} else {
+			switch(tooltipText) {
+				case 'percentage':
+					return {
+						label: function(context) {
+							var label = context.label || '';
+							var value = context.parsed || 0;
+							var total = context.chart._metasets[context.datasetIndex].total;
+							var percentage = ((value / total) * 100).toFixed(1) + '%';
+							return '     ' + label + ': ' + percentage;
+						}
+					};
+				case 'both':
+					return {
+						label: function(context) {
+							var label = context.label || '';
+							var value = context.parsed || 0;
+							var total = context.chart._metasets[context.datasetIndex].total;
+							var percentage = ((value / total) * 100).toFixed(1) + '%';
+							return '     ' + label + ': ' + value + ' (' + percentage + ')';
+						}
+					};
+				case 'value':
+				default:
+					return {
+						label: function(context) {
+							var label = context.label || '';
+							var value = context.parsed || 0;
+							return '     ' + label + ': ' + value;
+						}
+					};
+			}
+		}
 	}
 
 	// Update chart data and display immediately

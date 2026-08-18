@@ -9511,6 +9511,8 @@ class Chart_Builder_Admin {
         $rotation_degree = $settings['rotation_degree'];
         $slice_border_color = $settings['slice_border_color'];
         $slice_border_width = $settings['slice_border_width'];
+        $tooltip_text_options = $settings['tooltip_text_options'];
+        $tooltip_text = $settings['tooltip_text'];
         // $index_axis = $settings['index_axis'];
 
 		ob_start();
@@ -9612,6 +9614,28 @@ class Chart_Builder_Admin {
                         <input id="ays-chart-option-slice-border-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[slice_border_color]" value="<?php echo esc_attr($slice_border_color) ?>">
                     </div>
                 </div> <!-- Slice border color -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-donut_chart-opt">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-tooltip-text">
+                            <?php echo esc_html(__( "Slice tooltip text", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __("Choose how to display the text in the chart tooltip.","chart-builder") ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <select class="<?php echo esc_attr($html_class_prefix) ?>option-select-input form-select" id="ays-chart-option-tooltip-text" name="<?php echo esc_attr($html_name_prefix); ?>settings[tooltip_text]">
+                            <?php
+                            foreach ( $tooltip_text_options as $option_slug => $option ):
+                                $selected = ( $tooltip_text == $option_slug ) ? 'selected' : '';
+                                ?>
+                                <option value="<?php echo esc_attr($option_slug); ?>" <?php echo esc_attr($selected); ?>><?php echo esc_html($option); ?></option>
+                            <?php
+                            endforeach;
+                            ?>
+                        </select>
+                    </div>
+                </div> <!-- Slice tooltip Text -->
                 <!-- <div class="form-group row mb-2 <?php // echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-donut_chart-opt display_none">
                     <div class="col-sm-5 d-flex align-items-center <?php // echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-index-axis">

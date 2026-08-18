@@ -1587,6 +1587,18 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// rotation_degree
 			$settings['rotation_degree'] = isset( $settings['rotation_degree'] ) && $settings['rotation_degree'] != '' ? esc_attr( absint($settings['rotation_degree']) ) : 0;
+
+			// Tooltip text options
+			$tooltip_text_options = array(
+				"value" => __("Value", "chart-builder"),
+				"percentage" => __("Percent", "chart-builder"),
+				"both" => __("Value & Percent", "chart-builder")
+			);
+			$settings['tooltip_text_options'] = $tooltip_text_options;
+
+			// Tooltip text
+			$settings['tooltip_text'] = isset( $settings['tooltip_text'] ) && $settings['tooltip_text'] != '' ? esc_attr( $settings['tooltip_text'] ) : 'value';
+
 			// Show chart description
 			if (!isset($settings['show_description'])) {
 				$settings['show_description'] = 'checked';
@@ -1831,7 +1843,10 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// rotation_degree
 			$settings['rotation_degree'] = isset( $settings['rotation_degree'] ) && $settings['rotation_degree'] != '' ? esc_attr( absint($settings['rotation_degree']) ) : 0;
-			
+
+			// Tooltip text
+			$settings['tooltip_text'] = isset( $settings['tooltip_text'] ) && $settings['tooltip_text'] != '' ? esc_attr( $settings['tooltip_text'] ) : 'value';
+
 			$count_slices = (isset($chartData['source']) && !is_null($chartData['source']) && count($chartData['source']) > 0) ? count($chartData['source']) - 1 : 0;
 			// Slices settings
 			$settings['slice_colors_default'] = $chart_default_colors;

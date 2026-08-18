@@ -489,9 +489,15 @@
 				_this.chartObject.update();
 			});
 
+			_this.$el.find('#'+_this.htmlClassPrefix+'option-tooltip-text').on('change', function () {
+				_this.chartSourceData.settings.tooltip_text = $(this).val();
+				_this.chartObject.options.plugins.tooltip.callbacks = _this.getTooltipCallbacks(_this.chartSourceData.settings.tooltip_text, _this.chartSourceData.settings.show_color_code);
+				_this.chartObject.update();
+			});
+
 			_this.$el.find('#'+_this.htmlClassPrefix+'option-show-color-code').on('change', function () {
 				_this.chartSourceData.settings.show_color_code = $(this).is(':checked') ? 'checked' : '';
-				_this.updateTooltipColorCode();
+				_this.chartObject.options.plugins.tooltip.callbacks = _this.getTooltipCallbacks(_this.chartSourceData.settings.tooltip_text, _this.chartSourceData.settings.show_color_code);
 				_this.chartObject.update();
 			});
 
@@ -588,29 +594,9 @@
 
 	ChartBuilderChartsJs.prototype.updateTooltipColorCode = function() {
 		var _this = this;
-		var showColorCode = _this.chartSourceData.settings.show_color_code === 'checked';
-		
 		_this.chartObject.options.plugins.tooltip.events = ['click'];
-		
-		if (showColorCode) {
-			_this.chartObject.options.plugins.tooltip.callbacks = {
-				label: function(context) {
-					var label = context.label || '';
-					var value = context.parsed || context.parsed.y || 0;
-					var color = context.dataset.backgroundColor[context.dataIndex];
-					return label + ': ' + value + ' (Color: ' + color + ')';
-				}
-			};
-		} else {
-			_this.chartObject.options.plugins.tooltip.callbacks = {
-				label: function(context) {
-					var label = context.label || '';
-					var value = context.parsed || context.parsed.y || 0;
-					return label + ': ' + value;
-				}
-			};
-		}
-	}
+		_this.chartObject.options.plugins.tooltip.callbacks = _this.getTooltipCallbacks(_this.chartSourceData.settings.tooltip_text, _this.chartSourceData.settings.show_color_code);
+	};
 
 	ChartBuilderChartsJs.prototype.updateTooltipItalic = function() {
 		var _this = this;
@@ -986,18 +972,7 @@
 					},
 					position: 'nearest',
 					events: ['click'],
-					callbacks: nSettings.showColorCode ? {
-						label: function(context) {
-							var color = context.dataset.backgroundColor[context.dataIndex];
-							return 'Color: ' + color;
-						}
-					} : {
-						label: function(context) {
-							var label = context.label || '';
-							var value = context.parsed || 0;
-							return label + ': ' + value;
-						}
-					}
+					callbacks: _this.getTooltipCallbacks(nSettings.tooltipText, nSettings.showColorCode)
 				},
 				legend: {
 					position: nSettings.legendPosition,
@@ -1200,10 +1175,11 @@
 		newSettings.legendBoldText = (settings['legend_bold'] == 'checked') ? true : false;
 		newSettings.legendReverse = settings['legend_reverse'];
 		newSettings.tooltipColor = settings['tooltip_text_color'];
-		newSettings.showColorCode = (settings['show_color_code'] == 'checked') ? true : false;
+		newSettings.showColorCode = settings['show_color_code'];
 		newSettings.tooltipItalicText = (settings['tooltip_italic'] == 'checked') ? true : false;
 		newSettings.tooltipFontSize = settings['tooltip_font_size'];
 		newSettings.tooltipBoldText = settings['tooltip_bold'];
+		newSettings.tooltipText = settings['tooltip_text'];
 		return newSettings;
 	}
 
@@ -1304,6 +1280,50 @@
 		  },
 		_this.chartObject.update();
 	}
+
+	ChartBuilderChartsJs.prototype.getTooltipCallbacks = function(tooltipText, showColorCode) {
+		var _this = this;
+		if (showColorCode === 'checked' || showColorCode === true) {
+			return {
+				label: function(context) {
+					var color = context.dataset.backgroundColor[context.dataIndex];
+					return '     Color: ' + color;
+				}
+			};
+		} else {
+			switch(tooltipText) {
+				case 'percentage':
+					return {
+						label: function(context) {
+							var label = context.label || '';
+							var value = context.parsed || 0;
+							var total = context.chart._metasets[context.datasetIndex].total;
+							var percentage = ((value / total) * 100).toFixed(1) + '%';
+							return '     ' + label + ': ' + percentage;
+						}
+					};
+				case 'both':
+					return {
+						label: function(context) {
+							var label = context.label || '';
+							var value = context.parsed || 0;
+							var total = context.chart._metasets[context.datasetIndex].total;
+							var percentage = ((value / total) * 100).toFixed(1) + '%';
+							return '     ' + label + ': ' + value + ' (' + percentage + ')';
+						}
+					};
+				case 'value':
+				default:
+					return {
+						label: function(context) {
+							var label = context.label || '';
+							var value = context.parsed || 0;
+							return '     ' + label + ': ' + value;
+						}
+					};
+			}
+		}
+	};
 
 	ChartBuilderChartsJs.prototype.addChartDataRow = function (element){
         var _this = this;
