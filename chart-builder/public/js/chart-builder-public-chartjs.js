@@ -132,6 +132,7 @@
 
         var settings = _this.dbData.options;
 		var nSettings =  _this.configOptionsForCharts(settings);
+		_this.applyPieDataGrouping(dataTypes, nSettings);
         
 		// var ctx = document.getElementById(_this.htmlClassPrefix + _this.uniqueId + '-canvas');
 		var parentId = _this.htmlClassPrefix + _this.chartType + '-' + _this.uniqueId;
@@ -167,7 +168,7 @@
 		dataTypes.dataSets[0].borderColor = [];
 
 		for (var i = 0; i < sliceCount; i++) {
-			dataTypes.dataSets[0].backgroundColor[i] = nSettings.sliceColor?.[i] || nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length];
+			dataTypes.dataSets[0].backgroundColor[i] = i === dataTypes.dataSets[0].groupedSliceIndex ? nSettings.dataGroupingColor : (nSettings.sliceColor?.[i] || nSettings.sliceColorDefault?.[i % nSettings.sliceColorDefault.length]);
 			dataTypes.dataSets[0].borderColor[i] = nSettings.slicesBorderColor?.[i] || 'transparent';
 		}
 		dataTypes.dataSets[0].borderWidth = nSettings.sliceBorderWidth;
@@ -244,6 +245,7 @@
 
         var settings = _this.dbData.options;
 		var nSettings =  _this.configOptionsForCharts(settings);
+		_this.applyPieDataGrouping(dataTypes, nSettings);
         
 		// var ctx = document.getElementById(_this.htmlClassPrefix + _this.uniqueId + '-canvas');
 		var parentId = _this.htmlClassPrefix + _this.chartType + '-' + _this.uniqueId;
@@ -558,6 +560,9 @@
 		newSettings.sliceColorDefault = settings['slice_colors_default'];
 		newSettings.sliceBorderWidth = settings['slice_border_width'];
 		newSettings.sliceBorderColor = settings['slice_border_color'];
+		newSettings.dataGroupingLimit = parseFloat(settings['data_grouping_limit']) / 100;
+		newSettings.dataGroupingLabel = settings['data_grouping_label'];
+		newSettings.dataGroupingColor = settings['data_grouping_color'];
 		newSettings.legendPosition = settings['legend_position'];
 		newSettings.legendAlignment = settings['legend_alignment'];
 		newSettings.legendColor = settings['legend_color'];
@@ -573,6 +578,40 @@
 		newSettings.tooltipText = settings['tooltip_text'];
 		newSettings.enableInteractivity = (settings['enable_interactivity'] == 'off') ? false : true;
 		return newSettings;
+	}
+
+	ChartBuilderChartJs.prototype.applyPieDataGrouping = function (dataTypes, settings) {
+		var groupingLimit = parseFloat(settings.dataGroupingLimit);
+		var dataSet = dataTypes && dataTypes.dataSets && dataTypes.dataSets[0];
+
+		if (!(groupingLimit > 0) || !dataSet || !Array.isArray(dataSet.data)) {
+			return;
+		}
+
+		var total = dataSet.data.reduce(function (sum, value) {
+			return sum + (Number(value) || 0);
+		}, 0);
+		var groupedValue = 0;
+		var groupedSlices = 0;
+		var labels = [];
+		var values = [];
+
+		dataSet.data.forEach(function (value, index) {
+			var numericValue = Number(value) || 0;
+			if (total > 0 && numericValue / total < groupingLimit) {
+				groupedValue += numericValue;
+				groupedSlices++;
+			} else {
+				labels.push(dataTypes.labels[index]);
+				values.push(numericValue);
+			}
+		});
+
+		if (groupedSlices > 0) {
+			dataTypes.labels = labels.concat([settings.dataGroupingLabel]);
+			dataSet.data = values.concat([groupedValue]);
+			dataSet.groupedSliceIndex = values.length;
+		}
 	}
 
 	// Detect window resize moment to draw charts responsively

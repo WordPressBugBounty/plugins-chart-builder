@@ -9607,6 +9607,9 @@ class Chart_Builder_Admin {
         $slice_border_width = $settings['slice_border_width'];
         $tooltip_text_options = $settings['tooltip_text_options'];
         $tooltip_text = $settings['tooltip_text'];
+        $data_grouping_limit = $settings['data_grouping_limit'];
+        $data_grouping_label = $settings['data_grouping_label'];
+        $data_grouping_color = $settings['data_grouping_color'];
         // $index_axis = $settings['index_axis'];
 
 		ob_start();
@@ -9730,6 +9733,45 @@ class Chart_Builder_Admin {
                         </select>
                     </div>
                 </div> <!-- Slice tooltip Text -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt display_none">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-data-grouping-limit" class="form-label">
+                            <?php echo esc_html(__( "Chart Data Grouping Limit", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __( "The percentage value of the pie, below which a slice will not show individually. All slices that have not passed this value will be combined to a single 'Other' slice, whose size is the sum of all their sizes. Default is not to show individually any slice which is smaller than half a degree.", "chart-builder" ) ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-data-grouping-limit" type="number" name="<?php echo esc_attr($html_name_prefix); ?>settings[data_grouping_limit]" value="<?php echo esc_attr($data_grouping_limit) ?>" step=".1" min="0" max="360">
+                    </div>
+                </div> <!-- Data Grouping Limit -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt display_none">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-data-grouping-label" class="form-label">
+                            <?php echo esc_html(__( "Chart Data Grouping Label", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __( "A label for the combination slice that holds all slices below chart data grouping limit.", "chart-builder" ) ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>option-input">
+                        <input class="ays-text-input form-control <?php echo esc_attr($html_class_prefix) ?>option-text-input" id="ays-chart-option-data-grouping-label" type="text" name="<?php echo esc_attr($html_name_prefix); ?>settings[data_grouping_label]" value="<?php echo esc_attr($data_grouping_label) ?>">
+                    </div>
+                </div> <!-- Data Grouping Label -->
+                <div class="form-group row mb-2 <?php echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt display_none">
+                    <div class="col-sm-5 d-flex align-items-center <?php echo esc_attr($html_class_prefix) ?>option-title">
+                        <label for="ays-chart-option-data-grouping-color">
+                            <?php echo esc_html(__( "Chart Data Grouping Color", "chart-builder" )); ?>
+                            <a class="ays_help" data-bs-toggle="tooltip" title="<?php echo esc_attr( __( "Color for the combination slice that holds all slices below chart data grouping limit.", "chart-builder" ) ); ?>">
+                                <i class="ays_fa ays_fa_info_circle"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-sm-7 <?php echo esc_attr($html_class_prefix) ?>input-align-right">
+                        <input id="ays-chart-option-data-grouping-color" class="form-control-color <?php echo esc_attr($html_class_prefix) ?>option-color-picker" type="color" name="<?php echo esc_attr($html_name_prefix); ?>settings[data_grouping_color]" value="<?php echo esc_attr($data_grouping_color) ?>">
+                    </div>
+                </div> <!-- Data Grouping Color -->
                 <!-- <div class="form-group row mb-2 <?php // echo esc_attr($html_class_prefix) ?>options-section cb-changable-opt cb-pie_chart-opt cb-donut_chart-opt display_none">
                     <div class="col-sm-5 d-flex align-items-center <?php // echo esc_attr($html_class_prefix) ?>option-title">
                         <label for="ays-chart-option-index-axis">

@@ -3,8 +3,8 @@ Contributors: ays-pro
 Donate link: https://ays-pro.com/
 Tags: charts, chart, pie, graphs, visualization
 Requires at least: 5.0
-Tested up to: 7.0
-Stable tag: 3.8.0
+Tested up to: 7.1
+Stable tag: 3.8.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -249,6 +249,12 @@ If you have suggestions or questions about the free version, do not hesitate to 
 
 
 == Changelog ==
+
+= 3.8.1( Sep 25, 2026 ) =
+* Added: "Chart Data Grouping Limit" option for Pie chart in Chart.js Pie Settings
+* Added: "Chart Data Grouping Label" option for Pie chart in Chart.js Pie Settings
+* Added: "Chart Data Grouping Color" option for Pie chart in Chart.js Pie Settings
+* Tested: Compatible up to WordPress 7.1.2
 
 = 3.8.0( Sep 4, 2026 ) =
 * Improved: Made some changes to the admin dashboard

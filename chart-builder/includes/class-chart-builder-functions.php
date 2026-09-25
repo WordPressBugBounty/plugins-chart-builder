@@ -1599,6 +1599,11 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 			// Tooltip text
 			$settings['tooltip_text'] = isset( $settings['tooltip_text'] ) && $settings['tooltip_text'] != '' ? esc_attr( $settings['tooltip_text'] ) : 'value';
 
+			// Data grouping settings
+			$settings['data_grouping_limit'] = isset( $settings['data_grouping_limit'] ) && $settings['data_grouping_limit'] != '' ? esc_attr( $settings['data_grouping_limit'] ) : '0.5';
+			$settings['data_grouping_label'] = isset( $settings['data_grouping_label'] ) && $settings['data_grouping_label'] != '' ? esc_attr( $settings['data_grouping_label'] ) : 'Other';
+			$settings['data_grouping_color'] = isset( $settings['data_grouping_color'] ) && $settings['data_grouping_color'] != '' ? esc_attr( $settings['data_grouping_color'] ) : '#ccc';
+
 			// Show chart description
 			if (!isset($settings['show_description'])) {
 				$settings['show_description'] = 'checked';
@@ -1846,6 +1851,11 @@ if( !class_exists( 'Chart_Builder_Functions' ) ){
 
 			// Tooltip text
 			$settings['tooltip_text'] = isset( $settings['tooltip_text'] ) && $settings['tooltip_text'] != '' ? esc_attr( $settings['tooltip_text'] ) : 'value';
+
+			// Data grouping settings
+			$settings['data_grouping_limit'] = isset( $settings['data_grouping_limit'] ) && $settings['data_grouping_limit'] != '' ? esc_attr( $settings['data_grouping_limit'] ) : '0.5';
+			$settings['data_grouping_label'] = isset( $settings['data_grouping_label'] ) && $settings['data_grouping_label'] != '' ? esc_attr( $settings['data_grouping_label'] ) : 'Other';
+			$settings['data_grouping_color'] = isset( $settings['data_grouping_color'] ) && $settings['data_grouping_color'] != '' ? esc_attr( $settings['data_grouping_color'] ) : '#ccc';
 
 			$count_slices = (isset($chartData['source']) && !is_null($chartData['source']) && count($chartData['source']) > 0) ? count($chartData['source']) - 1 : 0;
 			// Slices settings
